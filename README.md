@@ -1,1 +1,5 @@
-This is the group repository for Group 20 doing the CC22120 Group Project 2018. Nathaniel Christopher Watts, Luke Wybar, Oscar Pocock.
+# Welsh Vocabulary Tutor
+
+> This is the group repository for Group 20 doing the CS22120 Group Project 2020.
+
+Welsh Vocabulary Tutor is a program that helps people store and learn Welsh vocabulary.
