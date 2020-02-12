@@ -1,1 +1,1 @@
-This is the group repository for Group 99 doing the CC22120 Group Project 2018.
+This is the group repository for Group 20 doing the CC22120 Group Project 2018.
