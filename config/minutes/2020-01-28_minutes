@@ -1,0 +1,49 @@
+CS221 Project: Group Project 20
+Meeting: Weekly Project Meeting
+
+Persons present: All project members except Waylen Watts (missed a late change of time email)
+
+Place and date of meeting: C57a Llandinam, Tuesday 28th January 2020, 10:10am
+
+Circulation list: All project members, plus project manager
+Author: Andy Starr
+Date of minutes: 28th January 2020
+Version: 1.0
+
+Matters arising:
+===========
+
+None - first meeting of group
+
+New business:
+===========
+
+1. Membership of group
+
+Bryan-Jones Kain kab74, Corbett Brad brc9, Dugmore Henry James hjd3, Jakobik Marcin maj83ÿKay Angus ank40, Perry Tom top19, Pocock Oscar osp1, Watts Waylen ncw, Wybar Luke law39
+Manager: Andy Starr, email: aos
+
+2. Photos of group
+
+Photos were taken of the eight members present (others will be added next week, so we know what everyone looks like) ? read for the blog webpage. Action: kab74
+
+3. Setting up the project arrangements
+
+3.1 All group members need to read the Project requirements and Group Intro documents by next week and know about what the project will do. ACTION: Everyone
+
+3.2 All group members to set up a personal blog TODAY and email a link to their blog to Brad (brc9). ACTION: Everyone
+Brad will set up a clickable list so we can see everyone?s blogs. ACTION: brc9
+
+3.3 Oscar (osp1) is putting together a Discord group chat for the group to coordinate things ? send him your details if he does not have them.  Action: Everyone.
+
+4. Initial Tasks
+
+4.1 Oscar and Kain will read SE.QA.04 and start work on material for the user interface document. They will look at the needs of the document containing the use cases and will start putting together some possible screens in Powerpoint. ACTION: osp1, kab74.
+
+4.2 Brad and Waylen will read SE.QA.06 and start drafting a list of repeatable tests. ACTION:  brc9, ncw.
+
+4.3 Tom and Marcin will consider the system architecture. As part of this they will figure out how to read the JSON list provided on Blackboard, and how to write it an updated version of it back to a file. ACTION: top19, maj83.
+
+4.4 Luke will look at how to use JavaFx to generate a sample UI.  One possibility might be a screen to take in the description of a new word to add, and how to use it to display a long list of words. ACTION: law39.
+
+4.5 Henry and Angus will look at documents SE.QA01, SE.QA.02, SE.QA.03 before next week and come along ready to summarise them in 5 minutes for the group. ACTION: hjd3, ank40
