@@ -1,4 +1,0 @@
-#!/bin/sh
-# By Oscar Pocock
-# Simple script to create a folder named after the date.
-mkdir $(date +%Y-%m-%d)
