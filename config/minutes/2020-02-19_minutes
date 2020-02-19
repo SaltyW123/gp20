@@ -1,0 +1,29 @@
+Project: Group Project 20
+Meeting: User Interface Specification Document Review
+Persons present: Kain Bryan-Jones[kab74], Marcin Jakobik[maj83], Oscar Pocock[osp1] except Waylen Watts[ncw] (unwell)
+Place and date of meeting: Hugh Owen Library, Tuesday 19th February 2020, 3:30pm
+Circulation list: All project members, plus project manager
+Author: Oscar Pocock
+Date of minutes: 19th February 2020.
+Version: 1.0
+
+Matters arising
+===============
+
+1. Oscar Pocock and Kain Bryan-Jones presented the a draft for the user interface specification document and presentation. The document was reviewed, passed APPENDIX A of the review specification but was not approved for release as it failed APPENDIX B.
+
+New business
+============
+
+2. Kain Bryan-Jones will add the "Change Word Ordering" use-case to the UML use case diagram, and write a description for said use case
+ACTION: kab74
+
+3. Oscar Pocock will add the "Change Word Ordering" use-case to the presentation, correct gramatical errors in the document, mention the startup page, modify the UI and relevant documentation to include display of word types.
+ACTION: osp1
+
+AOB
+===
+
+None.
+
+Minutes by osp1, 19/02/20.
