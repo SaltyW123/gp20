@@ -1,0 +1,25 @@
+\BOOKMARK [1][-]{section.1}{INTRODUCTION}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Purpose of this Document}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Scope}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Objectives}{section.1}% 4
+\BOOKMARK [1][-]{section.2}{TYPICAL USERS}{}% 5
+\BOOKMARK [2][-]{subsection.2.1}{Welsh Teacher}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.2}{Welsh Learner}{section.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Young Welsh Student}{subsection.2.2}% 8
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Adult Welsh Learner}{subsection.2.2}% 9
+\BOOKMARK [1][-]{section.3}{USE CASES}{}% 10
+\BOOKMARK [2][-]{subsection.3.1}{Welsh Teacher}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.2}{Welsh Learners}{section.3}% 12
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Young Welsh Student}{subsection.3.2}% 13
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Adult Welsh Learner}{subsection.3.2}% 14
+\BOOKMARK [2][-]{subsection.3.3}{Use Case Descriptions}{section.3}% 15
+\BOOKMARK [1][-]{section.4}{ERROR CONDITIONS}{}% 16
+\BOOKMARK [2][-]{subsection.4.1}{No Dictionary Loaded}{section.4}% 17
+\BOOKMARK [2][-]{subsection.4.2}{Dictionary Formatting Invalid}{section.4}% 18
+\BOOKMARK [2][-]{subsection.4.3}{No Practise Words}{section.4}% 19
+\BOOKMARK [2][-]{subsection.4.4}{Not Defining Word Type When Adding A Word}{section.4}% 20
+\BOOKMARK [2][-]{subsection.4.5}{One Or More Word Fields Not Filled When Adding A Word}{section.4}% 21
+\BOOKMARK [2][-]{subsection.4.6}{Adding a word pair that already exists}{section.4}% 22
+\BOOKMARK [2][-]{subsection.4.7}{Starting 'Match The Meaning' With Less Than 4 Words In The Practise List}{section.4}% 23
+\BOOKMARK [1][-]{subsection.4.7}{REFERENCES}{}% 24
+\BOOKMARK [1][-]{section*.2}{DOCUMENT HISTORY}{}% 25

@@ -1,0 +1,247 @@
+\documentclass{project}
+\usepackage[pdfauthor={Oscar Pocock, Kain Bryan-Jones},pdftitle={Software Engineering Group Project 20, User Interface Specification},pdftex]{hyperref}
+\usepackage{float}
+\usepackage{graphicx}
+\graphicspath{ {./img/} } 
+\newcommand*{\icon}[1]{%
+  \raisebox{-.3\baselineskip}{%
+    \includegraphics[
+      height=\baselineskip,
+      width=\baselineskip,
+      keepaspectratio,
+    ]{#1}%
+  }%
+}
+\begin{document}
+\title{Software Engineering Group Project 20}
+\subtitle{User Interface Specification}
+\author{Oscar Pocock, Kain Bryan-Jones}     
+\shorttitle{Software Engineering Group Project 20 - User Interface Specification}
+\version{0.2}
+\status{For review}
+\date{2020-02-18}
+\configref{UISpecGroup20}
+\maketitle
+\tableofcontents
+\newpage
+\section{INTRODUCTION}
+\subsection{Purpose of this Document}
+The purpose of this document is to describe the user interface of the Welsh Vocabulary Tutor program which adheres to the User Interface Specifications Document\cite{se.qa.04} and General Documentation Standards\cite{se.qa.02} supplied by the client.
+
+\subsection{Scope}
+This document covers a visual and descriptive representation of what the final user interface will look like, including how the product itself will be interacted with.
+
+This document should be read by all project members. It is assumed that the reader is already familiar with the Welsh Vocabulary Tutor Requirements Specification\cite{se.qa.csrs}.
+\subsection{Objectives}
+The objectives of the document are:
+\begin{itemize}
+	\item To identify the typical users of the system
+	\item To understand the individual use cases of said users.
+	\item To predict the errors said users may run into
+	\item To describe how the said errors would be handled
+\end{itemize}
+
+\section{TYPICAL USERS}
+As described in Welsh Vocabulary Tutor Requirements Specification \emph{(Section 2.3)}\cite{se.qa.02} the program will be used by Welsh learners who are assumed to be experienced computer users. As this program is fairly basic in function and doesn't require authentication we assume that the Welsh learner will be the sole user.
+\subsection{Welsh Teacher}
+Although more unlikely to use the program, the Welsh Teacher can use the software to easily create a dictionary and add vocabulary for their students to learn from.
+\subsection{Welsh Learner}
+The Welsh learner is an English speaker learning Welsh. They're using the program to help them memorise Welsh vocabulary as they find using a program easier than trying to memorise in other ways due to their competency with computers.
+\subsubsection{Young Welsh Student}
+The young Welsh students are less likely to add their own words and a more likely to be given a dictionary file to revise from by their teacher.
+\subsubsection{Adult Welsh Learner}
+The adult Welsh learner is likely to be independently learning the language and therefore is more likely to add their own vocabulary which fits their lifestyle or career.
+
+\section{USE CASES}
+This section highlights and describes the use cases of each user.
+\\
+\\
+\textbf{Key}: [\textit{Use Case Reference}] - [\textit{Use Case Name}]
+\subsection{Welsh Teacher}
+\begin{itemize}
+	\item 1 - View dictionary
+	\item 7 - Load a new dictionary
+	\item 8 - Add a new word
+\end{itemize}
+
+\subsection{Welsh Learners}
+\subsubsection{Young Welsh Student}
+\begin{itemize}
+	\item 1 - View dictionary 
+	\item 2 - Search for a word
+	\item 3 - View practise list
+	\item 4 - Modify the practise list
+	\item 5 - Start a test
+	\item 6 - View flashcards
+	\item 7 - Load a new dictionary
+\end{itemize}
+
+\subsubsection{Adult Welsh Learner}
+\begin{itemize}
+	\item 1 - View dictionary
+	\item 2 - Search for a word
+	\item 3 - View practise list
+	\item 4 - Modify the practise list
+	\item 5 - Start a test
+	\item 6 - View flashcards
+	\item 7 - Load a new dictionary
+	\item 8 - Add a new word
+\end{itemize}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{UCD}
+\centering
+	\caption{UML Use Case diagram of the Welsh Learner Group Class}
+        \label{figure:1}
+\end{figure}
+\clearpage
+\subsection{Use Case Descriptions}
+\textbf{Use Case 1 View dictionary}
+\\\\
+When the user wants to view the dictionary they must first click the 'Dictionary \icon{dictionary-icon}' option from the main menu. The user is then presented with a view of all the word stored in the loaded dictionary file, English words on the left and their Welsh equivalent on the right. The user will have the option to mark or unmark certain words for the practice list by clicking on a word. Words marked as practise words will have a \icon{practise-icon} between the Welsh and English words. A button marked as \icon{order-icon} gives the user the ability to change the ordering from alphabetically in English to alphabetically in Welsh is also visible at the top of the page marked.
+\\\\
+\textbf{Use Case 2 Search for a word}
+\\\\
+When a user wants to search for a word they must first click the textbox next to the 'Search:' text. The search bar is available in the 'Dictionary \icon{dictionary-icon}' and 'Practise List \icon{practise-icon}' pages. When the user types in the box it starts to filter words in the dictionary only displaying the words that begin with the string of characters written in the textbox. The words that match are based on which language ordering is currently selected. If it is ordered by English the string in the textbox will match the beginning of the English words, when switched to order by Welsh the search string will match the start of the Welsh words. If the word is not present then no results will appear for that word. All the searches are live or in other words refreshed per character types in the search textbox.
+\\\\
+\textbf{Use Case 3 View practise list}
+\\\\
+When a user wants to view the practise list they must first click on the 'Practise List \icon{practise-icon}' from menu. The user is then presented with a list of all the words they have marked as practise words. From here they can also filter the words by searching like in the 'Dictionary \icon{dictionary-icon}' page, and change the ordering using the \icon{order-icon} icon. 
+\\\\
+\textbf{Use Case 4 Modify the practise list}
+\\\\
+When a user wants to modify the practise list they must first click on the 'Practise List \icon{practise-icon}' from menu. The user is then presented with a list of all the words they have marked as practise words. Here the user can remove the words from the list if they so wish by clicking on the words. Note that adding a word from the dictionary to the practice list does not remove said word from the dictionary.
+\\\\
+\textbf{Use Case 5 Start a test}
+\\\\
+When a user wants to start a test they must first click on the 'Study \icon{study-icon}' option from the menu. They are then presented with three boxes denoting the different kind of tests\footnote{See Welsh Vocabulary Tutor Requirements Specification\cite{se.qa.csrs} \textit{(Section 3.1, FR9)}} which they can click on to take them to the selected test type page.
+\\\\
+\textbf{Use Case 5.1 Start 'Match The Meaning' test}
+\\\\
+When a user wants to start a 'Match The Word' test they first must navigate to the 'Study \icon{study-icon}' page (see use case 5 on how to navigate there) and then click the 'Match The Meaning' box. The user is then presented with 8 words (4 pairs), half-English half-Welsh. It is the users job to match the correct translating pairs by ordering by dragging the words side by side. The page also keep track of how many right and wrong answers you in that specific test listed in the top right.
+\\\\
+\textbf{Use Case 5.2 Start '6 Meanings' test}
+\\\\
+When a user wants to start a '6 Meanings' test they first must navigate to the 'Study \icon{study-icon}' page (see use case 5 on how to navigate there) and then click the '6 Meanings' box. The user is then presented with a large word in either Welsh or English and a bundle of words in the opposite language. It's the users job to click the word that matches the large word. The page also keep track of how many right and wrong answers you in that specific test listed in the top right.
+\\\\
+\textbf{Use Case 5.3 Start 'Translation ' test}
+\\\\
+When a user wants to start a 'Translation' test they first must navigate to the 'Study \icon{study-icon}' page (see use case 5 on how to navigate there) and then click the 'Translation' box. The user is then presented with a large word in either Welsh or English and a textbox in which they need to type in the translation. The page also keep track of how many right and wrong answers you in that specific test listed in the top right.
+\\\\
+\textbf{Use Case 6 View flashcards}
+\\\\
+When a user wants to view flashcards they first must click on the 'Flashcards \icon{flashcard-icon}' option from the menu. The user is then presented with a flashcard in the centre of the screen. One side of the card has a word from their practise list and the other side has the translation of it. The user can flip the card by clicking on it and thus revealing the translation. If the user wishes to change to a different card they can do so by clicking the \icon{left-icon} and \icon{right-icon} to go to the previous or next card respectively. This page also shows you which card number you are on between the arrows and how many cards are available.
+\\\\
+\textbf{Use Case 7 Load a new dictionary}
+\\\\
+When a user wants to load in a new dictionary they must first click on the 'Load \icon{load-icon}' option from the menu. The user is then presented with a file manager pop up allowing them to select the file from their filesystem to load in. Doing so will save the current dictionary (assuming one is already loaded) and then load in the new one to the current session. The dictionaries are stored as JSON files and is therefore the only format allowed to be loaded.
+\\\\
+\textbf{Use Case 8 Add a new word}
+\\\\
+When a user wants to add a new word to the dictionary they must first click on the 'Add \icon{add-icon}' option from the menu. The user is then presented with a page with two text boxes, one for the English translation and one for the Welsh translation, a drop down box to specify the word type, and a 'Add Word' button. All fields must be filled before the user is allowed to click the 'Add Word' button. Once pressed this button will add that word to the currently loaded dictionary.
+\\\\
+
+
+\section{ERROR CONDITIONS}
+Each error message prompt should let the user know what has gone wrong and what they need to do to resolve the issue.
+\subsection{No Dictionary Loaded}
+If the user hasn't uploaded a dictionary i.e. there are no words loaded, the program should prompt an error when trying to:
+\begin{itemize}
+	\item 1 - View dictionary
+	\item 2 - Search for a word
+	\item 3 - View practise list
+	\item 4 - Modify the practise list
+	\item 5 - Start a test
+	\item 6 -View flashcards
+\end{itemize}
+The error should state:
+\begin{center}
+	\emph{'Warning: No dictionary loaded. Please load a dictionary or add a word before moving on.'}
+\end{center}
+This should prompt the user to either load a dictionary file or add a word.
+\subsection{Dictionary Formatting Invalid}
+The dictionary file should be a JSON file following strict formatting. If a user attempts to upload a JSON file with incorrect formatting the program should prompt an error when trying to:
+\begin{itemize}
+	\item 7 - Load Dictionary
+\end{itemize}
+The error should state:
+\begin{center}
+	\emph{'Warning: Invalid dictionary format. Please upload a dictionary with correct formatting.'}
+\end{center}
+This should prompt the user to either load a dictionary file with correct formatting.
+\subsection{No Practise Words}
+If the user hasn't added any words to the practise list, the program should prompt an error when trying to:
+\begin{itemize}
+	\item 3 - View practise list
+	\item 5 - Start a test
+	\item 6 - View Flashcards
+	\end{itemize}
+The error should state:
+\begin{center}
+	\emph{'Warning: No practise words present. Please mark at least one word as a practise word.'}
+\end{center}
+This should prompt the user to add a word to the practise list.
+\subsection{Not Defining Word Type When Adding A Word}
+If the user hasn't defined the word type, the program should prompt an error when trying to:
+\begin{itemize}
+	\item 8 - Add a new word
+	\end{itemize}
+The error should state:
+\begin{center}
+	\emph{'Warning: Word type not defined. Please specify the word type.'}
+\end{center}
+This should prompt the user to select a word type from the drop down menu.
+\subsection{One Or More Word Fields Not Filled When Adding A Word}
+If the user hasn't defined the Welsh and English word for a new word, the program should prompt an error when trying to:
+\begin{itemize}
+	\item 8 - Add a new word
+	\end{itemize}
+The error should state:
+\begin{center}
+	\emph{'Warning: One or more word translation are not defined. Please fill all text boxes.'}
+\end{center}
+This should prompt the user to type in the Welsh and English associated words in their associated text boxes.
+\subsection{Adding a word pair that already exists}
+If the user attempts to add a word pair that already exists, the program should prompt an error when trying to:
+\begin{itemize}
+	\item 8 - Add a new word
+	\end{itemize}
+The error should state:
+\begin{center}
+	\emph{'Warning: Word pair already exists. Please enter a new word pair.'}
+\end{center}
+This should prompt the user to type in a new unseen Welsh English word pair.
+\subsection{Starting 'Match The Meaning' With Less Than 4 Words In The Practise List}
+If the user attempts to play the 'Match The Meaning' with less than 4 words in their practise list, the program should prompt an error when trying to:
+\begin{itemize}
+	\item 5.1 - Start 'Match The Meaning' test.
+	\end{itemize}
+The error should state:
+\begin{center}
+	\emph{'Warning: Less than 4 words present in the practise list. Please add at least 4 words to practise list to play "Match The Meaning".'}
+\end{center}
+This should prompt the user to add at least 4 words to the practise list.
+\addcontentsline{toc}{section}{REFERENCES}
+\begin{thebibliography}{5}
+\bibitem{se.qa.02} \emph{Software Engineering Group Projects}
+General Documentation Standards.
+C. J. Price, N. W. Hardy, B.P. Tiddeman, SE.QA.02. 2.3 Release.
+\bibitem{se.qa.04} \emph{Software Engineering Group Projects}
+User Interface Specification Standards.
+C. J. Price, N. W. Hardy, B.P. Tiddeman, SE.QA.04. 1.2 Release.
+\bibitem{se.qa.csrs} \emph{Software Engineering Group Projects}
+Welsh Vocabulary Tutor Requirements Specification.
+C. J. Price, N. W. Hardy, B.P. Tiddeman, SE.QA.CSRC. 1.1 Release.
+\end{thebibliography}
+\addcontentsline{toc}{section}{DOCUMENT HISTORY}
+\section*{DOCUMENT HISTORY}
+\begin{tabular}{|l | l | l | l | l |}
+\hline
+Version & CCF No. & Date & Changes made to Document & Changed by \\
+\hline
+0.1 & N/A & 2020-02-15 & Initial creation & OP \\
+\hline
+0.2 & N/A & 2020-02-18 & Spell checks, formatting, and added icons & OP \\
+\hline
+\end{tabular}
+\label{thelastpage}
+\end{document}

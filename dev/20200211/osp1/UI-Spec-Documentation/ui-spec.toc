@@ -1,0 +1,25 @@
+\contentsline {section}{\numberline {1}INTRODUCTION}{2}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Purpose of this Document}{2}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Scope}{2}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}Objectives}{2}{subsection.1.3}% 
+\contentsline {section}{\numberline {2}TYPICAL USERS}{2}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Welsh Teacher}{2}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Welsh Learner}{2}{subsection.2.2}% 
+\contentsline {subsubsection}{\numberline {2.2.1}Young Welsh Student}{2}{subsubsection.2.2.1}% 
+\contentsline {subsubsection}{\numberline {2.2.2}Adult Welsh Learner}{3}{subsubsection.2.2.2}% 
+\contentsline {section}{\numberline {3}USE CASES}{3}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Welsh Teacher}{3}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Welsh Learners}{3}{subsection.3.2}% 
+\contentsline {subsubsection}{\numberline {3.2.1}Young Welsh Student}{3}{subsubsection.3.2.1}% 
+\contentsline {subsubsection}{\numberline {3.2.2}Adult Welsh Learner}{3}{subsubsection.3.2.2}% 
+\contentsline {subsection}{\numberline {3.3}Use Case Descriptions}{5}{subsection.3.3}% 
+\contentsline {section}{\numberline {4}ERROR CONDITIONS}{6}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}No Dictionary Loaded}{6}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Dictionary Formatting Invalid}{7}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}No Practise Words}{7}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.4}Not Defining Word Type When Adding A Word}{7}{subsection.4.4}% 
+\contentsline {subsection}{\numberline {4.5}One Or More Word Fields Not Filled When Adding A Word}{8}{subsection.4.5}% 
+\contentsline {subsection}{\numberline {4.6}Adding a word pair that already exists}{8}{subsection.4.6}% 
+\contentsline {subsection}{\numberline {4.7}Starting 'Match The Meaning' With Less Than 4 Words In The Practise List}{8}{subsection.4.7}% 
+\contentsline {section}{REFERENCES}{8}{subsection.4.7}% 
+\contentsline {section}{DOCUMENT HISTORY}{8}{section*.2}% 
