@@ -1,0 +1,33 @@
+Project: Group Project 20
+Meeting: User Interface Specification Document Review
+Persons present: Kain Bryan-Jones[kab74], Oscar Pocock[osp1], Brad Corbett[brc9], Nathaniel Watts[ncw], Luke Wybar[law39]
+Place and date of meeting: Hugh Owen Library, Friday 21st February 2020, 4:15pm
+Circulation list: All project members, plus project manager
+Author: Brad Corbett
+Date of minutes: 21st February 2020.
+Version: 1.1
+
+Matters arising
+===============
+
+1. UISpecGroup20 was brought up for review, it passed APPENDIX A and also APPENDIX B. It was not fit for release as below actions must be done first.
+
+New business
+============
+
+2. Kain Bryan-Jones will go through the demo of UI and polish it e.g. punctuation, quotes around some words but not the same words later, missing arrows, thicker arrows ACTION: kab74
+
+3. Nathaniel Watts will update tests to show that words are highlighted instead of starred. ACTION: ncw
+
+4. Oscar Pocock to change UI design to add functionality for multiple meanings to english words, and letters in welsh not represented on QWERTY keyboards e.g. ŷ ACTION: osp1
+
+5. Luke Wybar to implement tooltips when hovering over icons. ACTION: law39
+
+6. Oscar Pocock to correct the grammar, punctuation, and wording in UI Spec document. ACTION: osp1
+
+AOB
+===
+
+None.
+
+Minutes by brc9, 21/02/20.
