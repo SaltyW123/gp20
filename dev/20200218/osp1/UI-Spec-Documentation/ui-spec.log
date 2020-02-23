@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.2.3)  23 FEB 2020 16:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.2.3)  23 FEB 2020 22:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -365,11 +365,21 @@ File: ./img/order-icon.png Graphic file (type png)
 <use ./img/order-icon.png>
 Package pdftex.def Info: ./img/order-icon.png  used on input line 102.
 (pdftex.def)             Requested size: 13.59984pt x 12.03062pt.
+<./img/AZ-icon.png, id=184, 96.36pt x 96.36pt>
+File: ./img/AZ-icon.png Graphic file (type png)
+<use ./img/AZ-icon.png>
+Package pdftex.def Info: ./img/AZ-icon.png  used on input line 102.
+(pdftex.def)             Requested size: 13.5991pt x 13.5991pt.
+<./img/ZA-icon.png, id=185, 96.36pt x 96.36pt>
+File: ./img/ZA-icon.png Graphic file (type png)
+<use ./img/ZA-icon.png>
+Package pdftex.def Info: ./img/ZA-icon.png  used on input line 102.
+(pdftex.def)             Requested size: 13.5991pt x 13.5991pt.
 File: ./img/dictionary-icon.png Graphic file (type png)
 <use ./img/dictionary-icon.png>
 Package pdftex.def Info: ./img/dictionary-icon.png  used on input line 106.
 (pdftex.def)             Requested size: 13.59981pt x 13.59981pt.
-<./img/practise-icon.png, id=184, 50.1875pt x 50.1875pt>
+<./img/practise-icon.png, id=186, 50.1875pt x 50.1875pt>
 File: ./img/practise-icon.png Graphic file (type png)
 <use ./img/practise-icon.png>
 Package pdftex.def Info: ./img/practise-icon.png  used on input line 106.
@@ -382,11 +392,19 @@ File: ./img/order-icon.png Graphic file (type png)
 <use ./img/order-icon.png>
 Package pdftex.def Info: ./img/order-icon.png  used on input line 110.
 (pdftex.def)             Requested size: 13.59984pt x 12.03062pt.
+File: ./img/AZ-icon.png Graphic file (type png)
+<use ./img/AZ-icon.png>
+Package pdftex.def Info: ./img/AZ-icon.png  used on input line 110.
+(pdftex.def)             Requested size: 13.5991pt x 13.5991pt.
+File: ./img/ZA-icon.png Graphic file (type png)
+<use ./img/ZA-icon.png>
+Package pdftex.def Info: ./img/ZA-icon.png  used on input line 110.
+(pdftex.def)             Requested size: 13.5991pt x 13.5991pt.
 File: ./img/practise-icon.png Graphic file (type png)
 <use ./img/practise-icon.png>
 Package pdftex.def Info: ./img/practise-icon.png  used on input line 114.
 (pdftex.def)             Requested size: 13.59981pt x 13.59981pt.
-<./img/study-icon.png, id=185, 50.1875pt x 50.1875pt>
+<./img/study-icon.png, id=187, 50.1875pt x 50.1875pt>
 File: ./img/study-icon.png Graphic file (type png)
 <use ./img/study-icon.png>
 Package pdftex.def Info: ./img/study-icon.png  used on input line 118.
@@ -403,27 +421,27 @@ File: ./img/study-icon.png Graphic file (type png)
 <use ./img/study-icon.png>
 Package pdftex.def Info: ./img/study-icon.png  used on input line 130.
 (pdftex.def)             Requested size: 13.59981pt x 13.59981pt.
-<./img/flashcard-icon.png, id=188, 68.255pt x 63.23625pt>
+<./img/flashcard-icon.png, id=190, 68.255pt x 63.23625pt>
 File: ./img/flashcard-icon.png Graphic file (type png)
 <use ./img/flashcard-icon.png>
 Package pdftex.def Info: ./img/flashcard-icon.png  used on input line 134.
 (pdftex.def)             Requested size: 13.59972pt x 12.59973pt.
-<./img/left-icon.png, id=189, 50.1875pt x 50.1875pt>
+<./img/left-icon.png, id=191, 50.1875pt x 50.1875pt>
 File: ./img/left-icon.png Graphic file (type png)
 <use ./img/left-icon.png>
 Package pdftex.def Info: ./img/left-icon.png  used on input line 134.
 (pdftex.def)             Requested size: 13.59981pt x 13.59981pt.
-<./img/right-icon.png, id=190, 50.1875pt x 50.1875pt>
+<./img/right-icon.png, id=192, 50.1875pt x 50.1875pt>
 File: ./img/right-icon.png Graphic file (type png)
 <use ./img/right-icon.png>
 Package pdftex.def Info: ./img/right-icon.png  used on input line 134.
 (pdftex.def)             Requested size: 13.59981pt x 13.59981pt.
-<./img/load-icon.png, id=191, 50.1875pt x 50.1875pt>
+<./img/load-icon.png, id=193, 50.1875pt x 50.1875pt>
 File: ./img/load-icon.png Graphic file (type png)
 <use ./img/load-icon.png>
 Package pdftex.def Info: ./img/load-icon.png  used on input line 138.
 (pdftex.def)             Requested size: 13.59981pt x 13.59981pt.
-<./img/add-icon.png, id=192, 50.1875pt x 50.1875pt>
+<./img/add-icon.png, id=194, 50.1875pt x 50.1875pt>
 File: ./img/add-icon.png Graphic file (type png)
 <use ./img/add-icon.png>
 Package pdftex.def Info: ./img/add-icon.png  used on input line 142.
@@ -444,6 +462,14 @@ File: ./img/order-icon.png Graphic file (type png)
 <use ./img/order-icon.png>
 Package pdftex.def Info: ./img/order-icon.png  used on input line 146.
 (pdftex.def)             Requested size: 13.59984pt x 12.03062pt.
+File: ./img/AZ-icon.png Graphic file (type png)
+<use ./img/AZ-icon.png>
+Package pdftex.def Info: ./img/AZ-icon.png  used on input line 146.
+(pdftex.def)             Requested size: 13.5991pt x 13.5991pt.
+File: ./img/ZA-icon.png Graphic file (type png)
+<use ./img/ZA-icon.png>
+Package pdftex.def Info: ./img/ZA-icon.png  used on input line 146.
+(pdftex.def)             Requested size: 13.5991pt x 13.5991pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 100--148
 
@@ -506,35 +532,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--148
 
 [6
 
- <./img/dictionary-icon.png> <./img/order-icon.png> <./img/practise-icon.png> <
-./img/study-icon.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ <./img/dictionary-icon.png> <./img/order-icon.png> <./img/AZ-icon.png> <./img/
+ZA-icon.png> <./img/practise-icon.png> <./img/study-icon.png>] [7 <./img/flashc
+ard-icon.png> <./img/left-icon.png> <./img/right-icon.png> <./img/load-icon.png
+> <./img/add-icon.png>] [8] [9]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 257.
 
- [7 <./img/flashcard-icon.png> <./img/left-icon.png> <./img/right-icon.png> <./
-img/load-icon.png> <./img/add-icon.png>] [8] [9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 255.
-
-Overfull \hbox (17.23885pt too wide) in paragraph at lines 243--255
+Overfull \hbox (17.23885pt too wide) in paragraph at lines 243--257
 []
  []
 
 [10]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 255.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 257.
  (/home/noble/.git/gp20/dev/20200218/osp1/UI-Spec-Documentation/ui-spec.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 255.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 255.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 257.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 257.
 Package rerunfilecheck Info: File `ui-spec.out' has not changed.
 (rerunfilecheck)             Checksum: 1A5637EFB7555AF9AE4DCF1C92AAC6C4;1738.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 255.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 257.
  ) 
 Here is how much of TeX's memory you used:
- 5754 strings out of 492167
- 85797 string characters out of 6131559
- 191918 words of memory out of 5000000
- 10034 multiletter control sequences out of 15000+600000
+ 5768 strings out of 492167
+ 86053 string characters out of 6131559
+ 193918 words of memory out of 5000000
+ 10048 multiletter control sequences out of 15000+600000
  9500 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 33i,13n,38p,981b,415s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 33i,13n,38p,1119b,415s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public
@@ -544,10 +568,10 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmti9.pfb>
 Output written on /home/noble/.git/gp20/dev/20200218/osp1/UI-Spec-Documentation
-/ui-spec.pdf (11 pages, 456209 bytes).
+/ui-spec.pdf (11 pages, 458728 bytes).
 PDF statistics:
- 276 PDF objects out of 1000 (max. 8388607)
+ 280 PDF objects out of 1000 (max. 8388607)
  232 compressed objects within 3 object streams
  45 named destinations out of 1000 (max. 500000)
- 251 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 261 words of extra memory for PDF output out of 10000 (max. 10000000)
 
