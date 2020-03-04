@@ -1,5 +1,9 @@
-|Item						|Configuration Reference	|Name					|Location            		|
-|-----------------------------------------------|-------------------------------|---------------------------------------|-------------------------------|
-|User Interface Specification Document		|UISpecGroup20			|UISpecGroup20.pdf			|Folder docs/uispec		|
-|User Interface Specification Presentation	|UISpecPresGroup20		|UISpecPresentationGroup20.pdf		|Folder docs/uispecpresentation	|
-|-----------------------------------------------|-------------------------------|---------------------------------------|-------------------------------|
++-------------------------------------------+-------------------------+---------------------------------+--------------------------------+
+| Item                                      | Configuration Reference | Name                            | Location                       |
++-------------------------------------------+-------------------------+---------------------------------+--------------------------------+
+| User Interface Specification Document     | UISpecGroup20           | UISpecGroup20.pdf               | Folder docs/uispec             |
++-------------------------------------------+-------------------------+---------------------------------+--------------------------------+
+| User Interface Specification Presentation | UISpecPresGroup20       | UISpecPresentationGroup20.pdf   | Folder docs/uispecpresentation |
++-------------------------------------------+-------------------------+---------------------------------+--------------------------------+
+| Test Specification                        | TestSpecGroup20         | Test_Specification_Group_20.pdf | Folder docs/testspec           |
++-------------------------------------------+-------------------------+---------------------------------+--------------------------------+
