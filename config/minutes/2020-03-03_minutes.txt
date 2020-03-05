@@ -1,0 +1,67 @@
+Project: Group Project 20
+Meeting: User Interface Specification Document Review
+Persons present: All except Angus Kay (ank40)
+Place and date of meeting: C57a Llandinam, Tuesday 3rd March 2020, 10:10pm
+Circulation list: All project members, plus project manager
+Author: Brad Corbett
+Date of minutes: 3rd March 2020.
+Version: 1.0
+Time Taken:
+
+Matters arising
+===============
+
+1 - Complete, Luke and Tom finished work on JavaFX
+
+2 - Complete, Brad has read every QA document
+
+3 - Complete, Project Manager to get in touch with Angus and check on progress
+
+5 - Complete, QA Review Scheduled for the UI Spec was reschuled for Friday, will be uploaded for release soon.
+
+6 - Kain to read QA document 9, ONGOING 
+
+7 - Marcin to identify technicalities of self assessment part i.e. FR9 with spike work, ONGOING
+
+8 - Complete, Group to decide who, if anyone, is going to the meet. 
+
+9 - Complete, Brad to change Blog Site collection website to change Nathaniel's photo and correct Kain's blog link.
+
+10 - Nathaniel and Oscar to do spike work on dynamic character sets for possible different languages subject to availability, ONGOING
+
+11 - Complete, Kain Bryan-Jones will go through the demo of UI and polish it e.g. punctuation, quotes around some words but not the same words later, missing arrows, thicker arrows.
+
+12 - Complete, Nathaniel Watts will update tests to show that words are highlighted instead of starred.
+
+13 - Complete, Oscar Pocock to change UI design to add functionality for multiple meanings to english words, and letters in welsh not represented on QWERTY keyboards e.g. Å·
+
+14 - Complete, Luke Wybar to implement tooltips when hovering over icons. 
+
+15 - Complete, Oscar Pocock to correct the grammar, punctuation, and wording in UI Spec document. 
+
+16 - Complete, Project Manager noted Marcin's blogs need more detail, Angus and Henry must have blogs uploaded before meeting.
+
+17 - Complete, Test Review Scheduled for Thursday 27th February from 15:15 at Hugh Owen. The Test Review then and other meetings over the week meant the document was decided to be fit for release.
+
+New business
+============
+
+18 - General meeting scheduled with group, ideally all members. 12:30 Friday 6th March 2020. ACTION: kab74, osp1, top19, law39
+
+19 - Kain Bryan-Jones and Oscar Pocock to change UI spec based on feedback. ACTION: kab74, osp1
+
+20 - Brad Corbett to raise issues on gitlab for Oscar Pocock to change UI spec according to feedback given by Chris Price. ACTION: brc9, osp1
+
+21 - Kain Bryan-Jones to assign design spec work to members of the group. ACTION: kab74
+
+22 - Group to have more detailed blogs and to feel more confident with work. ACTION: Everyone
+
+23 - Everyone attending meeting SE.QA.7 by Friday morning. ACTION: Everyone.
+
+
+AOB
+===
+
+None.
+
+Minutes by brc9, 03/03/20.
