@@ -1,0 +1,36 @@
+Project: Group Project 20
+Meeting: Assignment of work for Design Specification
+Persons present: All except Angus Kay (ank40) and Nathaniel Watts(ncw)
+Place and date of meeting: Think Tank Llandinum, Friday 6th March 2020, 12:45pm
+Circulation list: All project members, plus project manager
+Author: Brad Corbett
+Date of minutes: 6th March 2020.
+Version: 1.0
+
+Matters arising
+===============
+
+
+New business
+============
+
+1. Oscar to email Chris Price about where to find the example design specification mentioned in SE.QA.5 2 ACTION: osp1
+
+2. Oscar to email Chris Price about the user manual described in SE.QA.5 7 ACTION: osp1
+
+3. Luke and Tom and Nathaniel on decomposition for Design Specification. ACTION: ncw, top19, law39
+
+4. Kain and Oscar on Dependency Description for Design Specification. ACTION: kab74, osp1
+
+5. Marcin and Henry and Brad on Interface Description for Design Specification. ACTION: maj83, hjd3, brc9
+
+6. Luke and Tom to give rest of group list of classes from code so far. ACTION: law39, top19
+
+7. Nathaniel to give lists of classes for the tests. ACTION: ncw
+
+AOB
+===
+
+None.
+
+Minutes by brc9, 06/03/20.
