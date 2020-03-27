@@ -1,0 +1,57 @@
+Project: Group Project 20
+Meeting: Weekly Project Meeting
+Persons present: Kain Bryan-Jones (kab74), Oscar Pocock (osp1), Tom Perry (top19), Marcin Jakobik (maj83), Brad Corbett (brc9)
+Place and date of meeting: Online, Tuesday 24th March 2020, 10:10am
+Circulation list: All project members, plus project manager
+Author: Brad Corbett
+Date of minutes: 24th March 2020.
+Version: 1.0
+Time Taken: 10:10am
+
+Matters arising
+===============
+
+1 - ONGOING, Kain Bryan-Jones and Oscar Pocock to change UI spec based on feedback. ACTION: kab74, osp1
+
+2 - COMPLETE Luke and Tom and Nathaniel on decomposition for Design Specification. ACTION: ncw, top19, law39
+
+3 - ONGOING, Marcin and Henry and Brad on Interface Description for Design Specification. ACTION: maj83, hjd3, brc9
+
+4 - COMPLETE Nathaniel to upload blog posts for the past few weeks, or face a yellow card. ACTION: ncw
+
+5 - COMPLETE Tom to add link to current work on Design Spec to links channel in the discord. ACTION top19
+
+6 - COMPLETE Everybody to take part in a meeting hosted on Discord at 12:00 on Friday 20th March 2020. ACTION: EVERYONE
+
+7 - ONGOING, Oskar to change UI Specification according to issues raised. ACTION: osp1
+
+8 - ONGOING, Kain, Tom and Luke on Detailed Design section of Design Specification. ACTION: kab74
+
+9 - COMPLETE Brad to raise issues according to Test Specification. ACTION: brc9
+
+10 - COMPLETE Luke to update vocabulary in Design Specification to clarify differences between "test" i.e. JUnit tests and "test" i.e. the test that a user of the system can do. ACTION: law39
+
+11 - ONGOING, Oscar to change Component Diagram to include methods. ACTION: osp1
+
+
+New business
+============
+
+12 - Tom on section 5.1 (Sequence Diagrams) of Design Specification. ACTION: top19
+
+13 - Luke on section 5.2 (Significant Algoriths) of Design Specification. ACTION: law39
+
+14 - Kain on section 5.3 (Significant Data Structures) of Design Specification. ACTION: kab74
+
+15 - Henry to inform group on his current status and keep in contact with the group. ACTION: hjd3
+
+16 - Brad to find and send a JUnit tests tutorial to the links channel on Discord. ACTION: brc9
+
+17 - Kain and Oscar to decide who to do spikework on live filtering searces. ACTION: kab74, osp1
+
+AOB
+===
+
+None.
+
+Minutes by brc9, 24/03/20.
