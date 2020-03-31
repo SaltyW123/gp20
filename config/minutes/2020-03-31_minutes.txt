@@ -1,0 +1,122 @@
+top19@aber.ac.uk
+Project: Group Project 20
+Meeting: Weekly Project Meeting
+Persons present: All members except Kain Bryan-Jones(kab74), Brad Corbett(brc9) and Waylen Watss(ncw). Luke was late to the meeting.
+Place and date of meeting: Online, Tuesday 31st March 2020, 10:10am
+Circulation list: All project members, plus project manager
+Author: Tom Perry
+Date of minutes: 31st March 2020.
+Version: 1.0
+Time Taken: 10:10am
+
+Matters arising
+===============
+
+1 - COMPLETE Kain Bryan-Jones and Oscar Pocock to change UI spec based on feedback. ACTION: kab74, osp1
+
+2 - COMPLETE  Marcin and Henry and Brad on Interface Description for Design Specification. ACTION: maj83, hjd3, brc9
+
+3 - ONGOING, Oskar to change UI Specification according to issues raised. ACTION: osp1.
+
+4 - COMPLETE Kain, Tom and Luke on Detailed Design section of Design Specification. ACTION: kab74
+
+5 - COMPLETE Oscar to change Component Diagram to include methods. ACTION: osp1
+
+6 - COMPLETE Tom on section 5.1 (Sequence Diagrams) of Design Specification. ACTION: top19
+
+7 - COMPLETE Luke on section 5.2 (Significant Algoriths) of Design Specification. ACTION: law39
+
+8 - COMPLETE Kain on section 5.3 (Significant Data Structures) of Design Specification. ACTION: kab74
+
+9 - COMPLETE Henry to inform group on his current status and keep in contact with the group. ACTION: hjd3
+
+10 - ONGOING, Brad to find and send a JUnit tests tutorial to the links channel on Discord. ACTION: brc9
+
+11 - ONGOING, Kain and Oscar to decide who to do spikework on live filtering searches. ACTION: kab74, osp1
+
+12 - COMPLETE Brad to raise issues for UI and Test Spec for people's usernames to be added alongside their names
+in the author section. ACTION: brc9
+
+13 - COMPLETE The Design Specification failed section 3 and 4.1 of Appendix A, Oscar to take care of. ACTION: osp1
+
+14 - COMPLETE The Contents page needs to be regenerated to reflect headings in document. ACTION: osp1
+
+15 - COMPLETE Design spec 1.3 second bullet point, remove the word "to". ACTION: kab74
+
+16 - COMPLETE Document should have a reference in the references table to the Requirements Specification for 
+Welsh Vocabulary Tutor document, which section 2.1 should reference to. ACTION: osp1
+
+17 - COMPLETE 2.1's first sentence should read "Our system is made up of one singular program." ACTION :kab74
+
+18 - COMPLETE Document should have a reference in the references table to the Test Specification document, which
+section 2.1 should reference to. ACTION: osp1
+
+19 - COMPLETE 2.2.2 Shared code controller - Instead of saying "to save the redefining of elements" to
+"to reduce code duplication." ACTION: kab74
+
+20 - COMPLETE In section 2.2.3 add description for WordEnterQuestion, WordMatchQuestion and SixMeaningQuestion classes. 
+ACTION: top19
+
+21 - COMPLETE 4.1.1 "programs Json related work" should be "program's JSON related work." ACTION: kab74
+
+22 - COMPLETE 4.1.2 "opbjects" should be "objects" in 3rd to last bullet point. ACTION: kab74
+
+23 - COMPLETE 4.2.1 "matches the questions correct answer of a question" should be "matches the question's correct answer." ACTION: kab74
+
+24 - COMPLETE Brad to raise an issue to delete the test selection screen of the design spec. ACTION: brc9
+
+25 - COMPLETE General document missing a lot of apostrophes that should be taken care of. ACTION: kab74
+
+26 - COMPLETE 4.3.3 "scenes name as parameter" should be "scene's name"
+
+27 - COMPLETE 4.3.4 to 4.3.11 are unnecessary and can be deleted. ACTION: top19
+
+28 - COMPLETE 4.4.1 testSave() "list of definitions is" should be "list of definitions are." ACTION: kab74
+
+29 - COMPLETE All figure numbers need to be reduced by one. ACTION: top19
+
+30 - COMPLETE 5.2 headings should be lised as 5.2.1, 5.2.2 etc. ACTION: law34
+
+31 - COMPLETE 5.3 the word "were" should be "are" and "ie" should be "i.e." ACTION: kab74
+
+32 - COMPLETE Remove HashMap Lists paragraph in section 5.3 ACTION: kab74
+
+New business
+============
+
+33 - Read SE.QA.09 to familiarise with the Java standards. ACTION: Everyone
+
+34 - Luke to create the project and set it up with Maven before pushing it to the src directory on git. ACTION: law39
+
+35 - Luke to do spikework regarding the livesearching of the dictionary. ACTION: law39
+
+36 - Tom to develop his Flashcard spikework more by looking further into the different JavaFX panes. ACTION: top19
+
+37 - Any rough spikework should be pushed to your individual dev folder, before merging it with the directory src.
+
+38 - Familiarise yourself with JavaFX by looking at the official documentation and videos to get an idea on how our program's demo code works. ACTION: Everyone
+
+39 - Oscar to do spikework on reordering/sorting of the dictionary. ACTION: osp
+
+40 - Marcin to do spikework on the 'Match the Meanings' test, creating a demo in JavaFX. ACTION: maj83
+
+41 - Brad to do spikework on the 'Translation' test, creating a demo in JavaFX. ACTION: brc9
+
+42 - Waylen to do spikework on the 'Six Meanings ' test, creating a demo in JavaFX. ACTION: ncw
+
+43 - Kain to implement the program's JsonProcessing using the spikework to help him. ACTION: kab74
+
+44 - Henry to implement the program's 'Add Word' screen. ACTION: hjd3
+
+45 - Oscar to make a start on implementing the program's Dictionary display. ACTION: osp1 
+
+46 - Tom and Luke to make the shared code controller, working out what it will contain. ACTION: top19, law39
+
+47 - Anyone who is struggling with spikework can feel free to ask for help in the discord.
+
+AOB
+===
+
+None.
+
+Minutes by top19, 31/03/20.
