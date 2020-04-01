@@ -1,0 +1,61 @@
+Project: Group Project 20
+Meeting: User Interface Specification Document Review
+Persons present: All except Henry Dugmore (hjd3), Marcin Jakobik (maj83), Angus Kay (ank40)
+Place and date of meeting: Hugh Owen Library, Friday 21th February 2020, 10:10pm
+Circulation list: All project members, plus project manager
+Author: Brad Corbett
+Date of minutes: 25th February 2020.
+Version: 1.0
+Time Taken:
+
+Matters arising
+===============
+
+1. Complete, Nathaniel and Henry have made testing specification, must go through review before being released.
+
+2. Luke and Tom to continue working on JavaFX, done by next tutorial, ONGOING
+
+3. Angus to continue finding other issues in live searches/live filtering with help from Kain, ONGOING
+
+4. - Brad has read documents 2, 4, 5, 6, and 7, to read remaining QA documents. ACTION: brc9
+
+5 - Complete, QA Review Scheduled for the UI Spec was reschuled for Friday, will be uploaded for release soon.
+
+6 - Kain to read ideally all 10 QA documents, ONGOING
+
+7 - Marcin to identify technicalities of self assessment part i.e. FR9 with spike work. ONGOING
+
+8 - Complete, Group to decide who, if anyone, is going to the meet. 
+
+9 - Complete, Brad to change Blog Site collection website to change Nathaniel's photo and correct Kain's blog link.
+
+
+New business
+============
+
+10 - Nathaniel and Oscar to do spike work on dynamic character sets for possible different languages subject to availability ACTION: ncw, osp1
+
+11 - Kain Bryan-Jones will go through the demo of UI and polish it e.g. punctuation, quotes around some words but not the same words later, missing arrows, thicker arrows ACTION: kab74
+
+12 - Nathaniel Watts will update tests to show that words are highlighted instead of starred. ACTION: ncw
+
+13 - Oscar Pocock to change UI design to add functionality for multiple meanings to english words, and letters in welsh not represented on QWERTY keyboards e.g. Å· ACTION: osp1
+
+14 - Luke Wybar to implement tooltips when hovering over icons. ACTION: law39
+
+15 - Oscar Pocock to correct the grammar, punctuation, and wording in UI Spec document. ACTION: osp1
+
+16 - Project Manager noted Marcin's blogs need more detail, Angus and Henry must have blogs uploaded before meeting. ACTION: maj83, hjd3, ank40
+
+17 - Project Manager to get in touch with Angus and check on progress. ACTION: aos
+
+18 - Test Review Scheduled for Thursday 27th February from 15:15 at Hugh Owen. At least Nathaniel, Kain, Brad and Henry should be there, and other team members are ideal. ACTION: ncw, kab74, brc9, hjd3
+
+
+
+AOB
+===
+
+None.
+
+Minutes by brc9, 25/02/20.

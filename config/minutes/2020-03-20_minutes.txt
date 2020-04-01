@@ -1,0 +1,29 @@
+Project: Group Project 20
+Meeting: Design Specification QA Review 
+Persons present: Kain Bryan-Jones (kab74), Oscar Pocock (osp1), Tom Perry (top19), Marcin Jakobik (maj83), Brad Corbett (brc9), Luke Wybar (law39), Henry Dugmore (hjd3)
+Place and date of meeting: Online, Friday 20th March 2020, 12:0pm
+Circulation list: All project members, plus project manager
+Author: Oscar Pocock
+Date of minutes: 20th March 2020.
+Version: 1.0
+Time Taken: 12:00pm
+
+Matters arising
+===============
+
+
+New business
+============
+
+1 - Luke to vocabulary in Design Specification to clarify differences between "test" i.e. JUnit tests and "test" i.e. the test that a user of the system can do. ACTION: law39
+
+2 -  Kain and Tom are working on Detailed Design. ACTION: top19, kab74
+
+3 - Oscar to change Component Diagram to include methods. ACTION: osp1
+
+AOB
+===
+
+None.
+
+Minutes by brc9, 20/03/20.

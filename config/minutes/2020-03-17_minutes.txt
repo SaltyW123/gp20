@@ -1,0 +1,55 @@
+Project: Group Project 20
+Meeting: Weekly Project Meeting
+Persons present: Kain Bryan-Jones (kab74), Oscar Pocock (osp1), Tom Perry (top19), Marcin Jakobik (maj83), Brad Corbett (brc9)
+Place and date of meeting: C57 Llandinam, Tuesday 17th March 2020, 10:10pm
+Circulation list: All project members, plus project manager
+Author: Oscar Pocock
+Date of minutes: 17th March 2020.
+Version: 1.0
+Time Taken: 10:10pm
+
+Matters arising
+===============
+
+
+1 - COMPLETE Brad Corbett to raise issues on gitlab for Oscar Pocock to change UI spec according to feedback given by Chris Price.
+
+2 - COMPLETE Marcin to identify technicalities of self assessment part i.e. FR9 with spike work. ACTION: maj83
+
+3 - ONGOING, Kain Bryan-Jones and Oscar Pocock to change UI spec based on feedback. ACTION: kab74, osp1
+
+4 - COMPLETE Oscar to email Chris Price about issues raised in 10/03/2020. ACTION: osp1
+
+5 - ONGOING, Luke and Tom and Nathaniel on decomposition for Design Specification. ACTION: ncw, top19, law39
+
+6 - COMPLETE Kain and Oscar on Dependency Description for Design Specification. ACTION: kab74, osp1
+
+7 - ONGOING, Marcin and Henry and Brad on Interface Description for Design Specification. ACTION: maj83, hjd3, brc9
+
+8 - COMPLETE Luke and Tom to give rest of group list of classes from code so far. ACTION: law39, top19
+
+9 - COMPLETE Nathaniel to give lists of classes for the tests. ACTION: ncw
+
+10 - COMPLETE Kain to message everyone on Facebook to check the general Discord and Git. 
+
+New business
+============
+
+11 - Nathaniel to upload blog posts for the past few weeks, or face a yellow card. ACTION: ncw
+
+12 - Tom to add link to current work on Design Spec to links channel in the discord. ACTION top19
+
+13 - Everybody to take part in a meeting hosted on Discord at 12:00 on Friday 20th March 2020. ACTION: EVERYONE
+
+14 - Oskar to change UI Specification according to issues raised. ACTION: osp1
+
+15 - Kain and Oskar on Detailed Design section of Design Specification. ACTION: kab74
+
+16 - Brad to raise issues according to Test Specification. ACTION: brc9
+
+AOB
+===
+
+None.
+
+Minutes by brc9, 17/03/20.

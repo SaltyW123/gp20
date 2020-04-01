@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane fx:controller="org.openjfx.javaFX.RemoveController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+
+    <Text text="This is a demo to remove welsh words from the JSON file"
+          GridPane.columnIndex="0" GridPane.rowIndex="0"
+          GridPane.columnSpan="2"/>
+
+    <Label text="Welsh word:"
+           GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+
+    <TextField
+            fx:id="welsh"
+            GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+    <Label text="English Word:"
+           GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+
+    <TextField
+            fx:id="english"
+            GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+
+    <HBox spacing="10" alignment="bottom_right"
+          GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <Button text="Remove word from dictionary"
+                onAction="#removeButtonClick"/>
+    </HBox>
+    <Button text="Switch Scene"
+            onAction="#switchScene"
+            GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+
+
+
+</GridPane>
+
