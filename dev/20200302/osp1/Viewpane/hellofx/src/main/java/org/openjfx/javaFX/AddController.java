@@ -20,9 +20,11 @@ public class AddController {
 
     @FXML protected void addButtonClick(ActionEvent actionEvent) {
         App.words.add(new WelshDictionary(english.getText(),welsh.getText(),wordType.getText()));
+        App.words.add(new WelshDictionary("englishcar", "welshcar", "nm"));
         StringBuilder sb = new StringBuilder();
         sb.append("Your Welsh word: ").append(welsh.getText()).append("\n");
         sb.append("With English translation: ").append(english.getText()).append("\n");
+        sb.append("Word type is: ").append(wordType.getText()).append("\n");
         sb.append("Has been added to the dictionary.");
 
         english.setText("");
@@ -122,9 +124,7 @@ public class AddController {
     public void addCharè(ActionEvent actionEvent) {
         welsh.appendText("è");
     }
-    public void addCharì(ActionEvent actionEvent) {
-        welsh.appendText("ì");
-    }
+    public void addCharì(ActionEvent actionEvent) { welsh.appendText("ì"); }
     public void addCharò(ActionEvent actionEvent) {
         welsh.appendText("ò");
     }

@@ -19,14 +19,16 @@ import org.openjfx.javaFX.App;
 public class ViewboxController {
 
     public ListView<WelshDictionary> EnglishlistView;
-    @FXML private TextField welsh;
-    @FXML private TextField english;
+    @FXML
+    private TextField welsh;
+    @FXML
+    private TextField english;
     private Scene firstScene;
     public static final ObservableList<WelshDictionary> names = FXCollections.observableArrayList();
     public static final ObservableList<WelshDictionary> data = FXCollections.observableArrayList();
 
 
-    public void initialize(){
+    public void initialize() {
 
 
     }
@@ -37,7 +39,7 @@ public class ViewboxController {
         alert.setHeaderText("Scene switched");
 
         alert.showAndWait();
-        Stage primaryStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        Stage primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         primaryStage.setScene(firstScene);
     }
 
@@ -46,15 +48,20 @@ public class ViewboxController {
     }
 
     public void loadList(ActionEvent actionEvent) {
+        App.words.add(new WelshDictionary("loadListTestEng", "loadListTestWel", "loadListTestWordType"));
         EnglishlistView.setOrientation(Orientation.VERTICAL);
-
         EnglishlistView.setCellFactory(param -> new ListCell<WelshDictionary>() {
             @Override
             protected void updateItem(WelshDictionary item, boolean empty) {
                 super.updateItem(item, empty);
-
-                if (empty || item == null || item.getEnglish() == null||item.getWelsh() == null || item.getWordType() ==null) {
+                if (empty || item == null || item.getEnglish() == null || item.getWelsh() == null || item.getWordType() == null) {
                     setText(null);
+                } else if (item.getWordType().equals("verb")) {
+                    setText("to " + item.getEnglish() + "           " + item.getWelsh());
+                } else if (item.getWordType().equals("nm")) {
+                    setText(item.getEnglish() + "           " + item.getWelsh() + " {nm}");
+                } else if (item.getWordType().equals("nf")) {
+                    setText(item.getEnglish() + "           " + item.getWelsh() + " {nf}");
                 } else {
                     setText(item.getEnglish() + "           " + item.getWelsh());
                 }
