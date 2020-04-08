@@ -1,17 +1,17 @@
 Project: Group Project 20
 Meeting: Weekly Project Meeting
-Persons present: All members, except Luke Wybar(law39 - busy with moving accomodation), Brad Corbett(brc9 - no reason). Waylen Watts(ncw) arrived late.
+Persons present: All members, except Luke Wybar(law39 - busy with moving accommodation), Brad Corbett(brc9 - no reason). Waylen Watts(ncw) arrived late.
 Place and date of meeting: Online, Tuesday 7th April 2020, 1:10pm
 Circulation list: All project members, plus project manager
 Author: Oscar Pocock
 Date of minutes: 7th April 2020.
-Version: 1.0
+Version: 1.1
 Time Taken: 1:10pm
 
 Matters arising
 ===============
 
-1 - ONGOING, Oskar to change UI Specification according to issues raised. (Point 3 of minutes of 31st March) ACTION: osp1.
+1 - ONGOING, Oscar to change UI Specification according to issues raised. (Point 3 of minutes of 31st March) ACTION: osp1.
 
 2 - ONGOING, Brad to find and send a JUnit tests tutorial to the links channel on Discord. (Point 10 of minutes of 31st March) ACTION: brc9
 
@@ -23,7 +23,7 @@ Matters arising
 
 5 - COMPLETE, Luke to create the project and set it up with Maven before pushing it to the src directory on git. (Point 34 of minutes of 31st March) ACTION: law39
 
-6 - INVESTIGATING, Luke to do spikework regarding the livesearching of the dictionary. (Point 35 of minutes of 31st March) ACTION: law39
+6 - ONGOING, Luke to do spikework regarding the live-searching of the dictionary. (Point 35 of minutes of 31st March) ACTION: law39
 
 7 - ONGOING, Tom to develop his Flashcard spikework more by looking further into the different JavaFX panes. (Point 36 of minutes of 31st March) ACTION: top19
 
@@ -35,11 +35,11 @@ Matters arising
 
 9 - ONGOING, Marcin to do spikework on the 'Match the Meanings' test, creating a demo in JavaFX. (Point 40 of minutes of 31st March) ACTION: maj83
 
-10 - INVESTIGATING, Brad to do spikework on the 'Translation' test, creating a demo in JavaFX. (Point 41 of minutes of 31st March) ACTION: brc9
+10 - ONGOING, Brad to do spikework on the 'Translation' test, creating a demo in JavaFX. (Point 41 of minutes of 31st March) ACTION: brc9
 
 11 - ONGOING, Waylen to do spikework on the 'Six Meanings ' test, creating a demo in JavaFX. (Point 42 of minutes of 31st March) ACTION: ncw
 
-12 - ONGOING, Kain to implement the program's JsonProcessing using the spikework to help him. (Point 43 of minutes of 31st March) ACTION: kab74
+12 - ONGOING, Kain to implement the program's JSON processing using the spikework to help him. (Point 43 of minutes of 31st March) ACTION: kab74
 
 13 - ONGOING, Henry to implement the program's 'Add Word' screen. (Point 44 of minutes of 31st March) ACTION: hjd3
 
