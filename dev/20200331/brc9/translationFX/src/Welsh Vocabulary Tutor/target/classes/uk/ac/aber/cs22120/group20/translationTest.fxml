@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.aber.cs22120.group20.PrimaryController">
+   <children>
+      <TitledPane animated="false" prefHeight="400.0" prefWidth="600.0" text="Learn">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="translationBox" layoutX="205.0" layoutY="199.0" prefHeight="45.0" prefWidth="188.0" promptText="Enter translation here" />
+                  <Text fx:id="typeOfTest" fill="#8d8d8d" layoutX="246.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Translation">
+                     <font>
+                        <Font name="System Italic" size="22.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="wordToTranslate" layoutX="165.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" >
+                     <font>
+                        <Font size="33.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="correctGuesses" layoutX="407.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0"  wrappingWidth="227.18359375">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="incorrectGuesses" layoutX="407.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="submitButton" layoutX="205.0" layoutY="280.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="188.0" text="Submit Translation" onAction="#translateWord" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+   </children>
+</Pane>
