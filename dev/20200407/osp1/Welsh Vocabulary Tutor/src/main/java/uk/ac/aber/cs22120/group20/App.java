@@ -1,6 +1,6 @@
 /**
  * @(#) App.java 0,1 2020/04/07
- *
+ * <p>
  * Copyright (c) 2020 Aberystwyth University.
  * All rights reserved.
  */
@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -32,7 +33,7 @@ import java.util.LinkedList;
 public class App extends Application {
     private static Scene scene;
 
-    public static LinkedList<DictionaryEntry> words = new LinkedList<>();
+    public static LinkedList<DictionaryEntry> dictionary = new LinkedList<>();
 
     /**
      *
@@ -41,6 +42,12 @@ public class App extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException {
+        dictionary.add(new DictionaryEntry("abbey", "abaty", "nm", false));
+        dictionary.add(new DictionaryEntry("believe", "credu", "verb", true));
+        dictionary.add(new DictionaryEntry("concert", "cyngerdd", "nm", false));
+        dictionary.add(new DictionaryEntry("disease", "clefyd", "nm", true));
+        dictionary.add(new DictionaryEntry("extremely", "dros ben", "other", false));
+        dictionary.add(new DictionaryEntry("flu", "ffliw", "nm", false));
         scene = new Scene(loadFXML("primary"));
         stage.setScene(scene);
         stage.show();
