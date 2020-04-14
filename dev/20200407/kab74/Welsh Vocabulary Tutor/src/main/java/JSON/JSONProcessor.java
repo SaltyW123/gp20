@@ -36,7 +36,8 @@ public class JSONProcessor {
 
         try {
 
-            //This method first uses the ObjectMapper to [MISSING INFORMATION] then converts it to a List, which is all then
+            //This method first uses the ObjectMapper to map the JSON fields to a DictionaryEntry object
+            //and then converts it to a List, which is all then
             //added to the 'result' LinkedList.
             result.addAll(Arrays.asList(welshDictionaryObjectMapper.readValue(dictionaryFile, DictionaryEntry[].class)));
 
@@ -53,7 +54,7 @@ public class JSONProcessor {
      * This method encodes the current session data to the dictionary file.
      * @Author kab474
      * @Author top19
-     * @Version
+     * @Version 0.1
      * @Param originalDictionaryDirectory The file directory to save the data to.
      * @Param dictionary A linked list which stores the DictionaryEntry objects.
      * @See DictionaryEntry
@@ -71,7 +72,7 @@ public class JSONProcessor {
         }
 
         try {
-            //Write to the file.
+            //Write String to the file at the specified directory.
             Files.writeString(Paths.get(originalDictionaryDirectory), linkedListDictionaryAsString);
         }catch (IOException e){
             e.printStackTrace();
