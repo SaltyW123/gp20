@@ -51,7 +51,7 @@ public class PrimaryController {
     @FXML
     private void initialize(){
 
-        submitButton.setImage(new Image (getClass().getResourceAsStream("/assets/right-icon.png")));
+        submitButton.setImage(new Image ("file:src/main/resources/assets/right-icon.png"));
 
         for(DictionaryEntry entry : App.dictionary){
             if(entry.isPracticeWord()){
