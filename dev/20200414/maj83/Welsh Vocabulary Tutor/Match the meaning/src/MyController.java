@@ -13,7 +13,7 @@ public class MyController implements Initializable {
     private ArrayList<Integer> temp1 = new ArrayList<>(Arrays.asList(0,1,2,3));
     private int corAns = 0;
     private int wrongAns = 0;
-    private boolean isDuplicate = false;
+
 
     @FXML
     private ComboBox<String> word1;
@@ -73,7 +73,7 @@ public class MyController implements Initializable {
     }
 
     private LinkedList<DictionaryEntry> getQuestions(LinkedList<DictionaryEntry> dictionary){
-
+        boolean isDuplicate = false;
         do{
             int rand_q=rand.nextInt(dictionary.size()-1);
             DictionaryEntry pickedQuestion = dictionary.get(rand_q);
@@ -121,11 +121,21 @@ public class MyController implements Initializable {
         CorrectAnswer.setText(Integer.toString(corAns));
 
         WrongAnswer.setText(Integer.toString(wrongAns));
+
+        setOfQuestions.clear();
+        abc();
+
+    }
+
+    private void abc(){
+        getQuestions(Main.dictionary);
+        TestLabel(setOfQuestions,temp1);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        getQuestions(Main.dictionary);
-        TestLabel(setOfQuestions,temp1);
+
+        this.abc();
+
     }
 }
