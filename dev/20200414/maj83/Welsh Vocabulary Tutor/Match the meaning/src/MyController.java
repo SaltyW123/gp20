@@ -1,6 +1,5 @@
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
@@ -12,8 +11,9 @@ public class MyController implements Initializable {
     private Random rand = new Random();
     public LinkedList<DictionaryEntry> setOfQuestions=new LinkedList<>();
     private ArrayList<Integer> temp1 = new ArrayList<>(Arrays.asList(0,1,2,3));
-    int corAns = 0;
-    int wrongAns = 0;
+    private int corAns = 0;
+    private int wrongAns = 0;
+    private boolean isDuplicate = false;
 
     @FXML
     private ComboBox<String> word1;
@@ -77,28 +77,24 @@ public class MyController implements Initializable {
         do{
             int rand_q=rand.nextInt(dictionary.size()-1);
             DictionaryEntry pickedQuestion = dictionary.get(rand_q);
-            if(setOfQuestions.size()>1){
-                for(int i=0;i<setOfQuestions.size();i++){
-                    if(setOfQuestions.get(i).equals(pickedQuestion)){
+            if(setOfQuestions.size()>=1){
+                for (DictionaryEntry setOfQuestion : setOfQuestions) {
+                    if (setOfQuestion.equals(pickedQuestion)) {
+                        isDuplicate = true;
                         break;
-                    }else {
-                        setOfQuestions.add(pickedQuestion);
                     }
+                }
+                if(!isDuplicate){
+                    setOfQuestions.add(pickedQuestion);
                 }
             }else{
                 setOfQuestions.add(pickedQuestion);
             }
-
+            isDuplicate =false;
         }while(setOfQuestions.size()<5);
         return setOfQuestions;
     }
 
-    private void fill(){
-        setOfQuestions.add(new DictionaryEntry("abbey", "abaty", "nm"));
-        setOfQuestions.add(new DictionaryEntry("believe", "credu", "verb"));
-        setOfQuestions.add(new DictionaryEntry("concert", "cyngerdd", "nm"));
-        setOfQuestions.add(new DictionaryEntry("disease", "clefyd", "nm"));
-    }
 
     public void checkAnswers(){
         int w1 = Integer.parseInt(word1.getValue())-1;
@@ -129,7 +125,7 @@ public class MyController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.fill();
+        getQuestions(Main.dictionary);
         TestLabel(setOfQuestions,temp1);
     }
 }
