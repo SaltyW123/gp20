@@ -1,43 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.image.ImageView?>
 <VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.openjfx.javaFX.PrimaryController" alignment="center" spacing="10">
+      stylesheets="@styles.css" fx:controller="org.openjfx.javaFX.PrimaryController" alignment="center" spacing="10">
     <padding>
         <Insets top="25" right="25" bottom="10" left="25"/>
     </padding>
     <children>
         <StackPane onMouseClicked="#handleFlashcardClick">
             <children>
-                <Rectangle fx:id="flashcard" width="500" height="360" fill="white" arcHeight="80" arcWidth="80"
+                <Rectangle fx:id="flashcard" width="550" height="360" fill="white" arcHeight="80" arcWidth="80"
                            stroke="black"/>
                 <Text textAlignment="CENTER" fx:id="testWord">
                     <font>
-                        <Font size="50"/>
+                        <Font size="55"/>
                     </font>
                 </Text>
 
                 <VBox alignment="BOTTOM_CENTER">
                     <Text fx:id="wordType" fill="dimgray">
                         <font>
-                            <Font size="15"></Font>
+                            <Font size="20"></Font>
                         </font>
                     </Text>
                 </VBox>
             </children>
         </StackPane>
-        <HBox spacing="75" alignment="BASELINE_CENTER">
+        <HBox spacing="190" alignment="BASELINE_CENTER">
             <children>
-                <Button text="Previous" onAction="#handlePreviousCard"></Button>
-                <Text fx:id="counter"/>
-                <Button text="Next" onAction="#handleNextCard"></Button>
+                <ImageView fx:id="left_arrow" visible="true" onMouseClicked="#handlePreviousCard"></ImageView>
+                <Text fx:id="counter"><font> <Font size = "20"></Font></font></Text>
+                <ImageView fx:id="right_arrow" onMouseClicked="#handleNextCard"></ImageView>
             </children>
         </HBox>
     </children>

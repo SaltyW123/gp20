@@ -3,13 +3,12 @@ package org.openjfx.javaFX;
 import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
-import jsonStuff.WelshDictionary;
-
-import java.util.Stack;
 
 public class PrimaryController {
     int index = 0;
@@ -25,12 +24,23 @@ public class PrimaryController {
     private Text testWord;
 
     @FXML
+    private ImageView left_arrow;
+    @FXML
+    private ImageView right_arrow;
+
+    @FXML
     private void initialize() {
         testWord.setText(App.words.getFirst().getWelsh());
         wordType.setText("Welsh");
 
         updateCounter();
         card = flashcard;
+
+        Image left = new Image(getClass().getResource("/assets/docs_ui_spec_presentation_src_img_Icons_icons8-left-50.png").toExternalForm());
+        Image right = new Image(getClass().getResourceAsStream("/assets/docs_ui_spec_presentation_src_img_Icons_icons8-right-50.png"));
+
+        left_arrow.setImage(left);
+        right_arrow.setImage(right);
     }
 
     @FXML

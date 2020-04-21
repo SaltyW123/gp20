@@ -4,9 +4,10 @@ public class WelshDictionary {
     private String english;
     private String welsh;
     private String wordType;
-
+    private boolean practiceWord;
 
     public WelshDictionary() {
+        practiceWord = false;
     }
 
     public WelshDictionary(String english, String welsh, String wordType) {
@@ -37,6 +38,14 @@ public class WelshDictionary {
 
     public void setWordType(String wordType) {
         this.wordType = wordType;
+    }
+
+    public boolean isPracticeWord() {
+        return practiceWord;
+    }
+
+    public void setPracticeWord(boolean practiceWord) {
+        this.practiceWord = practiceWord;
     }
 
     @Override
