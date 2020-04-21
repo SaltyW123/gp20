@@ -136,13 +136,17 @@ public class DictionaryController implements Initializable {
 
         searchBox.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredList.setPredicate(dictionaryEntry -> {
-                // If filter text is empty, display all dictionary entries
-                if (newValue == null || newValue.isEmpty()) {
+
+                table.refresh(); // This fixes the table highlighting issue
+                                
+                if (newValue == null || newValue.isEmpty()) { // If filter text is empty, display all dictionary entries
                     return true;
                 }
 
                 // need all same case for compare.
                 String lowerCaseFilter = newValue.toLowerCase();
+
+
 
                 if (dictionaryEntry.getWelsh().toLowerCase().contains(lowerCaseFilter)) {
                     return true; // Filter matches Welsh
@@ -151,7 +155,9 @@ public class DictionaryController implements Initializable {
                 }else if (dictionaryEntry.getWordType().toLowerCase().contains(lowerCaseFilter)) {
                     return true; // Filter matches Word Type
                 }
+
                 return false; // No match
+
             });
         });
 
