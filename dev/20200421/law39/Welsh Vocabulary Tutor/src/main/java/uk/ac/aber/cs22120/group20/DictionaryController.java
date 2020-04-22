@@ -135,29 +135,27 @@ public class DictionaryController implements Initializable {
 
 
         searchBox.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredList.setPredicate(dictionaryEntry -> {
+            filteredList.setPredicate(dictionaryEntry -> { // returns true on a filter match, false if no match
+                boolean returnVal = false;
 
                 table.refresh(); // This fixes the table highlighting issue
-                                
+
                 if (newValue == null || newValue.isEmpty()) { // If filter text is empty, display all dictionary entries
-                    return true;
+                    returnVal = true;
+                }else {
+                    // need all same case for compare.
+                    String lowerCaseFilter = newValue.toLowerCase();
+                    if (dictionaryEntry.getWelsh().toLowerCase().contains(lowerCaseFilter)) {
+                        returnVal = true; // Filter matches Welsh
+                    } else if (dictionaryEntry.getEnglish().toLowerCase().contains(lowerCaseFilter)) {
+                        returnVal = true; // Filter matches English
+                    } else if (dictionaryEntry.getWordType().toLowerCase().contains(lowerCaseFilter)) {
+                        returnVal = true; // Filter matches Word Type
+                    } else if (dictionaryEntry.getWordType().equals("verb") && ("to " + dictionaryEntry.getEnglish()).toLowerCase().contains(lowerCaseFilter)) {
+                        returnVal = true; // Filter matches ['to' + a word] or [a word] if word is a verb
+                    }
                 }
-
-                // need all same case for compare.
-                String lowerCaseFilter = newValue.toLowerCase();
-
-
-
-                if (dictionaryEntry.getWelsh().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches Welsh
-                } else if (dictionaryEntry.getEnglish().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches English
-                }else if (dictionaryEntry.getWordType().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches Word Type
-                }
-
-                return false; // No match
-
+                return returnVal;
             });
         });
 
