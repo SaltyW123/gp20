@@ -6,7 +6,6 @@
  */
 package uk.ac.aber.cs22120.group20;
 
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -30,7 +29,7 @@ import java.util.LinkedList;
  *
  * @version 0.1 Initial development
  */
-public class App extends Application {
+public class Application extends javafx.application.Application {
     private static Scene scene;
 
     public static LinkedList<DictionaryEntry> dictionary = new LinkedList<>();
@@ -69,7 +68,7 @@ public class App extends Application {
      * @throws IOException
      */
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
 

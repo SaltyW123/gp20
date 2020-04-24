@@ -7,7 +7,6 @@
 package uk.ac.aber.cs22120.group20;
 
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -16,7 +15,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
@@ -38,7 +36,7 @@ import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
  * @author Waylen Watts [ncw]
  * @version 0.1 Initial development.
  * @see DictionaryEntry
- * @see App
+ * @see Application
  */
 public class DictionaryController implements Initializable {
     public static Stage primaryStage = null;
@@ -70,46 +68,52 @@ public class DictionaryController implements Initializable {
      */
     @FXML
     private void switchToPrimary() throws IOException {
-        App.setRoot("primary");
+        Application.setRoot("primary");
     }
 
     /**
-     * Sets up the table and loads the words into it.
+     * Initializes the  table of dictionary entries.
+     * <p>
+     * An observable list of DictionaryEntries is loaded from the Application class into a local instance of ObservableList.
+     * It also sets up Lambda expressions related to live searching functionality and the display of DictionaryEntries.
      *
      * @param url
      * @param resourceBundle
+     *
+     * @see Application
+     * @see DictionaryEntry
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        list.addAll(App.dictionary);
+        list.addAll(Application.dictionary);
         table.setRowFactory(tv -> {
-            TableRow<DictionaryEntry> row = new TableRow<DictionaryEntry>() {
-                @Override
-                protected void updateItem(DictionaryEntry dictionaryEntry, boolean b) {
-                    super.updateItem(dictionaryEntry, b);
-                    if (!isEmpty()) {
-                        if (dictionaryEntry.isPracticeWord()) {
-                            setStyle("-fx-background-color: gray;");
-                        } else {
-                            setStyle(" ");
+                    TableRow<DictionaryEntry> row = new TableRow<DictionaryEntry>() {
+                        @Override
+                        protected void updateItem(DictionaryEntry dictionaryEntry, boolean b) {
+                            super.updateItem(dictionaryEntry, b);
+                            if (!isEmpty()) {
+                                if (dictionaryEntry.isPracticeWord()) {
+                                    setStyle("-fx-background-color: gray;");
+                                } else {
+                                    setStyle(" ");
+                                }
+                            }
                         }
-                    }
-                }
-            };
-            row.setOnMouseClicked(mouseEvent -> {
-                if (mouseEvent.getClickCount() == 1 && (!row.isEmpty())) {
-                    if (row.getItem().isPracticeWord()) {
-                        App.dictionary.get(list.indexOf(row.getItem())).setPracticeWord(false);
+                    };
+                    row.setOnMouseClicked(mouseEvent -> {
+                        if (mouseEvent.getClickCount() == 1 && (!row.isEmpty())) {
+                            if (row.getItem().isPracticeWord()) {
+                                Application.dictionary.get(list.indexOf(row.getItem())).setPracticeWord(false);
 //                        row.getItem().setPracticeWord(false);
-                    }
-                    else if (!row.getItem().isPracticeWord()) {
-                        App.dictionary.get(list.indexOf(row.getItem())).setPracticeWord(true);
+                            } else if (!row.getItem().isPracticeWord()) {
+                                Application.dictionary.get(list.indexOf(row.getItem())).setPracticeWord(true);
 //                        row.getItem().setPracticeWord(true);
-                    }
-                    table.getSelectionModel().clearSelection();
+                            }
+                            table.getSelectionModel().clearSelection();
+                        }
+                    });
+                    return row;
                 }
-            });
-        return row;}
         );
         welsh.setCellValueFactory(dictionaryEntryStringCellDataFeatures -> {
             if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals("nm")) {
@@ -124,8 +128,7 @@ public class DictionaryController implements Initializable {
         english.setCellValueFactory(dictionaryEntryStringCellDataFeatures -> {
             if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals("verb")) {
                 return new SimpleStringProperty("to " + dictionaryEntryStringCellDataFeatures.getValue().getEnglish());
-            }
-            else {
+            } else {
                 return new SimpleStringProperty(dictionaryEntryStringCellDataFeatures.getValue().getEnglish());
             }
         });
@@ -134,28 +137,28 @@ public class DictionaryController implements Initializable {
         FilteredList<DictionaryEntry> filteredList = new FilteredList<>(list, p -> true); // Wrap list in a FilteredList
 
 
-        searchBox.textProperty().addListener((observable, oldValue, newValue) -> {
+        searchBox.textProperty().addListener((observable, oldSearchTerm, newSearchTerm) -> {
             filteredList.setPredicate(dictionaryEntry -> { // returns true on a filter match, false if no match
-                boolean returnVal = false;
+                boolean result = false;
 
                 table.refresh(); // This fixes the table highlighting issue
 
-                if (newValue == null || newValue.isEmpty()) { // If filter text is empty, display all dictionary entries
-                    returnVal = true;
-                }else {
+                if (newSearchTerm == null || newSearchTerm.isEmpty()) { // If filter text is empty, display all dictionary entries
+                    result = true;
+                } else {
                     // need all same case for compare.
-                    String lowerCaseFilter = newValue.toLowerCase();
-                    if (dictionaryEntry.getWelsh().toLowerCase().contains(lowerCaseFilter)) {
-                        returnVal = true; // Filter matches Welsh
-                    } else if (dictionaryEntry.getEnglish().toLowerCase().contains(lowerCaseFilter)) {
-                        returnVal = true; // Filter matches English
-                    } else if (dictionaryEntry.getWordType().toLowerCase().contains(lowerCaseFilter)) {
-                        returnVal = true; // Filter matches Word Type
-                    } else if (dictionaryEntry.getWordType().equals("verb") && ("to " + dictionaryEntry.getEnglish()).toLowerCase().contains(lowerCaseFilter)) {
-                        returnVal = true; // Filter matches ['to' + a word] or [a word] if word is a verb
+                    final String lowerCaseSearchFilter = newSearchTerm.toLowerCase();
+                    if (dictionaryEntry.getWelsh().toLowerCase().contains(lowerCaseSearchFilter)) {
+                        result = true; // Filter matches Welsh
+                    } else if (dictionaryEntry.getEnglish().toLowerCase().contains(lowerCaseSearchFilter)) {
+                        result = true; // Filter matches English
+                    } else if (dictionaryEntry.getWordType().toLowerCase().contains(lowerCaseSearchFilter)) {
+                        result = true; // Filter matches Word Type
+                    } else if (dictionaryEntry.getWordType().equals("verb") && ("to " + dictionaryEntry.getEnglish()).toLowerCase().contains(lowerCaseSearchFilter)) {
+                        result = true; // Filter matches ['to' + a word] or [a word] if word is a verb
                     }
                 }
-                return returnVal;
+                return result;
             });
         });
 

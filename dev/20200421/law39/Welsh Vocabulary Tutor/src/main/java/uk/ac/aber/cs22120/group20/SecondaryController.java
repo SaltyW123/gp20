@@ -21,12 +21,12 @@ import javafx.fxml.FXML;
  * @author Tom Perry [top1]
  * @author Waylen Watts [ncw]
  * @version 0.1 Initial development
- * @see App
+ * @see Application
  */
 public class SecondaryController {
 
     @FXML
     private void switchToDictionary() throws IOException {
-        App.setRoot("dictionary");
+        Application.setRoot("dictionary");
     }
 }

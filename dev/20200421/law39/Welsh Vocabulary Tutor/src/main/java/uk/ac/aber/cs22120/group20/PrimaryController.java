@@ -25,12 +25,12 @@ import javafx.fxml.FXML;
  * @author Tom Perry [top1]
  * @author Waylen Watts [ncw]
  * @version 0.1 Initial development
- * @see App
+ * @see Application
  */
 public class PrimaryController {
 
     @FXML
     private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
+        Application.setRoot("secondary");
     }
 }

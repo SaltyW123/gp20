@@ -6,9 +6,7 @@
  */
 package uk.ac.aber.cs22120.group20.json;
 
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleStringProperty;
-import uk.ac.aber.cs22120.group20.App;
+import uk.ac.aber.cs22120.group20.Application;
 import uk.ac.aber.cs22120.group20.DictionaryController;
 
 /**
@@ -38,7 +36,7 @@ public class DictionaryEntry {
      * @param welsh        welsh translation of the word
      * @param wordType     type of word
      * @param practiceWord determines if the entry is in the practice list
-     * @see App
+     * @see Application
      * @see DictionaryController
      */
     public DictionaryEntry(String english, String welsh, String wordType, Boolean practiceWord) {
