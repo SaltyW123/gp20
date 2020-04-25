@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="SharedCodeController"
+            fx:controller="code.SharedCodeController"
             prefHeight="400.0" prefWidth="600.0">
 
     <left>
