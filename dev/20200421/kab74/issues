@@ -1,0 +1,18 @@
+* sharedCodeController description is different in classes than design spec.
+* Design spec "public" is with lower case p.
+* Design spec when listing function names shouldn't end with semicolon
+* Changed setters and getters and field variables in WelshDictionary to comply
+more with QA9's point on real word objects.
+* What is SceneEnum? I can't find it anywhere. And is that really a good name?
+* I Renamed self-assessment package because java doesn't allow '-' in name of package.
+* TestUser in design spec has no brackets.
+* TestFindWord also has no brackets
+* No description for class 4.2.2
+* 4.2.2 changed 'words' to 'wordList' to comply with QA9 real word object point.
+* Rearanged authors on 'Application' to be alphabetical by surname.
+* 4.2.4 it is illegal to state an array size in method signature(Design spec).
+* WelshDictionary setter/getter for practice word should check whether the word
+is a practice word first.
+* WelshDictionary wordType should be an Enum.
+
+

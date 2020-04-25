@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b436be74-9b31-4913-bf6e-41784cacd483" name="Default Changelist" comment="" />
+    <list default="true" id="b436be74-9b31-4913-bf6e-41784cacd483" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../20200407/kab74/Welsh Vocabulary Tutor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../20200407/kab74/Welsh Vocabulary Tutor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../20200407/kab74/Welsh Vocabulary Tutor/src/main/java/JSON/DictionaryEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../20200407/kab74/Welsh Vocabulary Tutor/src/main/java/JSON/DictionaryEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../20200421/law39/Welsh Vocabulary Tutor/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../20200421/law39/Welsh Vocabulary Tutor/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../20200421/law39/Welsh Vocabulary Tutor/.idea/libraries/Maven__org_openjfx_javafx_base_win_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../20200421/law39/Welsh Vocabulary Tutor/.idea/libraries/Maven__org_openjfx_javafx_base_linux_11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../20200421/law39/Welsh Vocabulary Tutor/.idea/libraries/Maven__org_openjfx_javafx_controls_win_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../20200421/law39/Welsh Vocabulary Tutor/.idea/libraries/Maven__org_openjfx_javafx_controls_linux_11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../20200421/law39/Welsh Vocabulary Tutor/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../20200421/law39/Welsh Vocabulary Tutor/.idea/libraries/Maven__org_openjfx_javafx_fxml_linux_11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../20200421/law39/Welsh Vocabulary Tutor/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../20200421/law39/Welsh Vocabulary Tutor/.idea/libraries/Maven__org_openjfx_javafx_graphics_linux_11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../20200421/law39/Welsh Vocabulary Tutor/.idea/libraries/com_fasterxml_jackson_core_jackson_databind_2_9_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../20200421/law39/Welsh Vocabulary Tutor/.idea/libraries/com_fasterxml_jackson_core_jackson_databind_2_9_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../20200421/law39/Welsh Vocabulary Tutor/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../20200421/law39/Welsh Vocabulary Tutor/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../20200421/law39/Welsh Vocabulary Tutor/Welsh Vocabulary Tutor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../20200421/law39/Welsh Vocabulary Tutor/Welsh Vocabulary Tutor.iml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
@@ -34,7 +52,6 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -59,7 +76,7 @@
       <module name="Welsh Vocabulary Tutor" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="JSON.*" />
+          <option name="PATTERN" value="uk.ac.aber.cs22120.group20.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -84,12 +101,12 @@
       <option name="presentableId" value="Default" />
       <updated>1585703857421</updated>
       <workItem from="1585703861677" duration="881000" />
-      <workItem from="1586769997688" duration="4130000" />
-      <workItem from="1586788738519" duration="8777000" />
-      <workItem from="1586853342350" duration="6464000" />
-      <workItem from="1586866035893" duration="398000" />
-      <workItem from="1586869197672" duration="229000" />
-      <workItem from="1587051259984" duration="118000" />
+      <workItem from="1587051369795" duration="11000" />
+      <workItem from="1587054283250" duration="26000" />
+      <workItem from="1587388308725" duration="10988000" />
+      <workItem from="1587458518156" duration="2015000" />
+      <workItem from="1587730315755" duration="13046000" />
+      <workItem from="1587807634142" duration="19000" />
     </task>
     <servers />
   </component>
