@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="SharedCodeController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <left>
+        <VBox>
+            <StackPane>
+                <Rectangle fill="white" height="50" width="${sideBar.width}"></Rectangle>
+                <HBox alignment="CENTER_RIGHT">
+                    <Text fx:id="dictionaryText"><font><Font size="18"></Font> </font></Text>
+                    <ImageView fx:id="dictionaryIcon"></ImageView>
+                </HBox>
+            </StackPane>
+
+            <StackPane>
+                <Rectangle fill="dimgray" height="50" width="${sideBar.width}"></Rectangle>
+                <HBox alignment="CENTER_RIGHT">
+                    <Text fx:id="practiceListTest" fill="white"><font><Font size="18"></Font></font></Text>
+                    <ImageView fx:id="practiceListIcon"></ImageView>
+                </HBox>
+            </StackPane>
+
+            <StackPane>
+                <Rectangle fill="dimgray" height="50" width="${sideBar.width}"></Rectangle>
+                <HBox alignment="CENTER_RIGHT">
+                    <Text fx:id="flashcardsText" fill="white"><font><Font size="18"></Font></font></Text>
+                    <ImageView fx:id="flashcardIcon"></ImageView>
+                </HBox>
+            </StackPane>
+
+            <StackPane>
+                <Rectangle fill="dimgray" height="50" width="${sideBar.width}"></Rectangle>
+                <HBox alignment="CENTER_RIGHT">
+                <Text fx:id="studyText" fill="white"><font><Font size="18"></Font></font></Text>
+                <ImageView fx:id="studyIcon"></ImageView>
+                </HBox>
+            </StackPane>
+
+            <Rectangle fx:id="sideBar" fill="dimgray" height="500"></Rectangle>
+
+            <StackPane>
+                <Rectangle fill="dimgray" height="50" width="${sideBar.width}"></Rectangle>
+                <HBox alignment="CENTER_RIGHT">
+                    <Text fx:id="addDefinitionText" fill="white"><font><Font size="18"></Font></font></Text>
+                    <ImageView fx:id="addDefinition"></ImageView>
+                </HBox>
+            </StackPane>
+
+            <Rectangle fill="dimgray" height="300" width="${sideBar.width}"></Rectangle>
+
+        </VBox>
+    </left>
+
+    <top>
+        <HBox>
+            <StackPane onMouseClicked="#expandMenuClick">
+                <Rectangle fill="dimgray" width="50" height="50"></Rectangle>
+                <ImageView fx:id="expandMenuIcon" ></ImageView>
+            </StackPane>
+
+            <StackPane>
+                <Rectangle fx:id="parentRectangle" fill="dimgray" width="2000" height="50"></Rectangle>
+                <HBox>
+                    <ImageView fx:id="currentPageIcon"></ImageView>
+                    <Text fx:id="currentPageText" fill="white"><font><Font size="20"></Font></font></Text>
+                </HBox>
+            </StackPane>
+
+        </HBox>
+    </top>
+
+</BorderPane>
+
