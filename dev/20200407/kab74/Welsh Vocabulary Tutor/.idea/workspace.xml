@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b436be74-9b31-4913-bf6e-41784cacd483" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../20200331/brc9/translationFX/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../20200331/brc9/translationFX/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../20200331/brc9/translationFX/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../20200331/top19/flashcardfx/hellofx/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../20200331/top19/flashcardfx/hellofx/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="b436be74-9b31-4913-bf6e-41784cacd483" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +88,8 @@
       <workItem from="1586788738519" duration="8777000" />
       <workItem from="1586853342350" duration="6464000" />
       <workItem from="1586866035893" duration="398000" />
+      <workItem from="1586869197672" duration="229000" />
+      <workItem from="1587051259984" duration="118000" />
     </task>
     <servers />
   </component>

@@ -105,4 +105,10 @@ public class DictionaryEntry {
                 "practiceWord = " + isPracticeWord;
     }
 
+
+    @Override
+    public boolean equals(Object obj){
+        DictionaryEntry otherObject = (DictionaryEntry) obj;
+        return (this.getEnglishWord().equals(otherObject.getEnglishWord())) && this.getWelshWord().equals(otherObject.getWelshWord());
+    }
 }

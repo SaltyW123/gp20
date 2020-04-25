@@ -1,0 +1,68 @@
+Project: Group Project 20
+Meeting: Weekly Project Meeting
+Persons present: All members, except Luke Wybar(law39 - family emergency), Waylen Watts(ncw - needed in emergency).
+Place and date of meeting: Online, Tuesday 14th April 2020, 1:10pm
+Circulation list: All project members, plus project manager
+Author: Brad Corbet
+Date of minutes: 14th April 2020.
+Version: 1.1
+Time Taken: 1:10pm
+
+Matters arising
+===============
+
+1 - ONGOING, Oscar to change UI Specification according to issues raised. (Point 3 of minutes of 31st March) ACTION: osp1.
+
+2 - COMPLETE, Brad to find and send a JUnit tests tutorial to the links channel on Discord. (Point 10 of minutes of 31st March) ACTION: brc9
+
+==========================================================================================================================
+
+3 - ONGOING, Luke to do spikework regarding the live-searching of the dictionary. (Point 35 of minutes of 31st March) ACTION: law39
+
+4 - ONGOING, Tom to develop his Flashcard spikework more by looking further into the different JavaFX panes. (Point 36 of minutes of 31st March) ACTION: top19
+
+5 - Any rough spikework should be pushed to your individual dev folder, before merging it with the directory src. (Point 37 of minutes of 31st March)
+
+6 - COMPLETE, Familiarise yourself with JavaFX by looking at the official documentation and videos to get an idea on how our program's demo code works. (Point 38 of minutes of 31st March) ACTION: Everyone
+
+7 - ONGOING, Oscar to do spikework on reordering/sorting of the dictionary. (Point 39 of minutes of 31st March) ACTION: osp1
+
+8 - ONGOING, Marcin to do spikework on the 'Match the Meanings' test, creating a demo in JavaFX. (Point 40 of minutes of 31st March) ACTION: maj83
+
+9 - COMPLETE, Brad to do spikework on the 'Translation' test, creating a demo in JavaFX. (Point 41 of minutes of 31st March) ACTION: brc9
+
+10 - ONGOING, Waylen to do spikework on the 'Six Meanings' test, creating a demo in JavaFX. (Point 42 of minutes of 31st March) ACTION: ncw
+
+11 - ONGOING, Kain to implement the program's JSON processing using the spikework to help him. (Point 43 of minutes of 31st March) ACTION: kab74
+
+12 - ONGOING, Henry to implement the program's 'Add Word' screen. (Point 44 of minutes of 31st March) ACTION: hjd3
+
+13 - ONGOING, Oscar to make a start on implementing the program's Dictionary display. (Point 45 of minutes of 31st March) ACTION: osp1 
+
+14 - ONGOING, Tom and Luke to make the shared code controller, working out what it will contain. (Point 46 of minutes of 31st March) ACTION: top19, law39
+
+15 - Anyone who is struggling with spikework can feel free to ask for help in the discord. (Point 47 of minutes of 31st March) 
+
+New business
+============
+
+16 - Two daily meetings currently planned during Integration Week, will solidify plan more as time goes on.
+
+17 - Oscar and Tom to help Henry implement the Add Word screen. ACTION: top19, osp1, hjd3
+
+18 - Brad to bring his spikework on Translation test more in line with design specification e.g. correct layout, using words from practice list. ACTION: brc9
+
+19 - Marcin to bring the spikework more towards a final project-esque piece of code i.e. correct layout, words from practice list. ACTION: maj83
+
+20 - Kain to help format the project ready for development, by creating classes and packages. ACTION: kab74
+
+21 - Everyone to start doing JavaDoc and proper comments. ACTION: Everyone
+
+22 - Oscar to start work on Practice List page. ACTION: osp1
+
+AOB
+===
+
+None.
+
+Minutes by brc9, 14/04/2020.
