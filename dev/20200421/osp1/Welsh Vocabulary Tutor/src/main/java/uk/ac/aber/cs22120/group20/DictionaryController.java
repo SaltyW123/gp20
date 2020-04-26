@@ -14,6 +14,8 @@ import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -43,6 +45,8 @@ public class DictionaryController implements Initializable {
     public static Stage primaryStage = null;
 
     @FXML
+    private ImageView alphaSort;
+    @FXML
     private TextField searchBox;
     @FXML
     private TableView<DictionaryEntry> table;
@@ -56,9 +60,22 @@ public class DictionaryController implements Initializable {
     @FXML
     private void switchLangSort() {
         if (table.getSortOrder().contains(english)) {
+            if (welsh.getSortType().equals(TableColumn.SortType.ASCENDING)) {
+                alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
+            }
+            else if (welsh.getSortType().equals(TableColumn.SortType.DESCENDING)) {
+                alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-reversed-50.png"));
+            }
             table.getSortOrder().clear();
             table.getSortOrder().add(welsh);
-        } else if (table.getSortOrder().contains(welsh)) {
+        }
+        else if (table.getSortOrder().contains(welsh)) {
+            if (english.getSortType().equals(TableColumn.SortType.ASCENDING)) {
+                alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
+            }
+            else if (english.getSortType().equals(TableColumn.SortType.DESCENDING)) {
+                alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-reversed-50.png"));
+            }
             table.getSortOrder().clear();
             table.getSortOrder().add(english);
         }
@@ -70,14 +87,18 @@ public class DictionaryController implements Initializable {
         if (table.getSortOrder().contains(english)) {
             if (english.getSortType().equals(TableColumn.SortType.ASCENDING)) {
                 english.setSortType(TableColumn.SortType.DESCENDING);
+                alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-reversed-50.png"));
             } else {
                 english.setSortType(TableColumn.SortType.ASCENDING);
+                alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
             }
         } else if (table.getSortOrder().contains(welsh)) {
             if (welsh.getSortType().equals(TableColumn.SortType.ASCENDING)) {
                 welsh.setSortType(TableColumn.SortType.DESCENDING);
+                alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-reversed-50.png"));
             } else {
                 welsh.setSortType(TableColumn.SortType.ASCENDING);
+                alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
             }
         }
     }

@@ -13,10 +13,9 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
@@ -43,6 +42,8 @@ import java.util.ResourceBundle;
 public class PracticeListController implements Initializable {
     public static Stage primaryStage = null;
 
+    @FXML
+    private ImageView alphaSort;
     @FXML
     private TextField searchBox;
     @FXML
@@ -106,23 +107,25 @@ public class PracticeListController implements Initializable {
 //        welsh.setCellValueFactory(new PropertyValueFactory<DictionaryEntry, String>("welsh"));
 //        english.setCellValueFactory(new PropertyValueFactory<DictionaryEntry, String>("english"));
 
+        table.setPlaceholder(new Label("No practice words found. Please try adding a practice word from the 'Dictionary' page."));
         table.setRowFactory(tv -> {
                     TableRow<DictionaryEntry> row = new TableRow<DictionaryEntry>() {
                         @Override
                         protected void updateItem(DictionaryEntry dictionaryEntry, boolean b) {
                             super.updateItem(dictionaryEntry, b);
                             if (!isEmpty()) {
-                                if (dictionaryEntry.isPracticeWord()) {
-                                    setStyle("-fx-background-color: gray;");
-                                } else {
-                                    setStyle(" ");
-                                }
+                                setStyle(" ");
+//                                if (dictionaryEntry.isPracticeWord()) {
+//                                    setStyle("-fx-background-color: gray;");
+//                                } else {
+//                                    setStyle(" ");
+//                                }
                             }
                         }
                     };
                     row.setOnMouseClicked(mouseEvent -> {
                         if (mouseEvent.getClickCount() == 1 && (!row.isEmpty())) {
-                            for(DictionaryEntry entry : Application.dictionary) {
+                            for (DictionaryEntry entry : Application.dictionary) {
                                 if (entry.equals(row.getItem())) {
                                     entry.setPracticeWord(false);
                                     list.remove(row.getItem());
@@ -162,9 +165,22 @@ public class PracticeListController implements Initializable {
     @FXML
     private void switchLangSort() {
         if (table.getSortOrder().contains(english)) {
+            if (welsh.getSortType().equals(TableColumn.SortType.ASCENDING)) {
+                alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
+            }
+            else if (welsh.getSortType().equals(TableColumn.SortType.DESCENDING)) {
+                alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-reversed-50.png"));
+            }
             table.getSortOrder().clear();
             table.getSortOrder().add(welsh);
-        } else if (table.getSortOrder().contains(welsh)) {
+        }
+        else if (table.getSortOrder().contains(welsh)) {
+            if (english.getSortType().equals(TableColumn.SortType.ASCENDING)) {
+                alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
+            }
+            else if (english.getSortType().equals(TableColumn.SortType.DESCENDING)) {
+                alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-reversed-50.png"));
+            }
             table.getSortOrder().clear();
             table.getSortOrder().add(english);
         }
@@ -176,14 +192,18 @@ public class PracticeListController implements Initializable {
         if (table.getSortOrder().contains(english)) {
             if (english.getSortType().equals(TableColumn.SortType.ASCENDING)) {
                 english.setSortType(TableColumn.SortType.DESCENDING);
+                alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-reversed-50.png"));
             } else {
                 english.setSortType(TableColumn.SortType.ASCENDING);
+                alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
             }
         } else if (table.getSortOrder().contains(welsh)) {
             if (welsh.getSortType().equals(TableColumn.SortType.ASCENDING)) {
                 welsh.setSortType(TableColumn.SortType.DESCENDING);
+                alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-reversed-50.png"));
             } else {
                 welsh.setSortType(TableColumn.SortType.ASCENDING);
+                alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
             }
         }
     }

@@ -35,7 +35,7 @@
             </HBox>
             <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" onMouseClicked="#switchAlphaSort" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="alphaSort" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#switchAlphaSort" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../../assets/icons/black_icons/50px/sort-alpha-up-50.png" />
                      </image>
