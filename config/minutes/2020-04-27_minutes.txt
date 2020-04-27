@@ -1,0 +1,54 @@
+Project: Group Project 20
+Meeting: First Meeting Of Integration Week
+Persons present: All members.
+Place and date of meeting: Online, Monday 27th April 2020, 9:00am
+Circulation list: All project members, plus project manager
+Author: Brad Corbett (brc9)
+Date of minutes: 27th April 2020.
+Version: 1.0
+Time Taken: 9:00am
+
+Matters arising
+===============
+
+1 - ONGOING, Oscar to change UI Specification according to issues raised. (Point 3 of minutes of 31st March) ACTION: osp1.
+
+5 - ONGOING, Oscar to do spikework on reordering/sorting of the dictionary. (Point 39 of minutes of 31st March) ACTION: osp1
+
+7 - COMPLETE, Waylen to do spikework on the 'Six Meanings' test, creating a demo in JavaFX. (Point 42 of minutes of 31st March) ACTION: ncw
+
+8 - COMPLETE, Kain to implement the program's JSON processing using the spikework to help him. (Point 43 of minutes of 31st March) ACTION: kab74
+
+9 - COMPELTE, Henry to implement the program's 'Add Word' screen. (Point 44 of minutes of 31st March) ACTION: hjd3
+
+10 - COMPLETE, Oscar to make a start on implementing the program's Dictionary display. (Point 45 of minutes of 31st March) ACTION: osp1 
+
+11 - ONGOING, Tom and Luke to make the shared code controller, working out what it will contain. (Point 46 of minutes of 31st March) ACTION: top19, law39
+
+16 - COMPLETE, Kain to help format the project ready for development, by creating classes and packages. ACTION: kab74 (Point 20 of minutes of 14th of April)
+
+17 - ONGOING, Everyone to start doing JavaDoc and proper comments. ACTION: Everyone (Point 21 of minutes of 14th of April)
+
+18 - COMPLETE, Oscar to start work on Practice List page. ACTION: osp1 (Point 22 of minutes of 14th of April)
+
+20 - COMPLETE, Oscar to create generic voice channels for individuals to join during Integration Week if people need to talk to other members of the group. (Point 20 of minutes 21st of April)
+
+22 - COMPLETE, Luke and Kain to work on demo for live searching. ACTION: kab74, law39 (Point 22 of minutes 21st of April)
+
+23 - COMPLETE, Brad to raise issues for problems brought up with Design Spec by Kain. ACTION: brc9 (Point 23 of minutes 21st of April)
+
+24 - COMPLETE, Brad to change blog site collection website to reflect current members of the group. ACTION: brc9 (Point 24 of minutes 21st of April)
+
+25 - COMPLETE, Henry to look into JUnit testing. ACTION: hjd3 (Point 25 of minutes 21st of April)
+
+New business
+============
+
+
+
+AOB
+===
+
+None.
+
+Minutes by brc9, 27/04/2020.
