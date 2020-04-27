@@ -9,6 +9,10 @@ import javafx.scene.text.Text;
 import java.util.ArrayList;
 import java.util.Random;
 
+import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
+import uk.ac.aber.cs22120.group20.javafx.Application;
+
+
 
 /**
  * Controller for the translationTest fxml file.
@@ -17,7 +21,7 @@ import java.util.Random;
  * @version 0.9
  *
  */
-public class TranslationController {
+public class TranslationController extends Question {
     ArrayList<DictionaryEntry> practiceList = new ArrayList<>();
 
 
@@ -66,7 +70,7 @@ public class TranslationController {
 
         submitButton.setImage(new Image ("file:src/main/resources/assets/right-icon.png"));
 
-        for(DictionaryEntry entry : App.dictionary){
+        for(DictionaryEntry entry : Application.dictionary){
             if(entry.isPracticeWord()){
                 practiceList.add(entry);
             }
@@ -82,10 +86,10 @@ public class TranslationController {
         incorrectGuesses.setText("Incorrect Guesses: 0");
 
         if(englishOrWelsh){
-            wordToTranslate.setText(practiceList.get(chosenWord).getEnglish());
+            wordToTranslate.setText(practiceList.get(chosenWord).getWelsh());
         }
         else{
-            wordToTranslate.setText(practiceList.get(chosenWord).getWelsh());
+            wordToTranslate.setText(practiceList.get(chosenWord).getEnglish());
         }
     }
 
@@ -99,25 +103,20 @@ public class TranslationController {
     @FXML
     void translateWord() {
 
+        ArrayList<String> usersInput = new ArrayList<>();
+        usersInput.add(translationBox.getText());
 
-        if(englishOrWelsh) {
-            if (translationBox.getText().equals(practiceList.get(chosenWord).getWelsh())) {
-                correctGuessesInt++;
-            } else {
-                incorrectGuessesInt++;
-            }
-        }
-        else{
-            if (translationBox.getText().equals(practiceList.get(chosenWord).getEnglish())) {
-                correctGuessesInt++;
-            } else {
-                incorrectGuessesInt++;
-            }
-        }
+        ArrayList<DictionaryEntry> correctTranslation = new ArrayList<>();
+        correctTranslation.add(practiceList.get(chosenWord));
+
+        checkAnswer(correctTranslation, usersInput, englishOrWelsh);
 
 
-        correctGuesses.setText("Correct Guesses: " + correctGuessesInt);
-        incorrectGuesses.setText("Incorrect Guesses: " + incorrectGuessesInt);
+
+
+
+        correctGuesses.setText("Correct Guesses: " + correctAnswer);
+        incorrectGuesses.setText("Incorrect Guesses: " + wrongAnswer);
 
 
 
@@ -135,10 +134,10 @@ public class TranslationController {
         }
 
         if(englishOrWelsh){
-            wordToTranslate.setText(practiceList.get(chosenWord).getEnglish());
+            wordToTranslate.setText(practiceList.get(chosenWord).getWelsh());
         }
         else{
-            wordToTranslate.setText(practiceList.get(chosenWord).getWelsh());
+            wordToTranslate.setText(practiceList.get(chosenWord).getEnglish());
         }
     }
 }
