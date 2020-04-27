@@ -9,6 +9,10 @@ import javafx.scene.text.Text;
 import java.util.ArrayList;
 import java.util.Random;
 
+import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
+import uk.ac.aber.cs22120.group20.javafx.Application;
+
+
 
 /**
  * Controller for the translationTest fxml file.
@@ -17,7 +21,7 @@ import java.util.Random;
  * @version 0.9
  *
  */
-public class TranslationController {
+public class TranslationController extends Question {
     ArrayList<DictionaryEntry> practiceList = new ArrayList<>();
 
 
@@ -66,7 +70,7 @@ public class TranslationController {
 
         submitButton.setImage(new Image ("file:src/main/resources/assets/right-icon.png"));
 
-        for(DictionaryEntry entry : App.dictionary){
+        for(DictionaryEntry entry : Application.dictionary){
             if(entry.isPracticeWord()){
                 practiceList.add(entry);
             }
