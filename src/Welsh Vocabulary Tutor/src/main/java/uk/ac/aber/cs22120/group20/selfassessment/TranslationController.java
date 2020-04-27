@@ -86,10 +86,10 @@ public class TranslationController extends Question {
         incorrectGuesses.setText("Incorrect Guesses: 0");
 
         if(englishOrWelsh){
-            wordToTranslate.setText(practiceList.get(chosenWord).getEnglish());
+            wordToTranslate.setText(practiceList.get(chosenWord).getWelsh());
         }
         else{
-            wordToTranslate.setText(practiceList.get(chosenWord).getWelsh());
+            wordToTranslate.setText(practiceList.get(chosenWord).getEnglish());
         }
     }
 
@@ -103,25 +103,20 @@ public class TranslationController extends Question {
     @FXML
     void translateWord() {
 
+        ArrayList<String> usersInput = new ArrayList<>();
+        usersInput.add(translationBox.getText());
 
-        if(englishOrWelsh) {
-            if (translationBox.getText().equals(practiceList.get(chosenWord).getWelsh())) {
-                correctGuessesInt++;
-            } else {
-                incorrectGuessesInt++;
-            }
-        }
-        else{
-            if (translationBox.getText().equals(practiceList.get(chosenWord).getEnglish())) {
-                correctGuessesInt++;
-            } else {
-                incorrectGuessesInt++;
-            }
-        }
+        ArrayList<DictionaryEntry> correctTranslation = new ArrayList<>();
+        correctTranslation.add(practiceList.get(chosenWord));
+
+        checkAnswer(correctTranslation, usersInput, englishOrWelsh);
 
 
-        correctGuesses.setText("Correct Guesses: " + correctGuessesInt);
-        incorrectGuesses.setText("Incorrect Guesses: " + incorrectGuessesInt);
+
+
+
+        correctGuesses.setText("Correct Guesses: " + correctAnswer);
+        incorrectGuesses.setText("Incorrect Guesses: " + wrongAnswer);
 
 
 
@@ -139,10 +134,10 @@ public class TranslationController extends Question {
         }
 
         if(englishOrWelsh){
-            wordToTranslate.setText(practiceList.get(chosenWord).getEnglish());
+            wordToTranslate.setText(practiceList.get(chosenWord).getWelsh());
         }
         else{
-            wordToTranslate.setText(practiceList.get(chosenWord).getWelsh());
+            wordToTranslate.setText(practiceList.get(chosenWord).getEnglish());
         }
     }
 }
