@@ -215,8 +215,8 @@ public class PracticeListController implements Initializable {
      * @throws IOException
      */
     @FXML
-    private void switchToPrimary() throws IOException {
-        Application.setRoot("primary");
+    private void switchToFlashCard() throws IOException {
+        Application.setRoot("flashcard");
     }
 
 }
