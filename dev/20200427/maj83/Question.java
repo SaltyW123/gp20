@@ -30,13 +30,13 @@ public class Question {
     public void  checkAnswer(ArrayList<DictionaryEntry> listOfCorrectQuestions, ArrayList<String>listOfAnswers, boolean isEnglish){
         if(isEnglish){
             for(int i=0; i<listOfCorrectQuestions.size();i++){
-                if(listOfCorrectQuestions.get(i).getWelsh().equals(listOfAnswers.get(i))){
+                if(listOfCorrectQuestions.get(i).getEnglish().equals(listOfAnswers.get(i))){
                     correctAnswer++;
                 }else wrongAnswer++;
             }
         }else{
             for(int i=0; i<listOfCorrectQuestions.size();i++){
-                if(listOfCorrectQuestions.get(i).getEnglish().equals(listOfAnswers.get(i))){
+                if(listOfCorrectQuestions.get(i).getWelsh().equals(listOfAnswers.get(i))){
                     correctAnswer++;
                 }else wrongAnswer++;
             }
