@@ -1,4 +1,4 @@
-package uk.ac.aber.cs22120.group20;
+package uk.ac.aber.cs22120.group20.javafx;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
