@@ -68,7 +68,7 @@ public class TranslationController extends Question {
     @FXML
     private void initialize(){
 
-        submitButton.setImage(new Image ("file:src/main/resources/assets/right-icon.png"));
+        submitButton.setImage(new Image ("file:src/main/resources/assets/icons/black_icons/50px/right-50.png"));
 
         for(DictionaryEntry entry : Application.dictionary){
             if(entry.isPracticeWord()){
