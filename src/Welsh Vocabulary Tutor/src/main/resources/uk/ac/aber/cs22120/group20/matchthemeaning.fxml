@@ -51,14 +51,14 @@
             </FXCollections>
          </items>
       </ComboBox>
-      <Label fx:id="WelshWord1" layoutX="343.0" layoutY="122.0" text="Welsh word#3" />
-      <Label fx:id="WelshWord2" layoutX="343.0" layoutY="157.0" text="Welsh word#2" />
-      <Label fx:id="WelshWord3" layoutX="343.0" layoutY="192.0" text="Welsh word#1" />
-      <Label fx:id="WelshWord4" layoutX="343.0" layoutY="227.0" text="Welsh word#4" />
-      <Label fx:id="EngWord1" layoutX="115.0" layoutY="122.0" text="English Word #1" />
-      <Label fx:id="EngWord2" layoutX="115.0" layoutY="157.0" text="English Word #2" />
-      <Label fx:id="EngWord3" layoutX="115.0" layoutY="192.0" text="English Word #3" />
-      <Label fx:id="EngWord4" layoutX="115.0" layoutY="227.0" text="English Word #4" />
+      <Label fx:id="RightWord1" layoutX="343.0" layoutY="122.0" text="Welsh word#3" />
+      <Label fx:id="RightWord2" layoutX="343.0" layoutY="157.0" text="Welsh word#2" />
+      <Label fx:id="RightWord3" layoutX="343.0" layoutY="192.0" text="Welsh word#1" />
+      <Label fx:id="RightWord4" layoutX="343.0" layoutY="227.0" text="Welsh word#4" />
+      <Label fx:id="LeftWord1" layoutX="115.0" layoutY="122.0" text="English Word #1" />
+      <Label fx:id="LeftWord2" layoutX="115.0" layoutY="157.0" text="English Word #2" />
+      <Label fx:id="LeftWord3" layoutX="115.0" layoutY="192.0" text="English Word #3" />
+      <Label fx:id="LeftWord4" layoutX="115.0" layoutY="227.0" text="English Word #4" />
       <Label layoutX="105.0" layoutY="122.0" text="1." />
       <Label layoutX="105.0" layoutY="157.0" text="2." />
       <Label layoutX="105.0" layoutY="192.0" text="3." />
