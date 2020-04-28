@@ -15,34 +15,29 @@ import java.util.ArrayList;
  */
 public class Question {
 
-    public int correctAnswer = 0;
-    public int wrongAnswer =0;
+   public int correctAnswers = 0;
+   public int wrongAnswers =0;
 
-    /**
-     * Constructor for
-     * WordEnterQuestion that takes a WelshDictionary object that is being tested on as the parameter.
-     * @param correctAnswer
-     */
-    public void wordEnterQuestion(DictionaryEntry correctAnswer){
+   /**
+    *
+    * @param listOfCorrectQuestions
+    * @param listOfAnswers
+    * @param isEnglish
+    */
+   public void  checkAnswer(ArrayList<DictionaryEntry> listOfCorrectQuestions, ArrayList<String>listOfAnswers, boolean isEnglish){
+      if(isEnglish){
+         for(int i=0; i<listOfCorrectQuestions.size();i++){
+            if(listOfCorrectQuestions.get(i).getWelsh().equals(listOfAnswers.get(i))){
+               correctAnswers++;
+            }else wrongAnswers++;
+         }
+      }else{
+         for(int i=0; i<listOfCorrectQuestions.size();i++){
+            if(listOfCorrectQuestions.get(i).getEnglish().equals(listOfAnswers.get(i))){
+               correctAnswers++;
+            }else wrongAnswers++;
+         }
+      }
 
-    }
-
-    public void  checkAnswer(ArrayList<DictionaryEntry> listOfCorrectQuestions, ArrayList<String>listOfAnswers, boolean isEnglish){
-        if(isEnglish){
-            for(int i=0; i<listOfCorrectQuestions.size();i++){
-                if(listOfCorrectQuestions.get(i).getWelsh().equals(listOfAnswers.get(i))){
-                    correctAnswer++;
-                }else wrongAnswer++;
-            }
-        }else{
-            for(int i=0; i<listOfCorrectQuestions.size();i++){
-                if(listOfCorrectQuestions.get(i).getEnglish().equals(listOfAnswers.get(i))){
-                    correctAnswer++;
-                }else wrongAnswer++;
-            }
-        }
-
-    }
-
-
+   }
 }
