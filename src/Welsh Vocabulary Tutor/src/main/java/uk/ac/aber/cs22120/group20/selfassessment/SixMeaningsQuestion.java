@@ -12,6 +12,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import uk.ac.aber.cs22120.group20.javafx.Application;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
 import java.net.URL;
@@ -41,6 +42,11 @@ public class SixMeaningsQuestion extends TranslationController implements Initia
     private int incorrect = 0;
     private String englishCounterpart;
 
+    @FXML
+    private Text correctAnswer;
+
+    @FXML
+    private Text wrongAnswer;
 
     @FXML
     private Label wordToTranslate;
@@ -65,7 +71,7 @@ public class SixMeaningsQuestion extends TranslationController implements Initia
 
     @FXML
     void temp(MouseEvent event) {
-
+        checkAnswers();
     }
 
 
@@ -105,18 +111,18 @@ public class SixMeaningsQuestion extends TranslationController implements Initia
 
         private void setWords (LinkedList<DictionaryEntry> questions, ArrayList<Integer> orderList){
         //WelshWord1 Is the question word and as a result is always right.
-            WelshWord1.setText(questions.get(0).getWelsh());
+            wordToTranslate.setText(questions.get(0).getWelsh());
         //This stores the correct answer for the english word.
             englishCounterpart = questions.get(0).getEnglish();
 
 
 
-            EngWord1.setText(questions.get(orderList.get(0)).getEnglish());
-            EngWord2.setText(questions.get(orderList.get(1)).getEnglish());
-            EngWord3.setText(questions.get(orderList.get(2)).getEnglish());
-            EngWord4.setText(questions.get(orderList.get(3)).getEnglish());
-            EngWord5.setText(questions.get(orderList.get(4)).getEnglish());
-            EngWord6.setText(questions.get(orderList.get(5)).getEnglish());
+            possibleAnswer1.setText(questions.get(orderList.get(0)).getEnglish());
+            possibleAnswer2.setText(questions.get(orderList.get(1)).getEnglish());
+            possibleAnswer3.setText(questions.get(orderList.get(2)).getEnglish());
+            possibleAnswer4.setText(questions.get(orderList.get(3)).getEnglish());
+            possibleAnswer5.setText(questions.get(orderList.get(4)).getEnglish());
+            possibleAnswer6.setText(questions.get(orderList.get(5)).getEnglish());
 
             Collections.shuffle(orderList); //I know that this does not belong here it was moved here for debug purposes. It lives five lines up.
 
@@ -124,12 +130,12 @@ public class SixMeaningsQuestion extends TranslationController implements Initia
 
 
     public void checkAnswers(){
-        String option1 = EngWord1.toString();
-        String option2 = EngWord2.toString();
-        String option3 = EngWord3.toString();
-        String option4 = EngWord4.toString();
-        String option5 = EngWord5.toString();
-        String option6 = EngWord6.toString();
+        String option1 = possibleAnswer1.toString();
+        String option2 = possibleAnswer2.toString();
+        String option3 = possibleAnswer3.toString();
+        String option4 = possibleAnswer4.toString();
+        String option5 = possibleAnswer5.toString();
+        String option6 = possibleAnswer6.toString();
 
         if (option1 == englishCounterpart){
             correct++;
@@ -170,7 +176,7 @@ public class SixMeaningsQuestion extends TranslationController implements Initia
 
 
 private void prepare(){
-   // getWords(LinkedList<DictionaryEntry> practiceList);//Thats just out right not correct.... Ask Marcin what he is aiming for to continue.
+   getWords(Application.dictionary);
         setWords(wordSet, orderList);
 
 }
