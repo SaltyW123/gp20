@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.aber.cs22120.group20.selfassessment.SixMeaningsQuestion">
    <children>
       <TitledPane animated="false" prefHeight="400.0" prefWidth="600.0" text="Learn">
         <content>
@@ -29,8 +29,8 @@
             <Text fx:id="possibleAnswer6" layoutX="472.0" layoutY="297.0" onMouseClicked="#temp" strokeType="OUTSIDE" strokeWidth="0.0" text="English Word 6" />
          </children>
       </AnchorPane>
-      <Text layoutX="469.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correct Guesses: 0" />
-      <Text layoutX="469.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Incorrect Guesses: 0" />
+      <Text fx:id="correctAnswer" layoutX="469.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correct Guesses: 0" />
+      <Text fx:id="wrongAnswer" layoutX="469.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Incorrect Guesses: 0" />
       <Text fill="#8d8d8d" layoutX="238.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Six Meanings">
          <font>
             <Font name="System Italic" size="22.0" />
