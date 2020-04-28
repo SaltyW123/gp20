@@ -10,7 +10,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-
+import uk.ac.aber.cs22120.group20.javafx.Application;
+import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 import java.net.URL;
 import java.util.*;
 
@@ -26,17 +27,16 @@ import java.util.*;
  * @author Tom Perry [top1]
  * @author Waylen Watts [ncw]
  * @version 0.1 Initial development
- * @see Main
+ * @see uk.ac.aber.cs22120.group20.javafx.Application
  */
 
 
-public class MatchTheMeaningQuestion implements Initializable {
+public class MatchTheMeaningQuestion extends Question implements Initializable{
 
-    private Random rand = new Random();
-    private LinkedList<DictionaryEntry> setOfQuestions=new LinkedList<>();
+
+    public static ArrayList<DictionaryEntry> setOfQuestions=new ArrayList<>();
     private ArrayList<Integer> orderList = new ArrayList<>(Arrays.asList(0,1,2,3));
-    private int corAns = 0;
-    private int wrongAns = 0;
+    private boolean isEnglish;
 
 
     @FXML
@@ -52,28 +52,28 @@ public class MatchTheMeaningQuestion implements Initializable {
     private ComboBox<String> word4;
 
     @FXML
-    private Label EngWord1;
+    private Label LeftWord1;
 
     @FXML
-    private Label EngWord2;
+    private Label LeftWord2;
 
     @FXML
-    private Label EngWord3;
+    private Label LeftWord3;
 
     @FXML
-    private Label EngWord4;
+    private Label LeftWord4;
 
     @FXML
-    private Label WelshWord1;
+    private Label RightWord1;
 
     @FXML
-    private Label WelshWord2;
+    private Label RightWord2;
 
     @FXML
-    private Label WelshWord3;
+    private Label RightWord3;
 
     @FXML
-    private Label WelshWord4;
+    private Label RightWord4;
 
     @FXML
     private Label CorrectAnswer;
@@ -84,44 +84,9 @@ public class MatchTheMeaningQuestion implements Initializable {
 
     /**
      * Pick randomly dictionary entry and add it to question list where are stored questions for this test.
-     *
-     * @param dictionary main list of dictionary entries with words.
      */
-    private void getQuestions(LinkedList<DictionaryEntry> dictionary){
-
-        boolean isDuplicate = false;
-
-        do{
-            int rand_q=rand.nextInt(dictionary.size()-1);
-
-            DictionaryEntry pickedQuestion = dictionary.get(rand_q);
-
-            //If size of list is greater than 1 check for duplicates...
-            if(setOfQuestions.size()>=1){
-
-                for (DictionaryEntry setOfQuestion : setOfQuestions) {
-
-                    //If it is duplicate change isDuplicate to true and break
-                    if (setOfQuestion.equals(pickedQuestion)) {
-                        isDuplicate = true;
-                        break;
-                    }
-
-                }
-
-                //If duplicate wasn't found add entry to the list
-                if(!isDuplicate){
-                    setOfQuestions.add(pickedQuestion);
-                }
-
-            //... otherwise, add entry to the
-            }else{
-                setOfQuestions.add(pickedQuestion);
-            }
-
-            isDuplicate =false;
-
-        }while(setOfQuestions.size()<5);
+    private void getQuestions(){
+        AssessmentGenerator.generateSixMeanings(Application.dictionary);
     }
 
     /**
@@ -132,18 +97,35 @@ public class MatchTheMeaningQuestion implements Initializable {
      */
 
 
-    private void setWords(LinkedList<DictionaryEntry> questions, ArrayList<Integer> orderList){
-        EngWord1.setText(questions.get(0).getEnglish());
-        EngWord2.setText(questions.get(1).getEnglish());
-        EngWord3.setText(questions.get(2).getEnglish());
-        EngWord4.setText(questions.get(3).getEnglish());
+    private void setWords(ArrayList<DictionaryEntry> questions, ArrayList<Integer> orderList){
 
-        Collections.shuffle(orderList);
+        if(isEnglish){
+            LeftWord1.setText(questions.get(0).getEnglish());
+            LeftWord2.setText(questions.get(1).getEnglish());
+            LeftWord3.setText(questions.get(2).getEnglish());
+            LeftWord4.setText(questions.get(3).getEnglish());
 
-        WelshWord1.setText(questions.get(orderList.get(0)).getWelsh());
-        WelshWord2.setText(questions.get(orderList.get(1)).getWelsh());
-        WelshWord3.setText(questions.get(orderList.get(2)).getWelsh());
-        WelshWord4.setText(questions.get(orderList.get(3)).getWelsh());
+            Collections.shuffle(orderList);
+
+            RightWord1.setText(questions.get(orderList.get(0)).getWelsh());
+            RightWord1.setText(questions.get(orderList.get(1)).getWelsh());
+            RightWord1.setText(questions.get(orderList.get(2)).getWelsh());
+            RightWord1.setText(questions.get(orderList.get(3)).getWelsh());
+
+        }else {
+            LeftWord1.setText(questions.get(0).getWelsh());
+            LeftWord2.setText(questions.get(1).getWelsh());
+            LeftWord3.setText(questions.get(2).getWelsh());
+            LeftWord4.setText(questions.get(3).getWelsh());
+
+            Collections.shuffle(orderList);
+
+            RightWord1.setText(questions.get(orderList.get(0)).getEnglish());
+            RightWord1.setText(questions.get(orderList.get(1)).getEnglish());
+            RightWord1.setText(questions.get(orderList.get(2)).getEnglish());
+            RightWord1.setText(questions.get(orderList.get(3)).getEnglish());
+        }
+
     }
 
     /**
@@ -151,30 +133,20 @@ public class MatchTheMeaningQuestion implements Initializable {
      */
 
     public void checkAnswers(){
-        int w1 = Integer.parseInt(word1.getValue())-1;
-        int w2 = Integer.parseInt(word2.getValue())-1;
-        int w3 = Integer.parseInt(word3.getValue())-1;
-        int w4 = Integer.parseInt(word4.getValue())-1;
+        ArrayList<String> listOfAnswers = new ArrayList<>();
+        if(isEnglish){
+            listOfAnswers.add(RightWord1.getText());
+            listOfAnswers.add(RightWord2.getText());
+            listOfAnswers.add(RightWord3.getText());
+            listOfAnswers.add(RightWord4.getText());
+        }else {
+            listOfAnswers.add(LeftWord1.getText());
+            listOfAnswers.add(LeftWord2.getText());
+            listOfAnswers.add(LeftWord3.getText());
+            listOfAnswers.add(LeftWord4.getText());
+        }
 
-        if(setOfQuestions.get(w1).getWelsh().equals(WelshWord1.getText())){
-            corAns++;
-        }else wrongAns++;
-
-        if(setOfQuestions.get(w2).getWelsh().equals(WelshWord2.getText())){
-            corAns++;
-        }else wrongAns++;
-
-        if(setOfQuestions.get(w3).getWelsh().equals(WelshWord3.getText())){
-            corAns++;
-        }else wrongAns++;
-
-        if(setOfQuestions.get(w4).getWelsh().equals(WelshWord4.getText())){
-            corAns++;
-        }else wrongAns++;
-
-        CorrectAnswer.setText(Integer.toString(corAns));
-
-        WrongAnswer.setText(Integer.toString(wrongAns));
+        checkAnswer(setOfQuestions,listOfAnswers,isEnglish);
 
         setOfQuestions.clear();
         this.prepare();
@@ -185,7 +157,7 @@ public class MatchTheMeaningQuestion implements Initializable {
      * Method responsible for preparing questions and scene.
      */
     private void prepare(){
-        getQuestions(Main.dictionary);
+        getQuestions();
         setWords(setOfQuestions,orderList);
     }
 
