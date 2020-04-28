@@ -8,6 +8,8 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
+import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
+
 
 /**
  * Add Word Controller
@@ -32,13 +34,15 @@ public class AddWordController {
 
         wordType.getItems().addAll("Masculine noun", "Feminine noun", "Verb", "Other");
         System.out.println("Test");
+        wordType.setValue("Type");
 
     }
 
 
     @FXML protected void addButtonClick (ActionEvent actionEvent){
         boolean entryFound = false;
-        if (english.getText().equals("") || welsh.getText().equals("")|| wordType.getValue().equals("Type")){
+        // one or more blank fields
+        if (english.getText() == null || welsh.getText() == null|| wordType.getValue().equals("Type")){
             Alert error = new Alert(Alert.AlertType.ERROR);
             error.setTitle("Error");
             error.setHeaderText("Entry Not Saved");
@@ -48,9 +52,9 @@ public class AddWordController {
         }
 
         else {
-            for (DictionaryEntry entry : App.dictionary){
+            for (DictionaryEntry entry : Application.dictionary){
                 entryFound = false;
-                DictionaryEntry newEntry = new DictionaryEntry(english.getText(),welsh.getText(),wordType.getValue(),false);
+                DictionaryEntry newEntry = new DictionaryEntry(english.getText(),welsh.getText(),wordType.getValue());
                 if(entry.equals(newEntry)){
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error");
@@ -72,10 +76,21 @@ public class AddWordController {
                 alert.setContentText("Entry Added");
 
                 alert.showAndWait();
-                DictionaryEntry dictionaryEntry = new DictionaryEntry(english.getText(), welsh.getText(), wordType.getValue(), false);
-                App.dictionary.contains(dictionaryEntry);
-                App.dictionary.add(dictionaryEntry);
-                System.out.println(App.dictionary.toString());
+                DictionaryEntry dictionaryEntry = new DictionaryEntry(english.getText(), welsh.getText(), wordType.getValue());
+                Application.dictionary.contains(dictionaryEntry);
+                Application.dictionary.add(dictionaryEntry);
+
+//              output of what was saved for testing
+                System.out.print(english.getText());
+                System.out.print(welsh.getText());
+                System.out.println(wordType.getValue());
+
+//              Resets values to blank for next word to be entered
+                english.clear();
+                welsh.clear();
+                wordType.setValue("Type");
+
+
             }
         }
 
@@ -91,7 +106,7 @@ public class AddWordController {
 
     @FXML
     private void switchToPrimary() throws IOException {
-        App.setRoot("Primary");
+        Application.setRoot("Primary");
     }
 // add character methods for characters ch, dd, ff, ng, ll, ph, rh, th
     public void addCharch(ActionEvent actionEvent) { welsh.appendText("ch"); }
