@@ -161,9 +161,9 @@ public class SixMeaningsQuestion extends TranslationController implements Initia
             correct++;
         }else incorrect++;
 
-        CorrectAnswer.setText(Integer.toString(correct));
+        correctAnswer.setText(Integer.toString(correct));
 
-        WrongAnswer.setText(Integer.toString(incorrect));
+        wrongAnswer.setText(Integer.toString(incorrect));
 
         wordSet.clear();
         this.prepare();
