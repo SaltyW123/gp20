@@ -22,6 +22,7 @@ import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -70,10 +71,11 @@ public class PracticeListController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 //        list.addAll(Application.dictionary);
-        for (DictionaryEntry entry : Application.dictionary) {
-            if (entry.isPracticeWord())
-                list.add(entry);
-        }
+        list.addAll(Application.practiseList);
+//        for (DictionaryEntry entry : Application.dictionary) {
+//            if (entry.isPracticeWord())
+//                list.add(entry);
+//        }
 
 
         FilteredList<DictionaryEntry> filteredList = new FilteredList<>(list, p -> true); // Wrap list in a FilteredList
@@ -132,7 +134,17 @@ public class PracticeListController implements Initializable {
                                     list.remove(row.getItem());
                                     table.refresh();
                                 }
+
+                                }
+
+                            ArrayList<DictionaryEntry> toRemove = new ArrayList<DictionaryEntry>();
+                            for (DictionaryEntry entry : Application.practiseList) {
+                                if (entry.equals(row.getItem())) {
+                                    toRemove.add(entry);
+                                    list.remove(row.getItem());
+                                }
                             }
+                            Application.practiseList.removeAll(toRemove);
                             table.getSelectionModel().clearSelection();
                         }
                     });

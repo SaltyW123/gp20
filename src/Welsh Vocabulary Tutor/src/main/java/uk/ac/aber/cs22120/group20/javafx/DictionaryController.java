@@ -25,6 +25,7 @@ import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -148,9 +149,17 @@ public class DictionaryController implements Initializable {
                         if (mouseEvent.getClickCount() == 1 && (!row.isEmpty())) {
                             if (row.getItem().isPracticeWord()) {
                                 Application.dictionary.get(list.indexOf(row.getItem())).setPracticeWord(false);
+                                ArrayList<DictionaryEntry> toRemove = new ArrayList<DictionaryEntry>();
+                               for (DictionaryEntry entry : Application.practiseList) {
+                                   if (entry.equals(row.getItem())) {
+                                      toRemove.add(entry);
+                                   }
+                               }
+                               Application.practiseList.removeAll(toRemove);
 //                        row.getItem().setPracticeWord(false);
                             } else if (!row.getItem().isPracticeWord()) {
                                 Application.dictionary.get(list.indexOf(row.getItem())).setPracticeWord(true);
+                                Application.practiseList.add(row.getItem());
 //                        row.getItem().setPracticeWord(true);
                             }
                             table.getSelectionModel().clearSelection();

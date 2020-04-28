@@ -35,74 +35,80 @@ import java.util.Scanner;
  * @version 0.1 Initial development
  */
 public class Application extends javafx.application.Application {
-    private static Scene scene;
+   private static Scene scene;
 
-    private JsonProcessing jsonProcessing = new JsonProcessing();
-    private Scanner scanner = new Scanner(System.in);
+   private JsonProcessing jsonProcessing = new JsonProcessing();
+   private Scanner scanner = new Scanner(System.in);
 
-    public static LinkedList<DictionaryEntry> dictionary = new LinkedList<>();
+   public static LinkedList<DictionaryEntry> dictionary = new LinkedList<>();
+   public static LinkedList<DictionaryEntry> practiseList = new LinkedList<>();
 
-    /**
-     *
-     * @param stage
-     * @throws IOException
-     */
-    @Override
-    public void start(Stage stage) throws IOException {
-        File jsonFileLocation = null;
+   /**
+    *
+    * @param stage
+    * @throws IOException
+    */
+   @Override
+   public void start(Stage stage) throws IOException {
+      File jsonFileLocation = null;
 
-        while(jsonFileLocation ==null) {
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Json Files", "*.json"));
-            fileChooser.setTitle("Open Json File");
-            jsonFileLocation = fileChooser.showOpenDialog(stage);
-        }
+      while(jsonFileLocation ==null) {
+         FileChooser fileChooser = new FileChooser();
+         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Json Files", "*.json"));
+         fileChooser.setTitle("Open Json File");
+         jsonFileLocation = fileChooser.showOpenDialog(stage);
+      }
 
-        final File jsonFileFinalLocation = jsonFileLocation;
-        dictionary = jsonProcessing.readInJson(jsonFileFinalLocation);
+      final File jsonFileFinalLocation = jsonFileLocation;
+      dictionary = jsonProcessing.readInJson(jsonFileFinalLocation);
+      for (DictionaryEntry entry : dictionary) {
+         if (entry.isPracticeWord()) {
+            practiseList.add(entry);
+         }
+      }
 //        dictionary.add(new DictionaryEntry("abbey", "abaty", "nm", false));
 //        dictionary.add(new DictionaryEntry("believe", "credu", "verb", true));
 //        dictionary.add(new DictionaryEntry("concert", "cyngerdd", "nm", false));
 //        dictionary.add(new DictionaryEntry("disease", "clefyd", "nm", true));
 //        dictionary.add(new DictionaryEntry("extremely", "dros ben", "other", false));
 //        dictionary.add(new DictionaryEntry("flu", "ffliw", "nm", false));
-        scene = new Scene(loadFXML("dictionary"));
-        stage.setScene(scene);
+      scene = new Scene(loadFXML("dictionary"));
+      stage.setScene(scene);
 //        stage.setOnCloseRequest(e -> {
 //            jsonProcessing.writeOutJson(jsonFileLocation, dictionary);
 //            Platform.exit();
 //            System.exit(0);
 //        });
-        stage.show();
-    }
+      stage.show();
+   }
 
-    /**
-     *
-     * @param fxml
-     * @throws IOException
-     */
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
+   /**
+    *
+    * @param fxml
+    * @throws IOException
+    */
+   static void setRoot(String fxml) throws IOException {
+      scene.setRoot(loadFXML(fxml));
+   }
 
-    /**
-     *
-     * @param fxml
-     * @return
-     * @throws IOException
-     */
-    private static Parent loadFXML(String fxml) throws IOException {
+   /**
+    *
+    * @param fxml
+    * @return
+    * @throws IOException
+    */
+   private static Parent loadFXML(String fxml) throws IOException {
 //        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(fxml + ".fxml"));
-        FXMLLoader fxmlLoader = new FXMLLoader(new URL("file:src/main/resources/uk/ac/aber/cs22120/group20/" + fxml + ".fxml"));
-        return fxmlLoader.load();
-    }
+      FXMLLoader fxmlLoader = new FXMLLoader(new URL("file:src/main/resources/uk/ac/aber/cs22120/group20/" + fxml + ".fxml"));
+      return fxmlLoader.load();
+   }
 
-    /**
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
-        launch();
-    }
+   /**
+    *
+    * @param args
+    */
+   public static void main(String[] args) {
+      launch();
+   }
 
 }
