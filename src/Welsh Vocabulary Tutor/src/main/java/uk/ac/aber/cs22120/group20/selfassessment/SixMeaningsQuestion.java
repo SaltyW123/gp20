@@ -10,6 +10,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
 import java.net.URL;
@@ -41,50 +43,30 @@ public class SixMeaningsQuestion extends TranslationController implements Initia
 
 
     @FXML
-    private Label EngWord1;
+    private Label wordToTranslate;
 
     @FXML
-    private Label EngWord2;
+    private Text possibleAnswer1;
 
     @FXML
-    private Label EngWord3;
+    private Text possibleAnswer2;
 
     @FXML
-    private Label EngWord4;
+    private Text possibleAnswer3;
 
     @FXML
-    private Label EngWord5;
+    private Text possibleAnswer4;
 
     @FXML
-    private Label EngWord6;
-
-
-    @FXML
-    private Label WelshWord1;
+    private Text possibleAnswer5;
 
     @FXML
-    private Label CorrectAnswer;
+    private Text possibleAnswer6;
 
     @FXML
-    private Label WrongAnswer;
+    void temp(MouseEvent event) {
 
-
-/*
-    @FXML
-    private Label WelshWord2;
-
-    @FXML
-    private Label WelshWord3;
-
-    @FXML
-    private Label WelshWord4;
-
-    @FXML
-    private Label WelshWord5;
-
-    @FXML
-    private Label WelshWord6;
- */
+    }
 
 
     private void getWords(LinkedList<DictionaryEntry> practiceList){
