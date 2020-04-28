@@ -39,7 +39,8 @@ public class SixMeaningsQuestion extends TranslationController implements Initia
    private ArrayList<Integer> orderList = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5));
    private int correct = 0;
    private int incorrect = 0;
-   private String englishCounterpart;
+   private String wordCounterpart;
+
 
    @FXML
    private Text correctAnswer;
@@ -70,6 +71,7 @@ public class SixMeaningsQuestion extends TranslationController implements Initia
 
    @FXML
    void temp(MouseEvent event) {
+
       checkAnswers();
    }
 
@@ -108,13 +110,11 @@ public class SixMeaningsQuestion extends TranslationController implements Initia
    }
 
 
-   private void setWords(LinkedList<DictionaryEntry> questions, ArrayList<Integer> orderList) {
+   private void setWordsE(LinkedList<DictionaryEntry> questions, ArrayList<Integer> orderList) {
       //WelshWord1 Is the question word and as a result is always right.
       wordToTranslate.setText(questions.get(0).getWelsh());
       //This stores the correct answer for the english word.
-      englishCounterpart = questions.get(0).getEnglish();
-
-
+      wordCounterpart = questions.get(0).getEnglish();
       possibleAnswer1.setText(questions.get(orderList.get(0)).getEnglish());
       possibleAnswer2.setText(questions.get(orderList.get(1)).getEnglish());
       possibleAnswer3.setText(questions.get(orderList.get(2)).getEnglish());
@@ -123,7 +123,21 @@ public class SixMeaningsQuestion extends TranslationController implements Initia
       possibleAnswer6.setText(questions.get(orderList.get(5)).getEnglish());
 
       Collections.shuffle(orderList); //I know that this does not belong here it was moved here for debug purposes. It lives five lines up.
+   }
 
+   private void setWordsW(LinkedList<DictionaryEntry> questions, ArrayList<Integer> orderList) {
+      //WelshWord1 Is the question word and as a result is always right.
+      wordToTranslate.setText(questions.get(0).getEnglish());
+      //This stores the correct answer for the english word.
+      wordCounterpart = questions.get(0).getWelsh();
+      possibleAnswer1.setText(questions.get(orderList.get(0)).getWelsh());
+      possibleAnswer2.setText(questions.get(orderList.get(1)).getWelsh());
+      possibleAnswer3.setText(questions.get(orderList.get(2)).getWelsh());
+      possibleAnswer4.setText(questions.get(orderList.get(3)).getWelsh());
+      possibleAnswer5.setText(questions.get(orderList.get(4)).getWelsh());
+      possibleAnswer6.setText(questions.get(orderList.get(5)).getWelsh());
+
+      Collections.shuffle(orderList); //I know that this does not belong here it was moved here for debug purposes. It lives five lines up.
    }
 
 
@@ -135,27 +149,27 @@ public class SixMeaningsQuestion extends TranslationController implements Initia
       String option5 = possibleAnswer5.toString();
       String option6 = possibleAnswer6.toString();
 
-      if (option1 == englishCounterpart) {
+      if (option1 == wordCounterpart) {
          correct++;
       } else incorrect++;
 
-      if (option2 == englishCounterpart) {
+      if (option2 == wordCounterpart) {
          correct++;
       } else incorrect++;
 
-      if (option3 == englishCounterpart) {
+      if (option3 == wordCounterpart) {
          correct++;
       } else incorrect++;
 
-      if (option4 == englishCounterpart) {
+      if (option4 == wordCounterpart) {
          correct++;
       } else incorrect++;
 
-      if (option5 == englishCounterpart) {
+      if (option5 == wordCounterpart) {
          correct++;
       } else incorrect++;
 
-      if (option6 == englishCounterpart) {
+      if (option6 == wordCounterpart) {
          correct++;
       } else incorrect++;
 
@@ -171,8 +185,11 @@ public class SixMeaningsQuestion extends TranslationController implements Initia
 
    private void prepare() {
       getWords(Application.dictionary);
-      setWords(wordSet, orderList);
-
+      Random rd = new Random();
+      System.out.println(rd.nextBoolean());
+      if (rd.nextBoolean() == true) {
+         setWordsE(wordSet, orderList);
+      } else setWordsW(wordSet, orderList);
    }
 
 
@@ -181,4 +198,7 @@ public class SixMeaningsQuestion extends TranslationController implements Initia
       this.prepare();
 
    }
+
 }
+
+
