@@ -35,7 +35,7 @@ import java.util.Scanner;
  * @version 0.1 Initial development
  */
 public class Application extends javafx.application.Application {
-   private static Scene scene;
+
 
    private JsonProcessing jsonProcessing = new JsonProcessing();
    private Scanner scanner = new Scanner(System.in);
@@ -50,6 +50,7 @@ public class Application extends javafx.application.Application {
     */
    @Override
    public void start(Stage stage) throws IOException {
+      Scene scene;
       File jsonFileLocation = null;
 
       while(jsonFileLocation ==null) {
@@ -72,36 +73,40 @@ public class Application extends javafx.application.Application {
 //        dictionary.add(new DictionaryEntry("disease", "clefyd", "nm", true));
 //        dictionary.add(new DictionaryEntry("extremely", "dros ben", "other", false));
 //        dictionary.add(new DictionaryEntry("flu", "ffliw", "nm", false));
-      scene = new Scene(loadFXML("dictionary"));
-      stage.setScene(scene);
+      new ScreenSwitch(stage);
+//      scene = new Scene(loadFXML("dictionary"));
+//      stage.setScene(scene);
 //        stage.setOnCloseRequest(e -> {
 //            jsonProcessing.writeOutJson(jsonFileLocation, dictionary);
 //            Platform.exit();
 //            System.exit(0);
 //        });
-      stage.show();
+//      stage.show();
+//      ScreenSwitch.setScene(scene);
    }
 
    /**
-    *
+    * @deprecated Please now use ScreenSwitch swap method with SceneEnum
     * @param fxml
     * @throws IOException
+    * @see ScreenSwitch
+    * @see ScreenSwitch.SceneEnum
     */
    static void setRoot(String fxml) throws IOException {
-      scene.setRoot(loadFXML(fxml));
+      ScreenSwitch.setLegacyScene(fxml);
    }
 
-   /**
-    *
-    * @param fxml
-    * @return
-    * @throws IOException
-    */
-   private static Parent loadFXML(String fxml) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(fxml + ".fxml"));
-      FXMLLoader fxmlLoader = new FXMLLoader(new URL("file:src/main/resources/uk/ac/aber/cs22120/group20/" + fxml + ".fxml"));
-      return fxmlLoader.load();
-   }
+//   /**
+//    *
+//    * @param fxml
+//    * @return
+//    * @throws IOException
+//    */
+//   private static Parent loadFXML(String fxml) throws IOException {
+////        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(fxml + ".fxml"));
+//      FXMLLoader fxmlLoader = new FXMLLoader(new URL("file:src/main/resources/uk/ac/aber/cs22120/group20/" + fxml + ".fxml"));
+//      return fxmlLoader.load();
+//   }
 
    /**
     *
