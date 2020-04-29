@@ -67,10 +67,10 @@ public class TranslationController {
 
 
         if(AssessmentGenerator.isEnglish){
-            wordToTranslate.setText(answer.getWelsh());
+            wordToTranslate.setText(answer.getEnglish());
         }
         else{
-            wordToTranslate.setText(answer.getEnglish());
+            wordToTranslate.setText(answer.getWelsh());
         }
     }
 
