@@ -23,17 +23,17 @@
                   <Font name="System Bold" size="25.0"/>
                </font>
             </Label>
-            <Text fx:id="possibleAnswer1" layoutX="61.0" layoutY="176.0" onMouseClicked="#temp" strokeType="OUTSIDE"
+            <Text fx:id="possibleAnswer1" layoutX="61.0" layoutY="176.0" onMouseClicked="#answer1" strokeType="OUTSIDE"
                   strokeWidth="0.0" text="English Word 1"/>
-            <Text fx:id="possibleAnswer2" layoutX="260.0" layoutY="175.0" onMouseClicked="#temp"
+            <Text fx:id="possibleAnswer2" layoutX="260.0" layoutY="175.0" onMouseClicked="#answer2"
                   strokeType="OUTSIDE" strokeWidth="0.0" text="English Word 2"/>
-            <Text fx:id="possibleAnswer3" layoutX="472.0" layoutY="175.0" onMouseClicked="#temp"
+            <Text fx:id="possibleAnswer3" layoutX="472.0" layoutY="175.0" onMouseClicked="#answer3"
                   strokeType="OUTSIDE" strokeWidth="0.0" text="English Word 3"/>
-            <Text fx:id="possibleAnswer4" layoutX="61.0" layoutY="297.0" onMouseClicked="#temp" strokeType="OUTSIDE"
+            <Text fx:id="possibleAnswer4" layoutX="61.0" layoutY="297.0" onMouseClicked="#answer4" strokeType="OUTSIDE"
                   strokeWidth="0.0" text="English Word 4"/>
-            <Text fx:id="possibleAnswer5" layoutX="260.0" layoutY="297.0" onMouseClicked="#temp"
+            <Text fx:id="possibleAnswer5" layoutX="260.0" layoutY="297.0" onMouseClicked="#answer5"
                   strokeType="OUTSIDE" strokeWidth="0.0" text="English Word 5"/>
-            <Text fx:id="possibleAnswer6" layoutX="472.0" layoutY="297.0" onMouseClicked="#temp"
+            <Text fx:id="possibleAnswer6" layoutX="472.0" layoutY="297.0" onMouseClicked="#answer6"
                   strokeType="OUTSIDE" strokeWidth="0.0" text="English Word 6"/>
          </children>
       </AnchorPane>
