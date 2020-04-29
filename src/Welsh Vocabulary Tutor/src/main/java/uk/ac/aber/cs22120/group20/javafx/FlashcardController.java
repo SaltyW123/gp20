@@ -10,6 +10,7 @@ import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 import uk.ac.aber.cs22120.group20.javafx.Application;
+import uk.ac.aber.cs22120.group20.selfassessment.AssessmentGenerator;
 
 import java.io.IOException;
 
@@ -108,7 +109,7 @@ public class FlashcardController {
 
    @FXML
    private void switchToAddWord() throws IOException {
-      ScreenSwitch.swap(ScreenSwitch.SceneEnum.addWordScene);
+      AssessmentGenerator.generateAssessment(Application.dictionary);
    }
 
 }
