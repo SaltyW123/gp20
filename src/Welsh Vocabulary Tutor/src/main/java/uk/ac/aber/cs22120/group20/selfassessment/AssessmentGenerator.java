@@ -182,16 +182,12 @@ public class AssessmentGenerator {
 
             Optional<ButtonType> result = alert.showAndWait();
 
-
+            currentAssessment = 0;
+            Question.resetScore();
 
             if (result.isEmpty() || result.get() == noBtn) {
-               currentAssessment=0;
-               Question.resetScore();
                ScreenSwitch.swap(ScreenSwitch.SceneEnum.dictionaryScene);
-
             } else {
-               currentAssessment = 0;
-               Question.resetScore();
                 generateAssessment(Application.practiseList);
             }
         }
