@@ -18,12 +18,12 @@ import uk.ac.aber.cs22120.group20.javafx.Application;
  * Controller for the translationTest fxml file.
  *
  * @author Brad Corbett brc9
- * @version 0.9
+ * @version 0.1
  *
  */
 public class TranslationController extends Question {
     private ArrayList<DictionaryEntry> practiceList = new ArrayList<>();
-    public static DictionaryEntry practiceWord = new DictionaryEntry();
+    public static DictionaryEntry answer = new DictionaryEntry();
 
     /**
      * Represents the word that will be randomly chosen from the practiceList.
@@ -67,10 +67,10 @@ public class TranslationController extends Question {
 
 
         if(AssessmentGenerator.isEnglish){
-            wordToTranslate.setText(practiceWord.getWelsh());
+            wordToTranslate.setText(answer.getWelsh());
         }
         else{
-            wordToTranslate.setText(practiceWord.getEnglish());
+            wordToTranslate.setText(answer.getEnglish());
         }
     }
 
@@ -86,7 +86,7 @@ public class TranslationController extends Question {
         usersInput.add(translationBox.getText());
 
         ArrayList<DictionaryEntry> correctTranslation = new ArrayList<>();
-        correctTranslation.add(practiceList.get(chosenWord));
+        correctTranslation.add(answer);
 
         checkAnswer(correctTranslation, usersInput, AssessmentGenerator.isEnglish);
 

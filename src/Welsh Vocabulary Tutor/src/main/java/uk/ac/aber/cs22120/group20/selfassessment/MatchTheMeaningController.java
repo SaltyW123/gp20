@@ -33,7 +33,7 @@ import java.util.*;
 public class MatchTheMeaningController extends Question implements Initializable{
 
 
-   private ArrayList<DictionaryEntry> setOfQuestions=new ArrayList<>();
+   private ArrayList<DictionaryEntry> answer =new ArrayList<>();
    private ArrayList<Integer> orderList = new ArrayList<>(Arrays.asList(0,1,2,3));
    private boolean isEnglish;
 
@@ -86,7 +86,7 @@ public class MatchTheMeaningController extends Question implements Initializable
     */
    private void getQuestions(){
 
-      setOfQuestions.addAll(AssessmentGenerator.generateWordMatch());
+      answer.addAll(AssessmentGenerator.generateWordMatch());
 
    }
 
@@ -147,12 +147,12 @@ public class MatchTheMeaningController extends Question implements Initializable
          listOfAnswers.add(LeftWord4.getText());
       }
 
-      checkAnswer(setOfQuestions,listOfAnswers,isEnglish);
+      checkAnswer(answer,listOfAnswers,isEnglish);
 
       CorrectAnswer.setText(Integer.toString(correctAnswers));
       WrongAnswer.setText(Integer.toString(wrongAnswers));
 
-      setOfQuestions.clear();
+      answer.clear();
       this.prepare();
 
    }
@@ -162,7 +162,7 @@ public class MatchTheMeaningController extends Question implements Initializable
     */
    private void prepare(){
       getQuestions();
-      setWords(setOfQuestions,orderList);
+      setWords(answer,orderList);
    }
 
    @Override
