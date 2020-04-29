@@ -24,14 +24,6 @@ import uk.ac.aber.cs22120.group20.javafx.Application;
 public class TranslationController extends Question {
     ArrayList<DictionaryEntry> practiceList = new ArrayList<>();
 
-
-    /**
-     * Represents the words that have already been used, and are no longer to be generated.
-     */
-    ArrayList<Integer> numbersUsed = new ArrayList<Integer>();
-    int correctGuessesInt = 0;
-    int incorrectGuessesInt = 0;
-
     /**
      * Represents the word that will be randomly chosen from the practiceList.
      */
@@ -57,8 +49,6 @@ public class TranslationController extends Question {
     Random rand = new Random();
 
 
-    boolean englishOrWelsh = false; // False means English to Welsh, true means Welsh to English
-
 
     /**
      * Loads the test for the first time, filling the practice list with words from the dictionary,
@@ -70,22 +60,15 @@ public class TranslationController extends Question {
 
         submitButton.setImage(new Image ("file:src/main/resources/assets/icons/black_icons/50px/right-50.png"));
 
-        for(DictionaryEntry entry : Application.dictionary){
-            if(entry.isPracticeWord()){
-                practiceList.add(entry);
-            }
-        }
+        practiceList.addAll(Application.practiseList);
 
 
         chosenWord = (rand.nextInt(practiceList.size()));
-        numbersUsed.add(chosenWord);
 
-        englishOrWelsh = rand.nextBoolean();
+        correctGuesses.setText("Correct Guesses: " + correctAnswers);
+        incorrectGuesses.setText("Incorrect Guesses: " + wrongAnswers);
 
-        correctGuesses.setText("Correct Guesses: 0");
-        incorrectGuesses.setText("Incorrect Guesses: 0");
-
-        if(englishOrWelsh){
+        if(AssessmentGenerator.isEnglish){
             wordToTranslate.setText(practiceList.get(chosenWord).getWelsh());
         }
         else{
@@ -95,10 +78,8 @@ public class TranslationController extends Question {
 
 
     /**
-     * Takes the word that the user has entered as their attempt at translate, compares
-     * it to the correct translation, and depending on if it is correct or not, increment how many
-     * right or wrong answers they have so far. After checking if the user got it right,
-     * it will generate a new word for the user to translate, provided they have words left to translate.
+     * Takes the word the user inputs and compares it to the correct answer using
+     * the checkAnswer function in the QuestionClass.
      */
     @FXML
     void translateWord() {
@@ -109,35 +90,8 @@ public class TranslationController extends Question {
         ArrayList<DictionaryEntry> correctTranslation = new ArrayList<>();
         correctTranslation.add(practiceList.get(chosenWord));
 
-        checkAnswer(correctTranslation, usersInput, englishOrWelsh);
+        checkAnswer(correctTranslation, usersInput, AssessmentGenerator.isEnglish);
 
 
-
-
-
-        correctGuesses.setText("Correct Guesses: " + correctAnswer);
-        incorrectGuesses.setText("Incorrect Guesses: " + wrongAnswer);
-
-
-
-
-
-        do{
-            chosenWord = (rand.nextInt(practiceList.size()));
-        }while((numbersUsed.contains(chosenWord)) && numbersUsed.size() < practiceList.size());
-
-        numbersUsed.add(chosenWord);
-
-        if(numbersUsed.size() > practiceList.size()){
-            wordToTranslate.setText("Test Complete");
-            submitButton.setVisible(false);
-        }
-
-        if(englishOrWelsh){
-            wordToTranslate.setText(practiceList.get(chosenWord).getWelsh());
-        }
-        else{
-            wordToTranslate.setText(practiceList.get(chosenWord).getEnglish());
-        }
     }
 }
