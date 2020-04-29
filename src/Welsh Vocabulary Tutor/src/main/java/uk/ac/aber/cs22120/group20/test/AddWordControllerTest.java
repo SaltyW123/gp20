@@ -41,7 +41,7 @@ class AddWordControllerTest {
 
       String allChars = "chddffngllphrhth";
 
-      assertEquals(allChars,testController.getWelsh());
+      assertEquals(allChars,testController.getWelsh().getText());
 
 
    }
