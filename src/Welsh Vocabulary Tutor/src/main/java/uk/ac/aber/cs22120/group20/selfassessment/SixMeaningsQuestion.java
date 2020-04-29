@@ -8,4 +8,8 @@ public class SixMeaningsQuestion extends Question{
    private SixMeaningsQuestion(DictionaryEntry correctAnswer) {
       this.correctAnswer = correctAnswer;
    }
+
+   public DictionaryEntry getCorrectAnswer() {
+      return correctAnswer;
+   }
 }
