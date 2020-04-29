@@ -100,11 +100,11 @@ public class SixMeaningsController implements Initializable {
    }
 
 
-   private void getWords() {
-
-      wordSet = AssessmentGenerator.generateSixMeanings();
-
-   }
+//   private void getWords() {
+//
+//      wordSet = AssessmentGenerator.generateSixMeanings();
+//
+//   }
 
 
 
@@ -167,7 +167,7 @@ public class SixMeaningsController implements Initializable {
 
 
    private void prepare() {
-      getWords();
+      //getWords();
       Random rd = new Random();
       System.out.println(rd.nextBoolean());
       setWords(AssessmentGenerator.isEnglish);
