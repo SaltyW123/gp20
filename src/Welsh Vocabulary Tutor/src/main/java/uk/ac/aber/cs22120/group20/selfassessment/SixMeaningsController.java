@@ -34,9 +34,8 @@ import java.util.*;
 
 public class SixMeaningsController extends TranslationController implements Initializable {
 
-   private Random rand = new Random();
    private ArrayList<DictionaryEntry> wordSet = new ArrayList<>();
-   private ArrayList<DictionaryEntry> tamp = new ArrayList<>();
+   public static ArrayList<DictionaryEntry> allQuestions = new ArrayList<>();
    private ArrayList<Integer> orderList = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5));
    private String wordCounterpart;
    private boolean isEnglish = AssessmentGenerator.isEnglish;
@@ -111,29 +110,37 @@ public class SixMeaningsController extends TranslationController implements Init
 
    private void setWords(boolean isEnglish){
       if(isEnglish){
-         //WelshWord1 Is the question word and as a result is always right.
-         wordToTranslate.setText(questions.get(0).getEnglish());
-         //This stores the correct answer for the english word.
-         possibleAnswer1.setText(questions.get(orderList.get(0)).getWelsh());
-         possibleAnswer2.setText(questions.get(orderList.get(1)).getWelsh());
-         possibleAnswer3.setText(questions.get(orderList.get(2)).getWelsh());
-         possibleAnswer4.setText(questions.get(orderList.get(3)).getWelsh());
-         possibleAnswer5.setText(questions.get(orderList.get(4)).getWelsh());
-         possibleAnswer6.setText(questions.get(orderList.get(5)).getWelsh());
 
-         Collections.shuffle(orderList); //I know that this does not belong here it was moved here for debug purposes. It lives five lines up.
+         wordSet.add(allQuestions.get(0));
+
+         //WelshWord1 Is the question word and as a result is always right.
+         wordToTranslate.setText(wordSet.get(0).getEnglish());
+         //This stores the correct answer for the english word.
+
+         Collections.shuffle(orderList);
+
+         possibleAnswer1.setText(allQuestions.get(orderList.get(0)).getWelsh());
+         possibleAnswer2.setText(allQuestions.get(orderList.get(1)).getWelsh());
+         possibleAnswer3.setText(allQuestions.get(orderList.get(2)).getWelsh());
+         possibleAnswer4.setText(allQuestions.get(orderList.get(3)).getWelsh());
+         possibleAnswer5.setText(allQuestions.get(orderList.get(4)).getWelsh());
+         possibleAnswer6.setText(allQuestions.get(orderList.get(5)).getWelsh());
       }else {
-         //WelshWord1 Is the question word and as a result is always right.
-         wordToTranslate.setText(questions.get(0).getWelsh());
-         //This stores the correct answer for the english word.
-         possibleAnswer1.setText(questions.get(orderList.get(0)).getEnglish());
-         possibleAnswer2.setText(questions.get(orderList.get(1)).getEnglish());
-         possibleAnswer3.setText(questions.get(orderList.get(2)).getEnglish());
-         possibleAnswer4.setText(questions.get(orderList.get(3)).getEnglish());
-         possibleAnswer5.setText(questions.get(orderList.get(4)).getEnglish());
-         possibleAnswer6.setText(questions.get(orderList.get(5)).getEnglish());
 
-         Collections.shuffle(orderList); //I know that this does not belong here it was moved here for debug purposes. It lives five lines up.
+         wordSet.add(allQuestions.get(0));
+         //WelshWord1 Is the question word and as a result is always right.
+         wordToTranslate.setText(wordSet.get(0).getWelsh());
+         //This stores the correct answer for the english word.
+
+         Collections.shuffle(orderList);
+
+         possibleAnswer1.setText(allQuestions.get(orderList.get(0)).getEnglish());
+         possibleAnswer2.setText(allQuestions.get(orderList.get(1)).getEnglish());
+         possibleAnswer3.setText(allQuestions.get(orderList.get(2)).getEnglish());
+         possibleAnswer4.setText(allQuestions.get(orderList.get(3)).getEnglish());
+         possibleAnswer5.setText(allQuestions.get(orderList.get(4)).getEnglish());
+         possibleAnswer6.setText(allQuestions.get(orderList.get(5)).getEnglish());
+
       }
 
    }
