@@ -84,7 +84,9 @@ public class DictionaryEntry {
         this.practiceWord = practiceWord;
     }
 
-    public boolean equals(DictionaryEntry entry) {
-        return entry.getEnglish().equals(this.getEnglish()) && entry.getWelsh().equals(this.getWelsh()) && entry.getWordType().equals(this.getWordType());
+    @Override
+    public boolean equals(Object entry) {
+        DictionaryEntry otherEntry = (DictionaryEntry) entry;
+        return otherEntry.getEnglish().equals(this.getEnglish()) && otherEntry.getWelsh().equals(this.getWelsh()) && otherEntry.getWordType().equals(this.getWordType());
     }
 }
