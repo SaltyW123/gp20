@@ -41,7 +41,7 @@ import java.util.ResourceBundle;
  * @see DictionaryEntry
  * @see Application
  */
-public class PracticeListController implements Initializable {
+public class PracticeListController {
     public static Stage primaryStage = null;
 
     @FXML
@@ -63,13 +63,12 @@ public class PracticeListController implements Initializable {
      * An observable list of DictionaryEntries is loaded from the Application class into a local instance of ObservableList.
      * It also sets up Lambda expressions related to live searching functionality and the display of DictionaryEntries.
      *
-     * @param url
-     * @param resourceBundle
+//     * @param url
+//     * @param resourceBundle
      * @see Application
      * @see DictionaryEntry
      */
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize() {
 //        list.addAll(Application.dictionary);
         list.addAll(Application.practiseList);
 //        for (DictionaryEntry entry : Application.dictionary) {
@@ -228,7 +227,7 @@ public class PracticeListController implements Initializable {
      */
     @FXML
     private void switchToFlashCard() throws IOException {
-        Application.setRoot("flashcard");
+        ScreenSwitch.swap(ScreenSwitch.SceneEnum.flashcardScene);
     }
 
 }

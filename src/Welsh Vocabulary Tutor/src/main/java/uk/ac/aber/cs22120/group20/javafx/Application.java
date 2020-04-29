@@ -93,7 +93,7 @@ public class Application extends javafx.application.Application {
     * @see ScreenSwitch.SceneEnum
     */
    static void setRoot(String fxml) throws IOException {
-      ScreenSwitch.setLegacyScene(fxml);
+      ScreenSwitch.swap(ScreenSwitch.SceneEnum.dictionaryScene);
    }
 
 //   /**

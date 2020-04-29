@@ -108,7 +108,7 @@ public class FlashcardController {
 
    @FXML
    private void switchToAddWord() throws IOException {
-      Application.setRoot("addword");
+      ScreenSwitch.swap(ScreenSwitch.SceneEnum.addWordScene);
    }
 
 }
