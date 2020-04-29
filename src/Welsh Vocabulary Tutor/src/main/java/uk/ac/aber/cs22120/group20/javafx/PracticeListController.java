@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import uk.ac.aber.cs22120.group20.javafx.Application;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
@@ -41,11 +42,13 @@ import java.util.ResourceBundle;
  * @see DictionaryEntry
  * @see Application
  */
-public class PracticeListController {
+public class PracticeListController extends SharedCodeController{
     public static Stage primaryStage = null;
 
     @FXML
     private ImageView alphaSort;
+    @FXML
+    private ImageView langSort;
     @FXML
     private TextField searchBox;
     @FXML
@@ -69,6 +72,16 @@ public class PracticeListController {
      * @see DictionaryEntry
      */
     public void initialize() {
+        setup();
+        currentPageIcon.setImage(new Image("file:src/main/resources/assets/icons/white_icons/50px/rating-50.png"));
+        currentPageText.setText("Practice List");
+
+        practiceListIcon.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/rating-50.png"));
+        practiceListTest.setFill(Color.BLACK);
+
+        alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
+        langSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-lang-50.png"));
+
 //        list.addAll(Application.dictionary);
         list.addAll(Application.practiseList);
 //        for (DictionaryEntry entry : Application.dictionary) {
