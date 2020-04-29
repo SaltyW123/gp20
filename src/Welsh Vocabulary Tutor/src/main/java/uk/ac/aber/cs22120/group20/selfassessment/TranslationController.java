@@ -22,7 +22,8 @@ import uk.ac.aber.cs22120.group20.javafx.Application;
  *
  */
 public class TranslationController extends Question {
-    ArrayList<DictionaryEntry> practiceList = new ArrayList<>();
+    private ArrayList<DictionaryEntry> practiceList = new ArrayList<>();
+    public static DictionaryEntry practiceWord = new DictionaryEntry();
 
     /**
      * Represents the word that will be randomly chosen from the practiceList.
@@ -60,19 +61,16 @@ public class TranslationController extends Question {
 
         submitButton.setImage(new Image ("file:src/main/resources/assets/icons/black_icons/50px/right-50.png"));
 
-        practiceList.addAll(Application.practiseList);
-
-
-        chosenWord = (rand.nextInt(practiceList.size()));
-
         correctGuesses.setText("Correct Guesses: " + correctAnswers);
         incorrectGuesses.setText("Incorrect Guesses: " + wrongAnswers);
 
+
+
         if(AssessmentGenerator.isEnglish){
-            wordToTranslate.setText(practiceList.get(chosenWord).getWelsh());
+            wordToTranslate.setText(practiceWord.getWelsh());
         }
         else{
-            wordToTranslate.setText(practiceList.get(chosenWord).getEnglish());
+            wordToTranslate.setText(practiceWord.getEnglish());
         }
     }
 
