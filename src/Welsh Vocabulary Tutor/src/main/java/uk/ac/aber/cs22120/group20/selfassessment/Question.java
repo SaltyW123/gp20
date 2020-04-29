@@ -38,6 +38,11 @@ public class Question {
             }else wrongAnswers++;
          }
       }
+   }
+
+      public static void resetScore(){
+         correctAnswers = 0;
+         wrongAnswers =0;
+      }
 
    }
-}

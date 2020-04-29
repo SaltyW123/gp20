@@ -149,9 +149,7 @@ public class SixMeaningsController implements Initializable {
 
       Question.checkAnswer(wordSet,answer,isEnglish);
 
-      correctAnswer.setText(Integer.toString(Question.correctAnswers));
 
-      wrongAnswer.setText(Integer.toString(Question.wrongAnswers));
 
       wordSet.clear();
 
@@ -163,6 +161,10 @@ public class SixMeaningsController implements Initializable {
    @Override
    public void initialize(URL url, ResourceBundle resourceBundle) {
       setWords(isEnglish);
+      
+      correctAnswer.setText(Integer.toString(Question.correctAnswers));
+
+      wrongAnswer.setText(Integer.toString(Question.wrongAnswers));
 
    }
 

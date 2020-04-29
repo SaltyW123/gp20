@@ -163,8 +163,8 @@ public class FlashcardController {
    }
 
    @FXML
-   private void switchToAddWord() throws IOException { // Method that will be removed.
-      AssessmentGenerator.generateAssessment(Application.dictionary);
+   private void switchToAddWord() throws IOException {
+      AssessmentGenerator.generateAssessment(Application.practiseList);
    }
 
 }
