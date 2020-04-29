@@ -20,7 +20,7 @@ import java.util.*;
  * @See
  */
 public class AssessmentGenerator {
-    static boolean isEnglish;
+    public static boolean isEnglish;
     static LinkedList<Question> listOfAssessment = new LinkedList<>();
     static int currentAssessment = 0;
 
