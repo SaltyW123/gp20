@@ -28,7 +28,7 @@ public class AssessmentGenerator {
      * Method that will generate a randomized list of questions consisting of random distribution of questions
      * types, using the dictionary’s practice words as the parameter.
      *
-     * @param wordList
+     * @param practiseList
      * @return
      */
     public static LinkedList<Question> generateAssessment(LinkedList<DictionaryEntry> practiseList) {
@@ -37,23 +37,33 @@ public class AssessmentGenerator {
 
         //int wordToTranslatePlace;
 
-        for (int numberToGenerate = 0; numberToGenerate < 10; numberToGenerate++) {
-            Question generatedAssessment = null;
-            int quizType = rand.nextInt(3);
-            switch (quizType) {
-                case (0): //0 Means translation test.
-                    //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
-                    //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
+        if (practiseList.size()<10){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Not enough words in practice list");
+            alert.setResizable(false);
+            alert.setContentText("Please add more words to your practice list on the dictionary page before trying to test yourself!");
+            Optional<ButtonType> result = alert.showAndWait();
+            ScreenSwitch.swap(ScreenSwitch.SceneEnum.dictionaryScene);
+        }else {
 
-                    generatedAssessment = generateTranslationTest(practiseList);
-                    break;
-                case (1): //1 Means six meanings test.
-                    //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
-                    //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
+            for (int numberToGenerate = 0; numberToGenerate < 10; numberToGenerate++) {
+                Question generatedAssessment = null;
+                int quizType = rand.nextInt(3);
+                switch (quizType) {
+                    case (0): //0 Means translation test.
+                        //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
+                        //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
 
-                    generatedAssessment = generateSixMeanings(practiseList);
-                    break;
-                case (2): //2 Means match meanings test.
+                        generatedAssessment = generateTranslationTest(practiseList);
+                        break;
+                    case (1): //1 Means six meanings test.
+                        //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
+                        //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
+
+                        generatedAssessment = generateSixMeanings(practiseList);
+                        break;
+                    case (2): //2 Means match meanings test.
 //               LinkedList<DictionaryEntry> wordsToTranslate = new LinkedList<>();
 //               for (int i = 0; i < 3; i++) {
 //                  wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
@@ -61,13 +71,14 @@ public class AssessmentGenerator {
 //                  wordsToTranslate.toArray();
 //               }
 
-                    generatedAssessment = generateMatchMeaning(practiseList);
-                    break;
+                        generatedAssessment = generateMatchMeaning(practiseList);
+                        break;
+                }
+                listOfAssessment.add(generatedAssessment);
             }
-            listOfAssessment.add(generatedAssessment);
+            AssessmentGenerator.listOfAssessment = listOfAssessment;
+            goToNextQuestion();
         }
-        AssessmentGenerator.listOfAssessment = listOfAssessment;
-        goToNextQuestion();
         return listOfAssessment;
     }
 
