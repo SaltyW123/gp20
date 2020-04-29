@@ -109,7 +109,7 @@ public class FlashcardController {
 
    @FXML
    private void switchToAddWord() throws IOException {
-      AssessmentGenerator.generateAssessment(Application.dictionary);
+      AssessmentGenerator.generateAssessment(Application.practiseList);
    }
 
 }
