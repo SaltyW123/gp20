@@ -9,12 +9,33 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
-import uk.ac.aber.cs22120.group20.javafx.Application;
+import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 import uk.ac.aber.cs22120.group20.selfassessment.AssessmentGenerator;
-
 import java.io.IOException;
 
+/**
+ * A class that servers as the controller for the programs Flashcard JavaFX scene, handling all of its events and attributes. This scene is defined as "flashcard.fxml".
+ *
+ * @author Brad Corbett [brc9]
+ * @author Henry Dugmore [hjd3]
+ * @author Kain Bryan-Jones [kab74]
+ * @author Luke Wybar [law39]
+ * @author Marcin Jakob [maj83]
+ * @author Oscar Pocock [osp1]
+ * @author Tom Perry [top19]
+ * @author Waylen Watts [ncw]
+ * @version 0.1 Initial development.
+ * @see Application
+ * @see DictionaryEntry
+ * @see SharedCodeController
+ */
+
 public class FlashcardController {
+
+   // /////////////////// //
+   // Instance Variables. //
+   // /////////////////// //
+
    int index = 0;
    Node card;
 
@@ -32,6 +53,14 @@ public class FlashcardController {
    @FXML
    private ImageView right_arrow;
 
+   // //////// //
+   // Methods. //
+   // //////// //
+
+   /**
+    * Method that initializes 'flashcard.fxml' by setting up the icons and text. This method is called automatically whenever the flashcard scene starts.
+    *
+    */
    @FXML
    private void initialize() {
       testWord.setText(Application.practiseList.getFirst().getWelsh());
@@ -40,22 +69,28 @@ public class FlashcardController {
       updateCounter();
       card = flashcard;
 
-      Image left = new Image("file:src/main/resources/assets/icons/black_icons/50px/left-50.png");
-      Image right = new Image("file:src/main/resources/assets/icons/black_icons/50px/right-50.png");
-
-      left_arrow.setImage(left);
-      right_arrow.setImage(right);
+      left_arrow.setImage(new Image(getClass().getResourceAsStream("/assets/icons/black_icons/50px/left-50.png")));
+      right_arrow.setImage(new Image(getClass().getResourceAsStream("/assets/icons/black_icons/50px/right-50.png")));
    }
 
+   /**
+    * Event that rotates the scenes flashcard using RotateTransition whenever the user clicks the flashcard.
+    * @see RotateTransition
+    */
    @FXML
    private void handleFlashcardClick() {
       RotateTransition rotator = RotateCard(card);
-      rotator.play();
+      rotator.play(); // Play the rotate transition.
    }
 
+   /**
+    * Event that switches to the previous flashcard whenever the user clicks the 'leftArrow' icon.
+    * @see Application
+    * @see DictionaryEntry
+    */
    @FXML
    private void handlePreviousCard() {
-
+      // If statement to check the start of the practiceList hasn't been reached before moving to the previous card.
       if (index > 0) {
          index--;
       }
@@ -64,8 +99,14 @@ public class FlashcardController {
       wordType.setText("Welsh");
    }
 
+   /**
+    * Event that switches to the next flashcard whenever the user clicks the 'right-arrow' icon.
+    * @see Application
+    * @see DictionaryEntry
+    */
    @FXML
    private void handleNextCard() {
+      // If statement to check the end of the practiceList hasn't been reached before moving to the next card.
       if (index < Application.practiseList.size()-1) {
          index++;
       }
@@ -75,28 +116,42 @@ public class FlashcardController {
       wordType.setText("Welsh");
    }
 
+   /**
+    * Method that updates the onscreen counter of the current flashcard.
+    * @see Application
+    * @see DictionaryEntry
+    */
    private void updateCounter() {
       counter.setText((index + 1) + "/" + Application.practiseList.size());
    }
 
+   /**
+    * Method that creates a RotateTransition animation for flipping the flashcard 180 degrees.
+    * @param card FXML rectangle element that will be flipped.
+    * @return RotateTransition that will flip the rectangle 180 degrees.
+    * @see Application
+    * @see DictionaryEntry
+    * @see RotateTransition
+    */
    private RotateTransition RotateCard(Node card) {
 
       RotateTransition rotate = new RotateTransition(Duration.millis(1000), card);
+      // Make the text on the card go invisible whilst the cardFlip is happening.
       testWord.setVisible(false);
       wordType.setVisible(false);
 
+      // Set the axis and angle of the rotation.
       rotate.setAxis(Rotate.Y_AXIS);
       rotate.setFromAngle(0);
       rotate.setToAngle(180);
       rotate.setInterpolator(Interpolator.LINEAR);
       rotate.setCycleCount(1);
-      rotate.setOnFinished(event -> {
+      rotate.setOnFinished(event -> { // Once the transition is completed, update the text on the flashcard.
 
-         testWord.setText("Welsh word: \t" + Application.practiseList.get(index).getWelsh());
-         if (wordType.getText().equals("Welsh")) {
+         if (wordType.getText().equals("Welsh")) {  // If the word currently on the flashcard is welsh, display the english translation.
             testWord.setText(Application.practiseList.get(index).getEnglish());
             wordType.setText("English");
-         } else {
+         } else { // Else display the welsh translation.
             testWord.setText(Application.practiseList.get(index).getWelsh());
             wordType.setText("Welsh");
          }

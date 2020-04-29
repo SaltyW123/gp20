@@ -143,8 +143,6 @@ public class MatchTheMeaningController implements Initializable{
 
       Question.checkAnswer(answer,listOfAnswers,isEnglish);
 
-      CorrectAnswer.setText(Integer.toString(Question.correctAnswers));
-      WrongAnswer.setText(Integer.toString(Question.wrongAnswers));
 
       answer.clear();
       AssessmentGenerator.goToNextQuestion();
@@ -156,6 +154,8 @@ public class MatchTheMeaningController implements Initializable{
    public void initialize(URL url, ResourceBundle resourceBundle) {
 
       setWords(answer,orderList);
+      CorrectAnswer.setText(Integer.toString(Question.correctAnswers));
+      WrongAnswer.setText(Integer.toString(Question.wrongAnswers));
 
    }
 }
