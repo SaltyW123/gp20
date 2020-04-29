@@ -12,4 +12,8 @@ public class SixMeaningsQuestion extends Question{
       this.correctAnswer = correctAnswer;
       this.dictionary = dictionary;
    }
+
+   public DictionaryEntry getCorrectAnswer() {
+      return correctAnswer;
+   }
 }

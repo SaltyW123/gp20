@@ -74,7 +74,7 @@ public class AssessmentGenerator {
       Random rand = new Random();
       DictionaryEntry selectedCorrectAnswer;
       selectedCorrectAnswer = practiceList.get(rand.nextInt(practiceList.size()-1));
-      TranslationQuestion generatedQuestion = new TranslationQuestion(selectedCorrectAnswer);
+      Question generatedQuestion = new TranslationQuestion(selectedCorrectAnswer);
       return generatedQuestion;
 
    }
@@ -133,9 +133,17 @@ public class AssessmentGenerator {
     * the parameter.
     * @return
     */
-   public static Question generateTranslationTest(LinkedList<DictionaryEntry> a){
-      return null;
+   public static Question generateTranslationTest(LinkedList<DictionaryEntry> practiceList){
+      Random rand = new Random();
+      DictionaryEntry selectedCorrectAnswer;
+      selectedCorrectAnswer = practiceList.get(rand.nextInt(practiceList.size()-1));
+      Question generatedQuestion = new TranslationQuestion(selectedCorrectAnswer);
+      return generatedQuestion;
    }
 
+
+   public static void goToNextQuestion(){
+      
+   }
 
 }
