@@ -8,7 +8,7 @@ public class SixMeaningsQuestion extends Question{
    private DictionaryEntry correctAnswer;
    private LinkedList<DictionaryEntry> dictionary;
 
-   private SixMeaningsQuestion(DictionaryEntry correctAnswer, LinkedList<DictionaryEntry> dictionary) {
+   public SixMeaningsQuestion(DictionaryEntry correctAnswer, LinkedList<DictionaryEntry> dictionary) {
       this.correctAnswer = correctAnswer;
       this.dictionary = dictionary;
    }
