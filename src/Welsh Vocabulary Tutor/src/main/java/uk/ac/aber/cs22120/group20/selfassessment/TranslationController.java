@@ -90,6 +90,8 @@ public class TranslationController {
 
         Question.checkAnswer(correctTranslation, usersInput, AssessmentGenerator.isEnglish);
 
+        AssessmentGenerator.goToNextQuestion();
+
 
     }
 }

@@ -153,13 +153,15 @@ public class SixMeaningsController implements Initializable {
 
       answer.add(wordCounterpart);
 
-      checkAnswer(wordSet,answer,isEnglish);
+      Question.checkAnswer(wordSet,answer,isEnglish);
 
       correctAnswer.setText(Integer.toString(Question.correctAnswers));
 
       wrongAnswer.setText(Integer.toString(Question.wrongAnswers));
 
       wordSet.clear();
+
+      AssessmentGenerator.goToNextQuestion();
 
    }
 
