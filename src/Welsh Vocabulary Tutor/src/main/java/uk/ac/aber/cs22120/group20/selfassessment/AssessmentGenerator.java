@@ -22,7 +22,7 @@ public class AssessmentGenerator {
     * @param wordList
     * @return
     */
-   public LinkedList<Question> generateAssessment(LinkedList<DictionaryEntry> wordList){
+   public static LinkedList<Question> generateAssessment(LinkedList<DictionaryEntry> wordList){
       LinkedList<Question> listOfAssessment = new LinkedList<>();
       LinkedList<DictionaryEntry> practiseList = Application.practiseList;
       Random rand = new Random();
@@ -39,14 +39,14 @@ public class AssessmentGenerator {
                //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
                //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
 
-               generatedAssessment = generateWordEnter(practiseList);
-
+               generatedAssessment = generateTranslationTest(practiseList);
                break;
             case (1): //1 Means six meanings test.
                //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
                //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
 
                generatedAssessment = generateSixMeanings(practiseList);
+               break;
             case (2): //2 Means match meanings test.
 //               LinkedList<DictionaryEntry> wordsToTranslate = new LinkedList<>();
 //               for (int i = 0; i < 3; i++) {
@@ -55,10 +55,13 @@ public class AssessmentGenerator {
 //                  wordsToTranslate.toArray();
 //               }
 
-               generatedAssessment = generateWordMatch(practiseList);
+               generatedAssessment = generateMatchMeaning(practiseList);
+               break;
          }
          listOfAssessment.add(generatedAssessment);
       }
+
+      return listOfAssessment;
    }
 
    /**
@@ -67,8 +70,12 @@ public class AssessmentGenerator {
     * practice words as the parameter.
     * @return
     */
-   public Question generateWordMatch(LinkedList<DictionaryEntry> a){
-      return null;
+   public static Question generateMatchMeaning(LinkedList<DictionaryEntry> practiceList){
+      Random rand = new Random();
+      DictionaryEntry selectedCorrectAnswer;
+      selectedCorrectAnswer = practiceList.get(rand.nextInt(practiceList.size()-1));
+      TranslationQuestion generatedQuestion = new TranslationQuestion(selectedCorrectAnswer);
+      return generatedQuestion;
 
    }
 
@@ -126,7 +133,7 @@ public class AssessmentGenerator {
     * the parameter.
     * @return
     */
-   public Question generateWordEnter(LinkedList<DictionaryEntry> a){
+   public static Question generateTranslationTest(LinkedList<DictionaryEntry> a){
       return null;
    }
 
