@@ -81,14 +81,6 @@ public class MatchTheMeaningController implements Initializable{
    private Label WrongAnswer;
 
 
-   /**
-    * Pick randomly dictionary entry and add it to question list where are stored questions for this test.
-    */
-//   private void getQuestions(){
-//
-//      answer.addAll(AssessmentGenerator.generateWordMatch());
-//
-//   }
 
    /**
     * Set chosen words from dictionary on the scene.
@@ -99,6 +91,8 @@ public class MatchTheMeaningController implements Initializable{
 
 
    private void setWords(ArrayList<DictionaryEntry> questions, ArrayList<Integer> orderList){
+
+      isEnglish = AssessmentGenerator.isEnglish;
 
       if(isEnglish){
          LeftWord1.setText(questions.get(0).getEnglish());
@@ -157,18 +151,11 @@ public class MatchTheMeaningController implements Initializable{
 
    }
 
-   /**
-    * Method responsible for preparing questions and scene.
-    */
-   private void prepare(){
-//      getQuestions();
-      setWords(answer,orderList);
-   }
 
    @Override
    public void initialize(URL url, ResourceBundle resourceBundle) {
 
-      this.prepare();
+      setWords(answer,orderList);
 
    }
 }
