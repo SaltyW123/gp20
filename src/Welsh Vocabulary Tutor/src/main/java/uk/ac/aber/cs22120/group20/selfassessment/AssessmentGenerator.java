@@ -167,17 +167,24 @@ public class AssessmentGenerator {
                     .append(Question.correctAnswers + Question.wrongAnswers)
                     .append("\n Would you like to test yourself again?");
 
+            ButtonType yesBtn = new ButtonType("Yes");
+            ButtonType noBtn = new ButtonType("No");
+
+
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("You finished the tests");
             alert.setHeaderText("You finished the tests\n Well Done!");
             alert.setResizable(false);
             alert.setContentText(sb.toString());
-            Optional<ButtonType> result = alert.showAndWait();
-            ((Button) alert.getDialogPane().lookupButton(ButtonType.OK)).setText("Yes");
-            ((Button) alert.getDialogPane().lookupButton(ButtonType.CANCEL)).setText("No");
+            alert.getButtonTypes().clear();
+            alert.getButtonTypes().addAll(yesBtn, noBtn);
 
-            if (result.isEmpty() || result.get() == ButtonType.CANCEL) {
+            Optional<ButtonType> result = alert.showAndWait();
+
+
+
+            if (result.isEmpty() || result.get() == noBtn) {
                currentAssessment=0;
                Question.resetScore();
                ScreenSwitch.swap(ScreenSwitch.SceneEnum.dictionaryScene);
