@@ -112,6 +112,8 @@ public class ScreenSwitch extends SharedCodeController {
         dictionaryScene("dictionary.fxml"),
         flashcardScene("flashcard.fxml"),
         practiceListScene("practicelist.fxml"),
+        matchMeaningScene("matchthemeaning.fxml"),
+        translationScene("translation.fxml"),
         ;
 
 
