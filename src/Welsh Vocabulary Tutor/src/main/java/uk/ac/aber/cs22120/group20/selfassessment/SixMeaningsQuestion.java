@@ -1,12 +1,15 @@
 package uk.ac.aber.cs22120.group20.selfassessment;
 
-public class SixMeaningsQuestion {
-   private static SixMeaningsQuestion ourInstance = new SixMeaningsQuestion();
+import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
-   public static SixMeaningsQuestion getInstance() {
-      return ourInstance;
-   }
+import java.util.LinkedList;
 
-   private SixMeaningsQuestion() {
+public class SixMeaningsQuestion extends Question{
+   private DictionaryEntry correctAnswer;
+   private LinkedList<DictionaryEntry> dictionary;
+
+   private SixMeaningsQuestion(DictionaryEntry correctAnswer, LinkedList<DictionaryEntry> dictionary) {
+      this.correctAnswer = correctAnswer;
+      this.dictionary = dictionary;
    }
 }
