@@ -8,6 +8,8 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
+import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
 
@@ -15,7 +17,7 @@ import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
  * Add Word Controller
  */
 
-public class AddWordController {
+public class AddWordController extends SharedCodeController {
 
    @FXML
    private TextField welsh;
@@ -34,6 +36,12 @@ public class AddWordController {
 
    @FXML
    private void initialize() {
+      setup();
+      currentPageIcon.setImage(new Image("file:src/main/resources/assets/icons/white_icons/50px/add-50.png"));
+      currentPageText.setText("Add");
+
+      addDefinitionIcon.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/add-50.png"));
+      addDefinitionText.setFill(Color.BLACK);
 
       wordType.getItems().addAll("Masculine noun", "Feminine noun", "Verb", "Other");
       wordType.setValue("Type");
