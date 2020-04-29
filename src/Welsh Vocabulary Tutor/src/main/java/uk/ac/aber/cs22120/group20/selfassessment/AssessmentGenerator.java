@@ -12,7 +12,10 @@ import java.util.Random;
  * @Version
  * @See
  */
-public class AssessmentGenerator extends Question {
+public class AssessmentGenerator {
+   static boolean isEnglish;
+
+
    /**
     * Method that will generate a randomized list of questions consisting of random distribution of questions
     * types, using the dictionary’s practice words as the parameter.
@@ -20,23 +23,42 @@ public class AssessmentGenerator extends Question {
     * @return
     */
    public LinkedList<Question> generateAssessment(LinkedList<DictionaryEntry> wordList){
-      LinkedList<Question> returnValue = new LinkedList<>();
+      LinkedList<Question> listOfAssessment = new LinkedList<>();
+      LinkedList<DictionaryEntry> practiseList = Application.practiseList;
       Random rand = new Random();
 
-      int quizType = rand.nextInt(3);
-      switch(quizType){
-         case(0): //0 Means translation test.
-         int wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
-         DictionaryEntry wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
-
-         case(1): //1 Means six meanings test.
 
 
-         case(2): //2 Means match meanings test.
+      int wordToTranslatePlace;
 
+      for (int numberToGenerate = 0; numberToGenerate < 10; numberToGenerate++) {
+         Question generatedAssessment = null;
+         int quizType = rand.nextInt(3);
+         switch (quizType) {
+            case (0): //0 Means translation test.
+               //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
+               //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
 
+               generatedAssessment = generateWordEnter(practiseList);
+
+               break;
+            case (1): //1 Means six meanings test.
+               //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
+               //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
+
+               generatedAssessment = generateSixMeanings(practiseList);
+            case (2): //2 Means match meanings test.
+//               LinkedList<DictionaryEntry> wordsToTranslate = new LinkedList<>();
+//               for (int i = 0; i < 3; i++) {
+//                  wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
+//                  wordsToTranslate.add(Application.practiseList.get(wordToTranslatePlace));
+//                  wordsToTranslate.toArray();
+//               }
+
+               generatedAssessment = generateWordMatch(practiseList);
+         }
+         listOfAssessment.add(generatedAssessment);
       }
-
    }
 
    /**
@@ -45,7 +67,7 @@ public class AssessmentGenerator extends Question {
     * practice words as the parameter.
     * @return
     */
-   public LinkedList<Question> generateWordMatch(LinkedList<DictionaryEntry> a){
+   public Question generateWordMatch(LinkedList<DictionaryEntry> a){
       return null;
 
    }
@@ -56,7 +78,7 @@ public class AssessmentGenerator extends Question {
     * words as the parameter.
     * @return
     */
-   public static void generateSixMeanings(LinkedList<DictionaryEntry> practiseList){
+   public static Question generateSixMeanings(LinkedList<DictionaryEntry> practiseList){
 
       //CHANGE DICTIONARY TO PRACTISE LIST
 
@@ -104,7 +126,7 @@ public class AssessmentGenerator extends Question {
     * the parameter.
     * @return
     */
-   public LinkedList<Question> generateWordEnter(LinkedList<DictionaryEntry> a){
+   public Question generateWordEnter(LinkedList<DictionaryEntry> a){
       return null;
    }
 
