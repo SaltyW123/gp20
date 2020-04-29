@@ -30,10 +30,10 @@ import java.util.*;
  */
 
 
-public class MatchTheMeaningController extends Question implements Initializable{
+public class MatchTheMeaningController implements Initializable{
 
 
-   private ArrayList<DictionaryEntry> setOfQuestions=new ArrayList<>();
+   public static ArrayList<DictionaryEntry> answer =new ArrayList<>();
    private ArrayList<Integer> orderList = new ArrayList<>(Arrays.asList(0,1,2,3));
    private boolean isEnglish;
 
@@ -81,14 +81,6 @@ public class MatchTheMeaningController extends Question implements Initializable
    private Label WrongAnswer;
 
 
-   /**
-    * Pick randomly dictionary entry and add it to question list where are stored questions for this test.
-    */
-   private void getQuestions(){
-
-      setOfQuestions.addAll(AssessmentGenerator.generateWordMatch());
-
-   }
 
    /**
     * Set chosen words from dictionary on the scene.
@@ -100,6 +92,8 @@ public class MatchTheMeaningController extends Question implements Initializable
 
    private void setWords(ArrayList<DictionaryEntry> questions, ArrayList<Integer> orderList){
 
+      isEnglish = AssessmentGenerator.isEnglish;
+
       if(isEnglish){
          LeftWord1.setText(questions.get(0).getEnglish());
          LeftWord2.setText(questions.get(1).getEnglish());
@@ -109,9 +103,9 @@ public class MatchTheMeaningController extends Question implements Initializable
          Collections.shuffle(orderList);
 
          RightWord1.setText(questions.get(orderList.get(0)).getWelsh());
-         RightWord1.setText(questions.get(orderList.get(1)).getWelsh());
-         RightWord1.setText(questions.get(orderList.get(2)).getWelsh());
-         RightWord1.setText(questions.get(orderList.get(3)).getWelsh());
+         RightWord2.setText(questions.get(orderList.get(1)).getWelsh());
+         RightWord3.setText(questions.get(orderList.get(2)).getWelsh());
+         RightWord4.setText(questions.get(orderList.get(3)).getWelsh());
 
       }else {
          LeftWord1.setText(questions.get(0).getWelsh());
@@ -122,9 +116,9 @@ public class MatchTheMeaningController extends Question implements Initializable
          Collections.shuffle(orderList);
 
          RightWord1.setText(questions.get(orderList.get(0)).getEnglish());
-         RightWord1.setText(questions.get(orderList.get(1)).getEnglish());
-         RightWord1.setText(questions.get(orderList.get(2)).getEnglish());
-         RightWord1.setText(questions.get(orderList.get(3)).getEnglish());
+         RightWord2.setText(questions.get(orderList.get(1)).getEnglish());
+         RightWord3.setText(questions.get(orderList.get(2)).getEnglish());
+         RightWord4.setText(questions.get(orderList.get(3)).getEnglish());
       }
 
    }
@@ -147,28 +141,21 @@ public class MatchTheMeaningController extends Question implements Initializable
          listOfAnswers.add(LeftWord4.getText());
       }
 
-      checkAnswer(setOfQuestions,listOfAnswers,isEnglish);
+      Question.checkAnswer(answer,listOfAnswers,isEnglish);
 
-      CorrectAnswer.setText(Integer.toString(correctAnswers));
-      WrongAnswer.setText(Integer.toString(wrongAnswers));
 
-      setOfQuestions.clear();
-      this.prepare();
+      answer.clear();
+      AssessmentGenerator.goToNextQuestion();
 
    }
 
-   /**
-    * Method responsible for preparing questions and scene.
-    */
-   private void prepare(){
-      getQuestions();
-      setWords(setOfQuestions,orderList);
-   }
 
    @Override
    public void initialize(URL url, ResourceBundle resourceBundle) {
 
-      this.prepare();
+      setWords(answer,orderList);
+      CorrectAnswer.setText(Integer.toString(Question.correctAnswers));
+      WrongAnswer.setText(Integer.toString(Question.wrongAnswers));
 
    }
 }

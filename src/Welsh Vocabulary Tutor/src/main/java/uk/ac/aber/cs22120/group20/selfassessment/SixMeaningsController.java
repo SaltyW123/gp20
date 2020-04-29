@@ -32,14 +32,13 @@ import java.util.*;
  * @see uk.ac.aber.cs22120.group20.javafx.Application
  */
 
-public class SixMeaningsController extends TranslationController implements Initializable {
+public class SixMeaningsController implements Initializable {
 
-   private Random rand = new Random();
-   private LinkedList<DictionaryEntry> wordSet = new LinkedList<>();
+   private ArrayList<DictionaryEntry> wordSet = new ArrayList<>();
+   public static ArrayList<DictionaryEntry> allQuestions = new ArrayList<>();
    private ArrayList<Integer> orderList = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5));
-   private int correct = 0;
-   private int incorrect = 0;
    private String wordCounterpart;
+   private boolean isEnglish = AssessmentGenerator.isEnglish;
 
 
    @FXML
@@ -70,132 +69,102 @@ public class SixMeaningsController extends TranslationController implements Init
    private Text possibleAnswer6;
 
    @FXML
-   void temp(MouseEvent event) {
-
+   void answer1(MouseEvent event) {
+      wordCounterpart = possibleAnswer1.getText();
+      checkAnswers();
+   }
+   @FXML
+   void answer2(MouseEvent event) {
+      wordCounterpart = possibleAnswer2.getText();
+      checkAnswers();
+   }
+   @FXML
+   void answer3(MouseEvent event) {
+      wordCounterpart = possibleAnswer3.getText();
+      checkAnswers();
+   }
+   @FXML
+   void answer4(MouseEvent event) {
+      wordCounterpart = possibleAnswer4.getText();
+      checkAnswers();
+   }
+   @FXML
+   void answer5(MouseEvent event) {
+      wordCounterpart = possibleAnswer5.getText();
+      checkAnswers();
+   }
+   @FXML
+   void answer6(MouseEvent event) {
+      wordCounterpart = possibleAnswer6.getText();
       checkAnswers();
    }
 
 
-   private void getWords(LinkedList<DictionaryEntry> practiceList) {
-      boolean isDuplicate = false;
-      do {
-         int word = rand.nextInt(practiceList.size() - 1);
-         DictionaryEntry chosenWord = practiceList.get(word);
 
-         if (wordSet.size() >= 1) {
+   private void setWords(boolean isEnglish){
 
-            for (DictionaryEntry setOfQuestion : wordSet) {
+      if(isEnglish){
 
-               if (setOfQuestion.equals(chosenWord)) {
-                  isDuplicate = true;
-                  break;
-               }
-            }
+         wordSet.add(allQuestions.get(0));
 
+         //WelshWord1 Is the question word and as a result is always right.
+         wordToTranslate.setText(wordSet.get(0).getEnglish());
+         //This stores the correct answer for the english word.
 
-            //If duplicate wasn't found add entry to the list
-            if (!isDuplicate) {
-               wordSet.add(chosenWord);
-            }
+         Collections.shuffle(orderList);
 
-            //... otherwise, add entry to the
-         } else {
-            wordSet.add(chosenWord);
-         }
+         possibleAnswer1.setText(allQuestions.get(orderList.get(0)).getWelsh());
+         possibleAnswer2.setText(allQuestions.get(orderList.get(1)).getWelsh());
+         possibleAnswer3.setText(allQuestions.get(orderList.get(2)).getWelsh());
+         possibleAnswer4.setText(allQuestions.get(orderList.get(3)).getWelsh());
+         possibleAnswer5.setText(allQuestions.get(orderList.get(4)).getWelsh());
+         possibleAnswer6.setText(allQuestions.get(orderList.get(5)).getWelsh());
+      }else {
 
-         isDuplicate = false;
+         wordSet.add(allQuestions.get(0));
+         //WelshWord1 Is the question word and as a result is always right.
+         wordToTranslate.setText(wordSet.get(0).getWelsh());
+         //This stores the correct answer for the english word.
 
-      } while (wordSet.size() < 6);
+         Collections.shuffle(orderList);
+
+         possibleAnswer1.setText(allQuestions.get(orderList.get(0)).getEnglish());
+         possibleAnswer2.setText(allQuestions.get(orderList.get(1)).getEnglish());
+         possibleAnswer3.setText(allQuestions.get(orderList.get(2)).getEnglish());
+         possibleAnswer4.setText(allQuestions.get(orderList.get(3)).getEnglish());
+         possibleAnswer5.setText(allQuestions.get(orderList.get(4)).getEnglish());
+         possibleAnswer6.setText(allQuestions.get(orderList.get(5)).getEnglish());
+
+      }
 
    }
 
 
-   private void setWordsE(LinkedList<DictionaryEntry> questions, ArrayList<Integer> orderList) {
-      //WelshWord1 Is the question word and as a result is always right.
-      wordToTranslate.setText(questions.get(0).getWelsh());
-      //This stores the correct answer for the english word.
-      wordCounterpart = questions.get(0).getEnglish();
-      possibleAnswer1.setText(questions.get(orderList.get(0)).getEnglish());
-      possibleAnswer2.setText(questions.get(orderList.get(1)).getEnglish());
-      possibleAnswer3.setText(questions.get(orderList.get(2)).getEnglish());
-      possibleAnswer4.setText(questions.get(orderList.get(3)).getEnglish());
-      possibleAnswer5.setText(questions.get(orderList.get(4)).getEnglish());
-      possibleAnswer6.setText(questions.get(orderList.get(5)).getEnglish());
 
-      Collections.shuffle(orderList); //I know that this does not belong here it was moved here for debug purposes. It lives five lines up.
-   }
+   private void checkAnswers() {
 
-   private void setWordsW(LinkedList<DictionaryEntry> questions, ArrayList<Integer> orderList) {
-      //WelshWord1 Is the question word and as a result is always right.
-      wordToTranslate.setText(questions.get(0).getEnglish());
-      //This stores the correct answer for the english word.
-      wordCounterpart = questions.get(0).getWelsh();
-      possibleAnswer1.setText(questions.get(orderList.get(0)).getWelsh());
-      possibleAnswer2.setText(questions.get(orderList.get(1)).getWelsh());
-      possibleAnswer3.setText(questions.get(orderList.get(2)).getWelsh());
-      possibleAnswer4.setText(questions.get(orderList.get(3)).getWelsh());
-      possibleAnswer5.setText(questions.get(orderList.get(4)).getWelsh());
-      possibleAnswer6.setText(questions.get(orderList.get(5)).getWelsh());
+      ArrayList<String> answer = new ArrayList<>();
 
-      Collections.shuffle(orderList); //I know that this does not belong here it was moved here for debug purposes. It lives five lines up.
-   }
+      answer.add(wordCounterpart);
+
+      Question.checkAnswer(wordSet,answer,isEnglish);
 
 
-   public void checkAnswers() {
-      String option1 = possibleAnswer1.toString();
-      String option2 = possibleAnswer2.toString();
-      String option3 = possibleAnswer3.toString();
-      String option4 = possibleAnswer4.toString();
-      String option5 = possibleAnswer5.toString();
-      String option6 = possibleAnswer6.toString();
-
-      if (option1 == wordCounterpart) {
-         correct++;
-      } else incorrect++;
-
-      if (option2 == wordCounterpart) {
-         correct++;
-      } else incorrect++;
-
-      if (option3 == wordCounterpart) {
-         correct++;
-      } else incorrect++;
-
-      if (option4 == wordCounterpart) {
-         correct++;
-      } else incorrect++;
-
-      if (option5 == wordCounterpart) {
-         correct++;
-      } else incorrect++;
-
-      if (option6 == wordCounterpart) {
-         correct++;
-      } else incorrect++;
-
-      correctAnswer.setText(Integer.toString(correct));
-
-      wrongAnswer.setText(Integer.toString(incorrect));
 
       wordSet.clear();
-      this.prepare();
 
-   }
+      AssessmentGenerator.goToNextQuestion();
 
-
-   private void prepare() {
-      getWords(Application.dictionary);
-      Random rd = new Random();
-      System.out.println(rd.nextBoolean());
-      if (rd.nextBoolean() == true) {
-         setWordsE(wordSet, orderList);
-      } else setWordsW(wordSet, orderList);
    }
 
 
    @Override
    public void initialize(URL url, ResourceBundle resourceBundle) {
-      this.prepare();
+      setWords(isEnglish);
+      
+      correctAnswer.setText(Integer.toString(Question.correctAnswers));
+
+      wrongAnswer.setText(Integer.toString(Question.wrongAnswers));
 
    }
 

@@ -88,8 +88,9 @@ public class ScreenSwitch extends SharedCodeController {
         }catch (IOException e){ // If an error occurs, print out error message on STDIO and crash gracefully
             System.err.print("Loading the FXML file ");
             System.err.print(newScene.getFXML());
-            System.err.println("Failed!");
+            System.err.println(" Failed!");
             System.err.println(e.toString());
+            e.printStackTrace(System.err);
             System.exit(-1);
         }
         return root;
@@ -113,6 +114,7 @@ public class ScreenSwitch extends SharedCodeController {
         flashcardScene("flashcard.fxml"),
         practiceListScene("practicelist.fxml"),
         matchMeaningScene("matchthemeaning.fxml"),
+        sixMeaningScene("sixmeanings.fxml"),
         translationScene("translation.fxml"),
         ;
 
