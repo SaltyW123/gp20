@@ -33,7 +33,7 @@ import java.util.*;
 public class MatchTheMeaningController implements Initializable{
 
 
-   private ArrayList<DictionaryEntry> answer =new ArrayList<>();
+   public static ArrayList<DictionaryEntry> answer =new ArrayList<>();
    private ArrayList<Integer> orderList = new ArrayList<>(Arrays.asList(0,1,2,3));
    private boolean isEnglish;
 
@@ -84,11 +84,11 @@ public class MatchTheMeaningController implements Initializable{
    /**
     * Pick randomly dictionary entry and add it to question list where are stored questions for this test.
     */
-   private void getQuestions(){
-
-      answer.addAll(AssessmentGenerator.generateWordMatch());
-
-   }
+//   private void getQuestions(){
+//
+//      answer.addAll(AssessmentGenerator.generateWordMatch());
+//
+//   }
 
    /**
     * Set chosen words from dictionary on the scene.
@@ -153,7 +153,7 @@ public class MatchTheMeaningController implements Initializable{
       WrongAnswer.setText(Integer.toString(Question.wrongAnswers));
 
       answer.clear();
-      this.prepare();
+      AssessmentGenerator.goToNextQuestion();
 
    }
 
@@ -161,7 +161,7 @@ public class MatchTheMeaningController implements Initializable{
     * Method responsible for preparing questions and scene.
     */
    private void prepare(){
-      getQuestions();
+//      getQuestions();
       setWords(answer,orderList);
    }
 
