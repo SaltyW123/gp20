@@ -22,14 +22,14 @@ import java.util.LinkedList;
  * @See
  */
 public class JSONTest {
-    static LinkedList<DictionaryEntry> testList;
+    LinkedList<DictionaryEntry> testList;
     LinkedList<DictionaryEntry> loadedList;
-    static File testFile;
-    static JsonProcessing processor = new JsonProcessing();
+    File testFile;
+    JsonProcessing processor = new JsonProcessing();
 
 
-    @BeforeAll
-    public static void setupTest() {
+    @Before
+    public void setupTest() {
 
         // Populate a test list with DictionaryEntrys that is to be used for the loading/saving tests.
         testList = new LinkedList<>(Arrays.asList(new DictionaryEntry("abbey","abaty","nm"), new DictionaryEntry("about to", "ar fin", "other"),
@@ -68,8 +68,8 @@ public class JSONTest {
         Assert.assertArrayEquals(testList.toArray(), loadedList.toArray());
     }
 
-    @AfterAll
-    public static void deleteFile() {
+    @After
+    public void deleteFile() {
         testFile.delete();
     }
 
