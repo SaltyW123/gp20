@@ -67,6 +67,7 @@ public class AssessmentGenerator {
          listOfAssessment.add(generatedAssessment);
       }
       AssessmentGenerator.listOfAssessment = listOfAssessment;
+      goToNextQuestion();
       return listOfAssessment;
    }
 
@@ -130,7 +131,7 @@ public class AssessmentGenerator {
       Question currentQuestion = listOfAssessment.get(currentAssessment);
 
       if(currentQuestion instanceof MatchTheMeaningQuestion){
-         MatchTheMeaningController.answer = (ArrayList<DictionaryEntry>) Arrays.asList(((MatchTheMeaningQuestion) currentQuestion).getCorrectAnswer());
+         MatchTheMeaningController.answer = ((MatchTheMeaningQuestion) currentQuestion).getCorrectAnswer();
          ScreenSwitch.swap(ScreenSwitch.SceneEnum.matchMeaningScene);
       }else if (currentQuestion instanceof SixMeaningsQuestion){
          SixMeaningsController.allQuestions = ((SixMeaningsQuestion) currentQuestion).getCorrectAnswer();
@@ -143,6 +144,7 @@ public class AssessmentGenerator {
          System.err.println(currentQuestion);
       }
 
+      currentAssessment++;
 
    }
 
