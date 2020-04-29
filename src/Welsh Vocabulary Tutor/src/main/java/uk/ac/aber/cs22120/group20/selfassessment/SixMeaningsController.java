@@ -100,15 +100,9 @@ public class SixMeaningsController implements Initializable {
    }
 
 
-//   private void getWords() {
-//
-//      wordSet = AssessmentGenerator.generateSixMeanings();
-//
-//   }
-
-
 
    private void setWords(boolean isEnglish){
+
       if(isEnglish){
 
          wordSet.add(allQuestions.get(0));
@@ -166,17 +160,9 @@ public class SixMeaningsController implements Initializable {
    }
 
 
-   private void prepare() {
-      //getWords();
-      Random rd = new Random();
-      System.out.println(rd.nextBoolean());
-      setWords(AssessmentGenerator.isEnglish);
-   }
-
-
    @Override
    public void initialize(URL url, ResourceBundle resourceBundle) {
-      this.prepare();
+      setWords(isEnglish);
 
    }
 
