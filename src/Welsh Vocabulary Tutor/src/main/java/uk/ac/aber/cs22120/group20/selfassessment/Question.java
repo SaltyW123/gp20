@@ -15,8 +15,8 @@ import java.util.ArrayList;
  */
 public class Question {
 
-   public int correctAnswers = 0;
-   public int wrongAnswers =0;
+   public static int correctAnswers = 0;
+   public static int wrongAnswers =0;
 
    /**
     *
@@ -24,7 +24,7 @@ public class Question {
     * @param listOfAnswers
     * @param isEnglish
     */
-   public void  checkAnswer(ArrayList<DictionaryEntry> listOfCorrectQuestions, ArrayList<String>listOfAnswers, boolean isEnglish){
+   public static void  checkAnswer(ArrayList<DictionaryEntry> listOfCorrectQuestions, ArrayList<String>listOfAnswers, boolean isEnglish){
       if(isEnglish){
          for(int i=0; i<listOfCorrectQuestions.size();i++){
             if(listOfCorrectQuestions.get(i).getWelsh().equals(listOfAnswers.get(i))){

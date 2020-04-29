@@ -21,7 +21,7 @@ import uk.ac.aber.cs22120.group20.javafx.Application;
  * @version 0.1
  *
  */
-public class TranslationController extends Question {
+public class TranslationController {
     private ArrayList<DictionaryEntry> practiceList = new ArrayList<>();
     public static DictionaryEntry answer = new DictionaryEntry();
 
@@ -61,8 +61,8 @@ public class TranslationController extends Question {
 
         submitButton.setImage(new Image ("file:src/main/resources/assets/icons/black_icons/50px/right-50.png"));
 
-        correctGuesses.setText("Correct Guesses: " + correctAnswers);
-        incorrectGuesses.setText("Incorrect Guesses: " + wrongAnswers);
+        correctGuesses.setText("Correct Guesses: " + Question.correctAnswers);
+        incorrectGuesses.setText("Incorrect Guesses: " + Question.wrongAnswers);
 
 
 
@@ -88,7 +88,7 @@ public class TranslationController extends Question {
         ArrayList<DictionaryEntry> correctTranslation = new ArrayList<>();
         correctTranslation.add(answer);
 
-        checkAnswer(correctTranslation, usersInput, AssessmentGenerator.isEnglish);
+        Question.checkAnswer(correctTranslation, usersInput, AssessmentGenerator.isEnglish);
 
 
     }

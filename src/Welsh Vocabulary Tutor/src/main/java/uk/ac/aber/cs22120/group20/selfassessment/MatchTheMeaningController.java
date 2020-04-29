@@ -30,7 +30,7 @@ import java.util.*;
  */
 
 
-public class MatchTheMeaningController extends Question implements Initializable{
+public class MatchTheMeaningController implements Initializable{
 
 
    private ArrayList<DictionaryEntry> answer =new ArrayList<>();
@@ -147,10 +147,10 @@ public class MatchTheMeaningController extends Question implements Initializable
          listOfAnswers.add(LeftWord4.getText());
       }
 
-      checkAnswer(answer,listOfAnswers,isEnglish);
+      Question.checkAnswer(answer,listOfAnswers,isEnglish);
 
-      CorrectAnswer.setText(Integer.toString(correctAnswers));
-      WrongAnswer.setText(Integer.toString(wrongAnswers));
+      CorrectAnswer.setText(Integer.toString(Question.correctAnswers));
+      WrongAnswer.setText(Integer.toString(Question.wrongAnswers));
 
       answer.clear();
       this.prepare();

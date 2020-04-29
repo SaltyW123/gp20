@@ -32,7 +32,7 @@ import java.util.*;
  * @see uk.ac.aber.cs22120.group20.javafx.Application
  */
 
-public class SixMeaningsController extends TranslationController implements Initializable {
+public class SixMeaningsController implements Initializable {
 
    private ArrayList<DictionaryEntry> wordSet = new ArrayList<>();
    public static ArrayList<DictionaryEntry> allQuestions = new ArrayList<>();
