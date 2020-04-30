@@ -134,6 +134,9 @@ public class DictionaryController extends SharedCodeController {
       currentPageIcon.setImage(new Image(getClass().getResourceAsStream("/assets/icons/white_icons/50px/read-50.png")));
       currentPageText.setText("Dictionary");
 
+      alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
+      langSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-lang-50.png"));
+
       dictionaryIcon.setImage(new Image(getClass().getResourceAsStream("/assets/icons/black_icons/50px/read-50.png")));
       dictionaryText.setFill(Color.BLACK);
       list.addAll(Application.dictionary);
