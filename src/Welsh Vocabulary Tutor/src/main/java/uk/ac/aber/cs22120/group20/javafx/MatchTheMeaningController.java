@@ -41,7 +41,7 @@ public class MatchTheMeaningController extends SharedCodeController {
 
    public static ArrayList<DictionaryEntry> answer =new ArrayList<>();
    private ArrayList<Integer> orderList = new ArrayList<>(Arrays.asList(0,1,2,3));
-   private boolean isEnglish;
+   private boolean isEnglish = AssessmentGenerator.isEnglish;
 
 
    @FXML
@@ -96,9 +96,8 @@ public class MatchTheMeaningController extends SharedCodeController {
     */
 
 
-   private void setWords(ArrayList<DictionaryEntry> questions, ArrayList<Integer> orderList){
+   public void setWords(ArrayList<DictionaryEntry> questions, ArrayList<Integer> orderList){
 
-      isEnglish = AssessmentGenerator.isEnglish;
 
       if(isEnglish){
          LeftWord1.setText(questions.get(0).getEnglish());

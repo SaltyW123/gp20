@@ -105,11 +105,11 @@ public class SixMeaningsController extends SharedCodeController {
 
 
 
-   private void setWords(boolean isEnglish){
+   public void setWords(ArrayList<DictionaryEntry> questions, ArrayList<Integer> orderList){
 
       if(isEnglish){
 
-         wordSet.add(allQuestions.get(0));
+         wordSet.add(questions.get(0));
 
          //WelshWord1 Is the question word and as a result is always right.
          wordToTranslate.setText(wordSet.get(0).getEnglish());
@@ -117,27 +117,27 @@ public class SixMeaningsController extends SharedCodeController {
 
          Collections.shuffle(orderList);
 
-         possibleAnswer1.setText(allQuestions.get(orderList.get(0)).getWelsh());
-         possibleAnswer2.setText(allQuestions.get(orderList.get(1)).getWelsh());
-         possibleAnswer3.setText(allQuestions.get(orderList.get(2)).getWelsh());
-         possibleAnswer4.setText(allQuestions.get(orderList.get(3)).getWelsh());
-         possibleAnswer5.setText(allQuestions.get(orderList.get(4)).getWelsh());
-         possibleAnswer6.setText(allQuestions.get(orderList.get(5)).getWelsh());
+         possibleAnswer1.setText(questions.get(orderList.get(0)).getWelsh());
+         possibleAnswer2.setText(questions.get(orderList.get(1)).getWelsh());
+         possibleAnswer3.setText(questions.get(orderList.get(2)).getWelsh());
+         possibleAnswer4.setText(questions.get(orderList.get(3)).getWelsh());
+         possibleAnswer5.setText(questions.get(orderList.get(4)).getWelsh());
+         possibleAnswer6.setText(questions.get(orderList.get(5)).getWelsh());
       }else {
 
-         wordSet.add(allQuestions.get(0));
+         wordSet.add(questions.get(0));
          //WelshWord1 Is the question word and as a result is always right.
          wordToTranslate.setText(wordSet.get(0).getWelsh());
          //This stores the correct answer for the english word.
 
          Collections.shuffle(orderList);
 
-         possibleAnswer1.setText(allQuestions.get(orderList.get(0)).getEnglish());
-         possibleAnswer2.setText(allQuestions.get(orderList.get(1)).getEnglish());
-         possibleAnswer3.setText(allQuestions.get(orderList.get(2)).getEnglish());
-         possibleAnswer4.setText(allQuestions.get(orderList.get(3)).getEnglish());
-         possibleAnswer5.setText(allQuestions.get(orderList.get(4)).getEnglish());
-         possibleAnswer6.setText(allQuestions.get(orderList.get(5)).getEnglish());
+         possibleAnswer1.setText(questions.get(orderList.get(0)).getEnglish());
+         possibleAnswer2.setText(questions.get(orderList.get(1)).getEnglish());
+         possibleAnswer3.setText(questions.get(orderList.get(2)).getEnglish());
+         possibleAnswer4.setText(questions.get(orderList.get(3)).getEnglish());
+         possibleAnswer5.setText(questions.get(orderList.get(4)).getEnglish());
+         possibleAnswer6.setText(questions.get(orderList.get(5)).getEnglish());
 
       }
 
@@ -145,7 +145,7 @@ public class SixMeaningsController extends SharedCodeController {
 
 
 
-   private void checkAnswers() {
+   public void checkAnswers() {
 
       ArrayList<String> answer = new ArrayList<>();
 
@@ -171,7 +171,7 @@ public class SixMeaningsController extends SharedCodeController {
       studyIcon.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/pass-fail-50.png"));
       studyText.setFill(Color.BLACK);
 
-      setWords(isEnglish);
+      setWords(allQuestions,orderList);
       
       correctAnswer.setText(Integer.toString(Question.correctAnswers));
 
