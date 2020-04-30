@@ -37,7 +37,7 @@ public class AssessmentGenerator {
 
         //int wordToTranslatePlace;
 
-        if (practiseList.size()<10){
+        if (practiseList.size()<5){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Not enough words in practice list");
