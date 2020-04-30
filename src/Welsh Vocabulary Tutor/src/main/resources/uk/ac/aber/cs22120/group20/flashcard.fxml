@@ -1,4 +1,4 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -124,11 +124,10 @@
                 <Insets top="25" right="25" bottom="10" left="25"/>
             </padding>
             <children>
-                <StackPane  alignment="CENTER" onMouseClicked="#handleFlashcardClick" VBox.vgrow="NEVER" minWidth="350">
+                <StackPane  alignment="CENTER" onMouseClicked="#handleFlashcardClick" minWidth="500">
                     <children>
-                        <Rectangle fx:id="flashcard" width="550" height="360" fill="white" arcHeight="80" arcWidth="80"
-                                   stroke="black"/>
-                        <Text textAlignment="CENTER" fx:id="testWord">
+                        <ImageView fx:id="flashcard" fitWidth="450" fitHeight="360"></ImageView>
+                        <Text  textAlignment="CENTER" fx:id="testWord">
                             <font>
                                 <Font size="55"/>
                             </font>

@@ -7,6 +7,7 @@ import javafx.scene.control.ButtonType;
 import uk.ac.aber.cs22120.group20.javafx.*;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
+import java.text.DecimalFormat;
 import java.util.*;
 
 
@@ -14,14 +15,30 @@ import java.util.*;
  * Class that contains methods to create a randomised list of questions that will
  * contain a random distribution of question types.
  *
- * @Author
- * @Version
- * @See
+ * @author Brad Corbett [brc9]
+ * @author Henry Dugmore [hjd3]
+ * @author Kain Bryan-Jones [kab74]
+ * @author Luke Wybar [law39]
+ * @author Marcin Jakob [maj83]
+ * @author Oscar Pocock [osp1]
+ * @author Tom Perry [top1]
+ * @author Waylen Watts [ncw]
+ * @version 0.1 Initial development
+ * @See Question
+ * @See SixMeaningsQuestion
+ * @See TranslationQuestion
+ * @See MatchTheMeaningQuestion
+ * @See ScreenSwitch
+ * @See SixMeaningsController
+ * @See TranslationController
+ * @See MatchTheMeaningController
  */
 public class AssessmentGenerator {
     public static boolean isEnglish;
     static LinkedList<Question> listOfAssessment = new LinkedList<>();
     static int currentAssessment = 0;
+    static int totalCorrectAnswers = 0;
+    static int totalAnswers = 0;
 
     /**
      * Method that will generate a randomized list of questions consisting of random distribution of questions
@@ -33,6 +50,8 @@ public class AssessmentGenerator {
     public static LinkedList<Question> generateAssessment(LinkedList<DictionaryEntry> practiseList) {
         LinkedList<Question> listOfAssessment = new LinkedList<>();
         Random rand = new Random();
+
+        reset();
 
         //int wordToTranslatePlace;
 
@@ -52,21 +71,20 @@ public class AssessmentGenerator {
                     case (0): //0 Means translation test.
                         //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
                         //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
-                        if(!(listOfAssessment.getLast() == null) || (listOfAssessment.getLast() instanceof TranslationQuestion)){
+                        if((listOfAssessment.isEmpty()) || !(listOfAssessment.getLast() instanceof TranslationQuestion)){
+                            generatedAssessment = generateTranslationTest(practiseList);
+                        }else {
                             numberToGenerate--;
-                            break;
                         }
-                        generatedAssessment = generateTranslationTest(practiseList);
                         break;
                     case (1): //1 Means six meanings test.
                         //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
                         //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
-                        if(!(listOfAssessment.getLast() == null) || (listOfAssessment.getLast() instanceof SixMeaningsQuestion)){
+                        if(((listOfAssessment.isEmpty())) || !(listOfAssessment.getLast() instanceof SixMeaningsQuestion)){
+                            generatedAssessment = generateSixMeanings(practiseList);
+                        }else {
                             numberToGenerate--;
-                            break;
                         }
-                        generatedAssessment = generateSixMeanings(practiseList);
-
                         break;
                     case (2): //2 Means match meanings test.
 //               LinkedList<DictionaryEntry> wordsToTranslate = new LinkedList<>();
@@ -75,15 +93,16 @@ public class AssessmentGenerator {
 //                  wordsToTranslate.add(Application.practiseList.get(wordToTranslatePlace));
 //                  wordsToTranslate.toArray();
 //               }
-                        if(!(listOfAssessment.getLast() == null) || (listOfAssessment.getLast() instanceof MatchTheMeaningQuestion)){
+                        if((listOfAssessment.isEmpty()) || !(listOfAssessment.getLast() instanceof MatchTheMeaningQuestion)){
+                            generatedAssessment = generateMatchMeaning(practiseList);
+                        }else {
                             numberToGenerate--;
-                            break;
                         }
-
-                        generatedAssessment = generateMatchMeaning(practiseList);
                         break;
                 }
-                listOfAssessment.add(generatedAssessment);
+                if(generatedAssessment != null) {
+                    listOfAssessment.add(generatedAssessment);
+                }
             }
             AssessmentGenerator.listOfAssessment = listOfAssessment;
             goToNextQuestion();
@@ -150,7 +169,11 @@ public class AssessmentGenerator {
 
 
     public static void goToNextQuestion() {
+        if (currentAssessment > 0){
+            Question.showFeedback();
+        }
         if (currentAssessment < 10) {
+
             Question currentQuestion = listOfAssessment.get(currentAssessment);
 
             if (currentQuestion instanceof MatchTheMeaningQuestion) {
@@ -166,14 +189,14 @@ public class AssessmentGenerator {
                 System.err.print("The question has not been recognised");
                 System.err.println(currentQuestion);
             }
-
             currentAssessment++;
+
         } else {
 
             StringBuilder sb = new StringBuilder();
-            sb.append("You scored: ")
-                    .append(Question.correctAnswers).append("/")
-                    .append(Question.correctAnswers + Question.wrongAnswers)
+            sb.append("You got ")
+                    .append(new DecimalFormat("#.##").format(((double)(totalCorrectAnswers*100) / (double)totalAnswers)))
+                    .append("%")
                     .append("\n Would you like to test yourself again?");
 
             ButtonType yesBtn = new ButtonType("Yes");
@@ -192,15 +215,28 @@ public class AssessmentGenerator {
             Optional<ButtonType> result = alert.showAndWait();
 
             currentAssessment = 0;
-            Question.resetScore();
 
+            reset();
             if (result.isEmpty() || result.get() == noBtn) {
                ScreenSwitch.swap(ScreenSwitch.SceneEnum.dictionaryScene);
             } else {
-                generateAssessment(Application.practiseList);
+                generateAssessment(Application.practiceList);
             }
         }
-
     }
 
+    public static int getTotalCorrectAnswers() {
+        return totalCorrectAnswers;
+    }
+
+    public static int getTotalAnswers() {
+        return totalAnswers;
+    }
+
+    public static void reset(){
+        totalCorrectAnswers = 0;
+        totalAnswers =0;
+        LinkedList<Question> listOfAssessment = new LinkedList<>();
+        currentAssessment = 0;
+    }
 }

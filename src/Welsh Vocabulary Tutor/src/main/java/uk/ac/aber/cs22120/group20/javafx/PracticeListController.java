@@ -11,20 +11,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.css.converter.DurationConverter;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import uk.ac.aber.cs22120.group20.javafx.Application;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 /**
  * A class that handles the keyboard and mouse input and interaction for the 'Dictionary Page' which is
@@ -83,7 +79,7 @@ public class PracticeListController extends SharedCodeController{
         langSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-lang-50.png"));
 
 //        list.addAll(Application.dictionary);
-        list.addAll(Application.practiseList);
+        list.addAll(Application.practiceList);
 //        for (DictionaryEntry entry : Application.dictionary) {
 //            if (entry.isPracticeWord())
 //                list.add(entry);
@@ -109,7 +105,7 @@ public class PracticeListController extends SharedCodeController{
                         result = true; // Filter matches English
 //                    } else if (dictionaryEntry.getWordType().toLowerCase().contains(lowerCaseSearchFilter)) {
 //                        result = true; // Filter matches Word Type
-                    } else if (dictionaryEntry.getWordType().equals("verb") && ("to " + dictionaryEntry.getEnglish()).toLowerCase().contains(lowerCaseSearchFilter)) {
+                    } else if (dictionaryEntry.getWordType().equals(DictionaryEntry.wordTypeEnum.verb) && ("to " + dictionaryEntry.getEnglish()).toLowerCase().contains(lowerCaseSearchFilter)) {
                         result = true; // Filter matches ['to' + a word] or [a word] if word is a verb
                     }
                 }
@@ -150,13 +146,13 @@ public class PracticeListController extends SharedCodeController{
                                 }
 
                             ArrayList<DictionaryEntry> toRemove = new ArrayList<DictionaryEntry>();
-                            for (DictionaryEntry entry : Application.practiseList) {
+                            for (DictionaryEntry entry : Application.practiceList) {
                                 if (entry.equals(row.getItem())) {
                                     toRemove.add(entry);
                                     list.remove(row.getItem());
                                 }
                             }
-                            Application.practiseList.removeAll(toRemove);
+                            Application.practiceList.removeAll(toRemove);
                             table.getSelectionModel().clearSelection();
                         }
                     });
@@ -166,9 +162,9 @@ public class PracticeListController extends SharedCodeController{
 
         welsh.setCellValueFactory(dictionaryEntryStringCellDataFeatures -> {
 
-            if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals("nm")) {
+            if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals(DictionaryEntry.wordTypeEnum.nm)) {
                 return new SimpleStringProperty(dictionaryEntryStringCellDataFeatures.getValue().getWelsh() + " {nm}");
-            } else if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals("nf")) {
+            } else if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals(DictionaryEntry.wordTypeEnum.nf)) {
                 return new SimpleStringProperty(dictionaryEntryStringCellDataFeatures.getValue().getWelsh() + " {nf}");
             } else {
                 return new SimpleStringProperty(dictionaryEntryStringCellDataFeatures.getValue().getWelsh());
@@ -176,7 +172,7 @@ public class PracticeListController extends SharedCodeController{
         });
 
         english.setCellValueFactory(dictionaryEntryStringCellDataFeatures -> {
-            if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals("verb")) {
+            if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals(DictionaryEntry.wordTypeEnum.verb)) {
                 return new SimpleStringProperty("to " + dictionaryEntryStringCellDataFeatures.getValue().getEnglish());
             } else {
                 return new SimpleStringProperty(dictionaryEntryStringCellDataFeatures.getValue().getEnglish());
@@ -184,12 +180,17 @@ public class PracticeListController extends SharedCodeController{
         });
 
         table.setItems(sortedList);
-        table.getSortOrder().add(english);
+        if(isSortedByEnglish){
+            table.getSortOrder().add(english);
+        } else{
+            table.getSortOrder().add(welsh);
+        }
+
     }
 
     @FXML
     private void switchLangSort() {
-        if (table.getSortOrder().contains(english)) {
+        if (isSortedByEnglish) {
             if (welsh.getSortType().equals(TableColumn.SortType.ASCENDING)) {
                 alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
             }
@@ -198,8 +199,10 @@ public class PracticeListController extends SharedCodeController{
             }
             table.getSortOrder().clear();
             table.getSortOrder().add(welsh);
+
+            isSortedByEnglish = false;
         }
-        else if (table.getSortOrder().contains(welsh)) {
+        else  {
             if (english.getSortType().equals(TableColumn.SortType.ASCENDING)) {
                 alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
             }
@@ -208,6 +211,8 @@ public class PracticeListController extends SharedCodeController{
             }
             table.getSortOrder().clear();
             table.getSortOrder().add(english);
+
+            isSortedByEnglish = true;
         }
         table.sort();
     }

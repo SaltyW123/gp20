@@ -8,6 +8,7 @@ package uk.ac.aber.cs22120.group20.javafx;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -133,29 +134,57 @@ public class MatchTheMeaningController extends SharedCodeController {
     */
 
    public void checkAnswers(){
+      ArrayList<DictionaryEntry> answers = new ArrayList<>();
       ArrayList<String> listOfAnswers = new ArrayList<>();
+
+      answers.add(answer.get(Integer.parseInt(word1.getValue())-1));
+      answers.add(answer.get(Integer.parseInt(word2.getValue())-1));
+      answers.add(answer.get(Integer.parseInt(word3.getValue())-1));
+      answers.add(answer.get(Integer.parseInt(word4.getValue())-1));
+
       if(isEnglish){
-         listOfAnswers.add(RightWord1.getText());
-         listOfAnswers.add(RightWord2.getText());
-         listOfAnswers.add(RightWord3.getText());
-         listOfAnswers.add(RightWord4.getText());
-      }else {
          listOfAnswers.add(LeftWord1.getText());
          listOfAnswers.add(LeftWord2.getText());
          listOfAnswers.add(LeftWord3.getText());
          listOfAnswers.add(LeftWord4.getText());
+
+
+      }else {
+         listOfAnswers.add(RightWord1.getText());
+         listOfAnswers.add(RightWord2.getText());
+         listOfAnswers.add(RightWord3.getText());
+         listOfAnswers.add(RightWord4.getText());
+
       }
 
-      Question.checkAnswer(answer,listOfAnswers,isEnglish);
+      if(checkForDuplicates(answers)){
+         Alert alert = new Alert(Alert.AlertType.ERROR);
+         alert.setTitle("Error");
+         alert.setHeaderText("Please check answers");
+         alert.setContentText("Please ensure you have selected answers for each test word, with no duplicates.");
+         alert.showAndWait();
+      }else {
+
+         Question.checkAnswer(answers, listOfAnswers, isEnglish);
 
 
-      answer.clear();
-      AssessmentGenerator.goToNextQuestion();
-
+         answer.clear();
+         AssessmentGenerator.goToNextQuestion();
+      }
    }
+      private boolean checkForDuplicates(ArrayList<DictionaryEntry> wordSet){
+         boolean result = false;
+         Set<DictionaryEntry> set = new HashSet<>(wordSet);
+
+         if(set.size() < wordSet.size()){
+            result = true;
+         }
+         return result;
+      }
 
 
-   @FXML
+
+      @FXML
    private void initialize() {
       setup();
       currentPageIcon.setImage(new Image("file:src/main/resources/assets/icons/white_icons/50px/pass-fail-50.png"));
@@ -165,8 +194,8 @@ public class MatchTheMeaningController extends SharedCodeController {
       studyText.setFill(Color.BLACK);
 
       setWords(answer,orderList);
-      CorrectAnswer.setText(Integer.toString(Question.correctAnswers));
-      WrongAnswer.setText(Integer.toString(Question.wrongAnswers));
+      CorrectAnswer.setText(Integer.toString(AssessmentGenerator.getTotalCorrectAnswers()));
+      WrongAnswer.setText(Integer.toString(AssessmentGenerator.getTotalAnswers()));
 
    }
 }

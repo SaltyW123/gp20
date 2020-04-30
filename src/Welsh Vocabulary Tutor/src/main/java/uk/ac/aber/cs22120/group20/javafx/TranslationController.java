@@ -69,8 +69,8 @@ public class TranslationController  extends SharedCodeController{
 
         submitButton.setImage(new Image ("file:src/main/resources/assets/icons/black_icons/50px/right-50.png"));
 
-        correctGuesses.setText("Correct Guesses: " + Question.correctAnswers);
-        incorrectGuesses.setText("Incorrect Guesses: " + Question.wrongAnswers);
+        correctGuesses.setText("Correct answers: " + AssessmentGenerator.getTotalCorrectAnswers());
+        incorrectGuesses.setText("Total answers: " + AssessmentGenerator.getTotalAnswers());
 
 
 

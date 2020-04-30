@@ -12,7 +12,6 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -21,13 +20,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import uk.ac.aber.cs22120.group20.javafx.Application;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 /**
  * A class that handles the keyboard and mouse input and interaction for the 'Dictionary Page' which is
@@ -69,7 +64,7 @@ public class DictionaryController extends SharedCodeController {
     */
    @FXML
    private void switchLangSort() {
-      if (table.getSortOrder().contains(english)) {
+      if (isSortedByEnglish) {
          if (welsh.getSortType().equals(TableColumn.SortType.ASCENDING)) {
             alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
          }
@@ -78,8 +73,10 @@ public class DictionaryController extends SharedCodeController {
          }
          table.getSortOrder().clear();
          table.getSortOrder().add(welsh);
+
+         isSortedByEnglish = false;
       }
-      else if (table.getSortOrder().contains(welsh)) {
+      else  {
          if (english.getSortType().equals(TableColumn.SortType.ASCENDING)) {
             alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
          }
@@ -88,8 +85,10 @@ public class DictionaryController extends SharedCodeController {
          }
          table.getSortOrder().clear();
          table.getSortOrder().add(english);
+         isSortedByEnglish = true;
       }
       table.sort();
+
    }
 
    /**
@@ -160,16 +159,16 @@ public class DictionaryController extends SharedCodeController {
                        if (row.getItem().isPracticeWord()) {
                           Application.dictionary.get(list.indexOf(row.getItem())).setPracticeWord(false);
                           ArrayList<DictionaryEntry> toRemove = new ArrayList<DictionaryEntry>();
-                          for (DictionaryEntry entry : Application.practiseList) {
+                          for (DictionaryEntry entry : Application.practiceList) {
                              if (entry.equals(row.getItem())) {
                                 toRemove.add(entry);
                              }
                           }
-                          Application.practiseList.removeAll(toRemove);
+                          Application.practiceList.removeAll(toRemove);
 //                        row.getItem().setPracticeWord(false);
                        } else if (!row.getItem().isPracticeWord()) {
                           Application.dictionary.get(list.indexOf(row.getItem())).setPracticeWord(true);
-                          Application.practiseList.add(row.getItem());
+                          Application.practiceList.add(row.getItem());
 //                        row.getItem().setPracticeWord(true);
                        }
                        table.getSelectionModel().clearSelection();
@@ -179,9 +178,9 @@ public class DictionaryController extends SharedCodeController {
               }
       );
       welsh.setCellValueFactory(dictionaryEntryStringCellDataFeatures -> {
-         if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals("nm")) {
+         if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals(DictionaryEntry.wordTypeEnum.nm)) {
             return new SimpleStringProperty(dictionaryEntryStringCellDataFeatures.getValue().getWelsh() + " {nm}");
-         } else if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals("nf")) {
+         } else if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals(DictionaryEntry.wordTypeEnum.nf)) {
             return new SimpleStringProperty(dictionaryEntryStringCellDataFeatures.getValue().getWelsh() + " {nf}");
          } else {
             return new SimpleStringProperty(dictionaryEntryStringCellDataFeatures.getValue().getWelsh());
@@ -189,7 +188,7 @@ public class DictionaryController extends SharedCodeController {
       });
 
       english.setCellValueFactory(dictionaryEntryStringCellDataFeatures -> {
-         if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals("verb")) {
+         if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals(DictionaryEntry.wordTypeEnum.verb)) {
             return new SimpleStringProperty("to " + dictionaryEntryStringCellDataFeatures.getValue().getEnglish());
          } else {
             return new SimpleStringProperty(dictionaryEntryStringCellDataFeatures.getValue().getEnglish());
@@ -215,7 +214,7 @@ public class DictionaryController extends SharedCodeController {
                   result = true; // Filter matches English
 //                    } else if (dictionaryEntry.getWordType().toLowerCase().contains(lowerCaseSearchFilter)) {
 //                        result = true; // Filter matches Word Type
-               } else if (dictionaryEntry.getWordType().equals("verb") && ("to " + dictionaryEntry.getEnglish()).toLowerCase().contains(lowerCaseSearchFilter)) {
+               } else if (dictionaryEntry.getWordType().equals(DictionaryEntry.wordTypeEnum.verb) && ("to " + dictionaryEntry.getEnglish()).toLowerCase().contains(lowerCaseSearchFilter)) {
                   result = true; // Filter matches ['to' + a word] or [a word] if word is a verb
                }
             }
@@ -229,7 +228,12 @@ public class DictionaryController extends SharedCodeController {
 //        english.setCellValueFactory(new PropertyValueFactory<DictionaryEntry, String>("english"));
 
       table.setItems(sortedList);
-      table.getSortOrder().add(english);
+
+      if(isSortedByEnglish){
+         table.getSortOrder().add(english);
+      } else{
+         table.getSortOrder().add(welsh);
+      }
    }
 
 }

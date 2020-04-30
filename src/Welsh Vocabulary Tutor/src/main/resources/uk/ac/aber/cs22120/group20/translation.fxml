@@ -125,8 +125,8 @@
    <center>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
          <children>
-            <TitledPane animated="false" prefHeight="400.0" prefWidth="600.0" text="Learn">
-               <content>
+
+            
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <TextField fx:id="translationBox" layoutX="205.0" layoutY="199.0" prefHeight="45.0" prefWidth="188.0" promptText="Enter translation here" />
@@ -153,8 +153,6 @@
                         <ImageView fx:id="submitButton" fitHeight="46.0" fitWidth="69.0" layoutX="398.0" layoutY="199.0" onMouseClicked="#translateWord" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </AnchorPane>
-               </content>
-            </TitledPane>
          </children>
       </Pane>
 

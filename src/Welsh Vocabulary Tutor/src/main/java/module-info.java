@@ -17,6 +17,6 @@ module uk.ac.aber.cs22120.group20 {
 
    exports uk.ac.aber.cs22120.group20.json to com.fasterxml.jackson.databind;
    exports uk.ac.aber.cs22120.group20.javafx to javafx.graphics, javafx.fxml;
-   exports uk.ac.aber.cs22120.group20.test to org.junit.jupiter;
-//   exports uk.ac.aber.cs22120.group20.test to junit;
+   exports uk.ac.aber.cs22120.group20.test to org.junit.jupiter, org.testfx;
+   //   exports uk.ac.aber.cs22120.group20.test to junit;
 }
