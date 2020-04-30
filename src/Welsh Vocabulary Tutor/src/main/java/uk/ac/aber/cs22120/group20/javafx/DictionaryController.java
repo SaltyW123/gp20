@@ -64,7 +64,7 @@ public class DictionaryController extends SharedCodeController {
     */
    @FXML
    private void switchLangSort() {
-      if (table.getSortOrder().contains(english)) {
+      if (isSortedByEnglish) {
          if (welsh.getSortType().equals(TableColumn.SortType.ASCENDING)) {
             alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
          }
@@ -73,8 +73,10 @@ public class DictionaryController extends SharedCodeController {
          }
          table.getSortOrder().clear();
          table.getSortOrder().add(welsh);
+
+         isSortedByEnglish = false;
       }
-      else if (table.getSortOrder().contains(welsh)) {
+      else  {
          if (english.getSortType().equals(TableColumn.SortType.ASCENDING)) {
             alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
          }
@@ -83,8 +85,10 @@ public class DictionaryController extends SharedCodeController {
          }
          table.getSortOrder().clear();
          table.getSortOrder().add(english);
+         isSortedByEnglish = true;
       }
       table.sort();
+
    }
 
    /**
@@ -224,7 +228,12 @@ public class DictionaryController extends SharedCodeController {
 //        english.setCellValueFactory(new PropertyValueFactory<DictionaryEntry, String>("english"));
 
       table.setItems(sortedList);
-      table.getSortOrder().add(english);
+
+      if(isSortedByEnglish){
+         table.getSortOrder().add(english);
+      } else{
+         table.getSortOrder().add(welsh);
+      }
    }
 
 }
