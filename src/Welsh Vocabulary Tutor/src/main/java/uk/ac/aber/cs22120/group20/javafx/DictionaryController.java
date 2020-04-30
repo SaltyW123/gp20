@@ -86,7 +86,9 @@ public class DictionaryController extends SharedCodeController {
          isSortedByEnglish = true;
       }
       table.sort();
-
+      searchBox.textProperty().setValue(searchBox.textProperty().getValue() + " ");
+      searchBox.textProperty().setValue(searchBox.textProperty().getValue().trim());
+      searchBox.positionCaret(searchBox.textProperty().getValue().length());
    }
 
    /**
