@@ -1,10 +1,8 @@
 package uk.ac.aber.cs22120.group20.selfassessment;
 
-import uk.ac.aber.cs22120.group20.javafx.Application;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
 import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.LinkedList;
 import java.util.Random;
 /**
@@ -18,12 +16,12 @@ import java.util.Random;
  * @author Tom Perry [top1]
  * @author Waylen Watts [ncw]
  * @version 0.1 Initial development
- * @See Question
+ * @see Question
  */
 
 public class SixMeaningsQuestion extends Question{
-   private DictionaryEntry correctAnswer;
-   private LinkedList<DictionaryEntry> dictionary;
+   private final DictionaryEntry correctAnswer;
+   private final LinkedList<DictionaryEntry> dictionary;
 
    public SixMeaningsQuestion(DictionaryEntry correctAnswer, LinkedList<DictionaryEntry> dictionary) {
       this.correctAnswer = correctAnswer;
