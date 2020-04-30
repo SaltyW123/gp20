@@ -32,202 +32,202 @@ import java.util.*;
  * @see MatchTheMeaningController
  */
 public class AssessmentGenerator {
-    public static boolean isEnglish;
-    static LinkedList<Question> listOfAssessment = new LinkedList<>();
-    static int currentAssessment = 0;
-    static int totalCorrectAnswers = 0;
-    static int totalAnswers = 0;
+   public static boolean isEnglish;
+   static LinkedList<Question> listOfAssessment = new LinkedList<>();
+   static int currentAssessment = 0;
+   static int totalCorrectAnswers = 0;
+   static int totalAnswers = 0;
 
-    /**
-     * Method that will generate a randomized list of questions consisting of random distribution of questions
-     * types, using the dictionary’s practice words as the parameter.
-     *
-     * @param practiseList
-     * @return
-     */
-    public static LinkedList<Question> generateAssessment(LinkedList<DictionaryEntry> practiseList) {
-        LinkedList<Question> listOfAssessment = new LinkedList<>();
-        Random rand = new Random();
+   /**
+    * Method that will generate a randomized list of questions consisting of random distribution of questions
+    * types, using the dictionary’s practice words as the parameter.
+    *
+    * @param practiseList
+    * @return
+    */
+   public static LinkedList<Question> generateAssessment(LinkedList<DictionaryEntry> practiseList) {
+      LinkedList<Question> listOfAssessment = new LinkedList<>();
+      Random rand = new Random();
 
-        reset();
+      reset();
 
-        //int wordToTranslatePlace;
+      //int wordToTranslatePlace;
 
-        if (practiseList.size()<5){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Not enough words in practice list");
-            alert.setResizable(false);
-            alert.setContentText("Please add more words to your practice list on the dictionary page before trying to test yourself!");
-            alert.showAndWait();
-        }else {
+      if (practiseList.size()<5){
+         Alert alert = new Alert(Alert.AlertType.ERROR);
+         alert.setTitle("Error");
+         alert.setHeaderText("Not enough words in practice list");
+         alert.setResizable(false);
+         alert.setContentText("Please add more words to your practice list on the dictionary page before trying to test yourself!");
+         alert.showAndWait();
+      }else {
 
-            for (int numberToGenerate = 0; numberToGenerate < 10; numberToGenerate++) {
-                Question generatedAssessment = null;
-                int quizType = rand.nextInt(3);
-                switch (quizType) {
-                    case (0): //0 Means translation test.
-                        //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
-                        //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
-                        if((listOfAssessment.isEmpty()) || !(listOfAssessment.getLast() instanceof TranslationQuestion)){
-                            generatedAssessment = generateTranslationTest(practiseList);
-                        }else {
-                            numberToGenerate--;
-                        }
-                        break;
-                    case (1): //1 Means six meanings test.
-                        //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
-                        //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
-                        if(((listOfAssessment.isEmpty())) || !(listOfAssessment.getLast() instanceof SixMeaningsQuestion)){
-                            generatedAssessment = generateSixMeanings(practiseList);
-                        }else {
-                            numberToGenerate--;
-                        }
-                        break;
-                    case (2): //2 Means match meanings test.
+         for (int numberToGenerate = 0; numberToGenerate < 10; numberToGenerate++) {
+            Question generatedAssessment = null;
+            int quizType = rand.nextInt(3);
+            switch (quizType) {
+               case (0): //0 Means translation test.
+                  //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
+                  //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
+                  if((listOfAssessment.isEmpty()) || !(listOfAssessment.getLast() instanceof TranslationQuestion)){
+                     generatedAssessment = generateTranslationTest(practiseList);
+                  }else {
+                     numberToGenerate--;
+                  }
+                  break;
+               case (1): //1 Means six meanings test.
+                  //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
+                  //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
+                  if(((listOfAssessment.isEmpty())) || !(listOfAssessment.getLast() instanceof SixMeaningsQuestion)){
+                     generatedAssessment = generateSixMeanings(practiseList);
+                  }else {
+                     numberToGenerate--;
+                  }
+                  break;
+               case (2): //2 Means match meanings test.
 //               LinkedList<DictionaryEntry> wordsToTranslate = new LinkedList<>();
 //               for (int i = 0; i < 3; i++) {
 //                  wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
 //                  wordsToTranslate.add(Application.practiseList.get(wordToTranslatePlace));
 //                  wordsToTranslate.toArray();
 //               }
-                        if((listOfAssessment.isEmpty()) || !(listOfAssessment.getLast() instanceof MatchTheMeaningQuestion)){
-                            generatedAssessment = generateMatchMeaning(practiseList);
-                        }else {
-                            numberToGenerate--;
-                        }
-                        break;
-                }
-                if(generatedAssessment != null) {
-                    listOfAssessment.add(generatedAssessment);
-                }
+                  if((listOfAssessment.isEmpty()) || !(listOfAssessment.getLast() instanceof MatchTheMeaningQuestion)){
+                     generatedAssessment = generateMatchMeaning(practiseList);
+                  }else {
+                     numberToGenerate--;
+                  }
+                  break;
             }
-            AssessmentGenerator.listOfAssessment = listOfAssessment;
-            goToNextQuestion();
-        }
-        return listOfAssessment;
-    }
-
-    /**
-     * Method
-     * that will generate a list of questions that are the type ‘Match The Meanings’, using the dictionary's
-     * practice words as the parameter.
-     *
-     * @return
-     */
-    public static Question generateMatchMeaning(LinkedList<DictionaryEntry> practiceList) {
-        Random rand = new Random();
-        LinkedList<DictionaryEntry> answerList = new LinkedList<>();
-
-        int successfulAnswersSelected = 0;
-        while (successfulAnswersSelected < 4) {
-            DictionaryEntry selectedAnswer;
-            selectedAnswer = practiceList.get(rand.nextInt(practiceList.size()));
-            if (answerList.contains(selectedAnswer)) {
-                continue;
+            if(generatedAssessment != null) {
+               listOfAssessment.add(generatedAssessment);
             }
-            answerList.add(selectedAnswer);
-            successfulAnswersSelected++;
-        }
+         }
+         AssessmentGenerator.listOfAssessment = listOfAssessment;
+         goToNextQuestion();
+      }
+      return listOfAssessment;
+   }
 
-        return new MatchTheMeaningQuestion(answerList.toArray(DictionaryEntry[]::new));
-    }
+   /**
+    * Method
+    * that will generate a list of questions that are the type ‘Match The Meanings’, using the dictionary's
+    * practice words as the parameter.
+    *
+    * @return
+    */
+   public static Question generateMatchMeaning(LinkedList<DictionaryEntry> practiceList) {
+      Random rand = new Random();
+      LinkedList<DictionaryEntry> answerList = new LinkedList<>();
 
-    /**
-     * Method
-     * that will generate a list of questions that are the type ‘6 Meanings’, using the dictionary's practice
-     * words as the parameter.
-     *
-     * @return
-     */
-    public static Question generateSixMeanings(LinkedList<DictionaryEntry> practiseList) {
-        Random rand = new Random();
-        DictionaryEntry wordToTranslate = practiseList.get(rand.nextInt(practiseList.size()));
-        return new SixMeaningsQuestion(wordToTranslate, Application.dictionary);
-    }
+      int successfulAnswersSelected = 0;
+      while (successfulAnswersSelected < 4) {
+         DictionaryEntry selectedAnswer;
+         selectedAnswer = practiceList.get(rand.nextInt(practiceList.size()));
+         if (answerList.contains(selectedAnswer)) {
+            continue;
+         }
+         answerList.add(selectedAnswer);
+         successfulAnswersSelected++;
+      }
 
-    /**
-     * Method that
-     * will generate a list of questions that are the type ‘Translation’, using the dictionary's practice words as
-     * the parameter.
-     *
-     * @return
-     */
-    public static Question generateTranslationTest(LinkedList<DictionaryEntry> practiceList) {
-        Random rand = new Random();
-        DictionaryEntry selectedCorrectAnswer;
-        selectedCorrectAnswer = practiceList.get(rand.nextInt(practiceList.size()));
-        return new TranslationQuestion(selectedCorrectAnswer);
-    }
+      return new MatchTheMeaningQuestion(answerList.toArray(DictionaryEntry[]::new));
+   }
 
+   /**
+    * Method
+    * that will generate a list of questions that are the type ‘6 Meanings’, using the dictionary's practice
+    * words as the parameter.
+    *
+    * @return
+    */
+   public static Question generateSixMeanings(LinkedList<DictionaryEntry> practiseList) {
+      Random rand = new Random();
+      DictionaryEntry wordToTranslate = practiseList.get(rand.nextInt(practiseList.size()));
+      return new SixMeaningsQuestion(wordToTranslate, Application.dictionary);
+   }
 
-    public static void goToNextQuestion() {
-        if (currentAssessment > 0){
-            Question.showFeedback();
-        }
-        if (currentAssessment < 10) {
-
-            Question currentQuestion = listOfAssessment.get(currentAssessment);
-
-            if (currentQuestion instanceof MatchTheMeaningQuestion) {
-                MatchTheMeaningController.answer = ((MatchTheMeaningQuestion) currentQuestion).getCorrectAnswer();
-                ScreenSwitch.swap(ScreenSwitch.SceneEnum.matchMeaningScene);
-            } else if (currentQuestion instanceof SixMeaningsQuestion) {
-                SixMeaningsController.allQuestions = ((SixMeaningsQuestion) currentQuestion).getCorrectAnswer();
-                ScreenSwitch.swap(ScreenSwitch.SceneEnum.sixMeaningScene);
-            } else if (currentQuestion instanceof TranslationQuestion) {
-                TranslationController.answer = ((TranslationQuestion) currentQuestion).getCorrectAnswer();
-                ScreenSwitch.swap(ScreenSwitch.SceneEnum.translationScene);
-            } else {
-                System.err.print("The question has not been recognised");
-                System.err.println(currentQuestion);
-            }
-            currentAssessment++;
-
-        } else {
-
-            ButtonType yesBtn = new ButtonType("Yes");
-            ButtonType noBtn = new ButtonType("No");
+   /**
+    * Method that
+    * will generate a list of questions that are the type ‘Translation’, using the dictionary's practice words as
+    * the parameter.
+    *
+    * @return
+    */
+   public static Question generateTranslationTest(LinkedList<DictionaryEntry> practiceList) {
+      Random rand = new Random();
+      DictionaryEntry selectedCorrectAnswer;
+      selectedCorrectAnswer = practiceList.get(rand.nextInt(practiceList.size()));
+      return new TranslationQuestion(selectedCorrectAnswer);
+   }
 
 
+   public static void goToNextQuestion() {
+      if (currentAssessment > 0){
+         Question.showFeedback();
+      }
+      if (currentAssessment < 10) {
 
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("You finished the tests");
-            alert.setHeaderText("You finished the tests\n Well Done!");
-            alert.setResizable(false);
-            String sb = "You got " +
-                    new DecimalFormat("#.##").format(((double) (totalCorrectAnswers * 100) / (double) totalAnswers)) +
-                    "%" +
-                    "\n Would you like to test yourself again?";
-            alert.setContentText(sb);
-            alert.getButtonTypes().clear();
-            alert.getButtonTypes().addAll(yesBtn, noBtn);
+         Question currentQuestion = listOfAssessment.get(currentAssessment);
 
-            Optional<ButtonType> result = alert.showAndWait();
+         if (currentQuestion instanceof MatchTheMeaningQuestion) {
+            MatchTheMeaningController.answer = ((MatchTheMeaningQuestion) currentQuestion).getCorrectAnswer();
+            ScreenSwitch.swap(ScreenSwitch.SceneEnum.matchMeaningScene);
+         } else if (currentQuestion instanceof SixMeaningsQuestion) {
+            SixMeaningsController.allQuestions = ((SixMeaningsQuestion) currentQuestion).getCorrectAnswer();
+            ScreenSwitch.swap(ScreenSwitch.SceneEnum.sixMeaningScene);
+         } else if (currentQuestion instanceof TranslationQuestion) {
+            TranslationController.answer = ((TranslationQuestion) currentQuestion).getCorrectAnswer();
+            ScreenSwitch.swap(ScreenSwitch.SceneEnum.translationScene);
+         } else {
+            System.err.print("The question has not been recognised");
+            System.err.println(currentQuestion);
+         }
+         currentAssessment++;
 
-            currentAssessment = 0;
+      } else {
 
-            reset();
-            if (result.isEmpty() || result.get() == noBtn) {
-               ScreenSwitch.swap(ScreenSwitch.SceneEnum.dictionaryScene);
-            } else {
-                generateAssessment(Application.practiceList);
-            }
-        }
-    }
+         ButtonType yesBtn = new ButtonType("Yes");
+         ButtonType noBtn = new ButtonType("No");
 
-    public static int getTotalCorrectAnswers() {
-        return totalCorrectAnswers;
-    }
 
-    public static int getTotalAnswers() {
-        return totalAnswers;
-    }
 
-    public static void reset(){
-        totalCorrectAnswers = 0;
-        totalAnswers =0;
-        listOfAssessment = new LinkedList<>();
-        currentAssessment = 0;
-    }
+         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+         alert.setTitle("You finished the tests");
+         alert.setHeaderText("You finished the tests\n Well Done!");
+         alert.setResizable(false);
+         String sb = "You got " +
+                 new DecimalFormat("#.##").format(((double) (totalCorrectAnswers * 100) / (double) totalAnswers)) +
+                 "%" +
+                 "\n Would you like to test yourself again?";
+         alert.setContentText(sb);
+         alert.getButtonTypes().clear();
+         alert.getButtonTypes().addAll(yesBtn, noBtn);
+
+         Optional<ButtonType> result = alert.showAndWait();
+
+         currentAssessment = 0;
+
+         reset();
+         if (result.isEmpty() || result.get() == noBtn) {
+            ScreenSwitch.swap(ScreenSwitch.SceneEnum.dictionaryScene);
+         } else {
+            generateAssessment(Application.practiceList);
+         }
+      }
+   }
+
+   public static int getTotalCorrectAnswers() {
+      return totalCorrectAnswers;
+   }
+
+   public static int getTotalAnswers() {
+      return totalAnswers;
+   }
+
+   public static void reset(){
+      totalCorrectAnswers = 0;
+      totalAnswers =0;
+      listOfAssessment = new LinkedList<>();
+      currentAssessment = 0;
+   }
 }
