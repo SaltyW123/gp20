@@ -1,5 +1,7 @@
 package uk.ac.aber.cs22120.group20.selfassessment;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Dialog;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
 import java.util.ArrayList;
@@ -25,24 +27,50 @@ public class Question {
     * @param isEnglish
     */
    public static void  checkAnswer(ArrayList<DictionaryEntry> listOfCorrectQuestions, ArrayList<String>listOfAnswers, boolean isEnglish){
+      StringBuilder sb;
       if(isEnglish){
          for(int i=0; i<listOfCorrectQuestions.size();i++){
+            sb = new StringBuilder();
+            sb.append(listOfAnswers.get(i)).append(" is the Welsh for ").append(listOfCorrectQuestions.get(i).getEnglish());
             if(listOfCorrectQuestions.get(i).getWelsh().equals(listOfAnswers.get(i))){
                correctAnswers++;
-            }else wrongAnswers++;
+               feedbackAnswer(sb.toString(), true);
+            }else{
+               wrongAnswers++;
+               feedbackAnswer(sb.toString(), false);
+            }
          }
       }else{
          for(int i=0; i<listOfCorrectQuestions.size();i++){
+            sb = new StringBuilder();
+            sb.append(listOfAnswers.get(i)).append(" is the English for ").append(listOfCorrectQuestions.get(i).getWelsh());
             if(listOfCorrectQuestions.get(i).getEnglish().equals(listOfAnswers.get(i))){
                correctAnswers++;
-            }else wrongAnswers++;
+               feedbackAnswer(sb.toString(), true);
+            }else{
+               wrongAnswers++;
+               feedbackAnswer(sb.toString(), false);
+            }
          }
       }
    }
 
-      public static void resetScore(){
-         correctAnswers = 0;
-         wrongAnswers =0;
+   private static void feedbackAnswer(String dialogMessageText, boolean isCorrect){
+      Alert alert = new Alert(Alert.AlertType.INFORMATION);
+      if (isCorrect) {
+         alert.setTitle("Correct!");
+         alert.setHeaderText("You got the right answer!");
+      }else{
+         alert.setTitle("Incorrect");
+         alert.setHeaderText("Sorry, that was incorrect");
       }
-
+      alert.setContentText(dialogMessageText);
+      alert.showAndWait();
    }
+
+   public static void resetScore(){
+      correctAnswers = 0;
+      wrongAnswers =0;
+   }
+
+}
