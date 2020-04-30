@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import uk.ac.aber.cs22120.group20.selfassessment.AssessmentGenerator;
 
 /**
  * Abstract class that contains all the shared FXML elements between the
@@ -123,8 +124,7 @@ abstract public class SharedCodeController {
 
    @FXML
    private void studyIconClick() {
-
-      ScreenSwitch.swap(ScreenSwitch.SceneEnum.translationScene);
+      AssessmentGenerator.generateAssessment(Application.practiseList);
    }
 
    @FXML
