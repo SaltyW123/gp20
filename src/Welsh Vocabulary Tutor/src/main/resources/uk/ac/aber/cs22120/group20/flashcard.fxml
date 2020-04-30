@@ -151,7 +151,6 @@
                     </children>
                 </HBox>
             </children>
-            <Button mnemonicParsing="false" onAction="#switchToAddWord" text="Add Word Screen" />
 
         </VBox>
 

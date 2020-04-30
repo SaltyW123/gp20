@@ -170,9 +170,5 @@ public class FlashcardController extends SharedCodeController {
 
    }
 
-   @FXML
-   private void switchToAddWord() throws IOException {
-      AssessmentGenerator.generateAssessment(Application.practiseList);
-   }
 
 }

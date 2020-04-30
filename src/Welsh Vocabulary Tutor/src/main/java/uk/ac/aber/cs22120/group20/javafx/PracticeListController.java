@@ -233,15 +233,7 @@ public class PracticeListController extends SharedCodeController{
         }
     }
 
-    /**
-     * Switches to the primary scene.
-     *
-     * @throws IOException
-     */
-    @FXML
-    private void switchToFlashCard() throws IOException {
-        ScreenSwitch.swap(ScreenSwitch.SceneEnum.flashcardScene);
-    }
+
 
 }
 

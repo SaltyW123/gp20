@@ -126,11 +126,6 @@ public class AddWordController extends SharedCodeController {
 //    }
 
 
-   @FXML
-   private void switchToPrimary() throws IOException {
-      Application.setRoot("Primary");
-   }
-
    // add character methods for characters ch, dd, ff, ng, ll, ph, rh, th
    public void addCharch(ActionEvent actionEvent) {
       welsh.appendText("ch");

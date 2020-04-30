@@ -116,15 +116,6 @@ public class DictionaryController extends SharedCodeController {
       }
    }
 
-   /**
-    * Switches to the primary scene.
-    *
-    * @throws IOException
-    */
-   @FXML
-   private void switchToPracticeList() throws IOException {
-      ScreenSwitch.swap(ScreenSwitch.SceneEnum.practiceListScene);
-   }
 
    /**
     * Initializes the  table of dictionary entries.
