@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  * A class that handles the keyboard and mouse input and interaction for the 'Dictionary Page' which is
@@ -127,7 +128,22 @@ public class DictionaryController extends SharedCodeController {
    public void initialize() {
       setup();
 
-      currentPageIcon.setImage(new Image(getClass().getResourceAsStream("/assets/icons/white_icons/50px/read-50.png")));
+      english.setComparator(new Comparator<String>() {
+                               @Override
+                               public int compare(String s, String t1) {
+                                  s = s.toLowerCase();
+                                  t1 = t1.toLowerCase();
+                                  if (s.startsWith("to ")) {
+                                    return s.substring(3).compareTo(t1);
+                                  }
+                                  if (t1.startsWith("to ")) {
+                                     return s.compareTo(t1.substring(3));
+                                  }
+                                  return s.compareTo(t1);
+                               }
+                            });
+
+              currentPageIcon.setImage(new Image(getClass().getResourceAsStream("/assets/icons/white_icons/50px/read-50.png")));
       currentPageText.setText("Dictionary");
 
       alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
