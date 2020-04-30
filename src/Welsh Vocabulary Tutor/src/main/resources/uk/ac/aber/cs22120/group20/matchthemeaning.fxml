@@ -181,7 +181,7 @@
             <Label layoutX="105.0" layoutY="192.0" text="3." />
             <Label layoutX="105.0" layoutY="227.0" text="4." />
             <Label layoutX="367.0" layoutY="23.0" text="Correct answers:" />
-            <Label layoutX="368.0" layoutY="53.0" text="Wrong answers:" />
+            <Label layoutX="368.0" layoutY="53.0" text="Total answers:" />
             <Label fx:id="CorrectAnswer" layoutX="463.0" layoutY="23.0" text="0" />
             <Label fx:id="WrongAnswer" layoutX="463.0" layoutY="53.0" text="0" />
          </children>
