@@ -173,9 +173,9 @@ public class SixMeaningsController extends SharedCodeController {
 
       setWords(allQuestions,orderList);
       
-      correctAnswer.setText("Correct answers:" +Integer.toString(AssessmentGenerator.getTotalCorrectAnswers()));
+      correctAnswer.setText(Integer.toString(AssessmentGenerator.getTotalCorrectAnswers()));
 
-      wrongAnswer.setText("Total answers:" +Integer.toString(AssessmentGenerator.getTotalAnswers()));
+      wrongAnswer.setText(Integer.toString(AssessmentGenerator.getTotalAnswers()));
 
    }
 
