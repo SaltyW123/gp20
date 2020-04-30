@@ -1,7 +1,6 @@
 package uk.ac.aber.cs22120.group20.selfassessment;
 
 import javafx.scene.control.Alert;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
@@ -81,14 +80,12 @@ public class Question {
 
    static void showFeedback(){
       Alert alert = new Alert(Alert.AlertType.INFORMATION);
-      StringBuilder sb = new StringBuilder();
-
-      sb.append("You got ").append(correctAnswers).append(" out of ").append(correctAnswers+wrongAnswers).append("\n");
-      sb.append(Question.sb.toString());
 
       alert.setTitle("You finished this part of the assessment!");
       alert.setHeaderText("You finished this part of the assessment!");
-      Label label = new Label(sb.toString());
+      String sb = "You got " + correctAnswers + " out of " + (correctAnswers + wrongAnswers) + "\n" +
+              Question.sb.toString();
+      Label label = new Label(sb);
       label.setWrapText(true);
       alert.getDialogPane().setContent(label);
       alert.showAndWait();
