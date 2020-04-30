@@ -12,7 +12,6 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -21,13 +20,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import uk.ac.aber.cs22120.group20.javafx.Application;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 /**
  * A class that handles the keyboard and mouse input and interaction for the 'Dictionary Page' which is
@@ -160,16 +155,16 @@ public class DictionaryController extends SharedCodeController {
                        if (row.getItem().isPracticeWord()) {
                           Application.dictionary.get(list.indexOf(row.getItem())).setPracticeWord(false);
                           ArrayList<DictionaryEntry> toRemove = new ArrayList<DictionaryEntry>();
-                          for (DictionaryEntry entry : Application.practiseList) {
+                          for (DictionaryEntry entry : Application.practiceList) {
                              if (entry.equals(row.getItem())) {
                                 toRemove.add(entry);
                              }
                           }
-                          Application.practiseList.removeAll(toRemove);
+                          Application.practiceList.removeAll(toRemove);
 //                        row.getItem().setPracticeWord(false);
                        } else if (!row.getItem().isPracticeWord()) {
                           Application.dictionary.get(list.indexOf(row.getItem())).setPracticeWord(true);
-                          Application.practiseList.add(row.getItem());
+                          Application.practiceList.add(row.getItem());
 //                        row.getItem().setPracticeWord(true);
                        }
                        table.getSelectionModel().clearSelection();
