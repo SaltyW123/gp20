@@ -40,9 +40,7 @@ import java.util.ArrayList;
  * @see DictionaryEntry
  * @see Application
  */
-//public class DictionaryController implements Initializable {
 public class DictionaryController extends SharedCodeController {
-   public static Stage primaryStage = null;
 
    @FXML
    private ImageView alphaSort;
@@ -73,7 +71,6 @@ public class DictionaryController extends SharedCodeController {
          }
          table.getSortOrder().clear();
          table.getSortOrder().add(welsh);
-
          isSortedByEnglish = false;
       }
       else  {
@@ -96,7 +93,7 @@ public class DictionaryController extends SharedCodeController {
     */
    @FXML
    private void switchAlphaSort() {
-      if (table.getSortOrder().contains(english)) {
+      if (isSortedByEnglish) {
          if (english.getSortType().equals(TableColumn.SortType.ASCENDING)) {
             english.setSortType(TableColumn.SortType.DESCENDING);
             alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-reversed-50.png"));
@@ -104,7 +101,7 @@ public class DictionaryController extends SharedCodeController {
             english.setSortType(TableColumn.SortType.ASCENDING);
             alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
          }
-      } else if (table.getSortOrder().contains(welsh)) {
+      } else {
          if (welsh.getSortType().equals(TableColumn.SortType.ASCENDING)) {
             welsh.setSortType(TableColumn.SortType.DESCENDING);
             alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-reversed-50.png"));
@@ -208,14 +205,18 @@ public class DictionaryController extends SharedCodeController {
             } else {
                // need all same case for compare.
                final String lowerCaseSearchFilter = newSearchTerm.toLowerCase();
-               if (dictionaryEntry.getWelsh().toLowerCase().contains(lowerCaseSearchFilter)) {
-                  result = true; // Filter matches Welsh
-               } else if (dictionaryEntry.getEnglish().toLowerCase().contains(lowerCaseSearchFilter)) {
-                  result = true; // Filter matches English
-//                    } else if (dictionaryEntry.getWordType().toLowerCase().contains(lowerCaseSearchFilter)) {
-//                        result = true; // Filter matches Word Type
-               } else if (dictionaryEntry.getWordType().equals(DictionaryEntry.wordTypeEnum.verb) && ("to " + dictionaryEntry.getEnglish()).toLowerCase().contains(lowerCaseSearchFilter)) {
-                  result = true; // Filter matches ['to' + a word] or [a word] if word is a verb
+               if (isSortedByEnglish) {
+                  if (dictionaryEntry.getEnglish().toLowerCase().startsWith(lowerCaseSearchFilter)) {
+                     result = true; // Filter matches English
+                  }
+                  else if (dictionaryEntry.getWordType().equals(DictionaryEntry.wordTypeEnum.verb) && ("to " + dictionaryEntry.getEnglish()).toLowerCase().startsWith(lowerCaseSearchFilter)) {
+                     result = true; // Filter matches ['to' + a word] or [a word] if word is a verb
+                  }
+               }
+                else {
+                   if (dictionaryEntry.getWelsh().toLowerCase().startsWith(lowerCaseSearchFilter)) {
+                     result = true; // Filter matches Welsh
+                  }
                }
             }
             return result;
@@ -224,8 +225,6 @@ public class DictionaryController extends SharedCodeController {
 
       SortedList<DictionaryEntry> sortedList = new SortedList<>(filteredList); //Wrap the filtered list in a SortedList
       sortedList.comparatorProperty().bind(table.comparatorProperty()); //Bind the sorted list comparator to the table comparator
-//        welsh.setCellValueFactory(new PropertyValueFactory<DictionaryEntry, String>("welsh"));
-//        english.setCellValueFactory(new PropertyValueFactory<DictionaryEntry, String>("english"));
 
       table.setItems(sortedList);
 
