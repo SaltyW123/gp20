@@ -1,8 +1,6 @@
 package uk.ac.aber.cs22120.group20.selfassessment;
 
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import uk.ac.aber.cs22120.group20.javafx.*;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
@@ -24,14 +22,14 @@ import java.util.*;
  * @author Tom Perry [top1]
  * @author Waylen Watts [ncw]
  * @version 0.1 Initial development
- * @See Question
- * @See SixMeaningsQuestion
- * @See TranslationQuestion
- * @See MatchTheMeaningQuestion
- * @See ScreenSwitch
- * @See SixMeaningsController
- * @See TranslationController
- * @See MatchTheMeaningController
+ * @see Question
+ * @see SixMeaningsQuestion
+ * @see TranslationQuestion
+ * @see MatchTheMeaningQuestion
+ * @see ScreenSwitch
+ * @see SixMeaningsController
+ * @see TranslationController
+ * @see MatchTheMeaningController
  */
 public class AssessmentGenerator {
     public static boolean isEnglish;
@@ -132,8 +130,7 @@ public class AssessmentGenerator {
             successfulAnswersSelected++;
         }
 
-        Question generatedQuestion = new MatchTheMeaningQuestion(answerList.toArray(DictionaryEntry[]::new));
-        return generatedQuestion;
+        return new MatchTheMeaningQuestion(answerList.toArray(DictionaryEntry[]::new));
     }
 
     /**
@@ -144,12 +141,9 @@ public class AssessmentGenerator {
      * @return
      */
     public static Question generateSixMeanings(LinkedList<DictionaryEntry> practiseList) {
-        Question returnValue;
-        ArrayList<DictionaryEntry> listOfAnswers = new ArrayList<>();
         Random rand = new Random();
         DictionaryEntry wordToTranslate = practiseList.get(rand.nextInt(practiseList.size()));
-        SixMeaningsQuestion generatedQuestion = new SixMeaningsQuestion(wordToTranslate, Application.dictionary);
-        return generatedQuestion;
+        return new SixMeaningsQuestion(wordToTranslate, Application.dictionary);
     }
 
     /**
@@ -163,8 +157,7 @@ public class AssessmentGenerator {
         Random rand = new Random();
         DictionaryEntry selectedCorrectAnswer;
         selectedCorrectAnswer = practiceList.get(rand.nextInt(practiceList.size()));
-        Question generatedQuestion = new TranslationQuestion(selectedCorrectAnswer);
-        return generatedQuestion;
+        return new TranslationQuestion(selectedCorrectAnswer);
     }
 
 
@@ -193,12 +186,6 @@ public class AssessmentGenerator {
 
         } else {
 
-            StringBuilder sb = new StringBuilder();
-            sb.append("You got ")
-                    .append(new DecimalFormat("#.##").format(((double)(totalCorrectAnswers*100) / (double)totalAnswers)))
-                    .append("%")
-                    .append("\n Would you like to test yourself again?");
-
             ButtonType yesBtn = new ButtonType("Yes");
             ButtonType noBtn = new ButtonType("No");
 
@@ -208,7 +195,11 @@ public class AssessmentGenerator {
             alert.setTitle("You finished the tests");
             alert.setHeaderText("You finished the tests\n Well Done!");
             alert.setResizable(false);
-            alert.setContentText(sb.toString());
+            String sb = "You got " +
+                    new DecimalFormat("#.##").format(((double) (totalCorrectAnswers * 100) / (double) totalAnswers)) +
+                    "%" +
+                    "\n Would you like to test yourself again?";
+            alert.setContentText(sb);
             alert.getButtonTypes().clear();
             alert.getButtonTypes().addAll(yesBtn, noBtn);
 
@@ -236,7 +227,7 @@ public class AssessmentGenerator {
     public static void reset(){
         totalCorrectAnswers = 0;
         totalAnswers =0;
-        LinkedList<Question> listOfAssessment = new LinkedList<>();
+        listOfAssessment = new LinkedList<>();
         currentAssessment = 0;
     }
 }
