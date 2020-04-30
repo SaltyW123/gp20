@@ -4,8 +4,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
-import uk.ac.aber.cs22120.group20.javafx.Application;
-import uk.ac.aber.cs22120.group20.javafx.ScreenSwitch;
+import uk.ac.aber.cs22120.group20.javafx.*;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
 import java.util.*;
@@ -53,14 +52,21 @@ public class AssessmentGenerator {
                     case (0): //0 Means translation test.
                         //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
                         //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
-
+                        if(!(listOfAssessment.getLast() == null) || (listOfAssessment.getLast() instanceof TranslationQuestion)){
+                            numberToGenerate--;
+                            break;
+                        }
                         generatedAssessment = generateTranslationTest(practiseList);
                         break;
                     case (1): //1 Means six meanings test.
                         //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
                         //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
-
+                        if(!(listOfAssessment.getLast() == null) || (listOfAssessment.getLast() instanceof SixMeaningsQuestion)){
+                            numberToGenerate--;
+                            break;
+                        }
                         generatedAssessment = generateSixMeanings(practiseList);
+
                         break;
                     case (2): //2 Means match meanings test.
 //               LinkedList<DictionaryEntry> wordsToTranslate = new LinkedList<>();
@@ -69,6 +75,10 @@ public class AssessmentGenerator {
 //                  wordsToTranslate.add(Application.practiseList.get(wordToTranslatePlace));
 //                  wordsToTranslate.toArray();
 //               }
+                        if(!(listOfAssessment.getLast() == null) || (listOfAssessment.getLast() instanceof MatchTheMeaningQuestion)){
+                            numberToGenerate--;
+                            break;
+                        }
 
                         generatedAssessment = generateMatchMeaning(practiseList);
                         break;
