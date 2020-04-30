@@ -52,21 +52,20 @@ public class AssessmentGenerator {
                     case (0): //0 Means translation test.
                         //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
                         //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
-                        if(!(listOfAssessment.getLast() == null) || (listOfAssessment.getLast() instanceof TranslationQuestion)){
+                        if((listOfAssessment.isEmpty()) || !(listOfAssessment.getLast() instanceof TranslationQuestion)){
+                            generatedAssessment = generateTranslationTest(practiseList);
+                        }else {
                             numberToGenerate--;
-                            break;
                         }
-                        generatedAssessment = generateTranslationTest(practiseList);
                         break;
                     case (1): //1 Means six meanings test.
                         //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
                         //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
-                        if(!(listOfAssessment.getLast() == null) || (listOfAssessment.getLast() instanceof SixMeaningsQuestion)){
+                        if(((listOfAssessment.isEmpty())) || !(listOfAssessment.getLast() instanceof SixMeaningsQuestion)){
+                            generatedAssessment = generateSixMeanings(practiseList);
+                        }else {
                             numberToGenerate--;
-                            break;
                         }
-                        generatedAssessment = generateSixMeanings(practiseList);
-
                         break;
                     case (2): //2 Means match meanings test.
 //               LinkedList<DictionaryEntry> wordsToTranslate = new LinkedList<>();
@@ -75,15 +74,16 @@ public class AssessmentGenerator {
 //                  wordsToTranslate.add(Application.practiseList.get(wordToTranslatePlace));
 //                  wordsToTranslate.toArray();
 //               }
-                        if(!(listOfAssessment.getLast() == null) || (listOfAssessment.getLast() instanceof MatchTheMeaningQuestion)){
+                        if((listOfAssessment.isEmpty()) || !(listOfAssessment.getLast() instanceof MatchTheMeaningQuestion)){
+                            generatedAssessment = generateMatchMeaning(practiseList);
+                        }else {
                             numberToGenerate--;
-                            break;
                         }
-
-                        generatedAssessment = generateMatchMeaning(practiseList);
                         break;
                 }
-                listOfAssessment.add(generatedAssessment);
+                if(generatedAssessment != null) {
+                    listOfAssessment.add(generatedAssessment);
+                }
             }
             AssessmentGenerator.listOfAssessment = listOfAssessment;
             goToNextQuestion();
