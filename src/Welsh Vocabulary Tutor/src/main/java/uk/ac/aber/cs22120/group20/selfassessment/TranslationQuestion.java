@@ -2,8 +2,6 @@ package uk.ac.aber.cs22120.group20.selfassessment;
 
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
-import java.util.LinkedList;
-
 /**
  * Class used to create a MatchTheMeaning Question.
  * @author Brad Corbett [brc9]
@@ -15,11 +13,11 @@ import java.util.LinkedList;
  * @author Tom Perry [top1]
  * @author Waylen Watts [ncw]
  * @version 0.1 Initial development
- * @See Question
+ * @see Question
  */
 
 public class TranslationQuestion extends Question {
-   private DictionaryEntry correctAnswer;
+   private final DictionaryEntry correctAnswer;
 
    public TranslationQuestion(DictionaryEntry correctAnswer){
       this.correctAnswer = correctAnswer;
