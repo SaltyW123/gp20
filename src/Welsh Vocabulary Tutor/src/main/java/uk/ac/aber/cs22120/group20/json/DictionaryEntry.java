@@ -26,7 +26,11 @@ import uk.ac.aber.cs22120.group20.javafx.DictionaryController;
 public class DictionaryEntry {
     private String english;
     private String welsh;
-    private String wordType;
+    public enum wordTypeEnum {
+        nm, nf, verb, other
+    }
+    private wordTypeEnum wordType;
+//   private String wordType;
     private Boolean practiceWord;
 
 
@@ -46,9 +50,10 @@ public class DictionaryEntry {
      * @see Application
      * @see DictionaryController
      */
-    public DictionaryEntry(String english, String welsh, String wordType) {
+    public DictionaryEntry(String english, String welsh, wordTypeEnum wordType) {
         this.english = english;
         this.welsh = welsh;
+//        this.wordType = wordType;
         this.wordType = wordType;
     }
 
@@ -68,15 +73,22 @@ public class DictionaryEntry {
         this.welsh = welsh.trim();
     }
 
-    public String getWordType() {
+    public wordTypeEnum getWordType() {
         return wordType;
     }
+//   public word getWordType() {
+//      return wordType;
+//   }
 
-    public void setWordType(String wordType) {
-        this.wordType = wordType.trim();
+    public void setWordType(wordTypeEnum wordType) {
+        this.wordType = wordType;
     }
 
-    public Boolean isPracticeWord() {
+//   public void setWordType(String wordType) {
+//      this.wordType = wordType;
+//   }
+
+   public Boolean isPracticeWord() {
         return practiceWord;
     }
 
@@ -87,6 +99,8 @@ public class DictionaryEntry {
     @Override
     public boolean equals(Object entry) {
         DictionaryEntry otherEntry = (DictionaryEntry) entry;
-        return otherEntry.getEnglish().equals(this.getEnglish()) && otherEntry.getWelsh().equals(this.getWelsh()) && otherEntry.getWordType().equals(this.getWordType());
+        return otherEntry.getEnglish().equals(this.getEnglish()) &&
+                otherEntry.getWelsh().equals(this.getWelsh()) &&
+                otherEntry.getWordType().equals(this.getWordType());
     }
 }
