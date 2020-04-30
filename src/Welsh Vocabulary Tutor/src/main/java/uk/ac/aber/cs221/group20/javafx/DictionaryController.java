@@ -7,6 +7,8 @@
 package uk.ac.aber.cs221.group20.javafx;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -18,6 +20,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import uk.ac.aber.cs221.group20.json.DictionaryEntry;
 
@@ -128,7 +132,19 @@ public class DictionaryController extends SharedCodeController {
     */
    public void initialize() {
       setup();
-
+      table.widthProperty().addListener(new ChangeListener<Number>() {
+         @Override
+         public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+            Pane tableHeader = (Pane) table.lookup("TableHeaderRow");
+            if (tableHeader != null && tableHeader.isVisible()) {
+               tableHeader.setMaxHeight(0);
+               tableHeader.setMinHeight(0);
+               tableHeader.setPrefHeight(0);
+               tableHeader.setVisible(false);
+               tableHeader.setManaged(false);
+            }
+         }
+      });
       english.setComparator(new Comparator<String>() {
                                @Override
                                public int compare(String s, String t1) {
@@ -191,6 +207,7 @@ public class DictionaryController extends SharedCodeController {
                  return row;
               }
       );
+
       welsh.setCellValueFactory(dictionaryEntryStringCellDataFeatures -> {
          if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals(DictionaryEntry.wordTypeEnum.nm)) {
             return new SimpleStringProperty(dictionaryEntryStringCellDataFeatures.getValue().getWelsh() + " {nm}");

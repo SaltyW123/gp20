@@ -7,6 +7,8 @@
 package uk.ac.aber.cs221.group20.javafx;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -15,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import uk.ac.aber.cs221.group20.json.DictionaryEntry;
 
@@ -62,19 +65,16 @@ public class PracticeListController extends SharedCodeController {
       if (isSortedByEnglish) {
          if (welsh.getSortType().equals(TableColumn.SortType.ASCENDING)) {
             alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
-         }
-         else if (welsh.getSortType().equals(TableColumn.SortType.DESCENDING)) {
+         } else if (welsh.getSortType().equals(TableColumn.SortType.DESCENDING)) {
             alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-reversed-50.png"));
          }
          table.getSortOrder().clear();
          table.getSortOrder().add(welsh);
          isSortedByEnglish = false;
-      }
-      else  {
+      } else {
          if (english.getSortType().equals(TableColumn.SortType.ASCENDING)) {
             alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
-         }
-         else if (english.getSortType().equals(TableColumn.SortType.DESCENDING)) {
+         } else if (english.getSortType().equals(TableColumn.SortType.DESCENDING)) {
             alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-reversed-50.png"));
          }
          table.getSortOrder().clear();
@@ -83,7 +83,7 @@ public class PracticeListController extends SharedCodeController {
       }
       table.sort();
       searchBox.textProperty().setValue(searchBox.textProperty().getValue() + " ");
-      searchBox.textProperty().setValue(searchBox.textProperty().getValue().substring(0, searchBox.textProperty().getValue().length()-1));
+      searchBox.textProperty().setValue(searchBox.textProperty().getValue().substring(0, searchBox.textProperty().getValue().length() - 1));
       searchBox.positionCaret(searchBox.textProperty().getValue().length());
    }
 
@@ -117,31 +117,45 @@ public class PracticeListController extends SharedCodeController {
     * <p>
     * An observable list of DictionaryEntries is loaded from the Application class into a local instance of ObservableList.
     * It also sets up Lambda expressions related to live searching functionality and the display of DictionaryEntries.
+    * <p>
+    * //     * @param url
+    * //     * @param resourceBundle
     *
-    //     * @param url
-    //     * @param resourceBundle
     * @see Application
     * @see DictionaryEntry
     */
    public void initialize() {
       setup();
+      table.widthProperty().addListener(new ChangeListener<Number>() {
+         @Override
+         public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+            Pane tableHeader = (Pane) table.lookup("TableHeaderRow");
+            if (tableHeader != null && tableHeader.isVisible()) {
+               tableHeader.setMaxHeight(0);
+               tableHeader.setMinHeight(0);
+               tableHeader.setPrefHeight(0);
+               tableHeader.setVisible(false);
+               tableHeader.setManaged(false);
+            }
+         }
+      });
 
       english.setComparator(new Comparator<String>() {
-                               @Override
-                               public int compare(String s, String t1) {
-                                  s = s.toLowerCase();
-                                  t1 = t1.toLowerCase();
-                                  if (s.startsWith("to ")) {
-                                    return s.substring(3).compareTo(t1);
-                                  }
-                                  if (t1.startsWith("to ")) {
-                                     return s.compareTo(t1.substring(3));
-                                  }
-                                  return s.compareTo(t1);
-                               }
-                            });
+         @Override
+         public int compare(String s, String t1) {
+            s = s.toLowerCase();
+            t1 = t1.toLowerCase();
+            if (s.startsWith("to ")) {
+               return s.substring(3).compareTo(t1);
+            }
+            if (t1.startsWith("to ")) {
+               return s.compareTo(t1.substring(3));
+            }
+            return s.compareTo(t1);
+         }
+      });
 
-              currentPageIcon.setImage(new Image(getClass().getResourceAsStream("/assets/icons/white_icons/50px/rating-50.png")));
+      currentPageIcon.setImage(new Image(getClass().getResourceAsStream("/assets/icons/white_icons/50px/rating-50.png")));
       currentPageText.setText("Practice List");
 
       alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
@@ -161,32 +175,35 @@ public class PracticeListController extends SharedCodeController {
 //                          if (dictionaryEntry.isPracticeWord()) {
 //                             setStyle("-fx-background-color: gray;");
 //                          } else {
-                             setStyle(" ");
+                          setStyle(" ");
 //                          }
                        }
                     }
                  };
-                 row.setOnMouseClicked(mouseEvent -> {
-                    if (mouseEvent.getClickCount() == 1 && (!row.isEmpty())) {
-                       if (row.getItem().isPracticeWord()) {
-                          Application.dictionary.get(list.indexOf(row.getItem())).setPracticeWord(false);
-                          ArrayList<DictionaryEntry> toRemove = new ArrayList<DictionaryEntry>();
-                          for (DictionaryEntry entry : Application.practiceList) {
-                             if (entry.equals(row.getItem())) {
-                                toRemove.add(entry);
-                             }
-                          }
-                          Application.practiceList.removeAll(toRemove);
-//                        row.getItem().setPracticeWord(false);
-                       } else if (!row.getItem().isPracticeWord()) {
-                          Application.dictionary.get(list.indexOf(row.getItem())).setPracticeWord(true);
-                          Application.practiceList.add(row.getItem());
-//                        row.getItem().setPracticeWord(true);
-                       }
-                       table.getSelectionModel().clearSelection();
-                    }
-                 });
-                 return row;
+         row.setOnMouseClicked(mouseEvent -> {
+            if (mouseEvent.getClickCount() == 1 && (!row.isEmpty())) {
+               for (DictionaryEntry entry : Application.dictionary) {
+                  if (entry.equals(row.getItem())) {
+                     entry.setPracticeWord(false);
+                     list.remove(row.getItem());
+                     table.refresh();
+                  }
+
+               }
+
+               ArrayList<DictionaryEntry> toRemove = new ArrayList<DictionaryEntry>();
+               for (DictionaryEntry entry : Application.practiceList) {
+                  if (entry.equals(row.getItem())) {
+                     toRemove.add(entry);
+                     list.remove(row.getItem());
+                  }
+               }
+               Application.practiceList.removeAll(toRemove);
+               table.getSelectionModel().clearSelection();
+            }
+         }
+         );
+            return row;
               }
       );
       welsh.setCellValueFactory(dictionaryEntryStringCellDataFeatures -> {
@@ -222,15 +239,13 @@ public class PracticeListController extends SharedCodeController {
                if (isSortedByEnglish) {
                   if (dictionaryEntry.getEnglish().toLowerCase().startsWith(lowerCaseSearchFilter)) {
                      result = true; // Filter matches English
-                  }
-                  else if(lowerCaseSearchFilter.startsWith("to ")){
+                  } else if (lowerCaseSearchFilter.startsWith("to ")) {
                      if (dictionaryEntry.getWordType().equals(DictionaryEntry.wordTypeEnum.verb) && ("to " + dictionaryEntry.getEnglish()).toLowerCase().startsWith(lowerCaseSearchFilter)) {
                         result = true; // Filter matches ['to' + a word] or [a word] if word is a verb
                      }
                   }
-               }
-                else {
-                   if (dictionaryEntry.getWelsh().toLowerCase().startsWith(lowerCaseSearchFilter)) {
+               } else {
+                  if (dictionaryEntry.getWelsh().toLowerCase().startsWith(lowerCaseSearchFilter)) {
                      result = true; // Filter matches Welsh
                   }
                }
@@ -244,9 +259,9 @@ public class PracticeListController extends SharedCodeController {
 
       table.setItems(sortedList);
 
-      if(isSortedByEnglish){
+      if (isSortedByEnglish) {
          table.getSortOrder().add(english);
-      } else{
+      } else {
          table.getSortOrder().add(welsh);
       }
    }
