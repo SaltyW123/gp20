@@ -30,14 +30,20 @@ import java.util.LinkedList;
  */
 public class Application extends javafx.application.Application {
 
+   // //////////////// //
+   // Class variables. //
+   // //////////////// //
+
    // Dictionary containing all the words.
    public static LinkedList<DictionaryEntry> dictionary = new LinkedList<>();
-
    // Practice list containing all the practice words.
    public static LinkedList<DictionaryEntry> practiceList = new LinkedList<>();
-
-   // Json processor to import and export the json dictionary file.
+   // JSON processor to import and export the json dictionary file.
    private JsonProcessing jsonProcessing = new JsonProcessing();
+
+   // ////////////// //
+   // Class methods. //
+   // ////////////// //
 
    /**
     * @param args
@@ -45,6 +51,10 @@ public class Application extends javafx.application.Application {
    public static void main(String[] args) {
       launch();
    }
+
+   // //////// //
+   // Methods. //
+   // //////// //
 
    /**
     * @param stage
