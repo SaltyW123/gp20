@@ -87,7 +87,7 @@ public class DictionaryController extends SharedCodeController {
       }
       table.sort();
       searchBox.textProperty().setValue(searchBox.textProperty().getValue() + " ");
-      searchBox.textProperty().setValue(searchBox.textProperty().getValue().trim());
+      searchBox.textProperty().setValue(searchBox.textProperty().getValue().substring(0, searchBox.textProperty().getValue().length()-1));
       searchBox.positionCaret(searchBox.textProperty().getValue().length());
    }
 
@@ -215,7 +215,6 @@ public class DictionaryController extends SharedCodeController {
       searchBox.textProperty().addListener((observable, oldSearchTerm, newSearchTerm) -> {
          filteredList.setPredicate(dictionaryEntry -> { // returns true on a filter match, false if no match
             boolean result = false;
-
             table.refresh(); // This fixes the table highlighting issue
 
             if (newSearchTerm == null || newSearchTerm.isEmpty()) { // If filter text is empty, display all dictionary entries
@@ -227,8 +226,10 @@ public class DictionaryController extends SharedCodeController {
                   if (dictionaryEntry.getEnglish().toLowerCase().startsWith(lowerCaseSearchFilter)) {
                      result = true; // Filter matches English
                   }
-                  else if (dictionaryEntry.getWordType().equals(DictionaryEntry.wordTypeEnum.verb) && ("to " + dictionaryEntry.getEnglish()).toLowerCase().startsWith(lowerCaseSearchFilter)) {
-                     result = true; // Filter matches ['to' + a word] or [a word] if word is a verb
+                  else if(lowerCaseSearchFilter.startsWith("to ")){
+                     if (dictionaryEntry.getWordType().equals(DictionaryEntry.wordTypeEnum.verb) && ("to " + dictionaryEntry.getEnglish()).toLowerCase().startsWith(lowerCaseSearchFilter)) {
+                        result = true; // Filter matches ['to' + a word] or [a word] if word is a verb
+                     }
                   }
                }
                 else {
