@@ -1,6 +1,5 @@
 package uk.ac.aber.cs22120.group20.test;
 
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import uk.ac.aber.cs22120.group20.javafx.TranslationController;

@@ -1,9 +1,6 @@
 package uk.ac.aber.cs22120.group20.test;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.Assert;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
@@ -13,6 +10,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.Arrays;
 import java.util.LinkedList;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 /**
  * Class that contains methods which will be used to test that the JSON package classes are
@@ -28,7 +27,7 @@ public class JSONTest {
     JsonProcessing processor = new JsonProcessing();
 
 
-    @Before
+    @BeforeAll
     public void setupTest() {
 
         // Populate a test list with DictionaryEntrys that is to be used for the loading/saving tests.
@@ -51,7 +50,7 @@ public class JSONTest {
 
         // Load the DictionaryEntry's from testFile and check if the loaded list matches the test list.
         loadedList = processor.readInJson(testFile);
-        Assert.assertArrayEquals(testList.toArray(),loadedList.toArray());
+        assertArrayEquals(testList.toArray(),loadedList.toArray());
     }
 
     /**
@@ -65,10 +64,10 @@ public class JSONTest {
 
         // Load the DictionaryEntry's back from the file and check that they match the testList.
         loadedList = processor.readInJson(testFile);
-        Assert.assertArrayEquals(testList.toArray(), loadedList.toArray());
+        assertArrayEquals(testList.toArray(), loadedList.toArray());
     }
 
-    @After
+    @AfterAll
     public void deleteFile() {
         testFile.delete();
     }
