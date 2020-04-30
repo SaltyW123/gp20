@@ -45,10 +45,10 @@ public class FlashcardController extends SharedCodeController {
    @FXML
    private Text wordType;
    @FXML
-   private Rectangle flashcard;
-   @FXML
    private Text testWord;
 
+   @FXML
+   private ImageView flashcard;
    @FXML
    private ImageView leftArrow;
    @FXML
@@ -76,9 +76,9 @@ public class FlashcardController extends SharedCodeController {
 
       updateCounter();
       card = flashcard;
-
-      leftArrow.setImage(new Image(getClass().getResourceAsStream("/assets/icons/black_icons/50px/left-50.png")));
-      rightArrow.setImage(new Image(getClass().getResourceAsStream("/assets/icons/black_icons/50px/right-50.png")));
+      flashcard.setImage(new Image("file:src/main/resources/assets/flashcard/Flashcard.png"));
+      leftArrow.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/left-50.png"));
+      rightArrow.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/right-50.png"));
    }
 
    /**

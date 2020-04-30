@@ -12,19 +12,14 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import uk.ac.aber.cs22120.group20.javafx.Application;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 /**
  * A class that handles the keyboard and mouse input and interaction for the 'Dictionary Page' which is
@@ -83,7 +78,7 @@ public class PracticeListController extends SharedCodeController{
         langSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-lang-50.png"));
 
 //        list.addAll(Application.dictionary);
-        list.addAll(Application.practiseList);
+        list.addAll(Application.practiceList);
 //        for (DictionaryEntry entry : Application.dictionary) {
 //            if (entry.isPracticeWord())
 //                list.add(entry);
@@ -150,13 +145,13 @@ public class PracticeListController extends SharedCodeController{
                                 }
 
                             ArrayList<DictionaryEntry> toRemove = new ArrayList<DictionaryEntry>();
-                            for (DictionaryEntry entry : Application.practiseList) {
+                            for (DictionaryEntry entry : Application.practiceList) {
                                 if (entry.equals(row.getItem())) {
                                     toRemove.add(entry);
                                     list.remove(row.getItem());
                                 }
                             }
-                            Application.practiseList.removeAll(toRemove);
+                            Application.practiceList.removeAll(toRemove);
                             table.getSelectionModel().clearSelection();
                         }
                     });
