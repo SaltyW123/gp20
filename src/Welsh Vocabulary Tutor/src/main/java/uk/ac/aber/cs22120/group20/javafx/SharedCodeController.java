@@ -20,6 +20,11 @@ import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
  * @see AssessmentGenerator
  */
 abstract public class SharedCodeController {
+
+   // //////////////// //
+   // Class variables. //
+   // //////////////// //
+
    static boolean isSortedByEnglish = true;
    static int sideBarWidth = 50;
 
