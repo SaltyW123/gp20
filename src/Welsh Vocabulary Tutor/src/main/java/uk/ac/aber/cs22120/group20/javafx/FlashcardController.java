@@ -71,7 +71,7 @@ public class FlashcardController extends SharedCodeController {
       flashcardIcon.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/flashcard-50.png"));
       flashcardsText.setFill(Color.BLACK);
 
-      testWord.setText(Application.practiseList.getFirst().getWelsh());
+      testWord.setText(Application.practiceList.getFirst().getWelsh());
       wordType.setText("Welsh");
 
       updateCounter();
@@ -103,7 +103,7 @@ public class FlashcardController extends SharedCodeController {
          index--;
       }
       updateCounter();
-      testWord.setText(Application.practiseList.get(index).getWelsh());
+      testWord.setText(Application.practiceList.get(index).getWelsh());
       wordType.setText("Welsh");
    }
 
@@ -115,12 +115,12 @@ public class FlashcardController extends SharedCodeController {
    @FXML
    private void handleNextCard() {
       // If statement to check the end of the practiceList hasn't been reached before moving to the next card.
-      if (index < Application.practiseList.size()-1) {
+      if (index < Application.practiceList.size()-1) {
          index++;
       }
       updateCounter();
 
-      testWord.setText(Application.practiseList.get(index).getWelsh());
+      testWord.setText(Application.practiceList.get(index).getWelsh());
       wordType.setText("Welsh");
    }
 
@@ -130,7 +130,7 @@ public class FlashcardController extends SharedCodeController {
     * @see DictionaryEntry
     */
    private void updateCounter() {
-      counter.setText((index + 1) + "/" + Application.practiseList.size());
+      counter.setText((index + 1) + "/" + Application.practiceList.size());
    }
 
    /**
@@ -157,10 +157,10 @@ public class FlashcardController extends SharedCodeController {
       rotate.setOnFinished(event -> { // Once the transition is completed, update the text on the flashcard.
 
          if (wordType.getText().equals("Welsh")) {  // If the word currently on the flashcard is welsh, display the english translation.
-            testWord.setText(Application.practiseList.get(index).getEnglish());
+            testWord.setText(Application.practiceList.get(index).getEnglish());
             wordType.setText("English");
          } else { // Else display the welsh translation.
-            testWord.setText(Application.practiseList.get(index).getWelsh());
+            testWord.setText(Application.practiceList.get(index).getWelsh());
             wordType.setText("Welsh");
          }
          testWord.setVisible(true);
