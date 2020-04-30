@@ -126,7 +126,7 @@
             <children>
                 <StackPane  alignment="CENTER" onMouseClicked="#handleFlashcardClick" minWidth="500">
                     <children>
-                        <ImageView fx:id="flashcard" fitWidth="500" fitHeight="360"></ImageView>
+                        <ImageView fx:id="flashcard" fitWidth="450" fitHeight="360"></ImageView>
                         <Text  textAlignment="CENTER" fx:id="testWord">
                             <font>
                                 <Font size="55"/>

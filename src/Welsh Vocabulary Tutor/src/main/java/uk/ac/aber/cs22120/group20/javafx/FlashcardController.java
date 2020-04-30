@@ -71,8 +71,13 @@ public class FlashcardController extends SharedCodeController {
       flashcardIcon.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/flashcard-50.png"));
       flashcardsText.setFill(Color.BLACK);
 
-      testWord.setText(Application.practiceList.getFirst().getWelsh());
-      wordType.setText("Welsh");
+      if(isSortedByEnglish){
+         testWord.setText(Application.practiceList.getFirst().getEnglish());
+         wordType.setText("English");
+      } else{
+         testWord.setText(Application.practiceList.getFirst().getWelsh());
+         wordType.setText("Welsh");
+      }
 
       updateCounter();
       card = flashcard;
@@ -103,8 +108,14 @@ public class FlashcardController extends SharedCodeController {
          index--;
       }
       updateCounter();
-      testWord.setText(Application.practiceList.get(index).getWelsh());
-      wordType.setText("Welsh");
+
+      if(isSortedByEnglish){
+         testWord.setText(Application.practiceList.get(index).getEnglish());
+         wordType.setText("English");
+      } else{
+         testWord.setText(Application.practiceList.get(index).getWelsh());
+         wordType.setText("Welsh");
+      }
    }
 
    /**
@@ -120,8 +131,14 @@ public class FlashcardController extends SharedCodeController {
       }
       updateCounter();
 
-      testWord.setText(Application.practiceList.get(index).getWelsh());
-      wordType.setText("Welsh");
+      if(isSortedByEnglish){
+         testWord.setText(Application.practiceList.get(index).getEnglish());
+         wordType.setText("English");
+      } else{
+         testWord.setText(Application.practiceList.get(index).getWelsh());
+         wordType.setText("Welsh");
+      }
+
    }
 
    /**

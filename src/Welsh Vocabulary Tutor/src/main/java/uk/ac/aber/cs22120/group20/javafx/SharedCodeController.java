@@ -20,7 +20,7 @@ import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
  * @see AssessmentGenerator
  */
 abstract public class SharedCodeController {
-
+   static boolean isSortedByEnglish = true;
    static int sideBarWidth = 50;
 
    // /////////////////// //
@@ -151,7 +151,7 @@ abstract public class SharedCodeController {
    @FXML
    private void flashcardIconClick() {
 
-      if(Application.practiseList.size() == 0) { // Check to see if there are any practice words before switching scene, throwing an alert notifying them that they can't switch scenes.
+      if(Application.practiceList.size() == 0) { // Check to see if there are any practice words before switching scene, throwing an alert notifying them that they can't switch scenes.
          Alert alert = new Alert(Alert.AlertType.ERROR);
          alert.setTitle("Error");
          alert.setHeaderText("Unable to use Flashcard");
@@ -170,7 +170,7 @@ abstract public class SharedCodeController {
     */
    @FXML
    private void studyIconClick() {
-      AssessmentGenerator.generateAssessment(Application.practiseList);
+      AssessmentGenerator.generateAssessment(Application.practiceList);
    }
 
    /**
