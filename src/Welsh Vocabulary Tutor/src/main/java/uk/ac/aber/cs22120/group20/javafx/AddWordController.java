@@ -38,6 +38,10 @@ import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
  */
 public class AddWordController extends SharedCodeController {
 
+   // /////////////////// //
+   // Instance variables. //
+   // /////////////////// //
+
    @FXML
    private TextField welsh;
    @FXML
@@ -45,12 +49,15 @@ public class AddWordController extends SharedCodeController {
    @FXML
    private ComboBox<String> wordType;
 
+   // //////// //
+   // Methods. //
+   // //////// //
+   
    /**
     * Gets the value from the welsh text field
     *
     * @return welsh
     */
-
    public TextField getWelsh() {
       return welsh;
    }
@@ -60,7 +67,6 @@ public class AddWordController extends SharedCodeController {
     *
     * @return english
     */
-
    public TextField getEnglish() {
       return english;
    }
@@ -86,7 +92,6 @@ public class AddWordController extends SharedCodeController {
     * @see Application
     * @see DictionaryEntry
     */
-
    @FXML
    protected void addButtonClick(ActionEvent actionEvent) {
       DictionaryEntry.wordTypeEnum trueWordType;
@@ -172,7 +177,6 @@ public class AddWordController extends SharedCodeController {
     *
     * @param actionEvent action event for the button click
     */
-
    public void addChardd(ActionEvent actionEvent) {
       welsh.appendText("dd");
    }
@@ -182,7 +186,6 @@ public class AddWordController extends SharedCodeController {
     *
     * @param actionEvent action event for the button click
     */
-
    public void addCharff(ActionEvent actionEvent) {
       welsh.appendText("ff");
    }
@@ -192,7 +195,6 @@ public class AddWordController extends SharedCodeController {
     *
     * @param actionEvent action event for the button click
     */
-
    public void addCharng(ActionEvent actionEvent) {
       welsh.appendText("ng");
    }
@@ -202,7 +204,6 @@ public class AddWordController extends SharedCodeController {
     *
     * @param actionEvent action event for the button click
     */
-
    public void addCharll(ActionEvent actionEvent) {
       welsh.appendText("ll");
    }
@@ -212,7 +213,6 @@ public class AddWordController extends SharedCodeController {
     *
     * @param actionEvent action event for the button click
     */
-
    public void addCharph(ActionEvent actionEvent) {
       welsh.appendText("ph");
    }
@@ -222,7 +222,6 @@ public class AddWordController extends SharedCodeController {
     *
     * @param actionEvent action event for the button click
     */
-
    public void addCharrh(ActionEvent actionEvent) {
       welsh.appendText("rh");
    }
@@ -232,7 +231,6 @@ public class AddWordController extends SharedCodeController {
     *
     * @param actionEvent action event for the button click
     */
-
    public void addCharth(ActionEvent actionEvent) {
       welsh.appendText("th");
    }

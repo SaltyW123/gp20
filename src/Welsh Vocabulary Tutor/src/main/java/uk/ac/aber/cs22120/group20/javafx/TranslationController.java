@@ -24,8 +24,16 @@ import uk.ac.aber.cs22120.group20.selfassessment.Question;
  *
  */
 public class TranslationController  extends SharedCodeController{
-    private ArrayList<DictionaryEntry> practiceList = new ArrayList<>();
+
+    // //////////////// //
+    // Class variables. //
+    // //////////////// //
+
     public static DictionaryEntry answer = new DictionaryEntry();
+
+    // /////////////////// //
+    // Instance variables. //
+    // /////////////////// //
 
     /**
      * Represents the word that will be randomly chosen from the practiceList.
@@ -51,7 +59,9 @@ public class TranslationController  extends SharedCodeController{
 
     Random rand = new Random();
 
-
+    // //////// //
+    // Methods. //
+    // //////// //
 
     /**
      * Loads the test for the first time, filling the practice list with words from the dictionary,

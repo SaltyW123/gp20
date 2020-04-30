@@ -39,11 +39,18 @@ import java.util.*;
 
 public class MatchTheMeaningController extends SharedCodeController {
 
+   // //////////////// //
+   // Class variables. //
+   // //////////////// //
 
    public static ArrayList<DictionaryEntry> answer =new ArrayList<>();
+
+   // /////////////////// //
+   // Instance variables. //
+   // /////////////////// //
+
    private ArrayList<Integer> orderList = new ArrayList<>(Arrays.asList(0,1,2,3));
    private boolean isEnglish = AssessmentGenerator.isEnglish;
-
 
    @FXML
    private ComboBox<String> word1;
@@ -87,7 +94,9 @@ public class MatchTheMeaningController extends SharedCodeController {
    @FXML
    private Label WrongAnswer;
 
-
+   // //////// //
+   // Methods. //
+   // //////// //
 
    /**
     * Set chosen words from dictionary on the scene.
