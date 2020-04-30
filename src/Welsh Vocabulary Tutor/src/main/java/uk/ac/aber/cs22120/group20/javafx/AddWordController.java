@@ -51,15 +51,15 @@ public class AddWordController extends SharedCodeController {
 
    @FXML
    protected void addButtonClick(ActionEvent actionEvent) {
-      String trueWordType;
+      DictionaryEntry.wordTypeEnum trueWordType;
       if (wordType.getValue() == "Masculine noun") {
-         trueWordType = "nm";
+         trueWordType = DictionaryEntry.wordTypeEnum.nm;
       } else if (wordType.getValue() == "Feminine noun") {
-         trueWordType = "nf";
+         trueWordType = DictionaryEntry.wordTypeEnum.nf;
       } else if (wordType.getValue() == "Verb") {
-         trueWordType = "verb";
+         trueWordType = DictionaryEntry.wordTypeEnum.verb;
       } else {
-         trueWordType = "other";
+         trueWordType = DictionaryEntry.wordTypeEnum.other;
       }
       boolean entryFound = false;
       // one or more blank fields
@@ -100,6 +100,7 @@ public class AddWordController extends SharedCodeController {
             dictionaryEntry.setPracticeWord(true);
             Application.dictionary.contains(dictionaryEntry);
             Application.dictionary.add(dictionaryEntry);
+            Application.practiceList.add(dictionaryEntry);
 
 //              output of what was saved for testing
 //                System.out.print(english.getText());

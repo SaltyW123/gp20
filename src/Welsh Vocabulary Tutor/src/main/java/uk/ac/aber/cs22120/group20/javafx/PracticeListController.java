@@ -11,6 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.css.converter.DurationConverter;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -104,7 +105,7 @@ public class PracticeListController extends SharedCodeController{
                         result = true; // Filter matches English
 //                    } else if (dictionaryEntry.getWordType().toLowerCase().contains(lowerCaseSearchFilter)) {
 //                        result = true; // Filter matches Word Type
-                    } else if (dictionaryEntry.getWordType().equals("verb") && ("to " + dictionaryEntry.getEnglish()).toLowerCase().contains(lowerCaseSearchFilter)) {
+                    } else if (dictionaryEntry.getWordType().equals(DictionaryEntry.wordTypeEnum.verb) && ("to " + dictionaryEntry.getEnglish()).toLowerCase().contains(lowerCaseSearchFilter)) {
                         result = true; // Filter matches ['to' + a word] or [a word] if word is a verb
                     }
                 }
@@ -161,9 +162,9 @@ public class PracticeListController extends SharedCodeController{
 
         welsh.setCellValueFactory(dictionaryEntryStringCellDataFeatures -> {
 
-            if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals("nm")) {
+            if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals(DictionaryEntry.wordTypeEnum.nm)) {
                 return new SimpleStringProperty(dictionaryEntryStringCellDataFeatures.getValue().getWelsh() + " {nm}");
-            } else if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals("nf")) {
+            } else if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals(DictionaryEntry.wordTypeEnum.nf)) {
                 return new SimpleStringProperty(dictionaryEntryStringCellDataFeatures.getValue().getWelsh() + " {nf}");
             } else {
                 return new SimpleStringProperty(dictionaryEntryStringCellDataFeatures.getValue().getWelsh());
@@ -171,7 +172,7 @@ public class PracticeListController extends SharedCodeController{
         });
 
         english.setCellValueFactory(dictionaryEntryStringCellDataFeatures -> {
-            if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals("verb")) {
+            if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals(DictionaryEntry.wordTypeEnum.verb)) {
                 return new SimpleStringProperty("to " + dictionaryEntryStringCellDataFeatures.getValue().getEnglish());
             } else {
                 return new SimpleStringProperty(dictionaryEntryStringCellDataFeatures.getValue().getEnglish());
