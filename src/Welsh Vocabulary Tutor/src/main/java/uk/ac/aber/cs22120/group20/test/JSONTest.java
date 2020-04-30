@@ -21,14 +21,14 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
  * @See
  */
 public class JSONTest {
-    LinkedList<DictionaryEntry> testList;
+    static LinkedList<DictionaryEntry> testList;
     LinkedList<DictionaryEntry> loadedList;
-    File testFile;
-    JsonProcessing processor = new JsonProcessing();
+    static File testFile;
+    static JsonProcessing processor = new JsonProcessing();
 
 
     @BeforeAll
-    public void setupTest() {
+    public static void setupTest() {
 
         // Populate a test list with DictionaryEntrys that is to be used for the loading/saving tests.
         testList = new LinkedList<>(Arrays.asList(new DictionaryEntry("abbey","abaty","nm"), new DictionaryEntry("about to", "ar fin", "other"),
@@ -68,7 +68,7 @@ public class JSONTest {
     }
 
     @AfterAll
-    public void deleteFile() {
+    public static void deleteFile() {
         testFile.delete();
     }
 
