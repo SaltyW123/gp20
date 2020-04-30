@@ -38,12 +38,20 @@ import java.util.*;
 
 public class SixMeaningsController extends SharedCodeController {
 
-   private ArrayList<DictionaryEntry> wordSet = new ArrayList<>();
+   // //////////////// //
+   // Class variables. //
+   // //////////////// //
+
    public static ArrayList<DictionaryEntry> allQuestions = new ArrayList<>();
+
+   // /////////////////// //
+   // Instance variables. //
+   // /////////////////// //
+
+   private ArrayList<DictionaryEntry> wordSet = new ArrayList<>();
    private ArrayList<Integer> orderList = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5));
    private String wordCounterpart;
    private boolean isEnglish = AssessmentGenerator.isEnglish;
-
 
    @FXML
    private Text correctAnswer;
@@ -71,6 +79,10 @@ public class SixMeaningsController extends SharedCodeController {
 
    @FXML
    private Text possibleAnswer6;
+
+   // //////// //
+   // Methods. //
+   // //////// //
 
    @FXML
    void answer1(MouseEvent event) {
