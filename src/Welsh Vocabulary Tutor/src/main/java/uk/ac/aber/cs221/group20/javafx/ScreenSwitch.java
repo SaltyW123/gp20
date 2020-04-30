@@ -89,7 +89,7 @@ public class ScreenSwitch extends SharedCodeController {
       Parent root = null;
       try{
          String fxmlName = newScene.getFXML();
-         root = FXMLLoader.load(new URL("file:src/main/resources/uk/ac/aber/cs22120/group20/" + fxmlName));
+         root = FXMLLoader.load(new URL("file:src/main/resources/uk/ac/aber/cs221/group20/" + fxmlName));
 
       }catch (IOException e){ // If an error occurs, print out error message on STDIO and crash gracefully
          System.err.print("Loading the FXML file ");
