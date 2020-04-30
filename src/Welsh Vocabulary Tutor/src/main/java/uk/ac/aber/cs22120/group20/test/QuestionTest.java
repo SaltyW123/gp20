@@ -10,14 +10,34 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static uk.ac.aber.cs22120.group20.json.DictionaryEntry.wordTypeEnum.verb;
+
+/**
+ * Class that contains methods which will be used to test the Question class, and its methods.
+ * @author Brad Corbett [brc9]
+ * @author Henry Dugmore [hjd3]
+ * @author Kain Bryan-Jones [kab74]
+ * @author Luke Wybar [law39]
+ * @author Marcin Jakob [maj83]
+ * @author Oscar Pocock [osp1]
+ * @author Tom Perry [top1]
+ * @author Waylen Watts [ncw]
+ * @version 0.1 Initial development
+ * @See Question
+ */
 
 class QuestionTest {
 
+   /**
+    * Tests that the correctAnswers variable increments when a user gets a right answer
+    * when doing either a Translation or SixMeanings test.
+    */
+
    @Test
-   void testCheckRightAnswerTranslation() {
+   void testCheckRightAnswerTranslationOrSixMeanings() {
       ArrayList<DictionaryEntry> correctAnswerList = new ArrayList<>();
       ArrayList<String> correctEntryList = new ArrayList<>();
-      DictionaryEntry wordToTest = new DictionaryEntry("english1", "welsh1","verb");
+      DictionaryEntry wordToTest = new DictionaryEntry("english1", "welsh1",verb);
       boolean isEnglish = true;
 
       correctAnswerList.add(wordToTest);
@@ -32,17 +52,24 @@ class QuestionTest {
 
    }
 
+   /**
+    * Tests that the wrongAnswers variable increments when a user gets a wrong answer
+    * when doing either a Translation or SixMeanings test.
+    */
+
    @Test
-   void testCheckWrongAnswerTranslation() {
+   void testCheckWrongAnswerTranslationOrSixMeanings() {
       ArrayList<DictionaryEntry> correctAnswerList = new ArrayList<>();
       ArrayList<String> correctEntryList = new ArrayList<>();
-      DictionaryEntry wordToTest = new DictionaryEntry("english1", "welsh1","verb");
+      DictionaryEntry wordToTest = new DictionaryEntry("english1", "welsh1",verb);
       boolean isEnglish = true;
 
       correctAnswerList.add(wordToTest);
       correctEntryList.add("incorrectValue");
 
       Question question;
+
+      Question.resetScore();
 
       Question.checkAnswer(correctAnswerList, correctEntryList, isEnglish);
 
@@ -51,14 +78,20 @@ class QuestionTest {
 
    }
 
+
+   /**
+    * Tests that the correctAnswers variable increments when a user gets a right answer
+    * when doing either a MatchTheMeaning test.
+    */
+
    @Test
    void testCheckRightAnswerMatchMeaning(){
       ArrayList<DictionaryEntry> correctAnswerList = new ArrayList<>();
       ArrayList<String> correctEntryList = new ArrayList<>();
-      DictionaryEntry wordToTest1 = new DictionaryEntry("english1", "welsh1","verb");
-      DictionaryEntry wordToTest2 = new DictionaryEntry("english2", "welsh2","verb");
-      DictionaryEntry wordToTest3 = new DictionaryEntry("english3", "welsh3","verb");
-      DictionaryEntry wordToTest4 = new DictionaryEntry("english4", "welsh4","verb");
+      DictionaryEntry wordToTest1 = new DictionaryEntry("english1", "welsh1",verb);
+      DictionaryEntry wordToTest2 = new DictionaryEntry("english2", "welsh2",verb);
+      DictionaryEntry wordToTest3 = new DictionaryEntry("english3", "welsh3",verb);
+      DictionaryEntry wordToTest4 = new DictionaryEntry("english4", "welsh4",verb);
       boolean isEnglish = true;
 
       correctAnswerList.add(wordToTest1);
@@ -72,19 +105,26 @@ class QuestionTest {
 
       AssessmentGenerator.isEnglish = true;
 
+      Question.resetScore();
+
       Question.checkAnswer(correctAnswerList, correctEntryList, isEnglish);
 
       assertEquals(4, Question.correctAnswers);
    }
 
+   /**
+    * Tests that the wrongAnswers variable increments when a user gets a wrong answer
+    * when doing either a MatchTheMeaning test.
+    */
+
    @Test
    void testCheckWrongAnswerMatchMeaning(){
       ArrayList<DictionaryEntry> correctAnswerList = new ArrayList<>();
       ArrayList<String> correctEntryList = new ArrayList<>();
-      DictionaryEntry wordToTest1 = new DictionaryEntry("english1", "welsh1","verb");
-      DictionaryEntry wordToTest2 = new DictionaryEntry("english2", "welsh2","verb");
-      DictionaryEntry wordToTest3 = new DictionaryEntry("english3", "welsh3","verb");
-      DictionaryEntry wordToTest4 = new DictionaryEntry("english4", "welsh4","verb");
+      DictionaryEntry wordToTest1 = new DictionaryEntry("english1", "welsh1",verb);
+      DictionaryEntry wordToTest2 = new DictionaryEntry("english2", "welsh2",verb);
+      DictionaryEntry wordToTest3 = new DictionaryEntry("english3", "welsh3",verb);
+      DictionaryEntry wordToTest4 = new DictionaryEntry("english4", "welsh4",verb);
 
 
       correctAnswerList.add(wordToTest1);
@@ -105,17 +145,14 @@ class QuestionTest {
       assertEquals(4, Question.wrongAnswers);
    }
 
-   @Test
-   void testCheckRightAnswerSixMeanings(){
-
-   }
-
-   @Test
-   void testCheckWrongAnswerSixMeanings(){
-
-   }
 
    @Test
    void resetScore() {
+      Question.wrongAnswers = 5;
+      Question.correctAnswers = 5;
+      Question.resetScore();
+
+      assertEquals(0, Question.correctAnswers);
+      assertEquals(0, Question.wrongAnswers);
    }
 }
