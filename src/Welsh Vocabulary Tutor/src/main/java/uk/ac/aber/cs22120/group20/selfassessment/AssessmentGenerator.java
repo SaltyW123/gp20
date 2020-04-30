@@ -7,6 +7,7 @@ import javafx.scene.control.ButtonType;
 import uk.ac.aber.cs22120.group20.javafx.*;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
+import java.text.DecimalFormat;
 import java.util.*;
 
 
@@ -22,6 +23,8 @@ public class AssessmentGenerator {
     public static boolean isEnglish;
     static LinkedList<Question> listOfAssessment = new LinkedList<>();
     static int currentAssessment = 0;
+    static int totalCorrectAnswers = 0;
+    static int totalAnswers = 0;
 
     /**
      * Method that will generate a randomized list of questions consisting of random distribution of questions
@@ -33,6 +36,8 @@ public class AssessmentGenerator {
     public static LinkedList<Question> generateAssessment(LinkedList<DictionaryEntry> practiseList) {
         LinkedList<Question> listOfAssessment = new LinkedList<>();
         Random rand = new Random();
+
+        reset();
 
         //int wordToTranslatePlace;
 
@@ -150,7 +155,11 @@ public class AssessmentGenerator {
 
 
     public static void goToNextQuestion() {
+        if (currentAssessment > 0){
+            Question.showFeedback();
+        }
         if (currentAssessment < 10) {
+
             Question currentQuestion = listOfAssessment.get(currentAssessment);
 
             if (currentQuestion instanceof MatchTheMeaningQuestion) {
@@ -166,13 +175,13 @@ public class AssessmentGenerator {
                 System.err.print("The question has not been recognised");
                 System.err.println(currentQuestion);
             }
-
             currentAssessment++;
+
         } else {
 
             StringBuilder sb = new StringBuilder();
             sb.append("You got ")
-                    .append(Question.correctAnswers / (Question.correctAnswers + Question.wrongAnswers))
+                    .append(new DecimalFormat("#.##").format(((double)(totalCorrectAnswers*100) / (double)totalAnswers)))
                     .append("%")
                     .append("\n Would you like to test yourself again?");
 
@@ -192,13 +201,28 @@ public class AssessmentGenerator {
             Optional<ButtonType> result = alert.showAndWait();
 
             currentAssessment = 0;
-            Question.resetScore();
 
+            reset();
             if (result.isEmpty() || result.get() == noBtn) {
                ScreenSwitch.swap(ScreenSwitch.SceneEnum.dictionaryScene);
             } else {
                 generateAssessment(Application.practiceList);
             }
         }
+    }
+
+    public static int getTotalCorrectAnswers() {
+        return totalCorrectAnswers;
+    }
+
+    public static int getTotalAnswers() {
+        return totalAnswers;
+    }
+
+    public static void reset(){
+        totalCorrectAnswers = 0;
+        totalAnswers =0;
+        LinkedList<Question> listOfAssessment = new LinkedList<>();
+        currentAssessment = 0;
     }
 }
