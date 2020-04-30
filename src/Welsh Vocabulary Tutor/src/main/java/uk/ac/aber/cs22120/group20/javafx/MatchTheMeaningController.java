@@ -8,6 +8,7 @@ package uk.ac.aber.cs22120.group20.javafx;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -156,16 +157,34 @@ public class MatchTheMeaningController extends SharedCodeController {
 
       }
 
-      Question.checkAnswer(answers,listOfAnswers,isEnglish);
+      if(checkForDuplicates(answers)){
+         Alert alert = new Alert(Alert.AlertType.ERROR);
+         alert.setTitle("Error");
+         alert.setHeaderText("Please check answers");
+         alert.setContentText("Please ensure you have selected answers for each test word, with no duplicates.");
+         alert.showAndWait();
+      }else {
+
+         Question.checkAnswer(answers, listOfAnswers, isEnglish);
 
 
-      answer.clear();
-      AssessmentGenerator.goToNextQuestion();
-
+         answer.clear();
+         AssessmentGenerator.goToNextQuestion();
+      }
    }
+      private boolean checkForDuplicates(ArrayList<DictionaryEntry> wordSet){
+         boolean result = false;
+         Set<DictionaryEntry> set = new HashSet<>(wordSet);
+
+         if(set.size() < wordSet.size()){
+            result = true;
+         }
+         return result;
+      }
 
 
-   @FXML
+
+      @FXML
    private void initialize() {
       setup();
       currentPageIcon.setImage(new Image("file:src/main/resources/assets/icons/white_icons/50px/pass-fail-50.png"));
@@ -175,8 +194,8 @@ public class MatchTheMeaningController extends SharedCodeController {
       studyText.setFill(Color.BLACK);
 
       setWords(answer,orderList);
-      CorrectAnswer.setText(Integer.toString(Question.correctAnswers));
-      WrongAnswer.setText(Integer.toString(Question.wrongAnswers));
+      CorrectAnswer.setText(Integer.toString(AssessmentGenerator.getTotalCorrectAnswers()));
+      WrongAnswer.setText(Integer.toString(AssessmentGenerator.getTotalAnswers()));
 
    }
 }
