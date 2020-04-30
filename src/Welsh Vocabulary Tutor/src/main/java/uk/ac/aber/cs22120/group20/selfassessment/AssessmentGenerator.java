@@ -197,10 +197,8 @@ public class AssessmentGenerator {
             if (result.isEmpty() || result.get() == noBtn) {
                ScreenSwitch.swap(ScreenSwitch.SceneEnum.dictionaryScene);
             } else {
-                generateAssessment(Application.practiseList);
+                generateAssessment(Application.practiceList);
             }
         }
-
     }
-
 }
