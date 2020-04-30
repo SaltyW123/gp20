@@ -7,18 +7,25 @@ import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import uk.ac.aber.cs22120.group20.selfassessment.AssessmentGenerator;
-
+import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 /**
  * Abstract class that contains all the shared FXML elements between the
  * different controller classes including the sliding menu and the test score counter, to reduce code
  * duplication. This will be extended by all the controller classes.
- * @Author
- * @Version
- * @See
+ * @Author top19
+ * @Version 0.1 Initial development.
+ * @see Application
+ * @see DictionaryEntry
+ * @see ScreenSwitch
+ * @see AssessmentGenerator
  */
 abstract public class SharedCodeController {
 
    static int sideBarWidth = 50;
+
+   // /////////////////// //
+   // Instance Variables. //
+   // /////////////////// //
 
    @FXML
    Rectangle sideBar;
@@ -47,12 +54,17 @@ abstract public class SharedCodeController {
    @FXML
    ImageView studyIcon;
    @FXML
-   ImageView searchIcon;
-   @FXML
    ImageView addDefinitionIcon;
    @FXML
    ImageView currentPageIcon;
 
+   // //////// //
+   // Methods. //
+   // //////// //
+
+   /***
+    * Method that sets up the program's menu in each of the controllers, intialising the icons and text.
+    */
    public void setup() {
       initializeIcons();
       sideBar.setWidth(sideBarWidth);
@@ -61,6 +73,9 @@ abstract public class SharedCodeController {
          initializeMenuText();
    }
 
+   /**
+    * Method that sets up all of the menus icons by setting them to the images stored within the resources file.
+    */
    private void initializeIcons() {
       expandMenuIcon.setImage(new Image("file:src/main/resources/assets/icons/white_icons/50px/menu-50.png"));
       dictionaryIcon.setImage(new Image("file:src/main/resources/assets/icons/white_icons/50px/read-50.png"));
@@ -70,6 +85,9 @@ abstract public class SharedCodeController {
       addDefinitionIcon.setImage(new Image("file:src/main/resources/assets/icons/white_icons/50px/add-50.png"));
    }
 
+   /**
+    * Method that sets up all of the menus text by setting them to their desired text when the menu is expanded.
+    */
    private void initializeMenuText() {
       dictionaryText.setText("Dictionary");
       practiceListTest.setText("Practice List");
@@ -78,6 +96,9 @@ abstract public class SharedCodeController {
       addDefinitionText.setText("Add");
    }
 
+   /**
+    * Method that disables the menus text when the menu is collapsed.
+    */
    private void disableMenuText() {
       dictionaryText.setText("");
       practiceListTest.setText("");
@@ -86,47 +107,76 @@ abstract public class SharedCodeController {
       addDefinitionText.setText("");
    }
 
+   /**
+    * Event that expands the menu whenever the menu's 'expandMenuIcon' icon is clicked.
+    */
    @FXML
    private void expandMenuClick() {
-      if(sideBar.getWidth() == 50) {
+      if(sideBar.getWidth() == 50) { // If sideBar is currently collapsed, expand it and display menu text.
 
          sideBar.setWidth(sideBarWidth = 230);
-         initializeMenuText();
+         initializeMenuText(); // Display menu
       } else {
-         sideBar.setWidth(sideBarWidth = 50);
+         sideBar.setWidth(sideBarWidth = 50); // Else collapse the menu and disable its text.
          disableMenuText();
       }
    }
 
+   /**
+    * Event to switch scenes to 'dictionary.fxml' when the menu's 'dictionaryIcon' icon is clicked.
+    * @see ScreenSwitch
+    */
    @FXML
    private void dictionaryIconClick() {
       ScreenSwitch.swap(ScreenSwitch.SceneEnum.dictionaryScene);
    }
 
+   /**
+    * Event to switch scenes to 'practicelist.fxml' when the menu's 'practiceListIcon' icon is clicked.
+    * @see ScreenSwitch
+    */
    @FXML
    private void practiceListIconClick() {
       ScreenSwitch.swap(ScreenSwitch.SceneEnum.practiceListScene);
    }
 
+   /**
+    * Event to switch scenes to 'flashcard.fxml' when the menu's 'practiceListIcon' icon is clicked. This method checks to see if practiceList is empty before switching in order
+    * to avoid NullPointerException's in the flashcard scene.
+    * @see ScreenSwitch
+    * @see Application
+    * @see DictionaryEntry
+    * @see NullPointerException
+    */
    @FXML
    private void flashcardIconClick() {
 
-      if(Application.practiseList.size() == 0) {
+      if(Application.practiseList.size() == 0) { // Check to see if there are any practice words before switching scene, throwing an alert notifying them that they can't switch scenes.
          Alert alert = new Alert(Alert.AlertType.ERROR);
          alert.setTitle("Error");
          alert.setHeaderText("Unable to use Flashcard");
          alert.setContentText("The practice list is currently empty, please add some practice words to use the Flashcard feature.");
          alert.showAndWait();
       } else{
-         ScreenSwitch.swap(ScreenSwitch.SceneEnum.flashcardScene);
+         ScreenSwitch.swap(ScreenSwitch.SceneEnum.flashcardScene); // Switch to flashcard scene if the program has practice words.
       }
    }
 
+   /**
+    * Event to generate an assessment using AssessmentGenerator when the menu's 'studyIcon' icon is clicked.
+    * @see AssessmentGenerator
+    * @see Application
+    * @see DictionaryEntry
+    */
    @FXML
    private void studyIconClick() {
       AssessmentGenerator.generateAssessment(Application.practiseList);
    }
 
+   /**
+    * Event to switch scenes to 'addword.fxml' when the menu's 'addwordIcon' icon is clicked.
+    * @see ScreenSwitch
+    */
    @FXML
    private void addWordIconClick(){
 
