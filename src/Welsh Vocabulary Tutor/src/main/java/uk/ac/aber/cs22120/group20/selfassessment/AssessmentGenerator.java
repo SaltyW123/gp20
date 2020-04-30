@@ -43,8 +43,7 @@ public class AssessmentGenerator {
             alert.setHeaderText("Not enough words in practice list");
             alert.setResizable(false);
             alert.setContentText("Please add more words to your practice list on the dictionary page before trying to test yourself!");
-            Optional<ButtonType> result = alert.showAndWait();
-            ScreenSwitch.swap(ScreenSwitch.SceneEnum.dictionaryScene);
+            alert.showAndWait();
         }else {
 
             for (int numberToGenerate = 0; numberToGenerate < 10; numberToGenerate++) {
