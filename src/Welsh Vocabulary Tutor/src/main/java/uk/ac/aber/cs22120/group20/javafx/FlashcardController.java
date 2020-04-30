@@ -71,17 +71,17 @@ public class FlashcardController extends SharedCodeController {
       flashcardIcon.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/flashcard-50.png"));
       flashcardsText.setFill(Color.BLACK);
 
-      if(isSortedByEnglish){
+      if(isSortedByEnglish){ // If the current language ordering is by english, display the english word first.
          testWord.setText(Application.practiceList.getFirst().getEnglish());
          wordType.setText("English");
-      } else{
+      } else{ // Else display the word definition first.
          testWord.setText(Application.practiceList.getFirst().getWelsh());
          wordType.setText("Welsh");
       }
 
       updateCounter();
       card = flashcard;
-      flashcard.setImage(new Image("file:src/main/resources/assets/flashcard/Flashcard.png"));
+      flashcard.setImage(new Image("file:src/main/resources/assets/flashcard/FlashCard.png"));
       leftArrow.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/left-50.png"));
       rightArrow.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/right-50.png"));
    }
@@ -106,15 +106,15 @@ public class FlashcardController extends SharedCodeController {
       // If statement to check the start of the practiceList hasn't been reached before moving to the previous card.
       if (index > 0) {
          index--;
-      }
-      updateCounter();
+         updateCounter();
 
-      if(isSortedByEnglish){
-         testWord.setText(Application.practiceList.get(index).getEnglish());
-         wordType.setText("English");
-      } else{
-         testWord.setText(Application.practiceList.get(index).getWelsh());
-         wordType.setText("Welsh");
+         if (isSortedByEnglish) { // If the current language ordering is by english, display the english word first.
+            testWord.setText(Application.practiceList.get(index).getEnglish());
+            wordType.setText("English");
+         } else { // Else display the word definition first.
+            testWord.setText(Application.practiceList.get(index).getWelsh());
+            wordType.setText("Welsh");
+         }
       }
    }
 
@@ -126,19 +126,19 @@ public class FlashcardController extends SharedCodeController {
    @FXML
    private void handleNextCard() {
       // If statement to check the end of the practiceList hasn't been reached before moving to the next card.
-      if (index < Application.practiceList.size()-1) {
+      if (index < Application.practiceList.size() - 1) {
          index++;
-      }
-      updateCounter();
+         updateCounter();
 
-      if(isSortedByEnglish){
-         testWord.setText(Application.practiceList.get(index).getEnglish());
-         wordType.setText("English");
-      } else{
-         testWord.setText(Application.practiceList.get(index).getWelsh());
-         wordType.setText("Welsh");
-      }
+         if (isSortedByEnglish) { // If the current language ordering is by english, display the english word first.
+            testWord.setText(Application.practiceList.get(index).getEnglish());
+            wordType.setText("English");
+         } else { // Else display the word definition first.
+            testWord.setText(Application.practiceList.get(index).getWelsh());
+            wordType.setText("Welsh");
+         }
 
+      }
    }
 
    /**
