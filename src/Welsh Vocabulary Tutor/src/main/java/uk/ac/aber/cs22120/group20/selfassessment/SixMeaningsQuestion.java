@@ -7,6 +7,19 @@ import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.LinkedList;
 import java.util.Random;
+/**
+ * Class used to create a SixMeanings Question.
+ * @author Brad Corbett [brc9]
+ * @author Henry Dugmore [hjd3]
+ * @author Kain Bryan-Jones [kab74]
+ * @author Luke Wybar [law39]
+ * @author Marcin Jakob [maj83]
+ * @author Oscar Pocock [osp1]
+ * @author Tom Perry [top1]
+ * @author Waylen Watts [ncw]
+ * @version 0.1 Initial development
+ * @See Question
+ */
 
 public class SixMeaningsQuestion extends Question{
    private DictionaryEntry correctAnswer;
@@ -16,6 +29,11 @@ public class SixMeaningsQuestion extends Question{
       this.correctAnswer = correctAnswer;
       this.dictionary = dictionary;
    }
+
+   /** Function to retrieve the correct answer to a SixMeaningsQuestion.
+    *
+    * @return Retrieves the correct answer
+    */
 
    public ArrayList<DictionaryEntry> getCorrectAnswer() {
       Random rand = new Random();

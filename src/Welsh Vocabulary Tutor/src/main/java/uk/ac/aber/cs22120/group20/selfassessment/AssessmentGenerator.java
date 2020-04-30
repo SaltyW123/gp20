@@ -15,9 +15,23 @@ import java.util.*;
  * Class that contains methods to create a randomised list of questions that will
  * contain a random distribution of question types.
  *
- * @Author
- * @Version
- * @See
+ * @author Brad Corbett [brc9]
+ * @author Henry Dugmore [hjd3]
+ * @author Kain Bryan-Jones [kab74]
+ * @author Luke Wybar [law39]
+ * @author Marcin Jakob [maj83]
+ * @author Oscar Pocock [osp1]
+ * @author Tom Perry [top1]
+ * @author Waylen Watts [ncw]
+ * @version 0.1 Initial development
+ * @See Question
+ * @See SixMeaningsQuestion
+ * @See TranslationQuestion
+ * @See MatchTheMeaningQuestion
+ * @See ScreenSwitch
+ * @See SixMeaningsController
+ * @See TranslationController
+ * @See MatchTheMeaningController
  */
 public class AssessmentGenerator {
     public static boolean isEnglish;

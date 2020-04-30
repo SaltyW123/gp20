@@ -12,9 +12,15 @@ import java.util.ArrayList;
  * Abstract class contains the basic information that all the shared information between the
  * types of test questions including the questions’ correct answers and possible answers. All question
  * classes will extend this class.
- * @Author
- * @Version
- * @See
+ * @author Brad Corbett [brc9]
+ * @author Henry Dugmore [hjd3]
+ * @author Kain Bryan-Jones [kab74]
+ * @author Luke Wybar [law39]
+ * @author Marcin Jakob [maj83]
+ * @author Oscar Pocock [osp1]
+ * @author Tom Perry [top1]
+ * @author Waylen Watts [ncw]
+ * @version 0.1 Initial development
  */
 public class Question {
 
@@ -22,11 +28,11 @@ public class Question {
    public static int wrongAnswers =0;
    public static StringBuilder sb = new StringBuilder();
 
-   /**
+   /** Function that checks the answers of
     *
-    * @param listOfCorrectQuestions
-    * @param listOfAnswers
-    * @param isEnglish
+    * @param listOfCorrectQuestions List of the right answers to the question.
+    * @param listOfAnswers List of the answers the user input.
+    * @param isEnglish Boolean for if the test is English To Welsh or Welsh To English
     */
    public static void  checkAnswer(ArrayList<DictionaryEntry> listOfCorrectQuestions, ArrayList<String>listOfAnswers, boolean isEnglish){
 
@@ -69,6 +75,9 @@ public class Question {
 
 
    }
+   /**
+    * Function for giving user positive or negative feedback for when they answer a question during an assessment.
+    */
 
    static void showFeedback(){
       Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -91,6 +100,9 @@ public class Question {
       resetScore();
    }
 
+   /**
+    * Resets the score to 0 for the next test.
+    */
    private static void resetScore(){
       correctAnswers = 0;
       wrongAnswers =0;
