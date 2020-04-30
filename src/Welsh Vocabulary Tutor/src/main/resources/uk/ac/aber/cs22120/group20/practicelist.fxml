@@ -15,7 +15,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="uk.ac.aber.cs22120.group20.javafx.PracticeListController"
+            fx:controller="uk.ac.aber.cs221.group20.javafx.PracticeListController"
             minWidth="450"
             minHeight="550"
 >

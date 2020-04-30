@@ -62,7 +62,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.1</version>
                 <configuration>
-                    <mainClass>uk.ac.aber.cs22120.group20.javafx.Application</mainClass>
+                    <mainClass>uk.ac.aber.cs221.group20.javafx.Application</mainClass>
                 </configuration>
             </plugin>
         </plugins>

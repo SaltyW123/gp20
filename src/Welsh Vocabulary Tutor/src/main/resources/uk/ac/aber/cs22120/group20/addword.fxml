@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane  minHeight="550" minWidth="500" stylesheets="" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.aber.cs22120.group20.javafx.AddWordController">
+<BorderPane  minHeight="550" minWidth="500" stylesheets="" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.aber.cs221.group20.javafx.AddWordController">
 
     <left>
 
