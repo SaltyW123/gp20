@@ -171,9 +171,9 @@ public class AssessmentGenerator {
         } else {
 
             StringBuilder sb = new StringBuilder();
-            sb.append("You scored: ")
-                    .append(Question.correctAnswers).append("/")
-                    .append(Question.correctAnswers + Question.wrongAnswers)
+            sb.append("You got ")
+                    .append(Question.correctAnswers / (Question.correctAnswers + Question.wrongAnswers))
+                    .append("%")
                     .append("\n Would you like to test yourself again?");
 
             ButtonType yesBtn = new ButtonType("Yes");
