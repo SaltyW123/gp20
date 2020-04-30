@@ -92,10 +92,13 @@ public class AssessmentGenerator {
 //                  wordsToTranslate.add(Application.practiseList.get(wordToTranslatePlace));
 //                  wordsToTranslate.toArray();
 //               }
-                  if( (practiseList.size()>=4) || ((listOfAssessment.isEmpty()) || !(listOfAssessment.getLast() instanceof MatchTheMeaningQuestion))){
-                     generatedAssessment = generateMatchMeaning(practiseList);
-                  }else {
-                     numberToGenerate--;
+                  System.out.println(practiseList.size());
+                  if(practiseList.size() > 3) {
+                     if (((listOfAssessment.isEmpty()) || !(listOfAssessment.getLast() instanceof MatchTheMeaningQuestion))) {
+                        generatedAssessment = generateMatchMeaning(practiseList);
+                     } else {
+                        numberToGenerate--;
+                     }
                   }
                   break;
             }
