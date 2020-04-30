@@ -16,12 +16,12 @@ import java.util.Arrays;
  * @author Tom Perry [top1]
  * @author Waylen Watts [ncw]
  * @version 0.1 Initial development
- * @See Question
+ * @see Question
  */
 
 
 public class MatchTheMeaningQuestion extends Question {
-   private ArrayList<DictionaryEntry> correctAnswer = new ArrayList<>();
+   private final ArrayList<DictionaryEntry> correctAnswer = new ArrayList<>();
 
    public MatchTheMeaningQuestion(DictionaryEntry[] correctAnswer){
       this.correctAnswer.addAll(Arrays.asList(correctAnswer));
