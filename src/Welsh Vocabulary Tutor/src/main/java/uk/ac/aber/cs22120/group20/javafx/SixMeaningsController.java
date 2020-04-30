@@ -1,4 +1,4 @@
-package uk.ac.aber.cs22120.group20.selfassessment;
+package uk.ac.aber.cs22120.group20.javafx;
 /**
  * @(#) SixMeaningsController.java 0,1 2020/04/27
  * <p>
@@ -9,10 +9,14 @@ package uk.ac.aber.cs22120.group20.selfassessment;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import uk.ac.aber.cs22120.group20.javafx.Application;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
+import uk.ac.aber.cs22120.group20.selfassessment.AssessmentGenerator;
+import uk.ac.aber.cs22120.group20.selfassessment.Question;
 
 import java.net.URL;
 import java.util.*;
@@ -32,7 +36,7 @@ import java.util.*;
  * @see uk.ac.aber.cs22120.group20.javafx.Application
  */
 
-public class SixMeaningsController implements Initializable {
+public class SixMeaningsController extends SharedCodeController {
 
    private ArrayList<DictionaryEntry> wordSet = new ArrayList<>();
    public static ArrayList<DictionaryEntry> allQuestions = new ArrayList<>();
@@ -158,8 +162,15 @@ public class SixMeaningsController implements Initializable {
    }
 
 
-   @Override
-   public void initialize(URL url, ResourceBundle resourceBundle) {
+   @FXML
+   private void initialize() {
+      setup();
+      currentPageIcon.setImage(new Image("file:src/main/resources/assets/icons/white_icons/50px/pass-fail-50.png"));
+      currentPageText.setText("Study");
+
+      studyIcon.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/pass-fail-50.png"));
+      studyText.setFill(Color.BLACK);
+
       setWords(isEnglish);
       
       correctAnswer.setText(Integer.toString(Question.correctAnswers));

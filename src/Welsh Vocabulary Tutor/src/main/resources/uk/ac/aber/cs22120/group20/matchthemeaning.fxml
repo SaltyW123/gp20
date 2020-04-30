@@ -7,65 +7,188 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.aber.cs22120.group20.selfassessment.MatchTheMeaningController">
-   <children>
-      <Button fx:id="ConfirmButton"  layoutX="271.0" layoutY="321.0" mnemonicParsing="false" text="Confirm" onAction="#checkAnswers" />
-      <Label layoutX="248.0" layoutY="356.0" text="Match the meaning" />
-      <ComboBox fx:id="word1" layoutX="448.0" layoutY="118.0" prefHeight="25.0" prefWidth="58.0" value="1">
-              <items>
-                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="1" />
-                    <String fx:value="2" />
-                    <String fx:value="3" />
-                    <String fx:value="4" />
-                 </FXCollections>
-              </items>
-      </ComboBox>
-      <ComboBox fx:id="word2" layoutX="448.0" layoutY="153.0" prefHeight="25.0" prefWidth="58.0" value="1">
-         <items>
-            <FXCollections fx:factory="observableArrayList">
-               <String fx:value="1" />
-               <String fx:value="2" />
-               <String fx:value="3" />
-               <String fx:value="4" />
-            </FXCollections>
-         </items>
-      </ComboBox>
-      <ComboBox fx:id="word3" layoutX="448.0" layoutY="188.0" prefHeight="25.0" prefWidth="58.0" value="1">
-         <items>
-            <FXCollections fx:factory="observableArrayList">
-               <String fx:value="1" />
-               <String fx:value="2" />
-               <String fx:value="3" />
-               <String fx:value="4" />
-            </FXCollections>
-         </items>
-      </ComboBox>
-      <ComboBox fx:id="word4" layoutX="448.0" layoutY="223.0" prefHeight="25.0" prefWidth="58.0" value="1">
-         <items>
-            <FXCollections fx:factory="observableArrayList">
-               <String fx:value="1" />
-               <String fx:value="2" />
-               <String fx:value="3" />
-               <String fx:value="4" />
-            </FXCollections>
-         </items>
-      </ComboBox>
-      <Label fx:id="RightWord1" layoutX="343.0" layoutY="122.0" text="Welsh word#3" />
-      <Label fx:id="RightWord2" layoutX="343.0" layoutY="157.0" text="Welsh word#2" />
-      <Label fx:id="RightWord3" layoutX="343.0" layoutY="192.0" text="Welsh word#1" />
-      <Label fx:id="RightWord4" layoutX="343.0" layoutY="227.0" text="Welsh word#4" />
-      <Label fx:id="LeftWord1" layoutX="115.0" layoutY="122.0" text="English Word #1" />
-      <Label fx:id="LeftWord2" layoutX="115.0" layoutY="157.0" text="English Word #2" />
-      <Label fx:id="LeftWord3" layoutX="115.0" layoutY="192.0" text="English Word #3" />
-      <Label fx:id="LeftWord4" layoutX="115.0" layoutY="227.0" text="English Word #4" />
-      <Label layoutX="105.0" layoutY="122.0" text="1." />
-      <Label layoutX="105.0" layoutY="157.0" text="2." />
-      <Label layoutX="105.0" layoutY="192.0" text="3." />
-      <Label layoutX="105.0" layoutY="227.0" text="4." />
-      <Label layoutX="367.0" layoutY="23.0" text="Correct answers:" />
-      <Label layoutX="368.0" layoutY="53.0" text="Wrong answers:" />
-      <Label fx:id="CorrectAnswer" layoutX="463.0" layoutY="23.0" text="0" />
-      <Label fx:id="WrongAnswer" layoutX="463.0" layoutY="53.0" text="0" />
-   </children>
-</Pane>
+
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="uk.ac.aber.cs22120.group20.javafx.MatchTheMeaningController"
+            fx:id="container"
+            minWidth="450"
+            minHeight="550"
+>
+
+
+   <left>
+
+      <StackPane fx:id="outerBar">
+         <Rectangle fx:id="sideBar" fill="dimgray" height="${outerBar.height}" width="50"></Rectangle>
+
+         <VBox spacing="300">
+
+            <VBox alignment="TOP_CENTER" maxHeight="${outerBar.height}">
+               <StackPane onMouseClicked="#dictionaryIconClick">
+                  <Rectangle fill="dimgray" height="60" width="${sideBar.width}"></Rectangle>
+                  <HBox alignment="CENTER_RIGHT">
+                     <Text fx:id="dictionaryText" fill="white">
+                        <font>
+                           <Font name="System Bold" size="25"></Font>
+                        </font>
+                     </Text>
+                     <ImageView fx:id="dictionaryIcon"></ImageView>
+                  </HBox>
+               </StackPane>
+
+               <StackPane onMouseClicked="#practiceListIconClick">
+                  <Rectangle fill="dimgray" height="60" width="${sideBar.width}"></Rectangle>
+                  <HBox alignment="CENTER_RIGHT">
+                     <Text fx:id="practiceListTest" fill="white">
+                        <font>
+                           <Font name="System Bold" size="25"></Font>
+                        </font>
+                     </Text>
+                     <ImageView fx:id="practiceListIcon"></ImageView>
+                  </HBox>
+               </StackPane>
+
+               <StackPane onMouseClicked="#flashcardIconClick">
+                  <Rectangle fill="dimgray" height="60" width="${sideBar.width}"></Rectangle>
+                  <HBox alignment="CENTER_RIGHT">
+                     <Text fx:id="flashcardsText" fill="white">
+                        <font>
+                           <Font name="System Bold" size="25"></Font>
+                        </font>
+                     </Text>
+                     <ImageView fx:id="flashcardIcon"></ImageView>
+                  </HBox>
+               </StackPane>
+
+               <StackPane onMouseClicked="#studyIconClick">
+                  <Rectangle fill="white" height="60" width="${sideBar.width}"></Rectangle>
+                  <HBox alignment="CENTER_RIGHT">
+                     <Text fx:id="studyText" fill="white">
+                        <font>
+                           <Font name="System Bold" size="25"></Font>
+                        </font>
+                     </Text>
+                     <ImageView fx:id="studyIcon"></ImageView>
+                  </HBox>
+               </StackPane>
+
+
+            </VBox>
+
+
+            <StackPane alignment="BOTTOM_CENTER" onMouseClicked="#addWordIconClick">
+               <Rectangle fill="dimgray" height="60" width="${sideBar.width}"></Rectangle>
+
+               <HBox alignment="CENTER_RIGHT">
+                  <Text fx:id="addDefinitionText" fill="white">
+                     <font>
+                        <Font name="System Bold" size="25"></Font>
+                     </font>
+                  </Text>
+                  <ImageView fx:id="addDefinitionIcon"></ImageView>
+               </HBox>
+
+            </StackPane>
+         </VBox>
+      </StackPane>
+
+
+   </left>
+
+   <top>
+      <StackPane fx:id="topBar">
+         <Rectangle fx:id="parentRectangle" fill="dimgray" width="${topBar.width}" height="50"></Rectangle>
+         <HBox alignment="CENTER_LEFT"  prefWidth="${topBar.width}" spacing="7">
+            <StackPane onMouseClicked="#expandMenuClick">
+               <Rectangle fill="dimgray" width="55" height="50"></Rectangle>
+               <ImageView fx:id="expandMenuIcon"></ImageView>
+            </StackPane>
+
+            <ImageView fx:id="currentPageIcon"></ImageView>
+
+            <Text fx:id="currentPageText" fill="white">
+               <font>
+                  <Font name="System Bold" size="25"></Font>
+               </font>
+            </Text>
+         </HBox>
+
+      </StackPane>
+   </top>
+   <center>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+         <children>
+            <Button fx:id="ConfirmButton"  layoutX="271.0" layoutY="321.0" mnemonicParsing="false" text="Confirm" onAction="#checkAnswers" />
+            <Label layoutX="248.0" layoutY="356.0" text="Match the meaning" />
+            <ComboBox fx:id="word1" layoutX="448.0" layoutY="118.0" prefHeight="25.0" prefWidth="58.0" value="1">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="1" />
+                     <String fx:value="2" />
+                     <String fx:value="3" />
+                     <String fx:value="4" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
+            <ComboBox fx:id="word2" layoutX="448.0" layoutY="153.0" prefHeight="25.0" prefWidth="58.0" value="1">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="1" />
+                     <String fx:value="2" />
+                     <String fx:value="3" />
+                     <String fx:value="4" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
+            <ComboBox fx:id="word3" layoutX="448.0" layoutY="188.0" prefHeight="25.0" prefWidth="58.0" value="1">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="1" />
+                     <String fx:value="2" />
+                     <String fx:value="3" />
+                     <String fx:value="4" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
+            <ComboBox fx:id="word4" layoutX="448.0" layoutY="223.0" prefHeight="25.0" prefWidth="58.0" value="1">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="1" />
+                     <String fx:value="2" />
+                     <String fx:value="3" />
+                     <String fx:value="4" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
+            <Label fx:id="RightWord1" layoutX="343.0" layoutY="122.0" text="Welsh word#3" />
+            <Label fx:id="RightWord2" layoutX="343.0" layoutY="157.0" text="Welsh word#2" />
+            <Label fx:id="RightWord3" layoutX="343.0" layoutY="192.0" text="Welsh word#1" />
+            <Label fx:id="RightWord4" layoutX="343.0" layoutY="227.0" text="Welsh word#4" />
+            <Label fx:id="LeftWord1" layoutX="115.0" layoutY="122.0" text="English Word #1" />
+            <Label fx:id="LeftWord2" layoutX="115.0" layoutY="157.0" text="English Word #2" />
+            <Label fx:id="LeftWord3" layoutX="115.0" layoutY="192.0" text="English Word #3" />
+            <Label fx:id="LeftWord4" layoutX="115.0" layoutY="227.0" text="English Word #4" />
+            <Label layoutX="105.0" layoutY="122.0" text="1." />
+            <Label layoutX="105.0" layoutY="157.0" text="2." />
+            <Label layoutX="105.0" layoutY="192.0" text="3." />
+            <Label layoutX="105.0" layoutY="227.0" text="4." />
+            <Label layoutX="367.0" layoutY="23.0" text="Correct answers:" />
+            <Label layoutX="368.0" layoutY="53.0" text="Wrong answers:" />
+            <Label fx:id="CorrectAnswer" layoutX="463.0" layoutY="23.0" text="0" />
+            <Label fx:id="WrongAnswer" layoutX="463.0" layoutY="53.0" text="0" />
+         </children>
+      </Pane>
+
+   </center>
+</BorderPane>
+
+
+

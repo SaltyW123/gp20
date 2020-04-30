@@ -1,4 +1,4 @@
-package uk.ac.aber.cs22120.group20.selfassessment;
+package uk.ac.aber.cs22120.group20.javafx;
 /**
  * @(#) MyController.java 0,1 2020/04/07
  * <p>
@@ -10,7 +10,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import uk.ac.aber.cs22120.group20.javafx.SharedCodeController;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
+import uk.ac.aber.cs22120.group20.selfassessment.AssessmentGenerator;
+import uk.ac.aber.cs22120.group20.selfassessment.Question;
+
 import java.net.URL;
 import java.util.*;
 
@@ -30,7 +36,7 @@ import java.util.*;
  */
 
 
-public class MatchTheMeaningController implements Initializable{
+public class MatchTheMeaningController extends SharedCodeController {
 
 
    public static ArrayList<DictionaryEntry> answer =new ArrayList<>();
@@ -150,8 +156,14 @@ public class MatchTheMeaningController implements Initializable{
    }
 
 
-   @Override
-   public void initialize(URL url, ResourceBundle resourceBundle) {
+   @FXML
+   private void initialize() {
+      setup();
+      currentPageIcon.setImage(new Image("file:src/main/resources/assets/icons/white_icons/50px/pass-fail-50.png"));
+      currentPageText.setText("Study");
+
+      studyIcon.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/pass-fail-50.png"));
+      studyText.setFill(Color.BLACK);
 
       setWords(answer,orderList);
       CorrectAnswer.setText(Integer.toString(Question.correctAnswers));
