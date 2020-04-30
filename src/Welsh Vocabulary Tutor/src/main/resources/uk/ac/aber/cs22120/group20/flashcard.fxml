@@ -6,11 +6,10 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.image.ImageView?>
 
-<?import javafx.scene.control.Button?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="uk.ac.aber.cs22120.group20.javafx.FlashcardController"
-            fx:id="container"
+
             minWidth="450"
             minHeight="550"
 
@@ -20,56 +19,56 @@
     <left>
 
         <StackPane fx:id="outerBar">
-            <Rectangle fx:id="sideBar" fill="dimgray" height="${outerBar.height}" width="50"></Rectangle>
+            <Rectangle fx:id="sideBar" fill="dimgray" height="${outerBar.height}" width="50"/>
 
             <VBox spacing="300">
 
                 <VBox alignment="TOP_CENTER" maxHeight="${outerBar.height}">
                     <StackPane onMouseClicked="#dictionaryIconClick">
-                        <Rectangle fill="dimgray" height="60" width="${sideBar.width}"></Rectangle>
+                        <Rectangle fill="dimgray" height="60" width="${sideBar.width}"/>
                         <HBox alignment="CENTER_RIGHT">
                             <Text fx:id="dictionaryText" fill="white">
                                 <font>
-                                    <Font name="System Bold" size="25"></Font>
+                                    <Font name="System Bold" size="25"/>
                                 </font>
                             </Text>
-                            <ImageView fx:id="dictionaryIcon"></ImageView>
+                            <ImageView fx:id="dictionaryIcon"/>
                         </HBox>
                     </StackPane>
 
                     <StackPane onMouseClicked="#practiceListIconClick">
-                        <Rectangle fill="dimgray" height="60" width="${sideBar.width}"></Rectangle>
+                        <Rectangle fill="dimgray" height="60" width="${sideBar.width}"/>
                         <HBox alignment="CENTER_RIGHT">
                             <Text fx:id="practiceListTest" fill="white">
                                 <font>
-                                    <Font name="System Bold" size="25"></Font>
+                                    <Font name="System Bold" size="25"/>
                                 </font>
                             </Text>
-                            <ImageView fx:id="practiceListIcon"></ImageView>
+                            <ImageView fx:id="practiceListIcon"/>
                         </HBox>
                     </StackPane>
 
                     <StackPane onMouseClicked="#flashcardIconClick">
-                        <Rectangle fill="white" height="60" width="${sideBar.width}"></Rectangle>
+                        <Rectangle fill="white" height="60" width="${sideBar.width}"/>
                         <HBox alignment="CENTER_RIGHT">
                             <Text fx:id="flashcardsText" fill="white">
                                 <font>
-                                    <Font name="System Bold" size="25"></Font>
+                                    <Font name="System Bold" size="25"/>
                                 </font>
                             </Text>
-                            <ImageView fx:id="flashcardIcon"></ImageView>
+                            <ImageView fx:id="flashcardIcon"/>
                         </HBox>
                     </StackPane>
 
                     <StackPane onMouseClicked="#studyIconClick">
-                        <Rectangle fill="dimgray" height="60" width="${sideBar.width}"></Rectangle>
+                        <Rectangle fill="dimgray" height="60" width="${sideBar.width}"/>
                         <HBox alignment="CENTER_RIGHT">
                             <Text fx:id="studyText" fill="white">
                                 <font>
-                                    <Font name="System Bold" size="25"></Font>
+                                    <Font name="System Bold" size="25"/>
                                 </font>
                             </Text>
-                            <ImageView fx:id="studyIcon"></ImageView>
+                            <ImageView fx:id="studyIcon"/>
                         </HBox>
                     </StackPane>
 
@@ -78,15 +77,15 @@
 
 
                 <StackPane alignment="BOTTOM_CENTER" onMouseClicked="#addWordIconClick">
-                    <Rectangle fill="dimgray" height="60" width="${sideBar.width}"></Rectangle>
+                    <Rectangle fill="dimgray" height="60" width="${sideBar.width}"/>
 
                     <HBox alignment="CENTER_RIGHT">
                         <Text fx:id="addDefinitionText" fill="white">
                             <font>
-                                <Font name="System Bold" size="25"></Font>
+                                <Font name="System Bold" size="25"/>
                             </font>
                         </Text>
-                        <ImageView fx:id="addDefinitionIcon"></ImageView>
+                        <ImageView fx:id="addDefinitionIcon"/>
                     </HBox>
 
                 </StackPane>
@@ -98,18 +97,18 @@
 
     <top>
         <StackPane fx:id="topBar">
-            <Rectangle fx:id="parentRectangle" fill="dimgray" width="${topBar.width}" height="50"></Rectangle>
+            <Rectangle fx:id="parentRectangle" fill="dimgray" width="${topBar.width}" height="50"/>
             <HBox alignment="CENTER_LEFT"  prefWidth="${topBar.width}" spacing="7">
                 <StackPane onMouseClicked="#expandMenuClick">
-                    <Rectangle fill="dimgray" width="55" height="50"></Rectangle>
-                    <ImageView fx:id="expandMenuIcon"></ImageView>
+                    <Rectangle fill="dimgray" width="55" height="50"/>
+                    <ImageView fx:id="expandMenuIcon"/>
                 </StackPane>
 
-                <ImageView fx:id="currentPageIcon"></ImageView>
+                <ImageView fx:id="currentPageIcon"/>
 
                 <Text fx:id="currentPageText" fill="white">
                     <font>
-                        <Font name="System Bold" size="25"></Font>
+                        <Font name="System Bold" size="25"/>
                     </font>
                 </Text>
             </HBox>
@@ -123,10 +122,9 @@
             <padding>
                 <Insets top="25" right="25" bottom="10" left="25"/>
             </padding>
-            <children>
-                <StackPane  alignment="CENTER" onMouseClicked="#handleFlashcardClick" minWidth="500">
-                    <children>
-                        <ImageView fx:id="flashcard" fitWidth="450" fitHeight="360"></ImageView>
+
+                <StackPane  onMouseClicked="#handleFlashcardClick" minWidth="500">
+                        <ImageView fx:id="flashcard" fitWidth="450" fitHeight="360"/>
                         <Text  textAlignment="CENTER" fx:id="testWord">
                             <font>
                                 <Font size="55"/>
@@ -136,20 +134,16 @@
                         <VBox alignment="BOTTOM_CENTER">
                             <Text fx:id="wordType" fill="dimgray">
                                 <font>
-                                    <Font size="20"></Font>
+                                    <Font size="20"/>
                                 </font>
                             </Text>
                         </VBox>
-                    </children>
                 </StackPane>
                 <HBox spacing="190" alignment="BASELINE_CENTER">
-                    <children>
-                        <ImageView fx:id="leftArrow" onMouseClicked="#handlePreviousCard"></ImageView>
-                        <Text fx:id="counter"><font> <Font size = "20"></Font></font></Text>
-                        <ImageView fx:id="rightArrow" onMouseClicked="#handleNextCard"></ImageView>
-                    </children>
+                        <ImageView fx:id="leftArrow" onMouseClicked="#handlePreviousCard"/>
+                        <Text fx:id="counter"><font> <Font size = "20"/></font></Text>
+                        <ImageView fx:id="rightArrow" onMouseClicked="#handleNextCard"/>
                 </HBox>
-            </children>
 
         </VBox>
 
