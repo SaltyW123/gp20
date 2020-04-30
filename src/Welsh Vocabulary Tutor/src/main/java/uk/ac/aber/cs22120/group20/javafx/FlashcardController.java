@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
@@ -30,7 +31,7 @@ import java.io.IOException;
  * @see SharedCodeController
  */
 
-public class FlashcardController {
+public class FlashcardController extends SharedCodeController {
 
    // /////////////////// //
    // Instance Variables. //
@@ -49,9 +50,9 @@ public class FlashcardController {
    private Text testWord;
 
    @FXML
-   private ImageView left_arrow;
+   private ImageView leftArrow;
    @FXML
-   private ImageView right_arrow;
+   private ImageView rightArrow;
 
    // //////// //
    // Methods. //
@@ -63,14 +64,21 @@ public class FlashcardController {
     */
    @FXML
    private void initialize() {
+      // Call method from SharedCodeController to setup the menu screen.
+      setup();
+      currentPageIcon.setImage(new Image("file:src/main/resources/assets/icons/white_icons/50px/flashcard-50.png"));
+      currentPageText.setText("Flashcard");
+      flashcardIcon.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/flashcard-50.png"));
+      flashcardsText.setFill(Color.BLACK);
+
       testWord.setText(Application.practiseList.getFirst().getWelsh());
       wordType.setText("Welsh");
 
       updateCounter();
       card = flashcard;
 
-      left_arrow.setImage(new Image(getClass().getResourceAsStream("/assets/icons/black_icons/50px/left-50.png")));
-      right_arrow.setImage(new Image(getClass().getResourceAsStream("/assets/icons/black_icons/50px/right-50.png")));
+      leftArrow.setImage(new Image(getClass().getResourceAsStream("/assets/icons/black_icons/50px/left-50.png")));
+      rightArrow.setImage(new Image(getClass().getResourceAsStream("/assets/icons/black_icons/50px/right-50.png")));
    }
 
    /**
@@ -162,9 +170,5 @@ public class FlashcardController {
 
    }
 
-   @FXML
-   private void switchToAddWord() throws IOException {
-      AssessmentGenerator.generateAssessment(Application.practiseList);
-   }
 
 }

@@ -57,7 +57,7 @@ public class DictionaryEntry {
     }
 
     public void setEnglish(String english) {
-        this.english = english;
+        this.english = english.trim();
     }
 
     public String getWelsh() {
@@ -65,7 +65,7 @@ public class DictionaryEntry {
     }
 
     public void setWelsh(String welsh) {
-        this.welsh = welsh;
+        this.welsh = welsh.trim();
     }
 
     public String getWordType() {
@@ -73,7 +73,7 @@ public class DictionaryEntry {
     }
 
     public void setWordType(String wordType) {
-        this.wordType = wordType;
+        this.wordType = wordType.trim();
     }
 
     public Boolean isPracticeWord() {

@@ -19,6 +19,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import uk.ac.aber.cs22120.group20.javafx.Application;
 import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
@@ -45,11 +46,13 @@ import java.util.ResourceBundle;
  * @see Application
  */
 //public class DictionaryController implements Initializable {
-public class DictionaryController {
+public class DictionaryController extends SharedCodeController {
    public static Stage primaryStage = null;
 
    @FXML
    private ImageView alphaSort;
+   @FXML
+   private ImageView langSort;
    @FXML
    private TextField searchBox;
    @FXML
@@ -113,15 +116,6 @@ public class DictionaryController {
       }
    }
 
-   /**
-    * Switches to the primary scene.
-    *
-    * @throws IOException
-    */
-   @FXML
-   private void switchToPracticeList() throws IOException {
-      ScreenSwitch.swap(ScreenSwitch.SceneEnum.practiceListScene);
-   }
 
    /**
     * Initializes the  table of dictionary entries.
@@ -135,6 +129,13 @@ public class DictionaryController {
     * @see DictionaryEntry
     */
    public void initialize() {
+      setup();
+
+      currentPageIcon.setImage(new Image(getClass().getResourceAsStream("/assets/icons/white_icons/50px/read-50.png")));
+      currentPageText.setText("Dictionary");
+
+      dictionaryIcon.setImage(new Image(getClass().getResourceAsStream("/assets/icons/black_icons/50px/read-50.png")));
+      dictionaryText.setFill(Color.BLACK);
       list.addAll(Application.dictionary);
 
       table.setRowFactory(tv -> {
