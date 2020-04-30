@@ -1,3 +1,10 @@
+/**
+ * @(#) AddWordController.java 0,1 2020/04/30
+ * <p>
+ * Copyright (c) 2020 Aberystwyth University.
+ * All rights reserved.
+ */
+
 package uk.ac.aber.cs22120.group20.javafx;
 
 import javafx.event.ActionEvent;
@@ -14,9 +21,21 @@ import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
 
 
 /**
- * Add Word Controller
+ * A class that handles the keyboard and mouse input and interaction for the 'Add Word Page' which is
+ * defined by 'addword.fxml'
+ *
+ * @author Brad Corbett [brc9]
+ * @author Henry Dugmore [hjd3]
+ * @author Kain Bryan-Jones [kab74]
+ * @author Luke Wybar [law39]
+ * @author Marcin Jakob [maj83]
+ * @author Oscar Pocock [osp1]
+ * @author Tom Perry [top1]
+ * @author Waylen Watts [ncw]
+ * @version 0.1 Initial development.
+ * @see DictionaryEntry
+ * @see Application
  */
-
 public class AddWordController extends SharedCodeController {
 
    @FXML
@@ -26,9 +45,21 @@ public class AddWordController extends SharedCodeController {
    @FXML
    private ComboBox<String> wordType;
 
+   /**
+    * Gets the value from the welsh text field
+    *
+    * @return welsh
+    */
+
    public TextField getWelsh() {
       return welsh;
    }
+
+   /**
+    * Gets the value from the english text field
+    *
+    * @return english
+    */
 
    public TextField getEnglish() {
       return english;
@@ -48,6 +79,13 @@ public class AddWordController extends SharedCodeController {
 
    }
 
+   /**
+    * Method that runs when you click the add word button
+    *
+    * @param actionEvent action event for the button click
+    * @see Application
+    * @see DictionaryEntry
+    */
 
    @FXML
    protected void addButtonClick(ActionEvent actionEvent) {
@@ -62,7 +100,7 @@ public class AddWordController extends SharedCodeController {
          trueWordType = DictionaryEntry.wordTypeEnum.other;
       }
       boolean entryFound = false;
-      // one or more blank fields
+      // test for one or more blank fields and if there is create the correct error dialogue box
       if (english.getText() == null || welsh.getText() == null || wordType.getValue().equals("Type")) {
          Alert error = new Alert(Alert.AlertType.ERROR);
          error.setTitle("Error");
@@ -72,6 +110,7 @@ public class AddWordController extends SharedCodeController {
          error.showAndWait();
       } else {
          for (DictionaryEntry entry : Application.dictionary) {
+            //test if the entry exists in the dictionary and if it does create the correct error dialogue box
             entryFound = false;
             DictionaryEntry newEntry = new DictionaryEntry(english.getText(), welsh.getText(), trueWordType);
             if (entry.equals(newEntry)) {
@@ -88,6 +127,7 @@ public class AddWordController extends SharedCodeController {
             }
          }
          if (!entryFound) {
+            //if everything is fine, save the entered values as a dictionary entry in the dictionary
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Success");
             alert.setHeaderText("Entry Saved");
@@ -102,12 +142,8 @@ public class AddWordController extends SharedCodeController {
             Application.dictionary.add(dictionaryEntry);
             Application.practiceList.add(dictionaryEntry);
 
-//              output of what was saved for testing
-//                System.out.print(english.getText());
-//                System.out.print(welsh.getText());
-//                System.out.println(wordType.getValue());
 
-//              Resets values to blank for next word to be entered
+            //Resets values to blank for next word to be entered
             english.clear();
             welsh.clear();
             wordType.setValue("Type");
@@ -120,41 +156,82 @@ public class AddWordController extends SharedCodeController {
 
    }
 
-//    @Override
-//    public boolean equals(Object obj) {
-//        DictionaryEntry otherObject = (DictionaryEntry) obj;
-//        return (this.getEnglish().equals(otherObject.getEnglish()) && this.getWelsh().equals(otherObject.getWelsh()));
-//    }
 
-
+   /**
+    * Method that adds ch to the welsh text field and runs when the user clicks the ch button on the add word screen
+    *
+    * @param actionEvent action event for the button click
+    */
    // add character methods for characters ch, dd, ff, ng, ll, ph, rh, th
    public void addCharch(ActionEvent actionEvent) {
       welsh.appendText("ch");
    }
 
+   /**
+    * Method that adds dd to the welsh text field and runs when the user clicks the dd button on the add word screen *
+    *
+    * @param actionEvent action event for the button click
+    */
+
    public void addChardd(ActionEvent actionEvent) {
       welsh.appendText("dd");
    }
+
+   /**
+    * Method that adds ff to the welsh text field and runs when the user clicks the ff button on the add word screen
+    *
+    * @param actionEvent action event for the button click
+    */
 
    public void addCharff(ActionEvent actionEvent) {
       welsh.appendText("ff");
    }
 
+   /**
+    * Method that adds ng to the welsh text field and runs when the user clicks the ng button on the add word screen
+    *
+    * @param actionEvent action event for the button click
+    */
+
    public void addCharng(ActionEvent actionEvent) {
       welsh.appendText("ng");
    }
+
+   /**
+    * Method that adds ll to the welsh text field and runs when the user clicks the ll button on the add word screen
+    *
+    * @param actionEvent action event for the button click
+    */
 
    public void addCharll(ActionEvent actionEvent) {
       welsh.appendText("ll");
    }
 
+   /**
+    * Method that adds ph to the welsh text field and runs when the user clicks the ph button on the add word screen
+    *
+    * @param actionEvent action event for the button click
+    */
+
    public void addCharph(ActionEvent actionEvent) {
       welsh.appendText("ph");
    }
 
+   /**
+    * Method that adds rh to the welsh text field and runs when the user clicks the rh button on the add word screen
+    *
+    * @param actionEvent action event for the button click
+    */
+
    public void addCharrh(ActionEvent actionEvent) {
       welsh.appendText("rh");
    }
+
+   /**
+    * Method that adds th to the welsh text field and runs when the user clicks the th button on the add word screen
+    *
+    * @param actionEvent action event for the button click
+    */
 
    public void addCharth(ActionEvent actionEvent) {
       welsh.appendText("th");

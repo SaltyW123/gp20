@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 <?import javafx.scene.layout.*?>
-
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.text.Font?>
+
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="uk.ac.aber.cs22120.group20.javafx.DictionaryController"
-            fx:id="container"
             stylesheets=""
             minWidth="450"
             minHeight="550"
@@ -31,56 +24,56 @@
     <left>
 
         <StackPane fx:id="outerBar">
-            <Rectangle fx:id="sideBar" fill="dimgray" height="${outerBar.height}" width="50"></Rectangle>
+            <Rectangle fx:id="sideBar" fill="dimgray" height="${outerBar.height}" width="50"/>
 
             <VBox spacing="300">
 
                 <VBox alignment="TOP_CENTER" maxHeight="${outerBar.height}">
                     <StackPane onMouseClicked="#dictionaryIconClick">
-                        <Rectangle fill="white" height="60" width="${sideBar.width}"></Rectangle>
+                        <Rectangle fill="white" height="60" width="${sideBar.width}"/>
                         <HBox alignment="CENTER_RIGHT">
                             <Text fx:id="dictionaryText" fill="white">
                                 <font>
-                                    <Font name="System Bold" size="25"></Font>
+                                    <Font name="System Bold" size="25"/>
                                 </font>
                             </Text>
-                            <ImageView fx:id="dictionaryIcon"></ImageView>
+                            <ImageView fx:id="dictionaryIcon"/>
                         </HBox>
                     </StackPane>
 
                     <StackPane onMouseClicked="#practiceListIconClick">
-                        <Rectangle fill="dimgray" height="60" width="${sideBar.width}"></Rectangle>
+                        <Rectangle fill="dimgray" height="60" width="${sideBar.width}"/>
                         <HBox alignment="CENTER_RIGHT">
                             <Text fx:id="practiceListTest" fill="white">
                                 <font>
-                                    <Font name="System Bold" size="25"></Font>
+                                    <Font name="System Bold" size="25"/>
                                 </font>
                             </Text>
-                            <ImageView fx:id="practiceListIcon"></ImageView>
+                            <ImageView fx:id="practiceListIcon"/>
                         </HBox>
                     </StackPane>
 
                     <StackPane onMouseClicked="#flashcardIconClick">
-                        <Rectangle fill="dimgray" height="60" width="${sideBar.width}"></Rectangle>
+                        <Rectangle fill="dimgray" height="60" width="${sideBar.width}"/>
                         <HBox alignment="CENTER_RIGHT">
                             <Text fx:id="flashcardsText" fill="white">
                                 <font>
-                                    <Font name="System Bold" size="25"></Font>
+                                    <Font name="System Bold" size="25"/>
                                 </font>
                             </Text>
-                            <ImageView fx:id="flashcardIcon"></ImageView>
+                            <ImageView fx:id="flashcardIcon"/>
                         </HBox>
                     </StackPane>
 
                     <StackPane onMouseClicked="#studyIconClick">
-                        <Rectangle fill="dimgray" height="60" width="${sideBar.width}"></Rectangle>
+                        <Rectangle fill="dimgray" height="60" width="${sideBar.width}"/>
                         <HBox alignment="CENTER_RIGHT">
                             <Text fx:id="studyText" fill="white">
                                 <font>
-                                    <Font name="System Bold" size="25"></Font>
+                                    <Font name="System Bold" size="25"/>
                                 </font>
                             </Text>
-                            <ImageView fx:id="studyIcon"></ImageView>
+                            <ImageView fx:id="studyIcon"/>
                         </HBox>
                     </StackPane>
 
@@ -89,15 +82,15 @@
 
 
                 <StackPane alignment="BOTTOM_CENTER" onMouseClicked="#addWordIconClick">
-                    <Rectangle fill="dimgray" height="60" width="${sideBar.width}"></Rectangle>
+                    <Rectangle fill="dimgray" height="60" width="${sideBar.width}"/>
 
                     <HBox alignment="CENTER_RIGHT">
                         <Text fx:id="addDefinitionText" fill="white">
                             <font>
-                                <Font name="System Bold" size="25"></Font>
+                                <Font name="System Bold" size="25"/>
                             </font>
                         </Text>
-                        <ImageView fx:id="addDefinitionIcon"></ImageView>
+                        <ImageView fx:id="addDefinitionIcon"/>
                     </HBox>
 
                 </StackPane>
@@ -109,18 +102,18 @@
 
     <top>
         <StackPane fx:id="topBar">
-            <Rectangle fx:id="parentRectangle" fill="dimgray" width="${topBar.width}" height="50"></Rectangle>
+            <Rectangle fx:id="parentRectangle" fill="dimgray" width="${topBar.width}" height="50"/>
             <HBox alignment="CENTER_LEFT"  prefWidth="${topBar.width}" spacing="7">
                 <StackPane onMouseClicked="#expandMenuClick">
-                    <Rectangle fill="dimgray" width="55" height="50"></Rectangle>
-                    <ImageView fx:id="expandMenuIcon"></ImageView>
+                    <Rectangle fill="dimgray" width="55" height="50"/>
+                    <ImageView fx:id="expandMenuIcon"/>
                 </StackPane>
 
-                <ImageView fx:id="currentPageIcon"></ImageView>
+                <ImageView fx:id="currentPageIcon"/>
 
                 <Text fx:id="currentPageText" fill="white">
                     <font>
-                        <Font name="System Bold" size="25"></Font>
+                        <Font name="System Bold" size="25"/>
                     </font>
                 </Text>
             </HBox>
@@ -130,51 +123,46 @@
 
     <center>
 
-        <VBox alignment="CENTER" prefHeight="512.0" prefWidth="432.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
-            <children>
+        <VBox alignment="CENTER" prefHeight="512.0" prefWidth="432.0" spacing="20.0">
                 <HBox alignment="CENTER_LEFT" prefHeight="11.0" prefWidth="392.0" VBox.vgrow="NEVER">
-                    <children>
+
                         <Label minWidth="-Infinity" text="Search:">
                             <font>
                                 <Font name="System Bold" size="13.0" />
                             </font></Label>
                         <TextField fx:id="searchBox" prefHeight="26.0" prefWidth="519.0" HBox.hgrow="ALWAYS" />
-                    </children>
+
                 </HBox>
                 <HBox alignment="BOTTOM_CENTER" fillHeight="false" prefHeight="14.0" prefWidth="392.0" VBox.vgrow="NEVER">
-                    <children>
+
                         <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-                            <children>
+
                                 <Label minWidth="-Infinity" text="English">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font></Label>
-                            </children>
+
                         </HBox>
                         <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
-                            <children>
+
                                 <ImageView fx:id="alphaSort" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#switchAlphaSort" pickOnBounds="true" preserveRatio="true">
                                     <HBox.margin>
                                         <Insets right="5.0" />
                                     </HBox.margin>
                                 </ImageView>
                                 <ImageView fx:id="langSort" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#switchLangSort" pickOnBounds="true" preserveRatio="true">
-
                                     <HBox.margin>
                                         <Insets left="5.0" />
                                     </HBox.margin>
                                 </ImageView>
-                            </children>
                         </HBox>
                         <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-                            <children>
+
                                 <Label minWidth="-Infinity" text="Welsh">
                                     <font>
                                         <Font name="System Bold" size="13.0" />
                                     </font></Label>
-                            </children>
                         </HBox>
-                    </children>
                 </HBox>
                 <TableView fx:id="table" VBox.vgrow="ALWAYS">
                     <columns>
@@ -185,7 +173,7 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                     </columnResizePolicy>
                 </TableView>
-            </children>
+
             <padding>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
