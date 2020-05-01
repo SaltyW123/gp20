@@ -113,7 +113,7 @@ class QuestionTest {
       correctEntryList.add("welsh3");
       correctEntryList.add("welsh4");
 
-      AssessmentGenerator.isEnglish = true;
+      AssessmentGenerator.isEnglishList = true;
 
       Question.resetScore();
 
