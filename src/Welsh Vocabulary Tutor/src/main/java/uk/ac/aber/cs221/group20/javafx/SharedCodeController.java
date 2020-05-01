@@ -133,7 +133,7 @@ abstract public class SharedCodeController {
     */
    @FXML
    private void dictionaryIconClick() {
-      ScreenSwitch.swap(ScreenSwitch.SceneEnum.dictionaryScene);
+      ScreenSwitch.swap(ScreenSwitch.SceneType.dictionaryScene);
    }
 
    /**
@@ -142,7 +142,7 @@ abstract public class SharedCodeController {
     */
    @FXML
    private void practiceListIconClick() {
-      ScreenSwitch.swap(ScreenSwitch.SceneEnum.practiceListScene);
+      ScreenSwitch.swap(ScreenSwitch.SceneType.practiceListScene);
    }
 
    /**
@@ -163,7 +163,7 @@ abstract public class SharedCodeController {
          alert.setContentText("The practice list is currently empty, please add some practice words to use the Flashcard feature.");
          alert.showAndWait();
       } else{
-         ScreenSwitch.swap(ScreenSwitch.SceneEnum.flashcardScene); // Switch to flashcard scene if the program has practice words.
+         ScreenSwitch.swap(ScreenSwitch.SceneType.flashcardScene); // Switch to flashcard scene if the program has practice words.
       }
    }
 
@@ -185,7 +185,7 @@ abstract public class SharedCodeController {
    @FXML
    private void addWordIconClick(){
 
-      ScreenSwitch.swap(ScreenSwitch.SceneEnum.addWordScene);
+      ScreenSwitch.swap(ScreenSwitch.SceneType.addWordScene);
    }
 
 }
