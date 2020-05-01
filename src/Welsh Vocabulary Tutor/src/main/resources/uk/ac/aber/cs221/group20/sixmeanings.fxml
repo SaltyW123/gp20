@@ -150,14 +150,24 @@
                      <font>
                         <Font size="14.0" />
                      </font></Text>
-                  <Label fx:id="totalAnswer" layoutX="405.0" layoutY="50.0">
+                  <Text fx:id="wrongAnswer" layoutX="554.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="22.46875">
                      <font>
-                        <Font name="Consolas"  size="17.0" />
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="405.0" layoutY="50.0" text="Incorrect answers">
+                     <font>
+                        <Font size="17.0" />
                      </font>
                   </Label>
-                  <Label fx:id="correctAnswer" layoutX="405.0" layoutY="24.0">
+                  <Text fx:id="correctAnswer" layoutX="554.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                      <font>
-                        <Font name="Consolas" size="17.0" />
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="411.0" layoutY="24.0" text="Correct answers">
+                     <font>
+                        <Font size="17.0" />
                      </font>
                   </Label>
                </children>

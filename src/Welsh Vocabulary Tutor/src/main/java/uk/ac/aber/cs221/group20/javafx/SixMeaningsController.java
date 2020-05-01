@@ -53,10 +53,10 @@ public class SixMeaningsController extends SharedCodeController {
    private final boolean isEnglish = AssessmentGenerator.isEnglish;
 
    @FXML
-   private Label correctAnswer;
+   private Text correctAnswer;
 
    @FXML
-   private Label totalAnswer;
+   private Text wrongAnswer;
 
    @FXML
    private Label wordToTranslate;
@@ -186,9 +186,9 @@ public class SixMeaningsController extends SharedCodeController {
 
       setWords(allQuestions, orderList);
 
-      correctAnswer.setText("Correct answers : " + AssessmentGenerator.getTotalCorrectAnswers());
+      correctAnswer.setText(": " + Integer.toString(AssessmentGenerator.getTotalCorrectAnswers()));
 
-      totalAnswer.setText("Total answers   : " + AssessmentGenerator.getTotalAnswers());
+      wrongAnswer.setText(": " + Integer.toString(AssessmentGenerator.getTotalAnswers()));
 
    }
 

@@ -128,20 +128,30 @@
                <children>
                   <HBox alignment="TOP_RIGHT" prefHeight="0.0" prefWidth="583.0">
                      <children>
-                        <Label fx:id="correctAnswer">
-                           <font>
-                              <Font name="Consolas" size="17.0" />
-                           </font>
-                        </Label>
+                     <Label text="Correct answers">
+                        <font>
+                           <Font size="17.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="CorrectAnswer" text="0">
+                        <font>
+                           <Font size="17.0" />
+                        </font>
+                     </Label>
                      </children>
                   </HBox>
                   <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="33.0" prefHeight="1.0" prefWidth="583.0">
                      <children>
-                        <Label fx:id="totalAnswer" layoutX="405.0" layoutY="50.0">
-                           <font>
-                              <Font name="Consolas" size="17.0" />
-                           </font>
-                        </Label>
+                     <Label text="Total answers">
+                        <font>
+                           <Font size="17.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="WrongAnswer" text="0">
+                        <font>
+                           <Font size="17.0" />
+                        </font>
+                     </Label>
                      </children>
                   </HBox>
                   <GridPane alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" VBox.vgrow="ALWAYS">
