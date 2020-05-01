@@ -1,10 +1,11 @@
-package uk.ac.aber.cs221.group20.javafx;
 /**
  * @(#) SixMeaningsController.java 0,1 2020/04/27
- * <p>
+ *
  * Copyright (c) 2020 Aberystwyth University.
  * All rights reserved.
  */
+package uk.ac.aber.cs221.group20.javafx;
+
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -83,38 +84,41 @@ public class SixMeaningsController extends SharedCodeController {
    // Methods. //
    // //////// //
 
+   /**
+    * Event that runs when the user clicks the first answer from the six options. 
+    */
    @FXML
-   void answer1(MouseEvent event) {
+   void answer1() {
       wordCounterpart = possibleAnswer1.getText();
       checkAnswers();
    }
 
    @FXML
-   void answer2(MouseEvent event) {
+   void answer2() {
       wordCounterpart = possibleAnswer2.getText();
       checkAnswers();
    }
 
    @FXML
-   void answer3(MouseEvent event) {
+   void answer3() {
       wordCounterpart = possibleAnswer3.getText();
       checkAnswers();
    }
 
    @FXML
-   void answer4(MouseEvent event) {
+   void answer4() {
       wordCounterpart = possibleAnswer4.getText();
       checkAnswers();
    }
 
    @FXML
-   void answer5(MouseEvent event) {
+   void answer5() {
       wordCounterpart = possibleAnswer5.getText();
       checkAnswers();
    }
 
    @FXML
-   void answer6(MouseEvent event) {
+   void answer6() {
       wordCounterpart = possibleAnswer6.getText();
       checkAnswers();
    }
