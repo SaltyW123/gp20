@@ -62,7 +62,10 @@ public class DictionaryController extends SharedCodeController {
    public ObservableList<DictionaryEntry> list = FXCollections.observableArrayList();
 
    /**
-    *
+    * Method to switch the language used to sort the dictionary list.
+    * <p>
+    * If currently sorted by English, this will change the sort to by Welsh.
+    * If currently sorted by Welsh, this will change the sort to by English.
     */
    @FXML
    private void switchLangSort() {
@@ -97,7 +100,10 @@ public class DictionaryController extends SharedCodeController {
    }
 
    /**
-    *
+    * Method to switch the alphabetical order used to sort the dictionary list.
+    * <p>
+    * If currently sorted by A-Z, this will change the sort to by Z-A.
+    * If currently sorted by Z-A, this will change the sort to by A-Z.
     */
    @FXML
    private void switchAlphaSort() {
