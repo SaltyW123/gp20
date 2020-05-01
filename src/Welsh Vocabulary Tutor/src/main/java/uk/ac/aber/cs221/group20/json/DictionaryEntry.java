@@ -18,89 +18,145 @@ import uk.ac.aber.cs221.group20.javafx.Application;
  * @author Luke Wybar [law39]
  * @author Marcin Jakob [maj83]
  * @author Oscar Pocock [osp1]
- * @author Tom Perry [top1]
+ * @author Tom Perry [top19]
  * @author Waylen Watts [ncw]
  * @version 0.1 Initial development
  * @see DictionaryController
  */
 public class DictionaryEntry {
-    private String english;
-    private String welsh;
-    public enum wordTypeEnum {
-        nm, nf, verb, other
-    }
-    private wordTypeEnum wordType;
-//   private String wordType;
-    private Boolean practiceWord;
 
+   // /////////////////// //
+   // Instance variables. //
+   // /////////////////// //
 
-    /**
-     * Creates a new instance of a DictionaryEntry
-     */
-    public DictionaryEntry() {
-        practiceWord = false;
-    }
+   private String english;
+   private String welsh;
+   public enum wordTypeEnum {
+      nm, nf, verb, other
+   }
+   private wordTypeEnum wordType;
+   private Boolean practiceWord;
 
-    /**
-     * Creates new instance of a DictionaryEntry
-     *
-     * @param english      english translation of the word
-     * @param welsh        welsh translation of the word
-     * @param wordType     type of word
-     * @see Application
-     * @see DictionaryController
-     */
-    public DictionaryEntry(String english, String welsh, wordTypeEnum wordType) {
-        this.english = english;
-        this.welsh = welsh;
-//        this.wordType = wordType;
-        this.wordType = wordType;
-    }
+   // ///////////// //
+   // Constructors. //
+   // ///////////// //
 
-    public String getEnglish() {
-        return english;
-    }
+   /**
+    * Default constructor for DictionaryEntry.
+    */
+   public DictionaryEntry() {
+      practiceWord = false;
+   }
 
-    public void setEnglish(String english) {
-        this.english = english.trim();
-    }
+   /**
+    * Constructor that creates an instance of DictionaryEntry when given 'english', 'welsh' and 'wordType' parameters.
+    *
+    * @param english      english translation of the word
+    * @param welsh        welsh translation of the word
+    * @param wordType     type of word
+    * @see Application
+    * @see DictionaryController
+    */
+   public DictionaryEntry(String english, String welsh, wordTypeEnum wordType) {
+      this.english = english;
+      this.welsh = welsh;
+      this.wordType = wordType;
+   }
 
-    public String getWelsh() {
-        return welsh;
-    }
+   // ////////////////////// //
+   // Read/Write properties. //
+   // ////////////////////// //
 
-    public void setWelsh(String welsh) {
-        this.welsh = welsh.trim();
-    }
+   /**
+    * Getter method for the 'english variable'.
+    *
+    * @return Current value of 'english'.
+    */
+   public String getEnglish() {
+      return english;
+   }
 
-    public wordTypeEnum getWordType() {
-        return wordType;
-    }
-//   public word getWordType() {
-//      return wordType;
-//   }
+   /**
+    * Setter for the 'english' variable.
+    *
+    * @param english New String value for 'english'.
+    */
+   public void setEnglish(String english) {
+      this.english = english.trim();
+   }
 
-    public void setWordType(wordTypeEnum wordType) {
-        this.wordType = wordType;
-    }
+   /**
+    * Getter for the 'welsh' variable.
+    *
+    * @return Current value of 'welsh'.
+    */
+   public String getWelsh() {
+      return welsh;
+   }
 
-//   public void setWordType(String wordType) {
-//      this.wordType = wordType;
-//   }
+   /**
+    * Setter for the 'welsh' variable.
+    *
+    * @param welsh New String value for 'welsh'.
+    */
+   public void setWelsh(String welsh) {
+      this.welsh = welsh.trim();
+   }
 
+   /**
+    * Getter for the 'wordType' enum variable.
+    *
+    * @return Current value of the 'wordType'.
+    * @see wordTypeEnum
+    */
+   public wordTypeEnum getWordType() {
+      return wordType;
+   }
+
+   /**
+    * Setter for the 'wordType' enum variable.
+    *
+    * @param wordType New wordTypeEnum value for the 'wordType'.
+    * @see wordTypeEnum
+    */
+   public void setWordType(wordTypeEnum wordType) {
+      this.wordType = wordType;
+   }
+
+   /**
+    * Getter for the 'practiceWord' variable.
+    *
+    * @return Current value of 'practiceWord'
+    */
    public Boolean isPracticeWord() {
-        return practiceWord;
-    }
+      return practiceWord;
+   }
 
-    public void setPracticeWord(Boolean practiceWord) {
-        this.practiceWord = practiceWord;
-    }
+   /**
+    * Setter for the 'practiceWord' variable.
+    *
+    * @param practiceWord New boolean value for 'practiceWord'.
+    */
+   public void setPracticeWord(Boolean practiceWord) {
+      this.practiceWord = practiceWord;
+   }
 
-    @Override
-    public boolean equals(Object entry) {
-        DictionaryEntry otherEntry = (DictionaryEntry) entry;
+   // //////// //
+   // Methods. //
+   // //////// //
 
-        return ((this.getWelsh().equalsIgnoreCase(otherEntry.getWelsh()) || this.getEnglish().equalsIgnoreCase(otherEntry.getWelsh())) &&
-                this.getWordType().equals(otherEntry.getWordType()));
-    }
+   /**
+    * Overidden equals method that checks to see if two Dictionary objects are equal to each other. This work by checking if the objects 'english' or 'welsh' variables are
+    * equal with the same 'wordType'.
+    *
+    * @param entry Object that the DictionaryEntry object is comparing itself to.
+    * @return Returns true (if equal) or false (not equal).
+    */
+   @Override
+   public boolean equals(Object entry) {
+      DictionaryEntry otherEntry = (DictionaryEntry) entry; // Cast the object to be a DictionaryEntry.
+
+      return ((this.getWelsh().equalsIgnoreCase(otherEntry.getWelsh()) || this.getEnglish().equalsIgnoreCase(otherEntry.getWelsh())) &&
+            this.getWordType().equals(otherEntry.getWordType())); // Check it they're equal by looking if they have equal 'welsh' or 'english' with the same 'wordType'.
+   }
 }
