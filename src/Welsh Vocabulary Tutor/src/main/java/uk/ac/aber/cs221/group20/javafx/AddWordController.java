@@ -104,7 +104,7 @@ public class AddWordController extends SharedCodeController {
       }
       boolean entryFound = false;
       // test for one or more blank fields and if there is create the correct error dialogue box
-      if (english.getText().equals("") || welsh.getText().equals("") || wordType.getValue().equals("Type")) {
+      if (english.getText().isBlank() || welsh.getText().isBlank() || wordType.getValue().equals("Type")) {
          Alert error = new Alert(Alert.AlertType.ERROR);
          error.setTitle("Error");
          error.setHeaderText("Entry Not Saved");
