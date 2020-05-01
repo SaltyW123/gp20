@@ -128,7 +128,7 @@
                <children>
                   <HBox alignment="TOP_RIGHT" prefHeight="0.0" prefWidth="583.0">
                      <children>
-                     <Label text="Correct answers:">
+                     <Label text="Correct answers">
                         <font>
                            <Font size="17.0" />
                         </font>
@@ -142,7 +142,7 @@
                   </HBox>
                   <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="33.0" prefHeight="1.0" prefWidth="583.0">
                      <children>
-                     <Label text="Total answers:">
+                     <Label text="Total answers">
                         <font>
                            <Font size="17.0" />
                         </font>
@@ -154,16 +154,16 @@
                      </Label>
                      </children>
                   </HBox>
-                  <GridPane alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+                  <GridPane alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" VBox.vgrow="ALWAYS">
                     <columnConstraints>
-                      <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="275.0" minWidth="146.0" prefWidth="146.0" />
-                      <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="437.0" minWidth="146.0" prefWidth="146.0" />
+                      <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="0.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="0.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="38.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">

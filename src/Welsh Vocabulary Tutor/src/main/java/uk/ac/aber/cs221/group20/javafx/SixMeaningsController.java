@@ -16,7 +16,9 @@ import uk.ac.aber.cs221.group20.json.DictionaryEntry;
 import uk.ac.aber.cs221.group20.selfassessment.AssessmentGenerator;
 import uk.ac.aber.cs221.group20.selfassessment.Question;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * A class that generate questions and check answers for match the meaning test.
@@ -45,10 +47,10 @@ public class SixMeaningsController extends SharedCodeController {
    // Instance variables. //
    // /////////////////// //
 
-   private ArrayList<DictionaryEntry> wordSet = new ArrayList<>();
-   private ArrayList<Integer> orderList = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5));
+   private final ArrayList<DictionaryEntry> wordSet = new ArrayList<>();
+   private final ArrayList<Integer> orderList = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5));
    private String wordCounterpart;
-   private boolean isEnglish = AssessmentGenerator.isEnglish;
+   private final boolean isEnglish = AssessmentGenerator.isEnglish;
 
    @FXML
    private Text correctAnswer;
@@ -86,26 +88,31 @@ public class SixMeaningsController extends SharedCodeController {
       wordCounterpart = possibleAnswer1.getText();
       checkAnswers();
    }
+
    @FXML
    void answer2(MouseEvent event) {
       wordCounterpart = possibleAnswer2.getText();
       checkAnswers();
    }
+
    @FXML
    void answer3(MouseEvent event) {
       wordCounterpart = possibleAnswer3.getText();
       checkAnswers();
    }
+
    @FXML
    void answer4(MouseEvent event) {
       wordCounterpart = possibleAnswer4.getText();
       checkAnswers();
    }
+
    @FXML
    void answer5(MouseEvent event) {
       wordCounterpart = possibleAnswer5.getText();
       checkAnswers();
    }
+
    @FXML
    void answer6(MouseEvent event) {
       wordCounterpart = possibleAnswer6.getText();
@@ -113,10 +120,9 @@ public class SixMeaningsController extends SharedCodeController {
    }
 
 
+   public void setWords(ArrayList<DictionaryEntry> questions, ArrayList<Integer> orderList) {
 
-   public void setWords(ArrayList<DictionaryEntry> questions, ArrayList<Integer> orderList){
-
-      if(isEnglish){
+      if (isEnglish) {
 
          wordSet.add(questions.get(0));
 
@@ -132,7 +138,7 @@ public class SixMeaningsController extends SharedCodeController {
          possibleAnswer4.setText(questions.get(orderList.get(3)).getWelsh());
          possibleAnswer5.setText(questions.get(orderList.get(4)).getWelsh());
          possibleAnswer6.setText(questions.get(orderList.get(5)).getWelsh());
-      }else {
+      } else {
 
          wordSet.add(questions.get(0));
          //WelshWord1 Is the question word and as a result is always right.
@@ -153,15 +159,13 @@ public class SixMeaningsController extends SharedCodeController {
    }
 
 
-
    public void checkAnswers() {
 
       ArrayList<String> answer = new ArrayList<>();
 
       answer.add(wordCounterpart);
 
-      Question.checkAnswer(wordSet,answer,isEnglish);
-
+      Question.checkAnswer(wordSet, answer, isEnglish);
 
 
       wordSet.clear();
@@ -180,11 +184,11 @@ public class SixMeaningsController extends SharedCodeController {
       studyIcon.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/pass-fail-50.png"));
       studyText.setFill(Color.BLACK);
 
-      setWords(allQuestions,orderList);
-      
-      correctAnswer.setText(Integer.toString(AssessmentGenerator.getTotalCorrectAnswers()));
+      setWords(allQuestions, orderList);
 
-      wrongAnswer.setText(Integer.toString(AssessmentGenerator.getTotalAnswers()));
+      correctAnswer.setText(": " + Integer.toString(AssessmentGenerator.getTotalCorrectAnswers()));
+
+      wrongAnswer.setText(": " + Integer.toString(AssessmentGenerator.getTotalAnswers()));
 
    }
 

@@ -200,8 +200,8 @@ public class MatchTheMeaningController extends SharedCodeController {
       studyText.setFill(Color.BLACK);
 
       setWords(answer,orderList);
-      CorrectAnswer.setText(Integer.toString(AssessmentGenerator.getTotalCorrectAnswers()));
-      WrongAnswer.setText(Integer.toString(AssessmentGenerator.getTotalAnswers()));
+      CorrectAnswer.setText(": " + Integer.toString(AssessmentGenerator.getTotalCorrectAnswers()));
+      WrongAnswer.setText(": " + Integer.toString(AssessmentGenerator.getTotalAnswers()));
 
    }
 }

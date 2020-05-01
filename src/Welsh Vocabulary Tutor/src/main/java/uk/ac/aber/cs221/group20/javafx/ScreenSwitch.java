@@ -14,7 +14,7 @@ import java.net.URL;
  *
  * @author Luke Wybar (LAW39)
  * @version 0.1
- * @see SceneEnum
+ * @see SceneType
  */
 public class ScreenSwitch extends SharedCodeController {
    private static Scene scene;
@@ -28,7 +28,7 @@ public class ScreenSwitch extends SharedCodeController {
     * @param stage This a JavaFX stage setup by application, this will be ready to have a scene assigned.
     */
    public ScreenSwitch(Stage stage){
-      scene = new Scene(fxmlLoader(SceneEnum.dictionaryScene));
+      scene = new Scene(fxmlLoader(SceneType.dictionaryScene));
       stage.setMinHeight(680);
       stage.setHeight(680);
       stage.setMinWidth(1100);
@@ -37,43 +37,14 @@ public class ScreenSwitch extends SharedCodeController {
       stage.show();
       ScreenSwitch.stage = stage;
    }
-
-   /**
-    * This method should only be used by Application.
-    * This provides legacy support for the old way of screen switching by continuing to allow Application to access scene.
-    * It should be removed before release.
-    *
-    * @Deprecated This is depreciated pending removal of all legacy screen switches
-    * @see Application
-    * @return This returns the currently displayed scene for purposes of screen switching
-    */
-   public static void setLegacyScene(String fxmlFile){
-      System.err.println("Switching Scene with legacy method, you should change to ScreenSwitch");
-      String fileInclExtension = fxmlFile + ".fxml";
-      Parent root = null;
-
-      try{
-         root = FXMLLoader.load(new URL("file:src/main/resources/uk/ac/aber/cs22120/group20/" + fileInclExtension));
-
-      }catch (IOException e){ // If an error occurs, print out error message on STDIO and crash gracefully
-         System.err.print("Loading the FXML file ");
-         System.err.print(fileInclExtension);
-         System.err.println(" failed!");
-         System.err.println("Using depreciated method, shame!");
-         e.printStackTrace(System.err);
-         System.exit(-1);
-      }
-      scene.setRoot(root);
-
-   }
-
+   
    /**
     * Method that is responsible for the switching between
     * JavaFX, with it taking the new scene’s name as an enum as a parameter.
-    * @see SceneEnum
+    * @see SceneType
     * @param newScene This is a SceneEnum of the scene which is requested to switch to
     */
-   public static void swap(SceneEnum newScene){
+   public static void swap(SceneType newScene){
       Parent root = fxmlLoader(newScene);
       scene.setRoot(root);
    }
@@ -85,7 +56,7 @@ public class ScreenSwitch extends SharedCodeController {
     * @param newScene This is a SceneEnum of the scene which is to be loaded in.
     * @return Parent containing the interpreted FXML.
     */
-   private static Parent fxmlLoader(SceneEnum newScene){
+   private static Parent fxmlLoader(SceneType newScene){
       Parent root = null;
       try{
          String fxmlName = newScene.getFXML();
@@ -102,7 +73,7 @@ public class ScreenSwitch extends SharedCodeController {
       return root;
    }
 
-   public enum SceneEnum{
+   public enum SceneType {
       /**
        * Enum containing each of the scenes required for use in the program along with the FXML file names.
        * This is a sub-enum of ScreenSwitch
@@ -132,7 +103,7 @@ public class ScreenSwitch extends SharedCodeController {
        *
        * @param fxmlName This is the FXML file name including extension.
        */
-      SceneEnum(String fxmlName) {
+      SceneType(String fxmlName) {
          this.fxmlName = fxmlName;
       }
       /**

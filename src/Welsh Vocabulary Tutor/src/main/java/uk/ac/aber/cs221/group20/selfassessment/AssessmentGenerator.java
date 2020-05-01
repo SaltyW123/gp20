@@ -3,7 +3,6 @@ package uk.ac.aber.cs221.group20.selfassessment;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import uk.ac.aber.cs221.group20.javafx.*;
-import uk.ac.aber.cs221.group20.javafx.*;
 import uk.ac.aber.cs221.group20.json.DictionaryEntry;
 
 import java.text.DecimalFormat;
@@ -93,7 +92,6 @@ public class AssessmentGenerator {
 //                  wordsToTranslate.add(Application.practiseList.get(wordToTranslatePlace));
 //                  wordsToTranslate.toArray();
 //               }
-                  System.out.println(practiseList.size());
                   if(practiseList.size() > 3) {
                      if (((listOfAssessment.isEmpty()) || !(listOfAssessment.getLast() instanceof MatchTheMeaningQuestion))) {
                         generatedAssessment = generateMatchMeaning(practiseList);
@@ -176,13 +174,13 @@ public class AssessmentGenerator {
 
          if (currentQuestion instanceof MatchTheMeaningQuestion) {
             MatchTheMeaningController.answer = ((MatchTheMeaningQuestion) currentQuestion).getCorrectAnswer();
-            ScreenSwitch.swap(ScreenSwitch.SceneEnum.matchMeaningScene);
+            ScreenSwitch.swap(ScreenSwitch.SceneType.matchMeaningScene);
          } else if (currentQuestion instanceof SixMeaningsQuestion) {
             SixMeaningsController.allQuestions = ((SixMeaningsQuestion) currentQuestion).getCorrectAnswer();
-            ScreenSwitch.swap(ScreenSwitch.SceneEnum.sixMeaningScene);
+            ScreenSwitch.swap(ScreenSwitch.SceneType.sixMeaningScene);
          } else if (currentQuestion instanceof TranslationQuestion) {
             TranslationController.answer = ((TranslationQuestion) currentQuestion).getCorrectAnswer();
-            ScreenSwitch.swap(ScreenSwitch.SceneEnum.translationScene);
+            ScreenSwitch.swap(ScreenSwitch.SceneType.translationScene);
          } else {
             System.err.print("The question has not been recognised");
             System.err.println(currentQuestion);
@@ -214,7 +212,7 @@ public class AssessmentGenerator {
 
          reset();
          if (result.isEmpty() || result.get() == noBtn) {
-            ScreenSwitch.swap(ScreenSwitch.SceneEnum.dictionaryScene);
+            ScreenSwitch.swap(ScreenSwitch.SceneType.dictionaryScene);
          } else {
             generateAssessment(Application.practiceList);
          }
