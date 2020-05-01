@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="container" minHeight="550" minWidth="450" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.aber.cs221.group20.javafx.SixMeaningsController">
+
+
+   <left>
+
+      <StackPane fx:id="outerBar">
+         <Rectangle fx:id="sideBar" fill="dimgray" height="${outerBar.height}" width="50" />
+
+         <VBox spacing="300">
+
+            <VBox alignment="TOP_CENTER" maxHeight="${outerBar.height}">
+               <StackPane onMouseClicked="#dictionaryIconClick">
+                  <Rectangle fill="dimgray" height="60" width="${sideBar.width}" />
+                  <HBox alignment="CENTER_RIGHT">
+                     <Text fx:id="dictionaryText" fill="white">
+                        <font>
+                           <Font name="System Bold" size="25" />
+                        </font>
+                     </Text>
+                     <ImageView fx:id="dictionaryIcon" />
+                  </HBox>
+               </StackPane>
+
+               <StackPane onMouseClicked="#practiceListIconClick">
+                  <Rectangle fill="dimgray" height="60" width="${sideBar.width}" />
+                  <HBox alignment="CENTER_RIGHT">
+                     <Text fx:id="practiceListTest" fill="white">
+                        <font>
+                           <Font name="System Bold" size="25" />
+                        </font>
+                     </Text>
+                     <ImageView fx:id="practiceListIcon" />
+                  </HBox>
+               </StackPane>
+
+               <StackPane onMouseClicked="#flashcardIconClick">
+                  <Rectangle fill="dimgray" height="60" width="${sideBar.width}" />
+                  <HBox alignment="CENTER_RIGHT">
+                     <Text fx:id="flashcardsText" fill="white">
+                        <font>
+                           <Font name="System Bold" size="25" />
+                        </font>
+                     </Text>
+                     <ImageView fx:id="flashcardIcon" />
+                  </HBox>
+               </StackPane>
+
+               <StackPane onMouseClicked="#studyIconClick">
+                  <Rectangle fill="white" height="60" width="${sideBar.width}" />
+                  <HBox alignment="CENTER_RIGHT">
+                     <Text fx:id="studyText" fill="white">
+                        <font>
+                           <Font name="System Bold" size="25" />
+                        </font>
+                     </Text>
+                     <ImageView fx:id="studyIcon" />
+                  </HBox>
+               </StackPane>
+
+
+            </VBox>
+
+
+            <StackPane alignment="BOTTOM_CENTER" onMouseClicked="#addWordIconClick">
+               <Rectangle fill="dimgray" height="60" width="${sideBar.width}" />
+
+               <HBox alignment="CENTER_RIGHT">
+                  <Text fx:id="addDefinitionText" fill="white">
+                     <font>
+                        <Font name="System Bold" size="25" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="addDefinitionIcon" />
+               </HBox>
+
+            </StackPane>
+         </VBox>
+      </StackPane>
+
+
+   </left>
+
+   <top>
+      <StackPane fx:id="topBar">
+         <Rectangle fx:id="parentRectangle" fill="dimgray" height="50" width="${topBar.width}" />
+         <HBox alignment="CENTER_LEFT" prefWidth="${topBar.width}" spacing="7">
+            <StackPane onMouseClicked="#expandMenuClick">
+               <Rectangle fill="dimgray" height="50" width="55" />
+               <ImageView fx:id="expandMenuIcon" />
+            </StackPane>
+
+            <ImageView fx:id="currentPageIcon" />
+
+            <Text fx:id="currentPageText" fill="white">
+               <font>
+                  <Font name="System Bold" size="25" />
+               </font>
+            </Text>
+         </HBox>
+
+      </StackPane>
+   </top>
+
+   <center>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+         <children>
+            <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="61.0" prefWidth="597.0">
+               <children>
+                  <HBox alignment="TOP_RIGHT" minWidth="-Infinity" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Correct answers">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="correctAnswer" text="0">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="10.0" minWidth="-Infinity" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Incorrect answers">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="wrongAnswer" text="0">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label fx:id="wordToTranslate" text="Welsh Word" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <GridPane prefHeight="79.0" prefWidth="597.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="200.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="200.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Text fx:id="possibleAnswer1" onMouseClicked="#answer1" strokeType="OUTSIDE" strokeWidth="0.0" text="English Word 1" textAlignment="CENTER">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="possibleAnswer2" onMouseClicked="#answer2" strokeType="OUTSIDE" strokeWidth="0.0" text="English Word 2" textAlignment="CENTER" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="possibleAnswer3" onMouseClicked="#answer3" strokeType="OUTSIDE" strokeWidth="0.0" text="English Word 3" textAlignment="CENTER" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="possibleAnswer4" onMouseClicked="#answer4" strokeType="OUTSIDE" strokeWidth="0.0" text="English Word 4" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="possibleAnswer5" onMouseClicked="#answer5" strokeType="OUTSIDE" strokeWidth="0.0" text="English Word 5" textAlignment="CENTER" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="possibleAnswer6" onMouseClicked="#answer6" strokeType="OUTSIDE" strokeWidth="0.0" text="English Word 6" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </GridPane>
+                  <Text fill="#8d8d8d" strokeType="OUTSIDE" strokeWidth="0.0" text="Six Meanings">
+                     <font>
+                        <Font name="System Italic" size="22.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </center>
+
+</BorderPane>
