@@ -28,7 +28,7 @@ import uk.ac.aber.cs221.group20.json.DictionaryEntry;
  * @author Luke Wybar [law39]
  * @author Marcin Jakob [maj83]
  * @author Oscar Pocock [osp1]
- * @author Tom Perry [top1]
+ * @author Tom Perry [top19]
  * @author Waylen Watts [ncw]
  * @version 0.1 Initial development.
  * @see DictionaryEntry

@@ -13,7 +13,7 @@ import java.util.Arrays;
  * @author Luke Wybar [law39]
  * @author Marcin Jakob [maj83]
  * @author Oscar Pocock [osp1]
- * @author Tom Perry [top1]
+ * @author Tom Perry [top19]
  * @author Waylen Watts [ncw]
  * @version 0.1 Initial development
  * @see Question

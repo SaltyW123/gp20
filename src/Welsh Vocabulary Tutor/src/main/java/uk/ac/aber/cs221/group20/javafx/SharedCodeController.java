@@ -12,7 +12,7 @@ import uk.ac.aber.cs221.group20.json.DictionaryEntry;
  * Abstract class that contains all the shared FXML elements between the
  * different controller classes including the sliding menu and the test score counter, to reduce code
  * duplication. This will be extended by all the controller classes.
- * @Author top19
+ * @author Tom Perry [top19]
  * @Version 0.1 Initial development.
  * @see Application
  * @see DictionaryEntry
