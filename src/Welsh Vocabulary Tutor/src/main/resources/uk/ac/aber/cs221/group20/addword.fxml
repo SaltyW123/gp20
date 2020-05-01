@@ -16,7 +16,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane  minHeight="550" minWidth="500" stylesheets="" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.aber.cs221.group20.javafx.AddWordController">
+<?import javafx.geometry.Insets?>
+<BorderPane minHeight="550" minWidth="500" stylesheets="" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.aber.cs221.group20.javafx.AddWordController">
 
     <left>
 
@@ -145,31 +146,53 @@
                 <Button mnemonicParsing="false" onAction="#addButtonClick" prefHeight="25.0" prefWidth="274.0" text="Add Word" GridPane.columnIndex="3" GridPane.rowIndex="4" />
                 <TextField fx:id="english" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                 <TextField fx:id="welsh" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-                <GridPane prefHeight="55.0" prefWidth="258.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
-                    <columnConstraints>
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-
-                        <Button maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addCharch" text="ch" />
-                        <Button maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addChardd" text="dd" GridPane.columnIndex="1" />
-                        <Button maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addCharff" text="ff" GridPane.columnIndex="2" />
-                        <Button maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addCharng" text="ng" GridPane.columnIndex="3" />
-                        <Button maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addCharll" text="ll" GridPane.columnIndex="4" />
-                        <Button maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addCharph" text="ph" GridPane.columnIndex="5" />
-                        <Button maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addCharrh" text="rh" GridPane.columnIndex="6" />
-                        <Button maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addCharth" text="th" GridPane.columnIndex="7" />
-
-                </GridPane>
+            <GridPane alignment="CENTER" prefHeight="236.0" prefWidth="328.0" GridPane.columnIndex="3" GridPane.rowIndex="6" vgap="5">
+                <columnConstraints>
+                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="100.0" valignment="CENTER" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <children>
+                    <Button onAction="#addCharâ" mnemonicParsing="false" text="â" />
+                    <Button onAction="#addCharê" mnemonicParsing="false" text="ê" GridPane.columnIndex="1" />
+                    <Button onAction="#addCharî" mnemonicParsing="false" text="î" GridPane.columnIndex="2" />
+                    <Button onAction="#addCharô" mnemonicParsing="false" text="ô" GridPane.columnIndex="3" />
+                    <Button onAction="#addCharû" mnemonicParsing="false" text="û" GridPane.columnIndex="4" />
+                    <Button onAction="#addCharŵ" mnemonicParsing="false" text="ŵ" GridPane.columnIndex="5" />
+                    <Button onAction="#addCharŷ" mnemonicParsing="false" text="ŷ" GridPane.columnIndex="6" />
+                    <Button onAction="#addCharä" mnemonicParsing="false" text="ä" GridPane.rowIndex="1" />
+                    <Button onAction="#addCharë" mnemonicParsing="false" text="ë" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <Button onAction="#addCharï" mnemonicParsing="false" text="ï" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                    <Button onAction="#addCharö" mnemonicParsing="false" text="ö" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                    <Button onAction="#addCharü" mnemonicParsing="false" text="ü" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                    <Button onAction="#addCharẅ" mnemonicParsing="false" text="ẅ" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                    <Button onAction="#addCharÿ" mnemonicParsing="false" text="ÿ" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                    <Button onAction="#addChará" mnemonicParsing="false" text="á" GridPane.rowIndex="2" />
+                    <Button onAction="#addCharé" mnemonicParsing="false" text="é" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    <Button onAction="#addCharí" mnemonicParsing="false" text="í" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                    <Button onAction="#addCharó" mnemonicParsing="false" text="ó" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                    <Button onAction="#addCharú" mnemonicParsing="false" text="ú" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                    <Button onAction="#addCharẃ" mnemonicParsing="false" text="ẃ" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                    <Button onAction="#addCharý" mnemonicParsing="false" text="ý" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                    <Button onAction="#addCharà" mnemonicParsing="false" text="à" GridPane.rowIndex="3" />
+                    <Button onAction="#addCharè" mnemonicParsing="false" text="è" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    <Button onAction="#addCharì" mnemonicParsing="false" text="ì" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                    <Button onAction="#addCharò" mnemonicParsing="false" text="ò" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                    <Button onAction="#addCharù" mnemonicParsing="false" text="ù" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                    <Button onAction="#addCharẁ" mnemonicParsing="false" text="ẁ" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                    <Button onAction="#addCharỳ" mnemonicParsing="false" text="ỳ" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                </children>
+                <padding>
+                    <Insets left="25.0" right="25.0" />
+                </padding>
+            </GridPane>
 
         </GridPane>
 
