@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -15,186 +13,205 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 
-<?import javafx.geometry.Insets?>
-<BorderPane minHeight="550" minWidth="500" stylesheets="" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.aber.cs221.group20.javafx.AddWordController">
+<BorderPane minHeight="550" minWidth="500" stylesheets="" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.aber.cs221.group20.javafx.AddWordController">
 
-    <left>
+   <left>
 
-        <StackPane fx:id="outerBar">
-            <Rectangle fx:id="sideBar" fill="dimgray" height="${outerBar.height}" width="50" />
+      <StackPane fx:id="outerBar">
+         <Rectangle fx:id="sideBar" fill="dimgray" height="${outerBar.height}" width="50" />
 
-            <VBox spacing="300">
+         <VBox spacing="300">
 
-                <VBox alignment="TOP_CENTER" maxHeight="${outerBar.height}">
-                    <StackPane onMouseClicked="#dictionaryIconClick">
-                        <Rectangle fill="dimgray" height="60" width="${sideBar.width}" />
-                        <HBox alignment="CENTER_RIGHT">
-                            <Text fx:id="dictionaryText" fill="white">
-                                <font>
-                                    <Font name="System Bold" size="25" />
-                                </font>
-                            </Text>
-                            <ImageView fx:id="dictionaryIcon" />
-                        </HBox>
-                    </StackPane>
+            <VBox alignment="TOP_CENTER" maxHeight="${outerBar.height}">
+               <StackPane onMouseClicked="#dictionaryIconClick">
+                  <Rectangle fill="dimgray" height="60" width="${sideBar.width}" />
+                  <HBox alignment="CENTER_RIGHT">
+                     <Text fx:id="dictionaryText" fill="white">
+                        <font>
+                           <Font name="System Bold" size="25" />
+                        </font>
+                     </Text>
+                     <ImageView fx:id="dictionaryIcon" />
+                  </HBox>
+               </StackPane>
 
-                    <StackPane onMouseClicked="#practiceListIconClick">
-                        <Rectangle fill="dimgray" height="60" width="${sideBar.width}" />
-                        <HBox alignment="CENTER_RIGHT">
-                            <Text fx:id="practiceListTest" fill="white">
-                                <font>
-                                    <Font name="System Bold" size="25" />
-                                </font>
-                            </Text>
-                            <ImageView fx:id="practiceListIcon" />
-                        </HBox>
-                    </StackPane>
+               <StackPane onMouseClicked="#practiceListIconClick">
+                  <Rectangle fill="dimgray" height="60" width="${sideBar.width}" />
+                  <HBox alignment="CENTER_RIGHT">
+                     <Text fx:id="practiceListTest" fill="white">
+                        <font>
+                           <Font name="System Bold" size="25" />
+                        </font>
+                     </Text>
+                     <ImageView fx:id="practiceListIcon" />
+                  </HBox>
+               </StackPane>
 
-                    <StackPane onMouseClicked="#flashcardIconClick">
-                        <Rectangle fill="dimgray" height="60" width="${sideBar.width}" />
-                        <HBox alignment="CENTER_RIGHT">
-                            <Text fx:id="flashcardsText" fill="white">
-                                <font>
-                                    <Font name="System Bold" size="25" />
-                                </font>
-                            </Text>
-                            <ImageView fx:id="flashcardIcon" />
-                        </HBox>
-                    </StackPane>
+               <StackPane onMouseClicked="#flashcardIconClick">
+                  <Rectangle fill="dimgray" height="60" width="${sideBar.width}" />
+                  <HBox alignment="CENTER_RIGHT">
+                     <Text fx:id="flashcardsText" fill="white">
+                        <font>
+                           <Font name="System Bold" size="25" />
+                        </font>
+                     </Text>
+                     <ImageView fx:id="flashcardIcon" />
+                  </HBox>
+               </StackPane>
 
-                    <StackPane onMouseClicked="#studyIconClick">
-                        <Rectangle fill="dimgray" height="60" width="${sideBar.width}" />
-                        <HBox alignment="CENTER_RIGHT">
-                            <Text fx:id="studyText" fill="white">
-                                <font>
-                                    <Font name="System Bold" size="25" />
-                                </font>
-                            </Text>
-                            <ImageView fx:id="studyIcon" />
-                        </HBox>
-                    </StackPane>
-
-
-                </VBox>
+               <StackPane onMouseClicked="#studyIconClick">
+                  <Rectangle fill="dimgray" height="60" width="${sideBar.width}" />
+                  <HBox alignment="CENTER_RIGHT">
+                     <Text fx:id="studyText" fill="white">
+                        <font>
+                           <Font name="System Bold" size="25" />
+                        </font>
+                     </Text>
+                     <ImageView fx:id="studyIcon" />
+                  </HBox>
+               </StackPane>
 
 
-                <StackPane alignment="BOTTOM_CENTER" onMouseClicked="#addWordIconClick">
-                    <Rectangle fill="white" height="60" width="${sideBar.width}" />
-
-                    <HBox alignment="CENTER_RIGHT">
-                        <Text fx:id="addDefinitionText" fill="white">
-                            <font>
-                                <Font name="System Bold" size="25" />
-                            </font>
-                        </Text>
-                        <ImageView fx:id="addDefinitionIcon" />
-                    </HBox>
-
-                </StackPane>
             </VBox>
-        </StackPane>
 
 
-    </left>
+            <StackPane alignment="BOTTOM_CENTER" onMouseClicked="#addWordIconClick">
+               <Rectangle fill="white" height="60" width="${sideBar.width}" />
 
-    <top>
-        <StackPane fx:id="topBar">
-            <Rectangle fx:id="parentRectangle" fill="dimgray" height="50" width="${topBar.width}" />
-            <HBox alignment="CENTER_LEFT" prefWidth="${topBar.width}" spacing="7">
-                <StackPane onMouseClicked="#expandMenuClick">
-                    <Rectangle fill="dimgray" height="50" width="55" />
-                    <ImageView fx:id="expandMenuIcon" />
-                </StackPane>
-
-                <ImageView fx:id="currentPageIcon" />
-
-                <Text fx:id="currentPageText" fill="white">
-                    <font>
+               <HBox alignment="CENTER_RIGHT">
+                  <Text fx:id="addDefinitionText" fill="white">
+                     <font>
                         <Font name="System Bold" size="25" />
-                    </font>
-                </Text>
-            </HBox>
+                     </font>
+                  </Text>
+                  <ImageView fx:id="addDefinitionIcon" />
+               </HBox>
 
-        </StackPane>
-    </top>
+            </StackPane>
+         </VBox>
+      </StackPane>
 
-    <center>
-        <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="702.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+   </left>
+
+   <top>
+      <StackPane fx:id="topBar">
+         <Rectangle fx:id="parentRectangle" fill="dimgray" height="50" width="${topBar.width}" />
+         <HBox alignment="CENTER_LEFT" prefWidth="${topBar.width}" spacing="7">
+            <StackPane onMouseClicked="#expandMenuClick">
+               <Rectangle fill="dimgray" height="50" width="55" />
+               <ImageView fx:id="expandMenuIcon" />
+            </StackPane>
+
+            <ImageView fx:id="currentPageIcon" />
+
+            <Text fx:id="currentPageText" fill="white">
+               <font>
+                  <Font name="System Bold" size="25" />
+               </font>
+            </Text>
+         </HBox>
+
+      </StackPane>
+   </top>
+
+   <center>
+      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="702.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="84.33331298828125" minWidth="10.0" prefWidth="10.666646321614593" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="273.3333536783854" minWidth="10.0" prefWidth="273.3333536783854" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.3333740234375" minWidth="7.6666259765625" prefWidth="7.6666259765625" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="50.66668701171875" minHeight="10.0" prefHeight="50.66668701171875" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="46.33333333333332" minHeight="10.0" prefHeight="46.33333333333332" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="37.666646321614564" minHeight="10.0" prefHeight="37.666646321614564" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="34.3333740234375" minHeight="10.0" prefHeight="34.3333740234375" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="123.99998474121094" minHeight="10.0" prefHeight="76.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="110.0" minHeight="10.0" prefHeight="31.66668701171872" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="133.0" minHeight="10.0" prefHeight="28.999979654947936" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="129.33331298828125" minHeight="10.0" prefHeight="129.33331298828125" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <Label alignment="CENTER" prefHeight="17.0" prefWidth="105.0" text="English" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <Label alignment="CENTER" prefHeight="17.0" prefWidth="105.0" text="Welsh" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+         <ComboBox fx:id="wordType" prefHeight="25.0" prefWidth="275.0" promptText="Type" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+         <Button mnemonicParsing="false" onAction="#addButtonClick" prefHeight="25.0" prefWidth="274.0" text="Add Word" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+         <TextField fx:id="english" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         <TextField fx:id="welsh" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+         <GridPane GridPane.columnIndex="3" GridPane.rowIndex="5">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="84.33331298828125" minWidth="10.0" prefWidth="10.666646321614593" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="273.3333536783854" minWidth="10.0" prefWidth="273.3333536783854" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.3333740234375" minWidth="7.6666259765625" prefWidth="7.6666259765625" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="50.66668701171875" minHeight="10.0" prefHeight="50.66668701171875" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="46.33333333333332" minHeight="10.0" prefHeight="46.33333333333332" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="37.666646321614564" minHeight="10.0" prefHeight="37.666646321614564" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="34.3333740234375" minHeight="10.0" prefHeight="34.3333740234375" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="123.99998474121094" minHeight="10.0" prefHeight="76.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="110.0" minHeight="10.0" prefHeight="31.66668701171872" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="133.0" minHeight="10.0" prefHeight="28.999979654947936" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="129.33331298828125" minHeight="10.0" prefHeight="129.33331298828125" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
-                <Label alignment="CENTER" prefHeight="17.0" prefWidth="105.0" text="English" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <Label alignment="CENTER" prefHeight="17.0" prefWidth="105.0" text="Welsh" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-                <ComboBox fx:id="wordType" prefHeight="25.0" prefWidth="275.0" promptText="Type" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                <Button mnemonicParsing="false" onAction="#addButtonClick" prefHeight="25.0" prefWidth="274.0" text="Add Word" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                <TextField fx:id="english" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                <TextField fx:id="welsh" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-            <GridPane alignment="CENTER" prefHeight="236.0" prefWidth="328.0" GridPane.columnIndex="3" GridPane.rowIndex="6" vgap="5">
-                <columnConstraints>
-                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                </columnConstraints>
-                <rowConstraints>
-                    <RowConstraints minHeight="10.0" prefHeight="100.0" valignment="CENTER" vgrow="SOMETIMES" />
-                </rowConstraints>
-                <children>
-                    <Button onAction="#addCharâ" mnemonicParsing="false" text="â" />
-                    <Button onAction="#addCharê" mnemonicParsing="false" text="ê" GridPane.columnIndex="1" />
-                    <Button onAction="#addCharî" mnemonicParsing="false" text="î" GridPane.columnIndex="2" />
-                    <Button onAction="#addCharô" mnemonicParsing="false" text="ô" GridPane.columnIndex="3" />
-                    <Button onAction="#addCharû" mnemonicParsing="false" text="û" GridPane.columnIndex="4" />
-                    <Button onAction="#addCharŵ" mnemonicParsing="false" text="ŵ" GridPane.columnIndex="5" />
-                    <Button onAction="#addCharŷ" mnemonicParsing="false" text="ŷ" GridPane.columnIndex="6" />
-                    <Button onAction="#addCharä" mnemonicParsing="false" text="ä" GridPane.rowIndex="1" />
-                    <Button onAction="#addCharë" mnemonicParsing="false" text="ë" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                    <Button onAction="#addCharï" mnemonicParsing="false" text="ï" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                    <Button onAction="#addCharö" mnemonicParsing="false" text="ö" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                    <Button onAction="#addCharü" mnemonicParsing="false" text="ü" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                    <Button onAction="#addCharẅ" mnemonicParsing="false" text="ẅ" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                    <Button onAction="#addCharÿ" mnemonicParsing="false" text="ÿ" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-                    <Button onAction="#addChará" mnemonicParsing="false" text="á" GridPane.rowIndex="2" />
-                    <Button onAction="#addCharé" mnemonicParsing="false" text="é" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                    <Button onAction="#addCharí" mnemonicParsing="false" text="í" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                    <Button onAction="#addCharó" mnemonicParsing="false" text="ó" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                    <Button onAction="#addCharú" mnemonicParsing="false" text="ú" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                    <Button onAction="#addCharẃ" mnemonicParsing="false" text="ẃ" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-                    <Button onAction="#addCharý" mnemonicParsing="false" text="ý" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-                    <Button onAction="#addCharà" mnemonicParsing="false" text="à" GridPane.rowIndex="3" />
-                    <Button onAction="#addCharè" mnemonicParsing="false" text="è" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                    <Button onAction="#addCharì" mnemonicParsing="false" text="ì" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                    <Button onAction="#addCharò" mnemonicParsing="false" text="ò" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                    <Button onAction="#addCharù" mnemonicParsing="false" text="ù" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                    <Button onAction="#addCharẁ" mnemonicParsing="false" text="ẁ" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-                    <Button onAction="#addCharỳ" mnemonicParsing="false" text="ỳ" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-                </children>
-                <padding>
-                    <Insets left="25.0" right="25.0" />
-                </padding>
-            </GridPane>
+            <children>
+               <ComboBox fx:id="specialChar1" prefWidth="56.0" promptText="â" onAction="#specialChar1">
+                  <items>
+                     <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="â" />
+                        <String fx:value="ê" />
+                        <String fx:value="î" />
+                        <String fx:value="ô" />
+                        <String fx:value="û" />
+                        <String fx:value="ŵ" />
+                        <String fx:value="ŷ" />
+                     </FXCollections>
+                  </items>
 
-        </GridPane>
+               </ComboBox>
+               <ComboBox fx:id="specialChar2" prefWidth="56.0" GridPane.columnIndex="2" promptText="ä" onAction="#specialChar2">
+                  <items>
+                     <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="ä" />
+                        <String fx:value="ë" />
+                        <String fx:value="ï" />
+                        <String fx:value="ö" />
+                        <String fx:value="ü" />
+                        <String fx:value="ẅ" />
+                        <String fx:value="ÿ" />
+                     </FXCollections>
+                  </items>
+               </ComboBox>
+               <ComboBox fx:id="specialChar3" prefWidth="56.0" GridPane.columnIndex="1" promptText="á" onAction="#specialChar3">
+                  <items>
+                     <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="á" />
+                        <String fx:value="é" />
+                        <String fx:value="í" />
+                        <String fx:value="ó" />
+                        <String fx:value="ú" />
+                        <String fx:value="ẃ" />
+                        <String fx:value="ý" />
+                     </FXCollections>
+                  </items>
+               </ComboBox>
+               <ComboBox fx:id="specialChar4" prefWidth="56.0" GridPane.columnIndex="3" promptText="à" onAction="#specialChar4">
+                  <items>
+                     <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="à" />
+                        <String fx:value="è" />
+                        <String fx:value="ì" />
+                        <String fx:value="ò" />
+                        <String fx:value="ù" />
+                        <String fx:value="ẁ" />
+                        <String fx:value="ỳ" />
+                     </FXCollections>
+                  </items>
+               </ComboBox>
+            </children>
+         </GridPane>
+      </GridPane>
 
-    </center>
+   </center>
 </BorderPane>
