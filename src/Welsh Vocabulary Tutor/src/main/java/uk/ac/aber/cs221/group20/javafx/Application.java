@@ -13,7 +13,6 @@ import uk.ac.aber.cs221.group20.json.DictionaryEntry;
 import uk.ac.aber.cs221.group20.json.JsonProcessing;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.LinkedList;
 
 /**
@@ -40,8 +39,11 @@ public class Application extends javafx.application.Application {
    // Class variables. //
    // //////////////// //
 
-   public static LinkedList<DictionaryEntry> dictionary = new LinkedList<>();  // Dictionary containing all the words.
-   public static LinkedList<DictionaryEntry> practiceList = new LinkedList<>(); // Practice list containing all the practice words.
+   // Dictionary containing all the words.
+   public static LinkedList<DictionaryEntry> dictionary = new LinkedList<>();
+
+   // Practice list containing all the practice words.
+   public static LinkedList<DictionaryEntry> practiceList = new LinkedList<>();
 
    // ////////////// //
    // Class methods. //
@@ -49,6 +51,7 @@ public class Application extends javafx.application.Application {
 
    /**
     * Applications main method that is first ran when the program is started. This method is responsible for calling JavaFX's launch method that starts the program's JavaFX.
+    *
     * @param args Programs arguments.
     */
    public static void main(String[] args) {
@@ -60,7 +63,7 @@ public class Application extends javafx.application.Application {
    // Instance variables. //
    // /////////////////// //
 
-   private JsonProcessing jsonProcessing = new JsonProcessing(); // JSON processor to import and export the json dictionary file.
+   private final JsonProcessing jsonProcessing = new JsonProcessing(); // JSON processor to import and export the json dictionary file.
 
    // //////// //
    // Methods. //
@@ -80,19 +83,24 @@ public class Application extends javafx.application.Application {
    @Override
    public void start(Stage stage) {
 
-      File jsonFileLocation = null; // Prompts the user to load their dictionary json file.
+      File jsonFileLocation = null;
 
-      while (jsonFileLocation == null) { // Keep prompting the user to choose select whilst a json file hasn't been selected.
+      // Keep prompting the user to select if a json file hasn't been selected.
+      while (jsonFileLocation == null) {
+
+         // Shows prompt to the user to load their dictionary json file.
          FileChooser fileChooser = new FileChooser();
          fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Json Files", "*.json"));
          fileChooser.setTitle("Open Json File");
          jsonFileLocation = fileChooser.showOpenDialog(stage);
       }
       final File jsonFileFinalLocation = jsonFileLocation;
-      dictionary = jsonProcessing.readInJson(jsonFileFinalLocation); // Load the file chosen by the user.
 
+      // Load the file chosen by the user.
+      dictionary = jsonProcessing.readInJson(jsonFileFinalLocation);
 
-      for (DictionaryEntry entry : dictionary) { // Adds all words that are practice words to the practice list.
+      // Adds all words that are practice words to the practice list.
+      for (DictionaryEntry entry : dictionary) {
          if (entry.isPracticeWord()) {
             practiceList.add(entry);
          }
@@ -105,6 +113,7 @@ public class Application extends javafx.application.Application {
          System.exit(0);
       });
 
-      new ScreenSwitch(stage); // Initialise the ScreenSwitch class, passing the programs Stage as the parameter in order to display the first screen.
+      // Initialise the ScreenSwitch class, passing the programs Stage as the parameter in order to display the first screen.
+      new ScreenSwitch(stage);
    }
 }
