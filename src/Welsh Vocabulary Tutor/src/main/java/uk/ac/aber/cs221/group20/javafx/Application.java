@@ -6,6 +6,7 @@
  */
 package uk.ac.aber.cs221.group20.javafx;
 
+import javafx.application.Platform;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import uk.ac.aber.cs221.group20.json.DictionaryEntry;
@@ -96,6 +97,14 @@ public class Application extends javafx.application.Application {
             practiceList.add(entry);
          }
       }
+
+      //When the user closes the application, it will automatically write the dictionary to a json file.
+      stage.setOnCloseRequest(e -> {
+         jsonProcessing.writeOutJson(jsonFileFinalLocation.getAbsolutePath(), Application.dictionary);
+         Platform.exit();
+         System.exit(0);
+      });
+
       new ScreenSwitch(stage); // Initialise the ScreenSwitch class, passing the programs Stage as the parameter in order to display the first screen.
    }
 }
