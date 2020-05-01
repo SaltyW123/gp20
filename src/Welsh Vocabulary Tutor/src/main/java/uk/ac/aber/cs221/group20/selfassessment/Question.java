@@ -43,7 +43,7 @@ public class Question {
                     .append(" is the English for ")
                     .append("'").append(listOfCorrectQuestions.get(i).getWelsh()).append("'")
                     .append(". ");
-            if(listOfCorrectQuestions.get(i).getWelsh().equals(listOfAnswers.get(i))){
+            if(listOfCorrectQuestions.get(i).getWelsh().equalsIgnoreCase(listOfAnswers.get(i))){
                sb.append("Correct!");
                correctAnswers++;
             }else{
@@ -60,7 +60,7 @@ public class Question {
                     .append("'").append(listOfCorrectQuestions.get(i).getWelsh()).append("'")
                     .append(". ");
 
-            if(listOfCorrectQuestions.get(i).getEnglish().equals(listOfAnswers.get(i))){
+            if(listOfCorrectQuestions.get(i).getEnglish().equalsIgnoreCase(listOfAnswers.get(i))){
                sb.append("Correct!");
                correctAnswers++;
             }else{
