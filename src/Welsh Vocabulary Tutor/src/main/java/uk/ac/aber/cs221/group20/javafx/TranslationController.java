@@ -29,7 +29,7 @@ package uk.ac.aber.cs221.group20.javafx;
  * Controller for the translationTest fxml file.
  *
  * @author Brad Corbett brc9
- * @version 0.1
+ * @version 1.1
  */
 public class TranslationController extends SharedCodeController {
 
