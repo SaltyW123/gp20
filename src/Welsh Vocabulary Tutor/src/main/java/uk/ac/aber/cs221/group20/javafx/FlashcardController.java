@@ -1,3 +1,9 @@
+/**
+ * @(#) FlashcardController.java 0,1 2020/05/07
+ * <p>
+ * Copyright (c) 2020 Aberystwyth University.
+ * All rights reserved.
+ */
 package uk.ac.aber.cs221.group20.javafx;
 
 import javafx.animation.*;
@@ -26,6 +32,7 @@ import uk.ac.aber.cs221.group20.json.DictionaryEntry;
  * @see Application
  * @see DictionaryEntry
  * @see SharedCodeController
+ * @see RotateTransition
  */
 
 public class FlashcardController extends SharedCodeController {
@@ -35,7 +42,7 @@ public class FlashcardController extends SharedCodeController {
    // /////////////////// //
 
    int index = 0;
-   Node card;
+   Node card; // Node that will be flipped using RotateTransition.
 
    @FXML
    private Text counter;
@@ -58,11 +65,13 @@ public class FlashcardController extends SharedCodeController {
    /**
     * Method that initializes 'flashcard.fxml' by setting up the icons and text. This method is called automatically whenever the flashcard scene starts.
     *
+    * @see DictionaryEntry
+    * @see Image
     */
    @FXML
    private void initialize() {
-      // Call method from SharedCodeController to setup the menu screen.
-      setup();
+
+      setup(); // Call method from SharedCodeController to setup the menu screens images.
       currentPageIcon.setImage(new Image("file:src/main/resources/assets/icons/white_icons/50px/flashcard-50.png"));
       currentPageText.setText("Flashcard");
       flashcardIcon.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/flashcard-50.png"));
@@ -76,8 +85,7 @@ public class FlashcardController extends SharedCodeController {
          wordType.setText("Welsh");
       }
 
-      updateCounter();
-      card = flashcard;
+      updateCounter(); // Update the on screen counter and setup the flashcards images.
       flashcard.setImage(new Image("file:src/main/resources/assets/flashcard/FlashCard.png"));
       leftArrow.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/left-50.png"));
       rightArrow.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/right-50.png"));
@@ -85,16 +93,19 @@ public class FlashcardController extends SharedCodeController {
 
    /**
     * Event that rotates the scenes flashcard using RotateTransition whenever the user clicks the flashcard.
+    *
     * @see RotateTransition
     */
    @FXML
    private void handleFlashcardClick() {
-      RotateTransition rotator = RotateCard(card);
+      card = flashcard;
+      RotateTransition rotator = RotateCard(card); // Call method to create the RotateTransition.
       rotator.play(); // Play the rotate transition.
    }
 
    /**
     * Event that switches to the previous flashcard whenever the user clicks the 'leftArrow' icon.
+    *
     * @see Application
     * @see DictionaryEntry
     */
@@ -117,6 +128,7 @@ public class FlashcardController extends SharedCodeController {
 
    /**
     * Event that switches to the next flashcard whenever the user clicks the 'right-arrow' icon.
+    *
     * @see Application
     * @see DictionaryEntry
     */
@@ -140,6 +152,7 @@ public class FlashcardController extends SharedCodeController {
 
    /**
     * Method that updates the onscreen counter of the current flashcard.
+    *
     * @see Application
     * @see DictionaryEntry
     */
@@ -149,6 +162,7 @@ public class FlashcardController extends SharedCodeController {
 
    /**
     * Method that creates a RotateTransition animation for flipping the flashcard 180 degrees.
+    *
     * @param card FXML rectangle element that will be flipped.
     * @return RotateTransition that will flip the rectangle 180 degrees.
     * @see Application
