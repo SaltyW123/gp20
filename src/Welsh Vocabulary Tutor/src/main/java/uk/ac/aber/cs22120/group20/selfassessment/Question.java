@@ -27,8 +27,10 @@ public class Question {
    public static int wrongAnswers =0;
    public static StringBuilder sb = new StringBuilder();
 
-   /** Function that checks the answers of
-    *
+   /** Function that checks the answers of questions. Checks whether they're right and
+    *  uses an object instance of StringBuilder to build an appropriate sentence to present to the user to give
+    *  them their feedback.
+    *  E.g. "Apple is the English for Afal is correct"
     * @param listOfCorrectQuestions List of the right answers to the question.
     * @param listOfAnswers List of the answers the user input.
     * @param isEnglish Boolean for if the test is English To Welsh or Welsh To English
@@ -38,11 +40,20 @@ public class Question {
       if(isEnglish){
          for(int i=0; i<listOfCorrectQuestions.size();i++){
 
+            //Build first part of the sentence
+            //i.e. "englishWord is the English for welshWord "
             sb
                     .append("'").append(listOfCorrectQuestions.get(i).getEnglish()).append("'")
                     .append(" is the English for ")
                     .append("'").append(listOfCorrectQuestions.get(i).getWelsh()).append("'")
                     .append(". ");
+            /*
+             * If the sentence currently makes sense, such as 'apple is the english for apple' then
+             * this next code will append the term either 'is correct' or 'is incorrect'.
+             * To do this it uses index i to get the welsh word of the correct answer.
+             * It then compares that word to the word at index i in the listOfAnswers.
+             * Depending on whether they are eqaual it will append 'correct' or 'incorrect'.
+             */
             if(listOfCorrectQuestions.get(i).getWelsh().equals(listOfAnswers.get(i))){
                sb.append("Correct!");
                correctAnswers++;
@@ -55,9 +66,9 @@ public class Question {
       }else{
          for(int i=0; i<listOfCorrectQuestions.size();i++){
             sb
-                    .append("'").append(listOfCorrectQuestions.get(i).getEnglish()).append("'")
-                    .append(" is the English for ")
                     .append("'").append(listOfCorrectQuestions.get(i).getWelsh()).append("'")
+                    .append(" is the Welsh for ")
+                    .append("'").append(listOfCorrectQuestions.get(i).getEnglish()).append("'")
                     .append(". ");
 
             if(listOfCorrectQuestions.get(i).getEnglish().equals(listOfAnswers.get(i))){
@@ -74,10 +85,10 @@ public class Question {
 
 
    }
+
    /**
     * Function for giving user positive or negative feedback for when they answer a question during an assessment.
     */
-
    static void showFeedback(){
       Alert alert = new Alert(Alert.AlertType.INFORMATION);
 

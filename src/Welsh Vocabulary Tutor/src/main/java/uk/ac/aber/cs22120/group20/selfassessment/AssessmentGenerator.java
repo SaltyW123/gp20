@@ -32,7 +32,7 @@ import java.util.*;
  * @see MatchTheMeaningController
  */
 public class AssessmentGenerator {
-   public static boolean isEnglish;
+   public static boolean isEnglishList;
    static LinkedList<Question> listOfAssessment = new LinkedList<>();
    static int currentAssessment = 0;
    static int totalCorrectAnswers = 0;
@@ -51,8 +51,6 @@ public class AssessmentGenerator {
 
       reset();
 
-      //int wordToTranslatePlace;
-
       if (practiseList.size()<5){
          Alert alert = new Alert(Alert.AlertType.ERROR);
          alert.setTitle("Error");
@@ -67,8 +65,6 @@ public class AssessmentGenerator {
             int quizType = rand.nextInt(3);
             switch (quizType) {
                case (0): //0 Means translation test.
-                  //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
-                  //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
                   if((listOfAssessment.isEmpty()) || !(listOfAssessment.getLast() instanceof TranslationQuestion)){
                      generatedAssessment = generateTranslationTest(practiseList);
                   }else {
@@ -76,8 +72,6 @@ public class AssessmentGenerator {
                   }
                   break;
                case (1): //1 Means six meanings test.
-                  //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
-                  //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
                   if(((listOfAssessment.isEmpty())) || !(listOfAssessment.getLast() instanceof SixMeaningsQuestion)){
                      generatedAssessment = generateSixMeanings(practiseList);
                   }else {
@@ -85,12 +79,6 @@ public class AssessmentGenerator {
                   }
                   break;
                case (2): //2 Means match meanings test.
-//               LinkedList<DictionaryEntry> wordsToTranslate = new LinkedList<>();
-//               for (int i = 0; i < 3; i++) {
-//                  wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
-//                  wordsToTranslate.add(Application.practiseList.get(wordToTranslatePlace));
-//                  wordsToTranslate.toArray();
-//               }
                   if((listOfAssessment.isEmpty()) || !(listOfAssessment.getLast() instanceof MatchTheMeaningQuestion)){
                      generatedAssessment = generateMatchMeaning(practiseList);
                   }else {
@@ -161,6 +149,10 @@ public class AssessmentGenerator {
    }
 
 
+   /**
+    * Method uses currentAssessment as pointer to go to next question in assessment list.
+    * Uses a switch case statement to choose the appropriate type of question.
+    */
    public static void goToNextQuestion() {
       if (currentAssessment > 0){
          Question.showFeedback();
@@ -224,6 +216,9 @@ public class AssessmentGenerator {
       return totalAnswers;
    }
 
+   /**
+    * Method for resetting assessment to default state.
+    */
    public static void reset(){
       totalCorrectAnswers = 0;
       totalAnswers =0;
