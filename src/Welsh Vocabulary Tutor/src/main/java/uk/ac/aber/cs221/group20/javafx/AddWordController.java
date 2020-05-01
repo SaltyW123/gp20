@@ -26,7 +26,7 @@ import uk.ac.aber.cs221.group20.json.DictionaryEntry;
  * @author Henry Dugmore [hjd3]
  * @author Kain Bryan-Jones [kab74]
  * @author Luke Wybar [law39]
- * @author Marcin Jakob [maj83]
+ * @author Marcin Jakobik [maj83]
  * @author Oscar Pocock [osp1]
  * @author Tom Perry [top19]
  * @author Waylen Watts [ncw]
@@ -40,6 +40,8 @@ public class AddWordController extends SharedCodeController {
    // Instance variables. //
    // /////////////////// //
 
+
+
    @FXML
    private TextField welsh;
    @FXML
@@ -47,10 +49,23 @@ public class AddWordController extends SharedCodeController {
    @FXML
    private ComboBox<String> wordType;
 
-   // //////// //
+   @FXML
+   private ComboBox<String> specialChar1;
+
+   @FXML
+   private ComboBox<String> specialChar2;
+
+   @FXML
+   private ComboBox<String> specialChar3;
+
+   @FXML
+   private ComboBox<String> specialChar4;
+
+
+// //////// //
    // Methods. //
    // //////// //
-   
+
    /**
     * Gets the value from the welsh text field
     *
@@ -162,6 +177,7 @@ public class AddWordController extends SharedCodeController {
    }
 
 
+
    /**
     * Method that adds ch to the welsh text field and runs when the user clicks the ch button on the add word screen
     *
@@ -236,93 +252,18 @@ public class AddWordController extends SharedCodeController {
       welsh.appendText("th");
    }
 
-   public void addCharâ(ActionEvent actionEvent) {
-      welsh.appendText("â");
-   }
-   public void addCharê(ActionEvent actionEvent) {
-      welsh.appendText("ê");
-   }
-   public void addCharî(ActionEvent actionEvent) {
-      welsh.appendText("î");
-   }
-   public void addCharô(ActionEvent actionEvent) {
-      welsh.appendText("ô");
-   }
-   public void addCharû(ActionEvent actionEvent) {
-      welsh.appendText("û");
-   }
-   public void addCharŵ(ActionEvent actionEvent) {
-      welsh.appendText("ŵ");
-   }
-   public void addCharŷ(ActionEvent actionEvent) {
-      welsh.appendText("ŷ");
+   public void specialChar1(ActionEvent actionEvent){
+      welsh.appendText(specialChar1.getValue());
    }
 
-   // äëïöüẅÿ
-   public void addCharä(ActionEvent actionEvent) {
-      welsh.appendText("ä");
+   public void specialChar2(ActionEvent actionEvent) {
+      welsh.appendText(specialChar2.getValue());
    }
-   public void addCharë(ActionEvent actionEvent) {
-      welsh.appendText("ë");
+   public void specialChar3(ActionEvent actionEvent) {
+      welsh.appendText(specialChar3.getValue());
    }
-   public void addCharï(ActionEvent actionEvent) {
-      welsh.appendText("ï");
-   }
-   public void addCharö(ActionEvent actionEvent) {
-      welsh.appendText("ö");
-   }
-   public void addCharü(ActionEvent actionEvent) {
-      welsh.appendText("ü");
-   }
-   public void addCharẅ(ActionEvent actionEvent) {
-      welsh.appendText("ẅ");
-   }
-   public void addCharÿ(ActionEvent actionEvent) {
-      welsh.appendText("ÿ");
-   }
-
-   // áéíóúẃý
-   public void addChará(ActionEvent actionEvent) {
-      welsh.appendText("á");
-   }
-   public void addCharé(ActionEvent actionEvent) {
-      welsh.appendText("é");
-   }
-   public void addCharí(ActionEvent actionEvent) {
-      welsh.appendText("í");
-   }
-   public void addCharó(ActionEvent actionEvent) {
-      welsh.appendText("ó");
-   }
-   public void addCharú(ActionEvent actionEvent) {
-      welsh.appendText("ú");
-   }
-   public void addCharẃ(ActionEvent actionEvent) {
-      welsh.appendText("ẃ");
-   }
-   public void addCharý(ActionEvent actionEvent) {
-      welsh.appendText("ý");
-   }
-
-   // àèìòùẁỳ
-   public void addCharà(ActionEvent actionEvent) {
-      welsh.appendText("à");
-   }
-   public void addCharè(ActionEvent actionEvent) {
-      welsh.appendText("è");
-   }
-   public void addCharì(ActionEvent actionEvent) { welsh.appendText("ì"); }
-   public void addCharò(ActionEvent actionEvent) {
-      welsh.appendText("ò");
-   }
-   public void addCharù(ActionEvent actionEvent) {
-      welsh.appendText("ù");
-   }
-   public void addCharẁ(ActionEvent actionEvent) {
-      welsh.appendText("ẁ");
-   }
-   public void addCharỳ(ActionEvent actionEvent) {
-      welsh.appendText("ỳ");
+   public void specialChar4(ActionEvent actionEvent) {
+      welsh.appendText(specialChar4.getValue());
    }
 
 }
