@@ -1,6 +1,6 @@
-/**
+/*
  * @(#) Application.java 0,2 2020/05/01
- * <p>
+ *
  * Copyright (c) 2020 Aberystwyth University.
  * All rights reserved.
  */

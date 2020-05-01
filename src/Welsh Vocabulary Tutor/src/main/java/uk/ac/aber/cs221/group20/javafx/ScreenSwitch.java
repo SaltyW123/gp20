@@ -1,6 +1,6 @@
-/**
+/*
  * @(#) ScreenSwitch.java 0.1 2020/05/01
- * <p>
+ *
  * Copyright (c) 2020 Aberystwyth University.
  * All rights reserved.
  */

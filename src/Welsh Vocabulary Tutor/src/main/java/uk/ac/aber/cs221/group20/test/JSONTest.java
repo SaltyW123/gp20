@@ -1,4 +1,4 @@
-/**
+/*
  * @(#) JSONTest.java 0,1 2020/05/07
  *
  * Copyright (c) 2020 Aberystwyth University.

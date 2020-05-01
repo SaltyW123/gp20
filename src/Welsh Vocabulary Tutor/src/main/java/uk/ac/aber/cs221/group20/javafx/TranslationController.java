@@ -1,10 +1,8 @@
-/**
-
-@(#) TranslationController.java 1.1 2020/05/01
-
-
-Copyright (c) 2020 Aberystwyth University.
-All rights reserved.
+/*
+ * @(#) TranslationController.java 1.1 2020/05/01
+ *
+ * Copyright (c) 2020 Aberystwyth University.
+ * All rights reserved.
 */
 package uk.ac.aber.cs221.group20.javafx;
 
