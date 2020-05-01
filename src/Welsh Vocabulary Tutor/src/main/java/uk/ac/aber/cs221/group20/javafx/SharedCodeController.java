@@ -1,3 +1,9 @@
+/**
+ * @(#) FlashcardController.java 0,1 2020/05/07
+ * <p>
+ * Copyright (c) 2020 Aberystwyth University.
+ * All rights reserved.
+ */
 package uk.ac.aber.cs221.group20.javafx;
 
 import javafx.fxml.FXML;
@@ -12,8 +18,9 @@ import uk.ac.aber.cs221.group20.json.DictionaryEntry;
  * Abstract class that contains all the shared FXML elements between the
  * different controller classes including the sliding menu and the test score counter, to reduce code
  * duplication. This will be extended by all the controller classes.
+ *
  * @author Tom Perry [top19]
- * @Version 0.1 Initial development.
+ * @Version 0.2 Documentation.
  * @see Application
  * @see DictionaryEntry
  * @see ScreenSwitch
@@ -25,7 +32,9 @@ abstract public class SharedCodeController {
    // Class variables. //
    // //////////////// //
 
+   // Static variable that tracks whether the words are currently sorted by english or welsh.
    static boolean isSortedByEnglish = true;
+   // Static variable that tracks the current size of the menu's sideBar to keep its size consistent when switching scenes.
    static int sideBarWidth = 50;
 
    // /////////////////// //
@@ -71,9 +80,11 @@ abstract public class SharedCodeController {
     * Method that sets up the program's menu in each of the controllers, intialising the icons and text.
     */
    public void setup() {
+      // Call method to setup the icons and set the menus side bars width to the current value of 'sideBar'.
       initializeIcons();
       sideBar.setWidth(sideBarWidth);
 
+      // If the menus width isnt the default value, the menu is determined to be expanded and the text is initialised.
       if (sideBarWidth != 50)
          initializeMenuText();
    }
@@ -102,7 +113,7 @@ abstract public class SharedCodeController {
    }
 
    /**
-    * Method that disables the menus text when the menu is collapsed.
+    * Method that disables the menus text when the menu is collapsed by setting their text to nothing.
     */
    private void disableMenuText() {
       dictionaryText.setText("");
@@ -113,41 +124,49 @@ abstract public class SharedCodeController {
    }
 
    /**
-    * Event that expands the menu whenever the menu's 'expandMenuIcon' icon is clicked.
+    * Event that collapses or expands the menu whenever the 'expandMenuIcon' is clicked by the user. The method determines the menus current state by looking at the value of
+    * 'sideBarWidth' and uses to decide whether the menu needs to expand to 230 and initialise the menu text or collapse to 50, disabling menu text.
     */
    @FXML
    private void expandMenuClick() {
-      if(sideBar.getWidth() == 50) { // If sideBar is currently collapsed, expand it and display menu text.
-
+      // If sideBar is currently collapsed, expand it and display menu text.
+      if(sideBar.getWidth() == 50) {
          sideBar.setWidth(sideBarWidth = 230);
-         initializeMenuText(); // Display menu
+         // Display menu
+         initializeMenuText();
       } else {
-         sideBar.setWidth(sideBarWidth = 50); // Else collapse the menu and disable its text.
+         // Else collapse the menu and disable its text.
+         sideBar.setWidth(sideBarWidth = 50);
          disableMenuText();
       }
    }
 
    /**
     * Event to switch scenes to 'dictionary.fxml' when the menu's 'dictionaryIcon' icon is clicked.
+    *
     * @see ScreenSwitch
     */
    @FXML
    private void dictionaryIconClick() {
+      // Use 'ScreenSwitch' to switch to the 'dictionaryScene'.
       ScreenSwitch.swap(ScreenSwitch.SceneType.dictionaryScene);
    }
 
    /**
     * Event to switch scenes to 'practicelist.fxml' when the menu's 'practiceListIcon' icon is clicked.
+    *
     * @see ScreenSwitch
     */
    @FXML
    private void practiceListIconClick() {
-      ScreenSwitch.swap(ScreenSwitch.SceneType.practiceListScene);
+      // Use 'ScreenSwitch' to switch to the 'practiceListScene'.
+      ScreenSwitch.swap(ScreenSwitch.SceneType.practiceListScene); 
    }
 
    /**
     * Event to switch scenes to 'flashcard.fxml' when the menu's 'practiceListIcon' icon is clicked. This method checks to see if practiceList is empty before switching in order
     * to avoid NullPointerException's in the flashcard scene.
+    *
     * @see ScreenSwitch
     * @see Application
     * @see DictionaryEntry
@@ -155,36 +174,40 @@ abstract public class SharedCodeController {
     */
    @FXML
    private void flashcardIconClick() {
-
-      if(Application.practiceList.size() == 0) { // Check to see if there are any practice words before switching scene, throwing an alert notifying them that they can't switch scenes.
+      // Check to see if there are any practice words before switching scene, throwing an alert notifying them that they can't switch scenes.
+      if(Application.practiceList.size() == 0) {
          Alert alert = new Alert(Alert.AlertType.ERROR);
          alert.setTitle("Error");
          alert.setHeaderText("Unable to use Flashcard");
          alert.setContentText("The practice list is currently empty, please add some practice words to use the Flashcard feature.");
          alert.showAndWait();
       } else{
-         ScreenSwitch.swap(ScreenSwitch.SceneType.flashcardScene); // Switch to flashcard scene if the program has practice words.
+         // Switch to flashcard scene if the program has practice words.
+         ScreenSwitch.swap(ScreenSwitch.SceneType.flashcardScene);
       }
    }
 
    /**
     * Event to generate an assessment using AssessmentGenerator when the menu's 'studyIcon' icon is clicked.
+    *
     * @see AssessmentGenerator
     * @see Application
     * @see DictionaryEntry
     */
    @FXML
    private void studyIconClick() {
+      // Generate a new assessment using the programs practice list.
       AssessmentGenerator.generateAssessment(Application.practiceList);
    }
 
    /**
     * Event to switch scenes to 'addword.fxml' when the menu's 'addwordIcon' icon is clicked.
+    *
     * @see ScreenSwitch
     */
    @FXML
    private void addWordIconClick(){
-
+      // Use 'ScreenSwitch' to switch to the 'addWordScene'.
       ScreenSwitch.swap(ScreenSwitch.SceneType.addWordScene);
    }
 
