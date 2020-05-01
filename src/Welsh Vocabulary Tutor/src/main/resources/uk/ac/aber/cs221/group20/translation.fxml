@@ -13,6 +13,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Label?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="uk.ac.aber.cs221.group20.javafx.TranslationController"
@@ -140,16 +141,16 @@
                               <Font size="33.0" />
                            </font>
                         </Text>
-                        <Text fx:id="correctGuesses" layoutX="407.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correct Guesses: 0" wrappingWidth="227.18359375">
+                        <Label fx:id="totalAnswer" layoutX="405.0" layoutY="50.0">
                            <font>
-                              <Font size="17.0" />
+                              <Font name="Consolas"  size="17.0" />
                            </font>
-                        </Text>
-                        <Text fx:id="incorrectGuesses" layoutX="407.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Incorrect Guesses: 0">
+                        </Label>
+                        <Label fx:id="correctAnswer" layoutX="405.0" layoutY="24.0">
                            <font>
-                              <Font size="17.0" />
+                              <Font name="Consolas" size="17.0" />
                            </font>
-                        </Text>
+                        </Label>
                         <ImageView fx:id="submitButton" fitHeight="46.0" fitWidth="69.0" layoutX="398.0" layoutY="199.0" onMouseClicked="#translateWord" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </AnchorPane>
