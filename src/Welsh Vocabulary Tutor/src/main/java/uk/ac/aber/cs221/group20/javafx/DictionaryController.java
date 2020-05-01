@@ -73,6 +73,7 @@ public class DictionaryController extends SharedCodeController {
          else if (welsh.getSortType().equals(TableColumn.SortType.DESCENDING)) {
             alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-reversed-50.png"));
          }
+         langSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-lang-welsh-50.png"));
          table.getSortOrder().clear();
          table.getSortOrder().add(welsh);
          isSortedByEnglish = false;
@@ -84,6 +85,7 @@ public class DictionaryController extends SharedCodeController {
          else if (english.getSortType().equals(TableColumn.SortType.DESCENDING)) {
             alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-reversed-50.png"));
          }
+         langSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-lang-eng-50.png"));
          table.getSortOrder().clear();
          table.getSortOrder().add(english);
          isSortedByEnglish = true;
@@ -164,7 +166,7 @@ public class DictionaryController extends SharedCodeController {
       currentPageText.setText("Dictionary");
 
       alphaSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-alpha-up-50.png"));
-      langSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-lang-50.png"));
+      langSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-lang-eng-50.png"));
 
       dictionaryIcon.setImage(new Image(getClass().getResourceAsStream("/assets/icons/black_icons/50px/read-50.png")));
       dictionaryText.setFill(Color.BLACK);
