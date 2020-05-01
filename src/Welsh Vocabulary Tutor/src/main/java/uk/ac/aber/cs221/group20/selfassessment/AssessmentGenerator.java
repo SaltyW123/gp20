@@ -51,14 +51,7 @@ public class AssessmentGenerator {
 
 
       reset();
-
-<<<<<<< HEAD:src/Welsh Vocabulary Tutor/src/main/java/uk/ac/aber/cs22120/group20/selfassessment/AssessmentGenerator.java
-      if (practiseList.size()<5){
-=======
-      //int wordToTranslatePlace;
-
       if (practiseList.size()==0){
->>>>>>> f4a81a51ec9ef443efded0b3f4eb1ff41c105263:src/Welsh Vocabulary Tutor/src/main/java/uk/ac/aber/cs221/group20/selfassessment/AssessmentGenerator.java
          Alert alert = new Alert(Alert.AlertType.ERROR);
          alert.setTitle("Error");
          alert.setHeaderText("Not enough words in practice list");
@@ -86,24 +79,11 @@ public class AssessmentGenerator {
                   }
                   break;
                case (2): //2 Means match meanings test.
-<<<<<<< HEAD:src/Welsh Vocabulary Tutor/src/main/java/uk/ac/aber/cs22120/group20/selfassessment/AssessmentGenerator.java
-                  if((listOfAssessment.isEmpty()) || !(listOfAssessment.getLast() instanceof MatchTheMeaningQuestion)){
-                     generatedAssessment = generateMatchMeaning(practiseList);
-                  }else {
-                     numberToGenerate--;
-=======
-//               LinkedList<DictionaryEntry> wordsToTranslate = new LinkedList<>();
-//               for (int i = 0; i < 3; i++) {
-//                  wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
-//                  wordsToTranslate.add(Application.practiseList.get(wordToTranslatePlace));
-//                  wordsToTranslate.toArray();
-//               }
                   if(practiseList.size() > 3) {
                      if (((listOfAssessment.isEmpty()) || !(listOfAssessment.getLast() instanceof MatchTheMeaningQuestion))) {
                         generatedAssessment = generateMatchMeaning(practiseList);
                         break;
                      }
->>>>>>> f4a81a51ec9ef443efded0b3f4eb1ff41c105263:src/Welsh Vocabulary Tutor/src/main/java/uk/ac/aber/cs221/group20/selfassessment/AssessmentGenerator.java
                   }
                   numberToGenerate--;
                   break;
