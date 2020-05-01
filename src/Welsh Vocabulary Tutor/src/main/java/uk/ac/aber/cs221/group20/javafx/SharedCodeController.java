@@ -1,6 +1,6 @@
 /**
  * @(#) FlashcardController.java 0,1 2020/05/07
- * <p>
+ *
  * Copyright (c) 2020 Aberystwyth University.
  * All rights reserved.
  */
@@ -20,7 +20,7 @@ import uk.ac.aber.cs221.group20.json.DictionaryEntry;
  * duplication. This will be extended by all the controller classes.
  *
  * @author Tom Perry [top19]
- * @Version 0.2 Documentation.
+ * @version 0.2 Documentation.
  * @see Application
  * @see DictionaryEntry
  * @see ScreenSwitch
@@ -160,7 +160,7 @@ abstract public class SharedCodeController {
    @FXML
    private void practiceListIconClick() {
       // Use 'ScreenSwitch' to switch to the 'practiceListScene'.
-      ScreenSwitch.swap(ScreenSwitch.SceneType.practiceListScene); 
+      ScreenSwitch.swap(ScreenSwitch.SceneType.practiceListScene);
    }
 
    /**

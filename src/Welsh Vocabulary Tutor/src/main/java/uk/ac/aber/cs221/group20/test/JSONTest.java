@@ -1,3 +1,9 @@
+/**
+ * @(#) JSONTest.java 0,1 2020/05/07
+ *
+ * Copyright (c) 2020 Aberystwyth University.
+ * All rights reserved.
+ */
 package uk.ac.aber.cs221.group20.test;
 
 import org.junit.jupiter.api.Test;
