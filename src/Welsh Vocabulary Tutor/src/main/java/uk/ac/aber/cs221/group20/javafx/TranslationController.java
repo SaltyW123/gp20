@@ -1,18 +1,20 @@
 package uk.ac.aber.cs221.group20.javafx;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
-import uk.ac.aber.cs221.group20.json.DictionaryEntry;
-import uk.ac.aber.cs221.group20.selfassessment.AssessmentGenerator;
-import uk.ac.aber.cs221.group20.selfassessment.Question;
+        import javafx.event.ActionEvent;
+        import javafx.fxml.FXML;
+        import javafx.scene.control.ComboBox;
+        import javafx.scene.control.Label;
+        import javafx.scene.control.TextField;
+        import javafx.scene.image.Image;
+        import javafx.scene.image.ImageView;
+        import javafx.scene.paint.Color;
+        import javafx.scene.text.Text;
+        import uk.ac.aber.cs221.group20.json.DictionaryEntry;
+        import uk.ac.aber.cs221.group20.selfassessment.AssessmentGenerator;
+        import uk.ac.aber.cs221.group20.selfassessment.Question;
 
-import java.util.ArrayList;
-import java.util.Random;
+        import java.util.ArrayList;
+        import java.util.Random;
 
 
 /**
@@ -54,6 +56,18 @@ public class TranslationController extends SharedCodeController {
 
    @FXML
    private ImageView submitButton;
+
+   @FXML
+   private ComboBox<String> specialChar3;
+
+   @FXML
+   private ComboBox<String> specialChar2;
+
+   @FXML
+   private ComboBox<String> specialChar4;
+
+   @FXML
+   private ComboBox<String> specialChar1;
 
    Random rand = new Random();
 
@@ -108,5 +122,19 @@ public class TranslationController extends SharedCodeController {
       AssessmentGenerator.goToNextQuestion();
 
 
+   }
+
+   public void specialChar1(ActionEvent actionEvent){
+      translationBox.appendText(specialChar1.getValue());
+   }
+
+   public void specialChar2(ActionEvent actionEvent) {
+      translationBox.appendText(specialChar2.getValue());
+   }
+   public void specialChar3(ActionEvent actionEvent) {
+      translationBox.appendText(specialChar3.getValue());
+   }
+   public void specialChar4(ActionEvent actionEvent) {
+      translationBox.appendText(specialChar4.getValue());
    }
 }
