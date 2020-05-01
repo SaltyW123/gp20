@@ -172,14 +172,10 @@ public class DictionaryEntry {
     * @param entry Object that the DictionaryEntry object is comparing itself to.
     * @return Returns true (if equal) or false (not equal).
     */
-   @Override
-   public boolean equals(Object entry) {
+   public boolean equals(DictionaryEntry entry) {
 
-      // Cast the object to be a DictionaryEntry.
-      DictionaryEntry otherEntry = (DictionaryEntry) entry;
-      
       // Check it they're equal by looking if they have equal 'welsh' or 'english' with the same 'wordType'.
-      return ((this.getWelsh().equalsIgnoreCase(otherEntry.getWelsh()) || this.getEnglish().equalsIgnoreCase(otherEntry.getWelsh())) &&
-              this.getWordType().equals(otherEntry.getWordType()));
+      return ((this.getWelsh().equalsIgnoreCase(entry.getWelsh()) || this.getEnglish().equalsIgnoreCase(entry.getWelsh())) &&
+              this.getWordType().equals(entry.getWordType()));
    }
 }
