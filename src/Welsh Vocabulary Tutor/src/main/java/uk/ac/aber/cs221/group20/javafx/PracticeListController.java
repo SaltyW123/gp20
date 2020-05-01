@@ -42,6 +42,10 @@ import java.util.Comparator;
  */
 public class PracticeListController extends SharedCodeController {
 
+   // /////////////////// //
+   // Instance variables. //
+   // /////////////////// //
+
    @FXML
    private ImageView alphaSort;
    @FXML
@@ -56,6 +60,10 @@ public class PracticeListController extends SharedCodeController {
    private TableColumn<DictionaryEntry, String> welsh = new TableColumn<>();
 
    public ObservableList<DictionaryEntry> list = FXCollections.observableArrayList();
+
+   // //////// //
+   // Methods. //
+   // //////// //
 
    /**
     * Method to switch the language used to sort the dictionary list.
@@ -132,6 +140,8 @@ public class PracticeListController extends SharedCodeController {
     */
    public void initialize() {
       setup();
+
+      // Hide TableViewHeader
       table.widthProperty().addListener(new ChangeListener<Number>() {
          @Override
          public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
@@ -146,6 +156,7 @@ public class PracticeListController extends SharedCodeController {
          }
       });
 
+      // Compare words while ignoring the "to"
       english.setComparator(new Comparator<String>() {
          @Override
          public int compare(String s, String t1) {
@@ -172,20 +183,19 @@ public class PracticeListController extends SharedCodeController {
       list.addAll(Application.practiceList);
 
       table.setPlaceholder(new Label("No practice words found. Please try adding a practice word from the 'Dictionary' page."));
+
       table.setRowFactory(tv -> {
                  TableRow<DictionaryEntry> row = new TableRow<DictionaryEntry>() {
                     @Override
                     protected void updateItem(DictionaryEntry dictionaryEntry, boolean b) {
                        super.updateItem(dictionaryEntry, b);
                        if (!isEmpty()) {
-//                          if (dictionaryEntry.isPracticeWord()) {
-//                             setStyle("-fx-background-color: gray;");
-//                          } else {
                           setStyle(" ");
-//                          }
                        }
                     }
                  };
+
+         // Remove practice word when they are clicked on
          row.setOnMouseClicked(mouseEvent -> {
             if (mouseEvent.getClickCount() == 1 && (!row.isEmpty())) {
                for (DictionaryEntry entry : Application.dictionary) {
@@ -212,6 +222,8 @@ public class PracticeListController extends SharedCodeController {
             return row;
               }
       );
+
+      // Render Welsh nouns as "[masculine noun] {nm}" and "[feminine noun] {nm}" respectively.
       welsh.setCellValueFactory(dictionaryEntryStringCellDataFeatures -> {
          if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals(DictionaryEntry.wordTypeEnum.nm)) {
             return new SimpleStringProperty(dictionaryEntryStringCellDataFeatures.getValue().getWelsh() + " {nm}");
@@ -222,6 +234,7 @@ public class PracticeListController extends SharedCodeController {
          }
       });
 
+      // Render English verbs as "to [verb]"
       english.setCellValueFactory(dictionaryEntryStringCellDataFeatures -> {
          if (dictionaryEntryStringCellDataFeatures.getValue().getWordType().equals(DictionaryEntry.wordTypeEnum.verb)) {
             return new SimpleStringProperty("to " + dictionaryEntryStringCellDataFeatures.getValue().getEnglish());
@@ -230,29 +243,42 @@ public class PracticeListController extends SharedCodeController {
          }
       });
 
-      FilteredList<DictionaryEntry> filteredList = new FilteredList<>(list, p -> true); // Wrap list in a FilteredList
+      // Wrap list in a FilteredList
+      FilteredList<DictionaryEntry> filteredList = new FilteredList<>(list, p -> true);
 
       searchBox.textProperty().addListener((observable, oldSearchTerm, newSearchTerm) -> {
-         filteredList.setPredicate(dictionaryEntry -> { // returns true on a filter match, false if no match
-            boolean result = false;
-            table.refresh(); // This fixes the table highlighting issue
 
-            if (newSearchTerm == null || newSearchTerm.isEmpty()) { // If filter text is empty, display all dictionary entries
+         // Returns true on a filter match, false if no match
+         filteredList.setPredicate(dictionaryEntry -> {
+            boolean result = false;
+
+            // This fixes the table highlighting issue
+            table.refresh();
+
+            // If filter text is empty, display all dictionary entries
+            if (newSearchTerm == null || newSearchTerm.isEmpty()) {
                result = true;
             } else {
+
                // need all same case for compare.
                final String lowerCaseSearchFilter = newSearchTerm.toLowerCase();
                if (isSortedByEnglish) {
                   if (dictionaryEntry.getEnglish().toLowerCase().startsWith(lowerCaseSearchFilter)) {
-                     result = true; // Filter matches English
+
+                     // Filter matches English
+                     result = true;
                   } else if (lowerCaseSearchFilter.startsWith("to ")) {
                      if (dictionaryEntry.getWordType().equals(DictionaryEntry.wordTypeEnum.verb) && ("to " + dictionaryEntry.getEnglish()).toLowerCase().startsWith(lowerCaseSearchFilter)) {
-                        result = true; // Filter matches ['to' + a word] or [a word] if word is a verb
+
+                        // Filter matches ['to' + a word] or [a word] if word is a verb
+                        result = true;
                      }
                   }
                } else {
                   if (dictionaryEntry.getWelsh().toLowerCase().startsWith(lowerCaseSearchFilter)) {
-                     result = true; // Filter matches Welsh
+
+                     // Filter matches Welsh
+                     result = true;
                   }
                }
             }
@@ -260,15 +286,21 @@ public class PracticeListController extends SharedCodeController {
          });
       });
 
-      SortedList<DictionaryEntry> sortedList = new SortedList<>(filteredList); //Wrap the filtered list in a SortedList
-      sortedList.comparatorProperty().bind(table.comparatorProperty()); //Bind the sorted list comparator to the table comparator
+      // Wrap the filtered list in a SortedList
+      SortedList<DictionaryEntry> sortedList = new SortedList<>(filteredList);
+
+      // Bind the sorted list comparator to the table comparator
+      sortedList.comparatorProperty().bind(table.comparatorProperty());
 
       table.setItems(sortedList);
 
+      // Change Table sorting based on boolean value
       if (isSortedByEnglish) {
          table.getSortOrder().add(english);
+         langSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-lang-eng-50.png"));
       } else {
          table.getSortOrder().add(welsh);
+         langSort.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/sort-lang-welsh-50.png"));
       }
    }
 
