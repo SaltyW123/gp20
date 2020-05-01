@@ -124,8 +124,8 @@
             </padding>
 
                 <StackPane  onMouseClicked="#handleFlashcardClick" minWidth="500">
-                        <ImageView fx:id="flashcard" fitWidth="450" fitHeight="360"/>
-                        <Text  textAlignment="CENTER" fx:id="testWord">
+                        <ImageView fx:id="flashcard" fitWidth="500" fitHeight="360"/>
+                        <Text  textAlignment="CENTER" fx:id="testWord" wrappingWidth="400">
                             <font>
                                 <Font size="55"/>
                             </font>
