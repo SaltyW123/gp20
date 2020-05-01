@@ -133,8 +133,6 @@ public class DictionaryController extends SharedCodeController {
     * An observable list of DictionaryEntries is loaded from the Application class into a local instance of ObservableList.
     * It also sets up Lambda expressions related to live searching functionality and the display of DictionaryEntries.
     *
-    //     * @param url
-    //     * @param resourceBundle
     * @see Application
     * @see DictionaryEntry
     */
