@@ -27,7 +27,7 @@ import java.util.*;
  * @author Luke Wybar [law39]
  * @author Marcin Jakobik [maj83]
  * @author Oscar Pocock [osp1]
- * @author Tom Perry [top1]
+ * @author Tom Perry [top19]
  * @author Waylen Watts [ncw]
  * @version 0.4 Initial development
  * @see Application

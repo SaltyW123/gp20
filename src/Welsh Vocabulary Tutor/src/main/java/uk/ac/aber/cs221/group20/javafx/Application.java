@@ -23,7 +23,7 @@ import java.util.LinkedList;
  * @author Brad Corbett [brc9]
  * @author Henry Dugmore [hjd3]
  * @author Marcin Jakob [maj83]
- * @author Tom Perry [top1]
+ * @author Tom Perry [top19]
  * @author Oscar Pocock [osp1]
  * @author Waylen Watts [ncw]
  * @author Luke Wybar [law39]
