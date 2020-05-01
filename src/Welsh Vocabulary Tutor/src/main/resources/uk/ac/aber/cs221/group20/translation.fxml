@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="container" minHeight="550" minWidth="450" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.aber.cs221.group20.javafx.TranslationController">
+<BorderPane fx:id="container" minHeight="550" minWidth="450" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.aber.cs221.group20.javafx.TranslationController">
 
 
    <left>
@@ -162,8 +168,80 @@
                         </Text>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                              <TextField fx:id="translationBox" prefHeight="45.0" prefWidth="188.0" promptText="Enter translation here" />
+                              <TextField fx:id="translationBox" alignment="CENTER" prefHeight="45.0" prefWidth="188.0" promptText="Enter translation here">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
                               <ImageView fx:id="submitButton" fitHeight="46.0" fitWidth="69.0" onMouseClicked="#translateWord" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="41.0" prefWidth="597.0">
+                     <children>
+                        <GridPane prefHeight="41.0" prefWidth="273.0">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <ComboBox fx:id="specialChar1" onAction="#specialChar1" prefWidth="56.0" promptText="â">
+                                 <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                       <String fx:value="â" />
+                                       <String fx:value="ê" />
+                                       <String fx:value="î" />
+                                       <String fx:value="ô" />
+                                       <String fx:value="û" />
+                                       <String fx:value="ŵ" />
+                                       <String fx:value="ŷ" />
+                                    </FXCollections>
+                                 </items>
+                              </ComboBox>
+                              <ComboBox fx:id="specialChar2" onAction="#specialChar2" prefWidth="56.0" promptText="ä" GridPane.columnIndex="2">
+                                 <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                       <String fx:value="ä" />
+                                       <String fx:value="ë" />
+                                       <String fx:value="ï" />
+                                       <String fx:value="ö" />
+                                       <String fx:value="ü" />
+                                       <String fx:value="ẅ" />
+                                       <String fx:value="ÿ" />
+                                    </FXCollections>
+                                 </items>
+                              </ComboBox>
+                              <ComboBox fx:id="specialChar3" onAction="#specialChar3" prefWidth="56.0" promptText="á" GridPane.columnIndex="1">
+                                 <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                       <String fx:value="á" />
+                                       <String fx:value="é" />
+                                       <String fx:value="í" />
+                                       <String fx:value="ó" />
+                                       <String fx:value="ú" />
+                                       <String fx:value="ẃ" />
+                                       <String fx:value="ý" />
+                                    </FXCollections>
+                                 </items>
+                              </ComboBox>
+                              <ComboBox fx:id="specialChar4" onAction="#specialChar4" prefWidth="56.0" promptText="à" GridPane.columnIndex="3">
+                                 <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                       <String fx:value="à" />
+                                       <String fx:value="è" />
+                                       <String fx:value="ì" />
+                                       <String fx:value="ò" />
+                                       <String fx:value="ù" />
+                                       <String fx:value="ẁ" />
+                                       <String fx:value="ỳ" />
+                                    </FXCollections>
+                                 </items>
+                              </ComboBox>
+                           </children>
+                        </GridPane>
                      </children>
                   </HBox>
                         <Text fx:id="typeOfTest" fill="#8d8d8d" strokeType="OUTSIDE" strokeWidth="0.0" text="Translation">
