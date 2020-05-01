@@ -1,10 +1,11 @@
-package uk.ac.aber.cs221.group20.javafx;
 /**
- * @(#) MyController.java 0,1 2020/04/07
+ * @(#) MatchTheMeaningController.java 0,1 2020/04/07
  * <p>
  * Copyright (c) 2020 Aberystwyth University.
  * All rights reserved.
  */
+package uk.ac.aber.cs221.group20.javafx;
+
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

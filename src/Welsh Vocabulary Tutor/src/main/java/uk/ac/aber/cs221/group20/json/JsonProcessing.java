@@ -1,10 +1,11 @@
-package uk.ac.aber.cs221.group20.json;
 /**
  * @(#) JsonProcessing.java 0,1 2020/04/27
  * <p>
  * Copyright (c) 2020 Aberystwyth University.
  * All rights reserved.
  */
+
+package uk.ac.aber.cs221.group20.json;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
