@@ -68,17 +68,19 @@ public class DictionaryEntry {
    // ////////////////////// //
 
    /**
-    * Getter method for the 'english variable'.
-    *
-    * @return Current value of 'english'.
+    * Method which returns a string containing the english instance variable value.
+    * Standard getter.
+    * <p>
+    * @return String Current value of 'english'.
     */
    public String getEnglish() {
       return english;
    }
 
    /**
-    * Setter for the 'english' variable.
-    *
+    * Method which sets the english instance variable value to the passed in String.
+    * Standard setter.
+    * <p>
     * @param english New String value for 'english'.
     */
    public void setEnglish(String english) {
@@ -86,17 +88,19 @@ public class DictionaryEntry {
    }
 
    /**
-    * Getter for the 'welsh' variable.
-    *
-    * @return Current value of 'welsh'.
+    * Method which returns a string containing the welsh instance variable value.
+    * Standard getter.
+    * <p>
+    * @return String Current value of 'welsh'.
     */
    public String getWelsh() {
       return welsh;
    }
 
    /**
-    * Setter for the 'welsh' variable.
-    *
+    * Method which sets the welsh instance variable value to the passed in String.
+    * Standard setter.
+    * <p>
     * @param welsh New String value for 'welsh'.
     */
    public void setWelsh(String welsh) {
@@ -104,9 +108,10 @@ public class DictionaryEntry {
    }
 
    /**
-    * Getter for the 'wordType' enum variable.
-    *
-    * @return Current value of the 'wordType'.
+    * Method which returns a wordTypeEnum enumeration containing the wordType instance variable value.
+    * Standard getter.
+    * <p>
+    * @return wordTypeEnum Current value of the 'wordType'.
     * @see wordTypeEnum
     */
    public wordTypeEnum getWordType() {
@@ -114,8 +119,9 @@ public class DictionaryEntry {
    }
 
    /**
-    * Setter for the 'wordType' enum variable.
-    *
+    * Method which sets the wordType instance variable value to the passed in wordTypeEnum enumeration.
+    * Standard setter.
+    * <p>
     * @param wordType New wordTypeEnum value for the 'wordType'.
     * @see wordTypeEnum
     */
@@ -124,17 +130,19 @@ public class DictionaryEntry {
    }
 
    /**
-    * Getter for the 'practiceWord' variable.
-    *
-    * @return Current value of 'practiceWord'
+    * Method which returns a boolean containing the practiceWord instance variable value.
+    * Standard getter.
+    * <p>
+    * @return Boolean Current value of 'practiceWord'
     */
    public Boolean isPracticeWord() {
       return practiceWord;
    }
 
    /**
-    * Setter for the 'practiceWord' variable.
-    *
+    * Method which sets the practiceWord instance variable value to the passed in Boolean.
+    * Standard setter.
+    * <p>
     * @param practiceWord New boolean value for 'practiceWord'.
     */
    public void setPracticeWord(Boolean practiceWord) {
@@ -146,9 +154,9 @@ public class DictionaryEntry {
    // //////// //
 
    /**
-    * Overidden equals method that checks to see if two Dictionary objects are equal to each other. This work by checking if the objects 'english' or 'welsh' variables are
+    * Overridden equals method that checks to see if two Dictionary objects are equal to each other. This works by checking if the objects 'english' or 'welsh' variables are
     * equal with the same 'wordType'.
-    *
+    * <p>
     * @param entry Object that the DictionaryEntry object is comparing itself to.
     * @return Returns true (if equal) or false (not equal).
     */
