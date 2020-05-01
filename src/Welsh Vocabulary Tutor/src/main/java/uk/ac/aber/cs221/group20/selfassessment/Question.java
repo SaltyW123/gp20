@@ -1,6 +1,6 @@
-/**
+/*
  * @(#) Question.java 0,1 2020/05/01
- * <p>
+ *
  * Copyright (c) 2020 Aberystwyth University.
  * All rights reserved.
  */
@@ -118,7 +118,7 @@ public class Question {
    /**
     * Resets the score to 0 for the next test.
     */
-   private static void resetScore(){
+   public static void resetScore(){
       correctAnswers = 0;
       wrongAnswers =0;
    }
