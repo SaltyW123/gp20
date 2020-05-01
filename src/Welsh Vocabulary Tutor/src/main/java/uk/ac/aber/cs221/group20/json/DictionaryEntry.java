@@ -6,8 +6,8 @@
  */
 package uk.ac.aber.cs221.group20.json;
 
-import uk.ac.aber.cs221.group20.javafx.DictionaryController;
 import uk.ac.aber.cs221.group20.javafx.Application;
+import uk.ac.aber.cs221.group20.javafx.DictionaryController;
 
 /**
  * A class that demonstrates how a controller works.
@@ -31,9 +31,11 @@ public class DictionaryEntry {
 
    private String english;
    private String welsh;
+
    public enum wordTypeEnum {
       nm, nf, verb, other
    }
+
    private wordTypeEnum wordType;
    private Boolean practiceWord;
 
@@ -43,6 +45,7 @@ public class DictionaryEntry {
 
    /**
     * Default constructor for DictionaryEntry.
+    * Sets the practiceWord to false by default.
     */
    public DictionaryEntry() {
       practiceWord = false;
@@ -50,10 +53,10 @@ public class DictionaryEntry {
 
    /**
     * Constructor that creates an instance of DictionaryEntry when given 'english', 'welsh' and 'wordType' parameters.
-    *
-    * @param english      english translation of the word
-    * @param welsh        welsh translation of the word
-    * @param wordType     type of word
+    *<p>
+    * @param english  english translation of the word
+    * @param welsh    welsh translation of the word
+    * @param wordType type of word
     * @see Application
     * @see DictionaryController
     */
@@ -71,6 +74,7 @@ public class DictionaryEntry {
     * Method which returns a string containing the english instance variable value.
     * Standard getter.
     * <p>
+    *
     * @return String Current value of 'english'.
     */
    public String getEnglish() {
@@ -81,6 +85,7 @@ public class DictionaryEntry {
     * Method which sets the english instance variable value to the passed in String.
     * Standard setter.
     * <p>
+    *
     * @param english New String value for 'english'.
     */
    public void setEnglish(String english) {
@@ -91,6 +96,7 @@ public class DictionaryEntry {
     * Method which returns a string containing the welsh instance variable value.
     * Standard getter.
     * <p>
+    *
     * @return String Current value of 'welsh'.
     */
    public String getWelsh() {
@@ -101,6 +107,7 @@ public class DictionaryEntry {
     * Method which sets the welsh instance variable value to the passed in String.
     * Standard setter.
     * <p>
+    *
     * @param welsh New String value for 'welsh'.
     */
    public void setWelsh(String welsh) {
@@ -111,6 +118,7 @@ public class DictionaryEntry {
     * Method which returns a wordTypeEnum enumeration containing the wordType instance variable value.
     * Standard getter.
     * <p>
+    *
     * @return wordTypeEnum Current value of the 'wordType'.
     * @see wordTypeEnum
     */
@@ -122,6 +130,7 @@ public class DictionaryEntry {
     * Method which sets the wordType instance variable value to the passed in wordTypeEnum enumeration.
     * Standard setter.
     * <p>
+    *
     * @param wordType New wordTypeEnum value for the 'wordType'.
     * @see wordTypeEnum
     */
@@ -133,6 +142,7 @@ public class DictionaryEntry {
     * Method which returns a boolean containing the practiceWord instance variable value.
     * Standard getter.
     * <p>
+    *
     * @return Boolean Current value of 'practiceWord'
     */
    public Boolean isPracticeWord() {
@@ -143,6 +153,7 @@ public class DictionaryEntry {
     * Method which sets the practiceWord instance variable value to the passed in Boolean.
     * Standard setter.
     * <p>
+    *
     * @param practiceWord New boolean value for 'practiceWord'.
     */
    public void setPracticeWord(Boolean practiceWord) {
@@ -157,14 +168,18 @@ public class DictionaryEntry {
     * Overridden equals method that checks to see if two Dictionary objects are equal to each other. This works by checking if the objects 'english' or 'welsh' variables are
     * equal with the same 'wordType'.
     * <p>
+    *
     * @param entry Object that the DictionaryEntry object is comparing itself to.
     * @return Returns true (if equal) or false (not equal).
     */
    @Override
    public boolean equals(Object entry) {
-      DictionaryEntry otherEntry = (DictionaryEntry) entry; // Cast the object to be a DictionaryEntry.
 
+      // Cast the object to be a DictionaryEntry.
+      DictionaryEntry otherEntry = (DictionaryEntry) entry;
+      
+      // Check it they're equal by looking if they have equal 'welsh' or 'english' with the same 'wordType'.
       return ((this.getWelsh().equalsIgnoreCase(otherEntry.getWelsh()) || this.getEnglish().equalsIgnoreCase(otherEntry.getWelsh())) &&
-            this.getWordType().equals(otherEntry.getWordType())); // Check it they're equal by looking if they have equal 'welsh' or 'english' with the same 'wordType'.
+              this.getWordType().equals(otherEntry.getWordType()));
    }
 }
