@@ -42,7 +42,8 @@ public class FlashcardController extends SharedCodeController {
    // /////////////////// //
 
    int index = 0;
-   Node card; // Node that will be flipped using RotateTransition.
+   // Node that will be flipped using RotateTransition.
+   Node card;
 
    @FXML
    private Text counter;
@@ -70,22 +71,25 @@ public class FlashcardController extends SharedCodeController {
     */
    @FXML
    private void initialize() {
-
-      setup(); // Call method from SharedCodeController to setup the menu screens images.
+      // Call method from SharedCodeController to setup the menu screens images.
+      setup();
       currentPageIcon.setImage(new Image("file:src/main/resources/assets/icons/white_icons/50px/flashcard-50.png"));
       currentPageText.setText("Flashcard");
       flashcardIcon.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/flashcard-50.png"));
       flashcardsText.setFill(Color.BLACK);
 
-      if(isSortedByEnglish){ // If the current language ordering is by english, display the english word first.
+      // If the current language ordering is by english, display the english word first.
+      if(isSortedByEnglish){
          testWord.setText(Application.practiceList.getFirst().getEnglish());
          wordType.setText("English");
-      } else{ // Else display the word definition first.
+      } else{
+         // Else display the word definition first.
          testWord.setText(Application.practiceList.getFirst().getWelsh());
          wordType.setText("Welsh");
       }
 
-      updateCounter(); // Update the on screen counter and setup the flashcards images.
+      // Update the on screen counter and setup the flashcards images.
+      updateCounter();
       flashcard.setImage(new Image("file:src/main/resources/assets/flashcard/FlashCard.png"));
       leftArrow.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/left-50.png"));
       rightArrow.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/right-50.png"));
@@ -99,8 +103,10 @@ public class FlashcardController extends SharedCodeController {
    @FXML
    private void handleFlashcardClick() {
       card = flashcard;
-      RotateTransition rotator = RotateCard(card); // Call method to create the RotateTransition.
-      rotator.play(); // Play the rotate transition.
+      // Call method to create the RotateTransition.
+      RotateTransition rotator = RotateCard(card);
+      // Play the rotate transition.
+      rotator.play();
    }
 
    /**
@@ -116,10 +122,12 @@ public class FlashcardController extends SharedCodeController {
          index--;
          updateCounter();
 
-         if (isSortedByEnglish) { // If the current language ordering is by english, display the english word first.
+      // If the current language ordering is by english, display the english word first.
+         if (isSortedByEnglish) {
             testWord.setText(Application.practiceList.get(index).getEnglish());
             wordType.setText("English");
-         } else { // Else display the word definition first.
+         } else {
+            // Else display the word definition first.
             testWord.setText(Application.practiceList.get(index).getWelsh());
             wordType.setText("Welsh");
          }
@@ -139,10 +147,12 @@ public class FlashcardController extends SharedCodeController {
          index++;
          updateCounter();
 
-         if (isSortedByEnglish) { // If the current language ordering is by english, display the english word first.
+      // If the current language ordering is by english, display the english word first.
+         if (isSortedByEnglish) {
             testWord.setText(Application.practiceList.get(index).getEnglish());
             wordType.setText("English");
-         } else { // Else display the word definition first.
+         } else {
+            // Else display the word definition first.
             testWord.setText(Application.practiceList.get(index).getWelsh());
             wordType.setText("Welsh");
          }
@@ -182,12 +192,15 @@ public class FlashcardController extends SharedCodeController {
       rotate.setToAngle(180);
       rotate.setInterpolator(Interpolator.LINEAR);
       rotate.setCycleCount(1);
-      rotate.setOnFinished(event -> { // Once the transition is completed, update the text on the flashcard.
+      // Once the transition is completed, update the text on the flashcard.
+      rotate.setOnFinished(event -> {
 
-         if (wordType.getText().equals("Welsh")) {  // If the word currently on the flashcard is welsh, display the english translation.
+         // If the word currently on the flashcard is welsh, display the english translation.
+         if (wordType.getText().equals("Welsh")) {
             testWord.setText(Application.practiceList.get(index).getEnglish());
             wordType.setText("English");
-         } else { // Else display the welsh translation.
+         } else {
+            // Else display the welsh translation.
             testWord.setText(Application.practiceList.get(index).getWelsh());
             wordType.setText("Welsh");
          }
