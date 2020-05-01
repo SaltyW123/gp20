@@ -1,81 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.layout.*?>
-
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="uk.ac.aber.cs221.group20.javafx.TranslationController"
-            fx:id="container"
-            minWidth="450"
-            minHeight="550"
->
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="container" minHeight="550" minWidth="450" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.aber.cs221.group20.javafx.TranslationController">
 
 
    <left>
 
       <StackPane fx:id="outerBar">
-         <Rectangle fx:id="sideBar" fill="dimgray" height="${outerBar.height}" width="50"></Rectangle>
+         <Rectangle fx:id="sideBar" fill="dimgray" height="${outerBar.height}" width="50" />
 
          <VBox spacing="300">
 
             <VBox alignment="TOP_CENTER" maxHeight="${outerBar.height}">
                <StackPane onMouseClicked="#dictionaryIconClick">
-                  <Rectangle fill="dimgray" height="60" width="${sideBar.width}"></Rectangle>
+                  <Rectangle fill="dimgray" height="60" width="${sideBar.width}" />
                   <HBox alignment="CENTER_RIGHT">
                      <Text fx:id="dictionaryText" fill="white">
                         <font>
-                           <Font name="System Bold" size="25"></Font>
+                           <Font name="System Bold" size="25" />
                         </font>
                      </Text>
-                     <ImageView fx:id="dictionaryIcon"></ImageView>
+                     <ImageView fx:id="dictionaryIcon" />
                   </HBox>
                </StackPane>
 
                <StackPane onMouseClicked="#practiceListIconClick">
-                  <Rectangle fill="dimgray" height="60" width="${sideBar.width}"></Rectangle>
+                  <Rectangle fill="dimgray" height="60" width="${sideBar.width}" />
                   <HBox alignment="CENTER_RIGHT">
                      <Text fx:id="practiceListTest" fill="white">
                         <font>
-                           <Font name="System Bold" size="25"></Font>
+                           <Font name="System Bold" size="25" />
                         </font>
                      </Text>
-                     <ImageView fx:id="practiceListIcon"></ImageView>
+                     <ImageView fx:id="practiceListIcon" />
                   </HBox>
                </StackPane>
 
                <StackPane onMouseClicked="#flashcardIconClick">
-                  <Rectangle fill="dimgray" height="60" width="${sideBar.width}"></Rectangle>
+                  <Rectangle fill="dimgray" height="60" width="${sideBar.width}" />
                   <HBox alignment="CENTER_RIGHT">
                      <Text fx:id="flashcardsText" fill="white">
                         <font>
-                           <Font name="System Bold" size="25"></Font>
+                           <Font name="System Bold" size="25" />
                         </font>
                      </Text>
-                     <ImageView fx:id="flashcardIcon"></ImageView>
+                     <ImageView fx:id="flashcardIcon" />
                   </HBox>
                </StackPane>
 
                <StackPane onMouseClicked="#studyIconClick">
-                  <Rectangle fill="white" height="60" width="${sideBar.width}"></Rectangle>
+                  <Rectangle fill="white" height="60" width="${sideBar.width}" />
                   <HBox alignment="CENTER_RIGHT">
                      <Text fx:id="studyText" fill="white">
                         <font>
-                           <Font name="System Bold" size="25"></Font>
+                           <Font name="System Bold" size="25" />
                         </font>
                      </Text>
-                     <ImageView fx:id="studyIcon"></ImageView>
+                     <ImageView fx:id="studyIcon" />
                   </HBox>
                </StackPane>
 
@@ -84,15 +77,15 @@
 
 
             <StackPane alignment="BOTTOM_CENTER" onMouseClicked="#addWordIconClick">
-               <Rectangle fill="dimgray" height="60" width="${sideBar.width}"></Rectangle>
+               <Rectangle fill="dimgray" height="60" width="${sideBar.width}" />
 
                <HBox alignment="CENTER_RIGHT">
                   <Text fx:id="addDefinitionText" fill="white">
                      <font>
-                        <Font name="System Bold" size="25"></Font>
+                        <Font name="System Bold" size="25" />
                      </font>
                   </Text>
-                  <ImageView fx:id="addDefinitionIcon"></ImageView>
+                  <ImageView fx:id="addDefinitionIcon" />
                </HBox>
 
             </StackPane>
@@ -104,18 +97,18 @@
 
    <top>
       <StackPane fx:id="topBar">
-         <Rectangle fx:id="parentRectangle" fill="dimgray" width="${topBar.width}" height="50"></Rectangle>
-         <HBox alignment="CENTER_LEFT"  prefWidth="${topBar.width}" spacing="7">
+         <Rectangle fx:id="parentRectangle" fill="dimgray" height="50" width="${topBar.width}" />
+         <HBox alignment="CENTER_LEFT" prefWidth="${topBar.width}" spacing="7">
             <StackPane onMouseClicked="#expandMenuClick">
-               <Rectangle fill="dimgray" width="55" height="50"></Rectangle>
-               <ImageView fx:id="expandMenuIcon"></ImageView>
+               <Rectangle fill="dimgray" height="50" width="55" />
+               <ImageView fx:id="expandMenuIcon" />
             </StackPane>
 
-            <ImageView fx:id="currentPageIcon"></ImageView>
+            <ImageView fx:id="currentPageIcon" />
 
             <Text fx:id="currentPageText" fill="white">
                <font>
-                  <Font name="System Bold" size="25"></Font>
+                  <Font name="System Bold" size="25" />
                </font>
             </Text>
          </HBox>
@@ -126,27 +119,17 @@
    <center>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
          <children>
-
-            
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TextField fx:id="translationBox" layoutX="205.0" layoutY="199.0" prefHeight="45.0" prefWidth="188.0" promptText="Enter translation here" />
-                        <Text fx:id="typeOfTest" fill="#8d8d8d" layoutX="246.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Translation">
-                           <font>
-                              <Font name="System Italic" size="22.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="wordToTranslate" layoutX="165.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Word To Translate">
-                           <font>
-                              <Font size="33.0" />
-                           </font>
-                        </Text>
+            <VBox alignment="BASELINE_CENTER" prefHeight="389.0" prefWidth="597.0">
+               <children>
                         <HBox alignment="TOP_RIGHT" prefHeight="0.0" prefWidth="583.0">
                            <children>
-                              <Label text="Correct answers">
+                              <Label text="Correct Answers">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
                               </Label>
                               <Label fx:id="correctAnswer" text="0">
                                  <font>
@@ -155,12 +138,15 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="33.0" prefHeight="1.0" prefWidth="583.0">
+                        <HBox alignment="TOP_RIGHT" prefHeight="1.0" prefWidth="583.0">
                            <children>
-                              <Label text="Total answers">
+                              <Label text="Incorrect Answers">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
                               </Label>
                               <Label fx:id="totalAnswer" text="0">
                                  <font>
@@ -169,13 +155,26 @@
                               </Label>
                            </children>
                         </HBox>
-                        <ImageView fx:id="submitButton" fitHeight="46.0" fitWidth="69.0" layoutX="398.0" layoutY="199.0" onMouseClicked="#translateWord" pickOnBounds="true" preserveRatio="true" />
+                        <Text fx:id="wordToTranslate" strokeType="OUTSIDE" strokeWidth="0.0" text="Word To Translate">
+                           <font>
+                              <Font size="33.0" />
+                           </font>
+                        </Text>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                              <TextField fx:id="translationBox" prefHeight="45.0" prefWidth="188.0" promptText="Enter translation here" />
+                              <ImageView fx:id="submitButton" fitHeight="46.0" fitWidth="69.0" onMouseClicked="#translateWord" pickOnBounds="true" preserveRatio="true" />
                      </children>
-                  </AnchorPane>
+                  </HBox>
+                        <Text fx:id="typeOfTest" fill="#8d8d8d" strokeType="OUTSIDE" strokeWidth="0.0" text="Translation">
+                           <font>
+                              <Font name="System Italic" size="22.0" />
+                           </font>
+                        </Text>
+               </children>
+            </VBox>
          </children>
       </Pane>
 
    </center>
 </BorderPane>
-
-
