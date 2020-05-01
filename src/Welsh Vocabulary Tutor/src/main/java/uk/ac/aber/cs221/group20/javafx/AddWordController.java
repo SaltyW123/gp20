@@ -103,6 +103,7 @@ public class AddWordController extends SharedCodeController {
          trueWordType = DictionaryEntry.wordTypeEnum.other;
       }
       boolean entryFound = false;
+
       // test for one or more blank fields and if there is create the correct error dialogue box
       if (english.getText().isBlank() || welsh.getText().isBlank() || wordType.getValue().equals("Type")) {
          Alert error = new Alert(Alert.AlertType.ERROR);
@@ -113,6 +114,7 @@ public class AddWordController extends SharedCodeController {
          error.showAndWait();
       } else {
          for (DictionaryEntry entry : Application.dictionary) {
+
             //test if the entry exists in the dictionary and if it does create the correct error dialogue box
             entryFound = false;
             DictionaryEntry newEntry = new DictionaryEntry(english.getText(), welsh.getText(), trueWordType);
@@ -130,6 +132,7 @@ public class AddWordController extends SharedCodeController {
             }
          }
          if (!entryFound) {
+
             //if everything is fine, save the entered values as a dictionary entry in the dictionary
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Success");
@@ -165,6 +168,7 @@ public class AddWordController extends SharedCodeController {
     *
     * @param actionEvent action event for the button click
     */
+
    // add character methods for characters ch, dd, ff, ng, ll, ph, rh, th
    public void addCharch(ActionEvent actionEvent) {
       welsh.appendText("ch");
