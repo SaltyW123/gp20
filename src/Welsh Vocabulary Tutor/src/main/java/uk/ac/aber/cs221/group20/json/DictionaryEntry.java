@@ -99,8 +99,8 @@ public class DictionaryEntry {
     @Override
     public boolean equals(Object entry) {
         DictionaryEntry otherEntry = (DictionaryEntry) entry;
-        return otherEntry.getEnglish().equals(this.getEnglish()) &&
-                otherEntry.getWelsh().equals(this.getWelsh()) &&
+        return otherEntry.getEnglish().equalsIgnoreCase(this.getEnglish()) &&
+                otherEntry.getWelsh().equalsIgnoreCase(this.getWelsh()) &&
                 otherEntry.getWordType().equals(this.getWordType());
     }
 }
