@@ -148,7 +148,6 @@ public class AddWordController extends SharedCodeController {
             Application.dictionary.add(dictionaryEntry);
             Application.practiceList.add(dictionaryEntry);
 
-
             //Resets values to blank for next word to be entered
             english.clear();
             welsh.clear();
@@ -258,6 +257,7 @@ public class AddWordController extends SharedCodeController {
    public void addCharŷ(ActionEvent actionEvent) {
       welsh.appendText("ŷ");
    }
+
    // äëïöüẅÿ
    public void addCharä(ActionEvent actionEvent) {
       welsh.appendText("ä");
@@ -280,7 +280,8 @@ public class AddWordController extends SharedCodeController {
    public void addCharÿ(ActionEvent actionEvent) {
       welsh.appendText("ÿ");
    }
-   //    áéíóúẃý
+
+   // áéíóúẃý
    public void addChará(ActionEvent actionEvent) {
       welsh.appendText("á");
    }
