@@ -1,3 +1,10 @@
+/**
+ * @(#) MatchTheMeaningQuestion.java 0,1 2020/05/01
+ * <p>
+ * Copyright (c) 2020 Aberystwyth University.
+ * All rights reserved.
+ */
+
 package uk.ac.aber.cs221.group20.selfassessment;
 
 import uk.ac.aber.cs221.group20.json.DictionaryEntry;
