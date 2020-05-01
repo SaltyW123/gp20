@@ -218,6 +218,10 @@ public class AssessmentGenerator {
       return totalAnswers;
    }
 
+   public static boolean isEnglish() {
+      return isEnglishList;
+   }
+
    /**
     * Method for resetting assessment to default state.
     */

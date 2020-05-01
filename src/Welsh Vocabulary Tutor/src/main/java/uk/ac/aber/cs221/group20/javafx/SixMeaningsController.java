@@ -51,7 +51,7 @@ public class SixMeaningsController extends SharedCodeController {
    private final ArrayList<DictionaryEntry> wordSet = new ArrayList<>();
    private final ArrayList<Integer> orderList = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5));
    private String wordCounterpart;
-   private final boolean isEnglish = AssessmentGenerator.isEnglish;
+   private final boolean isEnglish = AssessmentGenerator.isEnglish();
 
    @FXML
    private Label correctAnswer;

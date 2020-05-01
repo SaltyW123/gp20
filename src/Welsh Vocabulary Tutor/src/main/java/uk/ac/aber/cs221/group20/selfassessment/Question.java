@@ -47,7 +47,6 @@ public class Question {
                     .append(" is the English for ")
                     .append("'").append(listOfCorrectQuestions.get(i).getWelsh()).append("'")
                     .append(". ");
-<<<<<<< HEAD:src/Welsh Vocabulary Tutor/src/main/java/uk/ac/aber/cs22120/group20/selfassessment/Question.java
             /*
              * If the sentence currently makes sense, such as 'apple is the english for apple' then
              * this next code will append the term either 'is correct' or 'is incorrect'.
@@ -56,9 +55,6 @@ public class Question {
              * Depending on whether they are eqaual it will append 'correct' or 'incorrect'.
              */
             if(listOfCorrectQuestions.get(i).getWelsh().equals(listOfAnswers.get(i))){
-=======
-            if(listOfCorrectQuestions.get(i).getWelsh().equalsIgnoreCase(listOfAnswers.get(i))){
->>>>>>> f4a81a51ec9ef443efded0b3f4eb1ff41c105263:src/Welsh Vocabulary Tutor/src/main/java/uk/ac/aber/cs221/group20/selfassessment/Question.java
                sb.append("Correct!");
                correctAnswers++;
             }else{

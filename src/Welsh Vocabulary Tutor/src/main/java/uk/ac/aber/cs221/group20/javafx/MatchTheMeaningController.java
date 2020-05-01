@@ -47,7 +47,7 @@ public class MatchTheMeaningController extends SharedCodeController {
    // /////////////////// //
 
    private ArrayList<Integer> orderList = new ArrayList<>(Arrays.asList(0,1,2,3));
-   private boolean isEnglish = AssessmentGenerator.isEnglish;
+   private boolean isEnglish = AssessmentGenerator.isEnglish();
 
    @FXML
    private ComboBox<String> word1;

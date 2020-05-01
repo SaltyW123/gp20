@@ -1,13 +1,9 @@
 package uk.ac.aber.cs221.group20.test;
 
 import org.junit.jupiter.api.Test;
-<<<<<<< HEAD:src/Welsh Vocabulary Tutor/src/main/java/uk/ac/aber/cs22120/group20/test/DictionaryEntryTest.java
-import uk.ac.aber.cs22120.group20.json.DictionaryEntry.*;
-import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
-=======
+
 import uk.ac.aber.cs221.group20.json.DictionaryEntry;
 import uk.ac.aber.cs221.group20.json.JsonProcessing;
->>>>>>> f4a81a51ec9ef443efded0b3f4eb1ff41c105263:src/Welsh Vocabulary Tutor/src/main/java/uk/ac/aber/cs221/group20/test/DictionaryEntryTest.java
 
 import java.util.*;
 

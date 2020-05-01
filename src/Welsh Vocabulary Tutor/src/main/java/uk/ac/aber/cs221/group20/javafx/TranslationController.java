@@ -96,7 +96,7 @@ public class TranslationController extends SharedCodeController {
       totalAnswer.setText(": " + AssessmentGenerator.getTotalAnswers());
 
 
-      if (AssessmentGenerator.isEnglish) {
+      if (AssessmentGenerator.isEnglish()) {
          wordToTranslate.setText(answer.getEnglish());
       } else {
          wordToTranslate.setText(answer.getWelsh());
@@ -117,7 +117,7 @@ public class TranslationController extends SharedCodeController {
       ArrayList<DictionaryEntry> correctTranslation = new ArrayList<>();
       correctTranslation.add(answer);
 
-      Question.checkAnswer(correctTranslation, usersInput, AssessmentGenerator.isEnglish);
+      Question.checkAnswer(correctTranslation, usersInput, AssessmentGenerator.isEnglish());
 
       AssessmentGenerator.goToNextQuestion();
 
