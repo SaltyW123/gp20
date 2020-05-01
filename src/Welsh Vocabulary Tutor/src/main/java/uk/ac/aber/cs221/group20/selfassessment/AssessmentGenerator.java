@@ -32,7 +32,7 @@ import java.util.*;
  * @see MatchTheMeaningController
  */
 public class AssessmentGenerator {
-   public static boolean isEnglish;
+   public static boolean isEnglishList;
    static LinkedList<Question> listOfAssessment = new LinkedList<>();
    static int currentAssessment = 0;
    static int totalCorrectAnswers = 0;
@@ -52,9 +52,13 @@ public class AssessmentGenerator {
 
       reset();
 
+<<<<<<< HEAD:src/Welsh Vocabulary Tutor/src/main/java/uk/ac/aber/cs22120/group20/selfassessment/AssessmentGenerator.java
+      if (practiseList.size()<5){
+=======
       //int wordToTranslatePlace;
 
       if (practiseList.size()==0){
+>>>>>>> f4a81a51ec9ef443efded0b3f4eb1ff41c105263:src/Welsh Vocabulary Tutor/src/main/java/uk/ac/aber/cs221/group20/selfassessment/AssessmentGenerator.java
          Alert alert = new Alert(Alert.AlertType.ERROR);
          alert.setTitle("Error");
          alert.setHeaderText("Not enough words in practice list");
@@ -68,8 +72,6 @@ public class AssessmentGenerator {
             int quizType = rand.nextInt(3);
             switch (quizType) {
                case (0): //0 Means translation test.
-                  //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
-                  //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
                   if((listOfAssessment.isEmpty()) || !(listOfAssessment.getLast() instanceof TranslationQuestion)){
                      generatedAssessment = generateTranslationTest(practiseList);
                   }else {
@@ -77,8 +79,6 @@ public class AssessmentGenerator {
                   }
                   break;
                case (1): //1 Means six meanings test.
-                  //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
-                  //wordToTranslate = Application.practiseList.get(wordToTranslatePlace);
                   if(((listOfAssessment.isEmpty())) || !(listOfAssessment.getLast() instanceof SixMeaningsQuestion)){
                      generatedAssessment = generateSixMeanings(practiseList);
                   }else {
@@ -86,6 +86,12 @@ public class AssessmentGenerator {
                   }
                   break;
                case (2): //2 Means match meanings test.
+<<<<<<< HEAD:src/Welsh Vocabulary Tutor/src/main/java/uk/ac/aber/cs22120/group20/selfassessment/AssessmentGenerator.java
+                  if((listOfAssessment.isEmpty()) || !(listOfAssessment.getLast() instanceof MatchTheMeaningQuestion)){
+                     generatedAssessment = generateMatchMeaning(practiseList);
+                  }else {
+                     numberToGenerate--;
+=======
 //               LinkedList<DictionaryEntry> wordsToTranslate = new LinkedList<>();
 //               for (int i = 0; i < 3; i++) {
 //                  wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
@@ -97,6 +103,7 @@ public class AssessmentGenerator {
                         generatedAssessment = generateMatchMeaning(practiseList);
                         break;
                      }
+>>>>>>> f4a81a51ec9ef443efded0b3f4eb1ff41c105263:src/Welsh Vocabulary Tutor/src/main/java/uk/ac/aber/cs221/group20/selfassessment/AssessmentGenerator.java
                   }
                   numberToGenerate--;
                   break;
@@ -164,6 +171,10 @@ public class AssessmentGenerator {
    }
 
 
+   /**
+    * Method uses currentAssessment as pointer to go to next question in assessment list.
+    * Uses a switch case statement to choose the appropriate type of question.
+    */
    public static void goToNextQuestion() {
       if (currentAssessment > 0){
          Question.showFeedback();
@@ -227,6 +238,9 @@ public class AssessmentGenerator {
       return totalAnswers;
    }
 
+   /**
+    * Method for resetting assessment to default state.
+    */
    public static void reset(){
       totalCorrectAnswers = 0;
       totalAnswers =0;

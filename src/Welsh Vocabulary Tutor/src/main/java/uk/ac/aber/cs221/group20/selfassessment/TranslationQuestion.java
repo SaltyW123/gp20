@@ -19,6 +19,10 @@ import uk.ac.aber.cs221.group20.json.DictionaryEntry;
 public class TranslationQuestion extends Question {
    private final DictionaryEntry correctAnswer;
 
+   /**
+    * Default constructor for translation question
+    * @param correctAnswer the correct answer of translation guess.
+    */
    public TranslationQuestion(DictionaryEntry correctAnswer){
       this.correctAnswer = correctAnswer;
    }

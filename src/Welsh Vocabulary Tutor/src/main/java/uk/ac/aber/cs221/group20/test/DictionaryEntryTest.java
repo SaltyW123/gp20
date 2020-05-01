@@ -1,17 +1,25 @@
 package uk.ac.aber.cs221.group20.test;
 
 import org.junit.jupiter.api.Test;
+<<<<<<< HEAD:src/Welsh Vocabulary Tutor/src/main/java/uk/ac/aber/cs22120/group20/test/DictionaryEntryTest.java
+import uk.ac.aber.cs22120.group20.json.DictionaryEntry.*;
+import uk.ac.aber.cs22120.group20.json.DictionaryEntry;
+=======
 import uk.ac.aber.cs221.group20.json.DictionaryEntry;
 import uk.ac.aber.cs221.group20.json.JsonProcessing;
+>>>>>>> f4a81a51ec9ef443efded0b3f4eb1ff41c105263:src/Welsh Vocabulary Tutor/src/main/java/uk/ac/aber/cs221/group20/test/DictionaryEntryTest.java
 
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * A test class for various tests regarding DictionaryEntry.
+ * @Author Kab74
+ */
 class DictionaryEntryTest {
 
     LinkedList<DictionaryEntry> testList;
-    JsonProcessing processor = new JsonProcessing();
 
     /**
      * Tests whether the default constructor sets isPracticeWord to false upon declaration of a new DictionaryEntry.
@@ -29,7 +37,8 @@ class DictionaryEntryTest {
     void testAllSettersAndGetters() {
     String english = "abbey";
     String welsh = "abaty";
-    String wordType = "nm";
+    wordTypeEnum wordType = wordTypeEnum.nm;
+
     DictionaryEntry testSettersAndGetters = new DictionaryEntry();
     testSettersAndGetters.setEnglish(english);
     testSettersAndGetters.setWelsh(welsh);
@@ -46,7 +55,7 @@ class DictionaryEntryTest {
     public void testEqualsTruePossitive() {
         String english = "abbey";
         String welsh = "abaty";
-        String wordType = "nm";
+        wordTypeEnum wordType = wordTypeEnum.nm;
         testList = new LinkedList<>(Arrays.asList(new DictionaryEntry(english,welsh,wordType),new DictionaryEntry(english,welsh,wordType)));
         assertTrue(testList.get(0).equals(testList.get(1)));
     }
@@ -56,7 +65,7 @@ class DictionaryEntryTest {
      */
     @Test
     public void testEqualsTrueNegative(){
-        testList = new LinkedList<>(Arrays.asList(new DictionaryEntry("abbey","abaty","nm"),new DictionaryEntry("above","dramor","other")));
+        testList = new LinkedList<>(Arrays.asList(new DictionaryEntry("abbey","abaty", wordTypeEnum.nm),new DictionaryEntry("above","dramor",wordTypeEnum.other)));
         assertFalse(testList.get(0).equals(testList.get(1)));
     }
 

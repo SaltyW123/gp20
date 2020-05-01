@@ -1,5 +1,10 @@
 package uk.ac.aber.cs221.group20.javafx;
-
+/**
+ * @(#) ScreenSwitch.java 0.1 2020/04/07
+ * <p>
+ * Copyright (c) 2020 Aberystwyth University.
+ * All rights reserved.
+ */
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,7 +17,14 @@ import java.net.URL;
  * Class that contains a sub-enumeration containing all scenes and FXML references
  * Also controls the stage, for the purpose of switching to new scenes
  *
- * @author Luke Wybar (LAW39)
+ * @author Brad Corbett [brc9]
+ * @author Henry Dugmore [hjd3]
+ * @author Kain Bryan-Jones [kab74]
+ * @author Luke Wybar [law39]
+ * @author Marcin Jakob [maj83]
+ * @author Oscar Pocock [osp1]
+ * @author Tom Perry [top19]
+ * @author Waylen Watts [ncw]
  * @version 0.1
  * @see SceneType
  */
@@ -58,11 +70,12 @@ public class ScreenSwitch extends SharedCodeController {
     */
    private static Parent fxmlLoader(SceneType newScene){
       Parent root = null;
+
+      // If an error occurs while loading, print out error message and stack trace on STDIO, then crash gracefully
       try{
          String fxmlName = newScene.getFXML();
          root = FXMLLoader.load(new URL("file:src/main/resources/uk/ac/aber/cs221/group20/" + fxmlName));
-
-      }catch (IOException e){ // If an error occurs, print out error message on STDIO and crash gracefully
+      }catch (IOException e){
          System.err.print("Loading the FXML file ");
          System.err.print(newScene.getFXML());
          System.err.println(" Failed!");
@@ -82,7 +95,14 @@ public class ScreenSwitch extends SharedCodeController {
        * Following the spirit of those already setup.
        * This file must be located in the resources folder in the package uk.ac.aber.cs22120.group20.
        *
-       * @author Luke Wybar (LAW39)
+       * @author Brad Corbett [brc9]
+       * @author Henry Dugmore [hjd3]
+       * @author Kain Bryan-Jones [kab74]
+       * @author Luke Wybar [law39]
+       * @author Marcin Jakob [maj83]
+       * @author Oscar Pocock [osp1]
+       * @author Tom Perry [top19]
+       * @author Waylen Watts [ncw]
        * @version 0.1
        * @see ScreenSwitch
        */

@@ -23,23 +23,30 @@ public class SixMeaningsQuestion extends Question{
    private final DictionaryEntry correctAnswer;
    private final LinkedList<DictionaryEntry> dictionary;
 
+   /**
+    * Default constructor for SixMeaningsQuestion.
+    * @param correctAnswer the correct answer for the list of questions.
+    * @param dictionary the list of questions the user will have to pick between
+    */
    public SixMeaningsQuestion(DictionaryEntry correctAnswer, LinkedList<DictionaryEntry> dictionary) {
       this.correctAnswer = correctAnswer;
       this.dictionary = dictionary;
    }
 
-   /** Function to retrieve the correct answer to a SixMeaningsQuestion.
-    *
+   /**
+    * Function to retrieve the correct answer to a SixMeaningsQuestion
     * @return Retrieves the correct answer
     */
-
    public ArrayList<DictionaryEntry> getCorrectAnswer() {
       Random rand = new Random();
+
 
       ArrayList<DictionaryEntry> result = new ArrayList<>();
 
       result.add(correctAnswer);
       int successfulAnswersSelected = 0;
+
+
       while(successfulAnswersSelected<5){
          DictionaryEntry selectedAnswer;
          selectedAnswer = dictionary.get(rand.nextInt(dictionary.size()-1));
@@ -49,8 +56,6 @@ public class SixMeaningsQuestion extends Question{
          result.add(selectedAnswer);
          successfulAnswersSelected++;
       }
-
-
       return result;
    }
 }
