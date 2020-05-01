@@ -1,6 +1,6 @@
 /**
  * @(#) FlashcardController.java 0,1 2020/05/07
- * <p>
+ *
  * Copyright (c) 2020 Aberystwyth University.
  * All rights reserved.
  */
