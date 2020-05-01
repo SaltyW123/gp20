@@ -10,6 +10,7 @@ package uk.ac.aber.cs221.group20.javafx;
 
         import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
+        import javafx.scene.control.Alert;
         import javafx.scene.control.ComboBox;
         import javafx.scene.control.Label;
         import javafx.scene.control.TextField;
@@ -123,18 +124,27 @@ public class TranslationController extends SharedCodeController {
    @FXML
    void translateWord() {
 
-      //Creates ArrayList of answers and ArrayList of user answers to check
-      ArrayList<String> usersInput = new ArrayList<>();
-      usersInput.add(translationBox.getText());
-      ArrayList<DictionaryEntry> correctTranslation = new ArrayList<>();
-      correctTranslation.add(answer);
+      //Checks to ensure the user has entered a value
+      if(translationBox.getText().equalsIgnoreCase("")){
+         Alert alert = new Alert(Alert.AlertType.ERROR);
+         alert.setTitle("Error");
+         alert.setHeaderText("Please enter an answer");
+         alert.setContentText("Please ensure you enter an answer before clicking submit.");
+         alert.showAndWait();
+      }else {
 
-      //check user answers against correct answers
-      Question.checkAnswer(correctTranslation, usersInput, AssessmentGenerator.isEnglish());
+         //Creates ArrayList of answers and ArrayList of user answers to check
+         ArrayList<String> usersInput = new ArrayList<>();
+         usersInput.add(translationBox.getText());
+         ArrayList<DictionaryEntry> correctTranslation = new ArrayList<>();
+         correctTranslation.add(answer);
 
-      //Open the next question of the assessment.
-      AssessmentGenerator.goToNextQuestion();
+         //check user answers against correct answers
+         Question.checkAnswer(correctTranslation, usersInput, AssessmentGenerator.isEnglish());
 
+         //Open the next question of the assessment.
+         AssessmentGenerator.goToNextQuestion();
+      }
 
    }
 
