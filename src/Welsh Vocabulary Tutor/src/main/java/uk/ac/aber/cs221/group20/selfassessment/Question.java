@@ -118,7 +118,7 @@ public class Question {
    /**
     * Resets the score to 0 for the next test.
     */
-   private static void resetScore(){
+   public static void resetScore(){
       correctAnswers = 0;
       wrongAnswers =0;
    }
