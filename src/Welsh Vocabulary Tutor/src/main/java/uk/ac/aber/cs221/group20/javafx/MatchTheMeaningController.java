@@ -40,14 +40,14 @@ public class MatchTheMeaningController extends SharedCodeController {
    // Class variables. //
    // //////////////// //
 
-   public static ArrayList<DictionaryEntry> answer =new ArrayList<>();
+   public static ArrayList<DictionaryEntry> answer = new ArrayList<>();
 
    // /////////////////// //
    // Instance variables. //
    // /////////////////// //
 
-   private ArrayList<Integer> orderList = new ArrayList<>(Arrays.asList(0,1,2,3));
-   private boolean isEnglish = AssessmentGenerator.isEnglish;
+   private final ArrayList<Integer> orderList = new ArrayList<>(Arrays.asList(0, 1, 2, 3));
+   private final boolean isEnglish = AssessmentGenerator.isEnglish;
 
    @FXML
    private ComboBox<String> word1;
@@ -86,10 +86,10 @@ public class MatchTheMeaningController extends SharedCodeController {
    private Label RightWord4;
 
    @FXML
-   private Label CorrectAnswer;
+   private Label correctAnswer;
 
    @FXML
-   private Label WrongAnswer;
+   private Label totalAnswer;
 
    // //////// //
    // Methods. //
@@ -103,10 +103,10 @@ public class MatchTheMeaningController extends SharedCodeController {
     */
 
 
-   public void setWords(ArrayList<DictionaryEntry> questions, ArrayList<Integer> orderList){
+   public void setWords(ArrayList<DictionaryEntry> questions, ArrayList<Integer> orderList) {
 
 
-      if(isEnglish){
+      if (isEnglish) {
          LeftWord1.setText(questions.get(0).getEnglish());
          LeftWord2.setText(questions.get(1).getEnglish());
          LeftWord3.setText(questions.get(2).getEnglish());
@@ -119,7 +119,7 @@ public class MatchTheMeaningController extends SharedCodeController {
          RightWord3.setText(questions.get(orderList.get(2)).getWelsh());
          RightWord4.setText(questions.get(orderList.get(3)).getWelsh());
 
-      }else {
+      } else {
          LeftWord1.setText(questions.get(0).getWelsh());
          LeftWord2.setText(questions.get(1).getWelsh());
          LeftWord3.setText(questions.get(2).getWelsh());
@@ -139,23 +139,23 @@ public class MatchTheMeaningController extends SharedCodeController {
     * Check if answers from users are correct.
     */
 
-   public void checkAnswers(){
+   public void checkAnswers() {
       ArrayList<DictionaryEntry> answers = new ArrayList<>();
       ArrayList<String> listOfAnswers = new ArrayList<>();
 
-      answers.add(answer.get(Integer.parseInt(word1.getValue())-1));
-      answers.add(answer.get(Integer.parseInt(word2.getValue())-1));
-      answers.add(answer.get(Integer.parseInt(word3.getValue())-1));
-      answers.add(answer.get(Integer.parseInt(word4.getValue())-1));
+      answers.add(answer.get(Integer.parseInt(word1.getValue()) - 1));
+      answers.add(answer.get(Integer.parseInt(word2.getValue()) - 1));
+      answers.add(answer.get(Integer.parseInt(word3.getValue()) - 1));
+      answers.add(answer.get(Integer.parseInt(word4.getValue()) - 1));
 
-      if(isEnglish){
+      if (isEnglish) {
          listOfAnswers.add(LeftWord1.getText());
          listOfAnswers.add(LeftWord2.getText());
          listOfAnswers.add(LeftWord3.getText());
          listOfAnswers.add(LeftWord4.getText());
 
 
-      }else {
+      } else {
          listOfAnswers.add(RightWord1.getText());
          listOfAnswers.add(RightWord2.getText());
          listOfAnswers.add(RightWord3.getText());
@@ -163,13 +163,13 @@ public class MatchTheMeaningController extends SharedCodeController {
 
       }
 
-      if(checkForDuplicates(answers)){
+      if (checkForDuplicates(answers)) {
          Alert alert = new Alert(Alert.AlertType.ERROR);
          alert.setTitle("Error");
          alert.setHeaderText("Please check answers");
          alert.setContentText("Please ensure you have selected answers for each test word, with no duplicates.");
          alert.showAndWait();
-      }else {
+      } else {
 
          Question.checkAnswer(answers, listOfAnswers, isEnglish);
 
@@ -178,19 +178,19 @@ public class MatchTheMeaningController extends SharedCodeController {
          AssessmentGenerator.goToNextQuestion();
       }
    }
-      private boolean checkForDuplicates(ArrayList<DictionaryEntry> wordSet){
-         boolean result = false;
-         Set<DictionaryEntry> set = new HashSet<>(wordSet);
 
-         if(set.size() < wordSet.size()){
-            result = true;
-         }
-         return result;
+   private boolean checkForDuplicates(ArrayList<DictionaryEntry> wordSet) {
+      boolean result = false;
+      Set<DictionaryEntry> set = new HashSet<>(wordSet);
+
+      if (set.size() < wordSet.size()) {
+         result = true;
       }
+      return result;
+   }
 
 
-
-      @FXML
+   @FXML
    private void initialize() {
       setup();
       currentPageIcon.setImage(new Image("file:src/main/resources/assets/icons/white_icons/50px/pass-fail-50.png"));
@@ -199,9 +199,11 @@ public class MatchTheMeaningController extends SharedCodeController {
       studyIcon.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/pass-fail-50.png"));
       studyText.setFill(Color.BLACK);
 
-      setWords(answer,orderList);
-      CorrectAnswer.setText(Integer.toString(AssessmentGenerator.getTotalCorrectAnswers()));
-      WrongAnswer.setText(Integer.toString(AssessmentGenerator.getTotalAnswers()));
+      setWords(answer, orderList);
+      correctAnswer.setText("Correct answers : " + AssessmentGenerator.getTotalCorrectAnswers());
+
+      totalAnswer.setText("Total answers   : " + AssessmentGenerator.getTotalAnswers());
+
 
    }
 }
