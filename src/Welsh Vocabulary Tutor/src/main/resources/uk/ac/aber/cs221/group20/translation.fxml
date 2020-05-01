@@ -141,16 +141,34 @@
                               <Font size="33.0" />
                            </font>
                         </Text>
-                        <Label fx:id="totalAnswer" layoutX="405.0" layoutY="50.0">
-                           <font>
-                              <Font name="Consolas"  size="17.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="correctAnswer" layoutX="405.0" layoutY="24.0">
-                           <font>
-                              <Font name="Consolas" size="17.0" />
-                           </font>
-                        </Label>
+                        <HBox alignment="TOP_RIGHT" prefHeight="0.0" prefWidth="583.0">
+                           <children>
+                              <Label text="Correct answers">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="correctAnswer" text="0">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="33.0" prefHeight="1.0" prefWidth="583.0">
+                           <children>
+                              <Label text="Total answers">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="totalAnswer" text="0">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
                         <ImageView fx:id="submitButton" fitHeight="46.0" fitWidth="69.0" layoutX="398.0" layoutY="199.0" onMouseClicked="#translateWord" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </AnchorPane>

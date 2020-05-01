@@ -77,9 +77,9 @@ public class TranslationController extends SharedCodeController {
 
       submitButton.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/right-50.png"));
 
-      correctAnswer.setText("Correct answers : " + AssessmentGenerator.getTotalCorrectAnswers());
+      correctAnswer.setText(": " + AssessmentGenerator.getTotalCorrectAnswers());
 
-      totalAnswer.setText("Total answers   : " + AssessmentGenerator.getTotalAnswers());
+      totalAnswer.setText(": " + AssessmentGenerator.getTotalAnswers());
 
 
       if (AssessmentGenerator.isEnglish) {
