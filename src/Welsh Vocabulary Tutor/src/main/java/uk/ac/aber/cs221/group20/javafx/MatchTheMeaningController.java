@@ -1,5 +1,5 @@
 /**
- * @(#) MyController.java 0,1 2020/04/07
+ * @(#) MatchTheMeaningController.java 0,1 2020/04/07
  * <p>
  * Copyright (c) 2020 Aberystwyth University.
  * All rights reserved.
