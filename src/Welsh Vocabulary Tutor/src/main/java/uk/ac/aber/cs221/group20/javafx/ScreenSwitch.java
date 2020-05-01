@@ -1,10 +1,11 @@
-package uk.ac.aber.cs221.group20.javafx;
 /**
- * @(#) ScreenSwitch.java 0.1 2020/04/07
+ * @(#) ScreenSwitch.java 0.1 2020/05/01
  * <p>
  * Copyright (c) 2020 Aberystwyth University.
  * All rights reserved.
  */
+package uk.ac.aber.cs221.group20.javafx;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

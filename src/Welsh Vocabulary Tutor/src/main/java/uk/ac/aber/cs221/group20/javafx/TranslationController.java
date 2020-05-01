@@ -1,7 +1,16 @@
+/**
+
+@(#) TranslationController.java 1.1 2020/05/01
+
+
+Copyright (c) 2020 Aberystwyth University.
+All rights reserved.
+*/
 package uk.ac.aber.cs221.group20.javafx;
 
         import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
+        import javafx.scene.control.Alert;
         import javafx.scene.control.ComboBox;
         import javafx.scene.control.Label;
         import javafx.scene.control.TextField;
@@ -21,7 +30,7 @@ package uk.ac.aber.cs221.group20.javafx;
  * Controller for the translationTest fxml file.
  *
  * @author Brad Corbett brc9
- * @version 0.1
+ * @version 1.1
  */
 public class TranslationController extends SharedCodeController {
 
@@ -83,16 +92,20 @@ public class TranslationController extends SharedCodeController {
    @FXML
    private void initialize() {
       setup();
+
+      //Setup of image on screen
       currentPageIcon.setImage(new Image("file:src/main/resources/assets/icons/white_icons/50px/pass-fail-50.png"));
       currentPageText.setText("Study");
 
+      //Setup of image on screen
       studyIcon.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/pass-fail-50.png"));
       studyText.setFill(Color.BLACK);
 
+      //Setup of image on screen
       submitButton.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/right-50.png"));
 
+      //Sets answer counters to correct values
       correctAnswer.setText(": " + AssessmentGenerator.getTotalCorrectAnswers());
-
       totalAnswer.setText(": " + AssessmentGenerator.getTotalAnswers());
 
 
@@ -111,16 +124,27 @@ public class TranslationController extends SharedCodeController {
    @FXML
    void translateWord() {
 
-      ArrayList<String> usersInput = new ArrayList<>();
-      usersInput.add(translationBox.getText());
+      //Checks to ensure the user has entered a value
+      if(translationBox.getText().equalsIgnoreCase("")){
+         Alert alert = new Alert(Alert.AlertType.ERROR);
+         alert.setTitle("Error");
+         alert.setHeaderText("Please enter an answer");
+         alert.setContentText("Please ensure you enter an answer before clicking submit.");
+         alert.showAndWait();
+      }else {
 
-      ArrayList<DictionaryEntry> correctTranslation = new ArrayList<>();
-      correctTranslation.add(answer);
+         //Creates ArrayList of answers and ArrayList of user answers to check
+         ArrayList<String> usersInput = new ArrayList<>();
+         usersInput.add(translationBox.getText());
+         ArrayList<DictionaryEntry> correctTranslation = new ArrayList<>();
+         correctTranslation.add(answer);
 
-      Question.checkAnswer(correctTranslation, usersInput, AssessmentGenerator.isEnglish());
+         //check user answers against correct answers
+         Question.checkAnswer(correctTranslation, usersInput, AssessmentGenerator.isEnglish());
 
-      AssessmentGenerator.goToNextQuestion();
-
+         //Open the next question of the assessment.
+         AssessmentGenerator.goToNextQuestion();
+      }
 
    }
 
