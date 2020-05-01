@@ -50,6 +50,7 @@ public class AssessmentGenerator {
       LinkedList<Question> listOfAssessment = new LinkedList<>();
       Random rand = new Random();
 
+
       reset();
 
       //int wordToTranslatePlace;
@@ -66,6 +67,7 @@ public class AssessmentGenerator {
          for (int numberToGenerate = 0; numberToGenerate < 10; numberToGenerate++) {
             Question generatedAssessment = null;
             int quizType = rand.nextInt(3);
+            System.out.println(numberToGenerate);
             switch (quizType) {
                case (0): //0 Means translation test.
                   //wordToTranslatePlace = rand.nextInt(Application.practiseList.size());
