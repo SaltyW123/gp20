@@ -37,36 +37,7 @@ public class ScreenSwitch extends SharedCodeController {
       stage.show();
       ScreenSwitch.stage = stage;
    }
-
-   /**
-    * This method should only be used by Application.
-    * This provides legacy support for the old way of screen switching by continuing to allow Application to access scene.
-    * It should be removed before release.
-    *
-    * @Deprecated This is depreciated pending removal of all legacy screen switches
-    * @see Application
-    * @return This returns the currently displayed scene for purposes of screen switching
-    */
-   public static void setLegacyScene(String fxmlFile){
-      System.err.println("Switching Scene with legacy method, you should change to ScreenSwitch");
-      String fileInclExtension = fxmlFile + ".fxml";
-      Parent root = null;
-
-      try{
-         root = FXMLLoader.load(new URL("file:src/main/resources/uk/ac/aber/cs22120/group20/" + fileInclExtension));
-
-      }catch (IOException e){ // If an error occurs, print out error message on STDIO and crash gracefully
-         System.err.print("Loading the FXML file ");
-         System.err.print(fileInclExtension);
-         System.err.println(" failed!");
-         System.err.println("Using depreciated method, shame!");
-         e.printStackTrace(System.err);
-         System.exit(-1);
-      }
-      scene.setRoot(root);
-
-   }
-
+   
    /**
     * Method that is responsible for the switching between
     * JavaFX, with it taking the new scene’s name as an enum as a parameter.
