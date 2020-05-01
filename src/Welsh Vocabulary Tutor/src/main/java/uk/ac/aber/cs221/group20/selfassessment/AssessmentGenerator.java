@@ -93,7 +93,6 @@ public class AssessmentGenerator {
 //                  wordsToTranslate.add(Application.practiseList.get(wordToTranslatePlace));
 //                  wordsToTranslate.toArray();
 //               }
-                  System.out.println(practiseList.size());
                   if(practiseList.size() > 3) {
                      if (((listOfAssessment.isEmpty()) || !(listOfAssessment.getLast() instanceof MatchTheMeaningQuestion))) {
                         generatedAssessment = generateMatchMeaning(practiseList);
