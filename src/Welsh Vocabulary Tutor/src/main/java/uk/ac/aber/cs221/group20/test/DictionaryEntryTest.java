@@ -1,9 +1,14 @@
+/**
+ * @(#) DictionaryControllerTest.java 0,1 2020/04/07
+ * <p>
+ * Copyright (c) 2020 Aberystwyth University.
+ * All rights reserved.
+ */
 package uk.ac.aber.cs221.group20.test;
 
 import org.junit.jupiter.api.Test;
 
 import uk.ac.aber.cs221.group20.json.DictionaryEntry;
-import uk.ac.aber.cs221.group20.json.JsonProcessing;
 
 import java.util.*;
 
@@ -11,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * A test class for various tests regarding DictionaryEntry.
- * @Author Kab74
+ * @author Kain Bryan-Jones [kab74]
  */
 class DictionaryEntryTest {
 
@@ -33,7 +38,7 @@ class DictionaryEntryTest {
     void testAllSettersAndGetters() {
     String english = "abbey";
     String welsh = "abaty";
-    wordTypeEnum wordType = wordTypeEnum.nm;
+    DictionaryEntry.wordTypeEnum wordType = DictionaryEntry.wordTypeEnum.nm;
 
     DictionaryEntry testSettersAndGetters = new DictionaryEntry();
     testSettersAndGetters.setEnglish(english);
@@ -51,7 +56,7 @@ class DictionaryEntryTest {
     public void testEqualsTruePossitive() {
         String english = "abbey";
         String welsh = "abaty";
-        wordTypeEnum wordType = wordTypeEnum.nm;
+        DictionaryEntry.wordTypeEnum wordType = DictionaryEntry.wordTypeEnum.nm;
         testList = new LinkedList<>(Arrays.asList(new DictionaryEntry(english,welsh,wordType),new DictionaryEntry(english,welsh,wordType)));
         assertTrue(testList.get(0).equals(testList.get(1)));
     }
@@ -61,7 +66,7 @@ class DictionaryEntryTest {
      */
     @Test
     public void testEqualsTrueNegative(){
-        testList = new LinkedList<>(Arrays.asList(new DictionaryEntry("abbey","abaty", wordTypeEnum.nm),new DictionaryEntry("above","dramor",wordTypeEnum.other)));
+        testList = new LinkedList<>(Arrays.asList(new DictionaryEntry("abbey","abaty", DictionaryEntry.wordTypeEnum.nm),new DictionaryEntry("above","dramor", DictionaryEntry.wordTypeEnum.other)));
         assertFalse(testList.get(0).equals(testList.get(1)));
     }
 
