@@ -12,34 +12,34 @@ import java.util.LinkedList;
 
 public class JsonProcessing {
 
-    public LinkedList<DictionaryEntry> readInJson(File file) {
-        LinkedList<DictionaryEntry> returnVal = new LinkedList<>();
-        ObjectMapper objectMapper = new ObjectMapper();
+   public LinkedList<DictionaryEntry> readInJson(File file) {
+      LinkedList<DictionaryEntry> returnVal = new LinkedList<>();
+      ObjectMapper objectMapper = new ObjectMapper();
 
-        try {
-            returnVal.addAll(Arrays.asList(objectMapper.readValue(file, DictionaryEntry[].class)));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+      try {
+         returnVal.addAll(Arrays.asList(objectMapper.readValue(file, DictionaryEntry[].class)));
+      } catch (IOException e) {
+         e.printStackTrace();
+      }
 
-        return returnVal;
-    }
+      return returnVal;
+   }
 
-    public void writeOutJson(String directoryAndFile, LinkedList<DictionaryEntry> words) {
-        ObjectMapper objectMapper = new ObjectMapper();
-        String JsonString = "";
+   public void writeOutJson(String directoryAndFile, LinkedList<DictionaryEntry> words) {
+      ObjectMapper objectMapper = new ObjectMapper();
+      String JsonString = "";
 
-        try {
-            JsonString = objectMapper.writeValueAsString(words);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
+      try {
+         JsonString = objectMapper.writeValueAsString(words);
+      } catch (JsonProcessingException e) {
+         e.printStackTrace();
+      }
 
-        try {
-            Files.writeString(Paths.get(directoryAndFile), JsonString);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+      try {
+         Files.writeString(Paths.get(directoryAndFile), JsonString);
+      } catch (IOException e) {
+         e.printStackTrace();
+      }
 
-    }
+   }
 }
