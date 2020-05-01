@@ -53,10 +53,10 @@ public class SixMeaningsController extends SharedCodeController {
    private final boolean isEnglish = AssessmentGenerator.isEnglish;
 
    @FXML
-   private Text correctAnswer;
+   private Label correctAnswer;
 
    @FXML
-   private Text wrongAnswer;
+   private Label wrongAnswer;
 
    @FXML
    private Label wordToTranslate;
