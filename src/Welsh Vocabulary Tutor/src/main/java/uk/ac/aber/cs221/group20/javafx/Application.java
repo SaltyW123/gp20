@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 /**
- * A class that launches the Welsh Vocabulary tutor Application.
+ * Programs Application class that extends JavaFX's Application class so that it can launch the program's JavaFX's when it starts running.
  *
  * @author Kain Bryan-Jones [kab74]
  * @author Brad Corbett [brc9]
@@ -26,7 +26,12 @@ import java.util.LinkedList;
  * @author Oscar Pocock [osp1]
  * @author Waylen Watts [ncw]
  * @author Luke Wybar [law39]
- * @version 0.1 Initial development
+ * @version 0.2 Documentation stage
+ * @see javafx.application.Application
+ * @see DictionaryEntry
+ * @see Stage
+ * @see JsonProcessing
+ * @see ScreenSwitch
  */
 public class Application extends javafx.application.Application {
 
@@ -34,52 +39,63 @@ public class Application extends javafx.application.Application {
    // Class variables. //
    // //////////////// //
 
-   // Dictionary containing all the words.
-   public static LinkedList<DictionaryEntry> dictionary = new LinkedList<>();
-   // Practice list containing all the practice words.
-   public static LinkedList<DictionaryEntry> practiceList = new LinkedList<>();
-   // JSON processor to import and export the json dictionary file.
-   private JsonProcessing jsonProcessing = new JsonProcessing();
+   public static LinkedList<DictionaryEntry> dictionary = new LinkedList<>();  // Dictionary containing all the words.
+   public static LinkedList<DictionaryEntry> practiceList = new LinkedList<>(); // Practice list containing all the practice words.
 
    // ////////////// //
    // Class methods. //
    // ////////////// //
 
    /**
-    * @param args
+    * Applications main method that is first ran when the program is started. This method is responsible for calling JavaFX's launch method that starts the program's JavaFX.
+    * @param args Programs arguments.
     */
    public static void main(String[] args) {
       launch();
    }
+
+
+   // /////////////////// //
+   // Instance variables. //
+   // /////////////////// //
+
+   private JsonProcessing jsonProcessing = new JsonProcessing(); // JSON processor to import and export the json dictionary file.
 
    // //////// //
    // Methods. //
    // //////// //
 
    /**
-    * @param stage
-    * @throws IOException
+    * Overridden JavaFX start method that is called automatically when running the Applications main method. This is responsible for prompting the user to choose
+    * the 'dictionary.json' file before loading it to the 'dictionary' variable. Once loaded, the programs stage is to run the first screen.
+    *
+    * @param stage Top-level JavaFX container that the Scenes will be loaded onto.
+    * @see File
+    * @see FileChooser
+    * @see DictionaryEntry
+    * @see JsonProcessing
+    * @see Stage
     */
    @Override
-   public void start(Stage stage) throws IOException {
+   public void start(Stage stage) {
 
-      // Prompts the user to load their dictionary json file.
-      File jsonFileLocation = null;
-      while (jsonFileLocation == null) {
+      File jsonFileLocation = null; // Prompts the user to load their dictionary json file.
+
+      while (jsonFileLocation == null) { // Keep prompting the user to choose select whilst a json file hasn't been selected.
          FileChooser fileChooser = new FileChooser();
          fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Json Files", "*.json"));
          fileChooser.setTitle("Open Json File");
          jsonFileLocation = fileChooser.showOpenDialog(stage);
       }
       final File jsonFileFinalLocation = jsonFileLocation;
-      dictionary = jsonProcessing.readInJson(jsonFileFinalLocation);
+      dictionary = jsonProcessing.readInJson(jsonFileFinalLocation); // Load the file chosen by the user.
 
-     // Adds all words that are practice words to the practice list.
-      for (DictionaryEntry entry : dictionary) {
+
+      for (DictionaryEntry entry : dictionary) { // Adds all words that are practice words to the practice list.
          if (entry.isPracticeWord()) {
             practiceList.add(entry);
          }
       }
-      new ScreenSwitch(stage);
+      new ScreenSwitch(stage); // Initialise the ScreenSwitch class, passing the programs Stage as the parameter in order to display the first screen.
    }
 }
