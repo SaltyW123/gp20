@@ -233,4 +233,91 @@ public class AddWordController extends SharedCodeController {
       welsh.appendText("th");
    }
 
+   public void addCharâ(ActionEvent actionEvent) {
+      welsh.appendText("â");
+   }
+   public void addCharê(ActionEvent actionEvent) {
+      welsh.appendText("ê");
+   }
+   public void addCharî(ActionEvent actionEvent) {
+      welsh.appendText("î");
+   }
+   public void addCharô(ActionEvent actionEvent) {
+      welsh.appendText("ô");
+   }
+   public void addCharû(ActionEvent actionEvent) {
+      welsh.appendText("û");
+   }
+   public void addCharŵ(ActionEvent actionEvent) {
+      welsh.appendText("ŵ");
+   }
+   public void addCharŷ(ActionEvent actionEvent) {
+      welsh.appendText("ŷ");
+   }
+   // äëïöüẅÿ
+   public void addCharä(ActionEvent actionEvent) {
+      welsh.appendText("ä");
+   }
+   public void addCharë(ActionEvent actionEvent) {
+      welsh.appendText("ë");
+   }
+   public void addCharï(ActionEvent actionEvent) {
+      welsh.appendText("ï");
+   }
+   public void addCharö(ActionEvent actionEvent) {
+      welsh.appendText("ö");
+   }
+   public void addCharü(ActionEvent actionEvent) {
+      welsh.appendText("ü");
+   }
+   public void addCharẅ(ActionEvent actionEvent) {
+      welsh.appendText("ẅ");
+   }
+   public void addCharÿ(ActionEvent actionEvent) {
+      welsh.appendText("ÿ");
+   }
+   //    áéíóúẃý
+   public void addChará(ActionEvent actionEvent) {
+      welsh.appendText("á");
+   }
+   public void addCharé(ActionEvent actionEvent) {
+      welsh.appendText("é");
+   }
+   public void addCharí(ActionEvent actionEvent) {
+      welsh.appendText("í");
+   }
+   public void addCharó(ActionEvent actionEvent) {
+      welsh.appendText("ó");
+   }
+   public void addCharú(ActionEvent actionEvent) {
+      welsh.appendText("ú");
+   }
+   public void addCharẃ(ActionEvent actionEvent) {
+      welsh.appendText("ẃ");
+   }
+   public void addCharý(ActionEvent actionEvent) {
+      welsh.appendText("ý");
+   }
+
+   // àèìòùẁỳ
+   public void addCharà(ActionEvent actionEvent) {
+      welsh.appendText("à");
+   }
+   public void addCharè(ActionEvent actionEvent) {
+      welsh.appendText("è");
+   }
+   public void addCharì(ActionEvent actionEvent) { welsh.appendText("ì"); }
+   public void addCharò(ActionEvent actionEvent) {
+      welsh.appendText("ò");
+   }
+   public void addCharù(ActionEvent actionEvent) {
+      welsh.appendText("ù");
+   }
+   public void addCharẁ(ActionEvent actionEvent) {
+      welsh.appendText("ẁ");
+   }
+   public void addCharỳ(ActionEvent actionEvent) {
+      welsh.appendText("ỳ");
+   }
+
 }
