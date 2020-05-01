@@ -1,3 +1,11 @@
+/**
+
+@(#) TranslationController.java 1.1 2020/05/01
+
+
+Copyright (c) 2020 Aberystwyth University.
+All rights reserved.
+*/
 package uk.ac.aber.cs221.group20.javafx;
 
         import javafx.event.ActionEvent;
@@ -83,16 +91,20 @@ public class TranslationController extends SharedCodeController {
    @FXML
    private void initialize() {
       setup();
+
+      //Setup of image on screen
       currentPageIcon.setImage(new Image("file:src/main/resources/assets/icons/white_icons/50px/pass-fail-50.png"));
       currentPageText.setText("Study");
 
+      //Setup of image on screen
       studyIcon.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/pass-fail-50.png"));
       studyText.setFill(Color.BLACK);
 
+      //Setup of image on screen
       submitButton.setImage(new Image("file:src/main/resources/assets/icons/black_icons/50px/right-50.png"));
 
+      //Sets answer counters to correct values
       correctAnswer.setText(": " + AssessmentGenerator.getTotalCorrectAnswers());
-
       totalAnswer.setText(": " + AssessmentGenerator.getTotalAnswers());
 
 
@@ -111,14 +123,16 @@ public class TranslationController extends SharedCodeController {
    @FXML
    void translateWord() {
 
+      //Creates ArrayList of answers and ArrayList of user answers to check
       ArrayList<String> usersInput = new ArrayList<>();
       usersInput.add(translationBox.getText());
-
       ArrayList<DictionaryEntry> correctTranslation = new ArrayList<>();
       correctTranslation.add(answer);
 
+      //check user answers against correct answers
       Question.checkAnswer(correctTranslation, usersInput, AssessmentGenerator.isEnglish());
 
+      //Open the next question of the assessment.
       AssessmentGenerator.goToNextQuestion();
 
 
