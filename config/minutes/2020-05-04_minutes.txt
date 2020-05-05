@@ -1,0 +1,186 @@
+Project: Group Project 20
+Meeting: Last QA Reviews
+Persons present: All members.
+Place and date of meeting: Online, Monday 4th May 2020, 11:00am
+Circulation list: All project members, plus project manager
+Author: Brad Corbett (brc9)
+Date of minutes: 5th May 2020.
+Version: 1.0
+Time Taken: 11:00am
+
+Matters arising
+===============
+
+
+
+New business
+============
+
+///DESIGN SPECIFICATION REVIEW 1///
+
+1 - General issues in document:
+	Description underlined in 1.2
+	All objectives need to be lowercase in 1.3
+	"SelfAssessment" should be 2 words in 2.1's description of four key packages.
+	Package names should be lowercase to reflect WelshVocabularyTutor program in 2.1 and 2.2 and 4.
+	2.2.2 Application now contains practice lsit and this should be referenced.
+	2.2.2 SharedCodeController no longer changes the test score counter, the controller classes for each question does.
+	2.2.3 Question no longer tracks the right and wrong answers, AssessmentGenerator does.
+	2.2.3 Question to be re-worded.
+	2.2.3 "WordMatch" should be "MatchTheMeaning".
+	2.2.3 "WordEnter" should be "Translation".
+	2.2.4 JavaFXTest no longer exists.
+	2.2.4 "SelfAssesment" should be "SelfAssessment."
+	2.2.4 Question test missing a couple test classes.
+	2.3 "LaunchScreenController" should be relaced with DictionaryController.
+	2.3 FR1 should have ScreenSwitch and DictionaryController, and LaunchScreenController does not exist.
+	2.3 FR1 "JSONProcesser" should be "JSONProcessor
+
+	2.3 FR2 should implement the following classes: 
+		DictionaryController
+		PracticeListController
+		SharedCodeController
+		DictionaryEntry
+		Application
+
+	2.3 FR3 should implement the following classes: 
+		DictionaryController
+		PracticeListController
+		SharedCodeController
+		DictionaryEntry
+		Application
+
+	2.3 FR4 should implement the following classes: 
+		DictionaryController
+		PracticeListController
+		SharedCodeController
+		DictionaryEntry
+		Application
+		AddWordController
+
+	2.3 FR5 should implement the following classes: 
+		SharedCodeController
+		DictionaryEntry
+		Application
+		AddWordController
+
+	2.3 FR5 should implement the following classes: 
+		DictionaryController
+		PracticeListController
+		SharedCodeController
+		DictionaryEntry
+		Application
+
+	2.3 FR6 should implement the following classes: 
+		DictionaryController
+		PracticeListController
+		SharedCodeController
+		DictionaryEntry
+		Application
+
+	2.3 FR7 should implement the following classes: 
+		PracticeListController
+		SharedCodeController
+		DictionaryEntry
+		Application
+
+	2.3 FR8 should implement the following classes:
+		FlashcardController
+		SharedCodeController
+		DictionaryEntry
+		Application
+
+	2.3 FR9 should implement the following classes:
+		TranslationController, 
+		SixMeaningsController, 
+		MatchTheMeaningController, 
+		SharedCodeController, 
+		TranslationQuestion, 
+		SixMeaningsQuestion, 
+		MatchTheMeaningQuestion, 	
+
+	2.3 FR10 should implement the following classes:
+		AssessmentGenerator
+
+	3.1 "words" should be changed to "dictionary"
+
+	3.1 "LinkedList<WelshDictionary>" should be changed with "LinkedList<DictionaryEntry>"
+
+	4 Remove current funtions and add functions from code and use JavaDoc for descriptions.
+
+	5.1 LaunchScreenController renamed to DictionaryController.
+
+	5.1 WelshDictionary renamed to DictionaryEntry.
+
+	5.1 "Get Dictionary List" should go from DictionaryController to Application and back.
+	
+	5.1.1 "Fetch Dictionary Object details" arrow needs to go from Application to DictionaryEntry and back.
+
+	5.1.2 LaunchScreenController renamed to DictionaryController/PracticeListController
+
+	5.1.2 "Fetch Dictionary Object details" arrow needs to go from Application to DictionaryEntry and back.
+
+	5.1.2 "Get dictionary list" needs to be added and go from DictionaryController/PracticeListController to Application and back.
+
+	5.1.3 "PracticeListScreenController" needs to be renamed to "PracticeListController"
+
+	5.1.3 "Get Practice List" should go from PracticeListController to Application and back.
+
+	Use Case 5.1 to 5.3 diagrams all need to be redone.
+
+	5.1.9 Changes are no longer saved to JSON file immediately.
+
+	5.1.10 Dictionary no longer saved to file when re-ordered.
+
+	5.2.1 Method is called from ScreenSwitch class as opposed to "JavaFX control class".
+
+	5.2.2 Change live-searching algorithm description to better match solution in code. ACTION: law34.
+
+	5.2.3 Change descrption to represent that it is automatically stored in the dictionary/practice list in Application.
+
+	5.2.5 Reflect that this is done at run time, and that the JSON is stored in the dictionary linked list immediately as DictionaryEntry objects.
+
+	
+
+
+	
+
+2 - Design Spec failed Appendix A.1.1 because the title is Test Specification.
+
+3 - Failed Appendix A.1.2 because Tom's username is incorrect.
+
+4 - Failed Appendix A.1.4 because it is the wrong date of production.
+
+5 - Failed Appendix A.1.6 because it should be set for review, and not release.
+
+6 - Failed Appendix A.2 because the status is incorrect as is the title.
+
+7 - Failed Appendix A.4.4 because the test specification version number referenced is incorrect.
+
+8 - Failed Appendix A.4.5 because version number is wrong and changed by is wrong.
+
+9 - Failed Appendix B.1 because appendix A was failed.
+
+10 - End of project report, should say how save function uses a string, as opposed to a file as originally planned.
+
+11 - End of project report, code should have used a general equals method instead of its own.
+
+12 - End of project report, checkAnswer uses entirely different parameters than design spec.
+
+
+/// TEST SPECIFICATION REVIEWS ///
+
+13 - Needs to be changed to resolve issues #59, #60 and #9.
+
+
+/// UI PRESENTATION REVIEWS ///
+
+14 - Needs to be changed to resolve issues #33, #32 and #4. 
+
+
+AOB
+===
+
+None.
+
+Minutes by brc9, 04/05/2020.
